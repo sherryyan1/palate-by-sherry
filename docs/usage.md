@@ -22,18 +22,26 @@ python scripts/package_skill.py --output dist/palate-by-sherry.zip --install "$e
 
 On other systems, install to the configured Codex skills directory under `palate-by-sherry`. Use a fresh package filename for updates. The installer verifies its manifest, preserves local edits and retains a recoverable previous snapshot.
 
-## Give the brief
+## Start with one sentence
 
-Attach a research PPTX and specify audience, time, technical depth and purpose. For example:
+Attach a research PPTX and ask:
 
 ```text
-Use $palate-by-sherry to redesign this deck for a 30-minute expert project briefing.
-Keep enough method detail for live discussion. Foreground the findings,
-preserve all data, uncertainty and references, and return an editable PPTX
-with a concise transformation report.
+Use palate-by-sherry to polish my PPT.
 ```
 
-Named [contexts](../references/presentation-contexts.md) supply defaults. The current request overrides them. Single-page monthly updates are outside this skill's scope.
+Palate obtains missing context through [guided choices](../references/guided-intake.md):
+
+| Selection | Options |
+| :--- | :--- |
+| Setting | Internal tutorial, internal research, external |
+| External audience | Experts, C-suite/executives, general audience |
+| Duration | Common times or custom minutes |
+| Depth | Palate decides, key takeaways, full technical detail |
+
+The external-audience question appears only on that branch. Duration and depth can share a short question card. Native choice cards depend on the host's available tools; concise numbered questions provide the fallback. The user can enter a custom answer or provide a detailed brief upfront. Supplied fields are not asked again.
+
+Named [contexts](../references/presentation-contexts.md) suggest duration defaults; the current request overrides them. The brief guides reading order, pacing and visible detail rather than selecting a fixed template. Single-page monthly updates are outside this skill's scope.
 
 ## Workflow
 

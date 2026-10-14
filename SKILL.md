@@ -1,6 +1,6 @@
 ---
 name: palate-by-sherry
-description: "Design and transform multi-slide research presentations in Sherry's style, using audience, talk duration and technical depth. Preserve scientific evidence and editable PPTX objects. Use for research decks, tutorials, project briefings, seminars and general-audience talks."
+description: "Polish multi-slide research PPTs in Sherry's style from a short request, with guided choices for audience, time and depth. Preserve scientific evidence and editable PPTX objects. Use for tutorials, research meetings, project briefings, seminars and talks."
 ---
 
 # palate. by Sherry
@@ -15,7 +15,7 @@ Deliver an editable PPTX and a concise transformation report when redesign is re
 
 Read the [design system](references/design-system.md) and relevant [decision rules](references/design-decision-library.json). Primary rules define the style direction; contextual rules are available composition choices, evaluated against the actual content and brief. Preserve their exceptions. A report or reference can inform visual organization without importing its entire brand palette.
 
-Resolve audience, available time, technical depth and purpose from the request. Reuse [context profiles](references/presentation-contexts.json) and the [intake guide](references/redesign-intake.md); ask only consequential missing information. Do not infer slide counts from duration, assume Q&A allocations or invent subject familiarity. Single-page monthly updates are outside this workflow.
+Accept a short request such as “Use palate-by-sherry to polish my PPT.” Follow [guided intake](references/guided-intake.md): use the available question tool for missing context, branch from setting to external audience, then collect duration and depth. Reuse [context profiles](references/presentation-contexts.json); skip supplied fields. Let users delegate depth and leave visual design to Palate. Do not require a long prompt. Do not infer slide counts from duration, assume Q&A allocations or invent subject familiarity. Single-page monthly updates are outside this workflow.
 
 ## Execute
 

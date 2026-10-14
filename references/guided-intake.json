@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "scenarios": [
+    {"value": "internal-tutorial", "label": "Internal tutorial", "description": "Teach a concept or method to the group."},
+    {"value": "internal-research", "label": "Internal research", "description": "Discuss research questions, methods and results."},
+    {"value": "external", "label": "External presentation", "description": "Present to an audience outside the group."}
+  ],
+  "audiences": [
+    {"value": "expert", "label": "Experts", "audience": "subject-matter experts", "expertise": "expert", "priorities": ["Make methods, assumptions and uncertainty checkable.", "Foreground the contribution and comparable evidence."]},
+    {"value": "executive", "label": "C-suite / executives", "audience": "C-suite and executive audience", "expertise": "executive", "priorities": ["Foreground supported implications and decisions.", "Keep evidence, risk and limitations accessible.", "Include financial or operational claims only when the source supports them."]},
+    {"value": "general", "label": "General audience", "audience": "general audience", "expertise": "general", "priorities": ["Define unfamiliar concepts and explain mechanisms intuitively.", "Keep the finding and essential qualifications visible."]}
+  ],
+  "duration_minutes": [10, 20, 30, 45, 60],
+  "depths": [
+    {"value": "automatic", "label": "Let Palate decide", "description": "Choose depth from the audience, time and source content."},
+    {"value": "overview", "label": "Key takeaways", "description": "Prioritize clear findings and essential explanation."},
+    {"value": "technical", "label": "Full technical detail", "description": "Keep methods and derivations available for close discussion."}
+  ]
+}

@@ -8,7 +8,7 @@ Create small task-local `build/` and `outputs/` directories outside the referenc
 
 ## Understand before designing
 
-Resolve context through the known profiles and current request. Obtain missing detail/purpose/expertise only where consequential. Inspect the actual PPTX using `palate_pptx.py inspect`, render and view every source page. Read source notes when needed. Inventory embedded workbooks, native tables/charts/equations, raster-only labels, fonts, image resolution, hidden pages and animation layers. Reuse unchanged render evidence only if its source hash matches.
+Resolve context through [guided intake](guided-intake.md), known profiles and the current request. Accept a short polish request and skip supplied fields. Obtain purpose/familiarity only where consequential; users may delegate depth. Source inspection can proceed while required choices are pending. Before transformation, choose any delegated depth from the source and resolved brief, and record it in the plan context. Inspect the actual PPTX using `palate_pptx.py inspect`, render and view every source page. Read source notes when needed. Inventory embedded workbooks, native tables/charts/equations, raster-only labels, fonts, image resolution, hidden pages and animation layers. Reuse unchanged render evidence only if its source hash matches.
 
 For each slide record its purpose, scientific relationship, primary evidence, required caveats, source discrepancy, design problem and a justified operation. A transformation should improve reading order, hierarchy, spacing, evidence legibility or contextual explanation; a global teal recolor is insufficient. Match the request's redesign depth. When the whole deck already works, make targeted improvements rather than forcing uniform layouts.
 

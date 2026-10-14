@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 FILES = [
     "SKILL.md", "agents/openai.yaml", "requirements.txt",
     "scripts/palate_pptx.py", "scripts/render_pptx.ps1",
+    "scripts/guided_intake.py", "references/guided-intake.md", "references/guided-intake.json",
     "references/design-system.md", "references/design-decision-library.json",
     "references/presentation-contexts.json", "references/presentation-contexts.md",
     "references/redesign-intake.md", "references/transform-plan.md",

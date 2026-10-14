@@ -46,11 +46,10 @@ python scripts/package_skill.py --output dist/palate-by-sherry.zip --install "$e
 Use an existing bundled Python runtime when available. Then attach a research deck and ask:
 
 ```text
-Use $palate-by-sherry to redesign this PPTX for a 10-minute internal tutorial.
-The audience knows the fundamentals but is new to this method.
-Explain the mechanism clearly, retain the key equations and caveats,
-and return an editable PPTX with a concise transformation report.
+Use palate-by-sherry to polish my PPT.
 ```
+
+Palate guides the brief with short choices: internal tutorial, internal research or an external presentation. External talks branch into expert, executive or general audiences. Choose a duration and a level of detail, or let Palate decide the depth. Supplied information is skipped. In compatible Codex hosts, these appear as native choice cards; other hosts use concise questions.
 
 PowerPoint on Windows provides the included render workflow. New or rebuilt slides use an available native presentation authoring workflow. Single-page monthly updates are outside this skill's scope.
 

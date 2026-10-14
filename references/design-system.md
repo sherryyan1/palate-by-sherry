@@ -26,6 +26,18 @@ Clear explanations, deliberate color and room for scientific evidence. Use the [
 
 These compositions are contextual choices. Select the one that explains the actual research; retain a useful source layout when appropriate.
 
+## Audience priorities
+
+| Audience | Foreground |
+| :--- | :--- |
+| Internal tutorial | Learning objective, mechanism and guided explanation |
+| Internal research | Research question, method, evidence and discussion |
+| External experts | Contribution, comparable evidence, assumptions and uncertainty |
+| C-suite / executives | Supported implications, decisions, evidence and risk |
+| General audience | Clear concepts, intuitive explanation and qualified findings |
+
+Use time, purpose and source content together. Executive talks retain scientific qualifications; financial or operational claims require source support. Expert talks need not display every derivation. Do not invent a fixed slide count, ROI, decision or scientific conclusion to fit an audience category.
+
 ## Palette
 
 Operational defaults are adjustable to the brief. They are not a prescribed journal palette or a mandate to recolor scientific figures.

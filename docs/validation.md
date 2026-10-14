@@ -4,7 +4,7 @@ The workflow checks scientific content, native editability and rendered appearan
 
 | Check | Coverage |
 | :--- | :--- |
-| Automated regression | 16 synthetic OOXML and packaging tests |
+| Automated regression | 24 intake, OOXML and packaging tests |
 | End-to-end transformation | Two-slide native chart, table, text and process fixture |
 | Render review | Before/after PowerPoint exports, individually inspected |
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
@@ -20,6 +20,8 @@ python scripts/audit_repository.py
 ```
 
 The test suite covers stale hashes, unsafe image geometry, native table placement, animation/math guards, unknown actions, overwrites, review coverage and installed local-edit preservation. Chart identity follows relationship targets rather than assumed package locations.
+
+Guided-intake tests cover scenario branching, external audience selection, executive priorities, custom durations, delegated depth, prefilled briefs, profile overrides and out-of-scope requests. Pending questions cannot be treated as submitted answers or permit the dependent transformation. The helper emits host-tool payloads; display behavior is supplied by the available Codex question tool.
 
 For integration, create a fixture with `tests/create_fixture.mjs` using the bundled presentation authoring workflow, then apply `tests/run_integration.py`. Render source and candidate with `scripts/render_pptx.ps1`, inspect every slide and exercise `tests/check_powerpoint_objects.ps1`. Record actual review evidence before finalization.
 
