@@ -1,0 +1,222 @@
+"""Scientific content preservation and rejection tests using synthetic OOXML only."""
+import copy
+import importlib.util
+import json
+from pathlib import Path
+import tempfile
+import unittest
+import zipfile
+
+ROOT = Path(__file__).resolve().parents[1]
+TEST_TEMP = ROOT / "analysis/local-only/test-temp"
+TEST_TEMP.mkdir(parents=True, exist_ok=True)
+spec = importlib.util.spec_from_file_location("palate", ROOT / "scripts/palate_pptx.py")
+palate = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(palate)
+spec2 = importlib.util.spec_from_file_location("packager", ROOT / "scripts/package_skill.py")
+packager = importlib.util.module_from_spec(spec2)
+spec2.loader.exec_module(packager)
+
+
+def fixture():
+    # Deliberately synthetic values, native text/math/table/chart references, no research.
+    a, p, r = palate.NS["a"], palate.NS["p"], palate.NS["r"]
+    slide = f'''<p:sld xmlns:p="{p}" xmlns:a="{a}" xmlns:r="{r}" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><p:cSld><p:spTree>
+    <p:sp><p:nvSpPr><p:cNvPr id="2" name="title"/></p:nvSpPr><p:spPr><a:xfrm><a:off x="457200" y="457200"/><a:ext cx="7315200" cy="685800"/></a:xfrm><a:prstGeom prst="rect"/><a:solidFill><a:srgbClr val="FFFFFF"/></a:solidFill></p:spPr><p:txBody><a:p><a:r><a:rPr sz="1200"><a:latin typeface="Arial"/><a:ea typeface="Arial"/></a:rPr><a:t>Synthetic result: 12 ± 2 mg/L (1/3)</a:t></a:r></a:p></p:txBody></p:sp>
+    <p:pic><p:nvPicPr><p:cNvPr id="3" name="figure"/></p:nvPicPr><p:blipFill><a:blip r:embed="img"/><a:srcRect l="0" t="0" r="0" b="0"/></p:blipFill><p:spPr><a:xfrm><a:off x="914400" y="1828800"/><a:ext cx="3657600" cy="1828800"/></a:xfrm></p:spPr></p:pic>
+    <p:graphicFrame><p:nvGraphicFramePr><p:cNvPr id="4" name="chart"/></p:nvGraphicFramePr><p:xfrm><a:off x="4572000" y="1828800"/><a:ext cx="3657600" cy="1828800"/></p:xfrm><a:graphic><a:graphicData><c:chart xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart" r:id="chart"/></a:graphicData></a:graphic></p:graphicFrame>
+    <p:graphicFrame><p:nvGraphicFramePr><p:cNvPr id="5" name="table"/></p:nvGraphicFramePr><p:xfrm><a:off x="914400" y="3657600"/><a:ext cx="914400" cy="457200"/></p:xfrm><a:graphic><a:graphicData><a:tbl><a:tblGrid><a:gridCol w="914400"/></a:tblGrid><a:tr h="457200"><a:tc><a:txBody><a:p><a:r><a:t>12 mg/L</a:t></a:r></a:p></a:txBody></a:tc></a:tr></a:tbl></a:graphicData></a:graphic></p:graphicFrame>
+    <p:sp><p:nvSpPr><p:cNvPr id="6" name="formula"/></p:nvSpPr><p:txBody><a:p><m:oMath><m:r><m:t>x=12</m:t></m:r></m:oMath></a:p></p:txBody></p:sp>
+    </p:spTree></p:cSld></p:sld>'''
+    relns = palate.NS["rel"]
+    return {
+        "ppt/presentation.xml": f'<p:presentation xmlns:p="{p}" xmlns:r="{r}"><p:sldIdLst><p:sldId id="300" r:id="s2"/><p:sldId id="256" r:id="s1"/></p:sldIdLst><p:sldSz cx="9144000" cy="5143500"/></p:presentation>'.encode(),
+        "ppt/_rels/presentation.xml.rels": f'<Relationships xmlns="{relns}"><Relationship Id="s1" Type="x/slide" Target="slides/slide1.xml"/><Relationship Id="s2" Type="x/slide" Target="slides/slide2.xml"/></Relationships>'.encode(),
+        "ppt/slides/slide1.xml": slide.replace('<p:sld ', '<p:sld show="0" ', 1).encode(),
+        "ppt/slides/slide2.xml": slide.encode(),
+        "ppt/slides/_rels/slide2.xml.rels": f'<Relationships xmlns="{relns}"><Relationship Id="img" Type="x/image" Target="../media/image1.png"/><Relationship Id="chart" Type="x/chart" Target="../charts/chart1.xml"/><Relationship Id="notes" Type="x/notesSlide" Target="../notesSlides/notesSlide2.xml"/></Relationships>'.encode(),
+        "ppt/media/image1.png": b"synthetic-image-bytes",
+        "ppt/charts/chart1.xml": b'<chart><unit>mg/L</unit><value>12</value></chart>',
+        "ppt/embeddings/workbook.xlsx": b"synthetic-formula-workbook",
+        "ppt/notesSlides/notesSlide2.xml": f'<p:notes xmlns:p="{p}" xmlns:a="{a}"><a:t>Synthetic caveat: simulated data only. Reference: test fixture.</a:t></p:notes>'.encode(),
+        "ppt/theme/theme1.xml": b"<theme/>",
+    }
+
+
+class PreserveTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(dir=TEST_TEMP)
+        self.folder = Path(self.temp.name)
+        self.source = self.folder / "source.pptx"
+        self.parts = fixture()
+        self.write(self.source, self.parts)
+        self.plan = {"schema_version": 1, "source_sha256": palate.sha(self.source),
+                     "context": {"profile": "internal-tutorial", "detail_level": "synthetic test", "purpose": "test preservation"},
+                     "operations": [{"slide": 1, "shape_id": 2, "action": "text_style", "style": {"font_size_pt": 24, "color": "217A80", "font_family": "Arial", "bold": True}, "rule_ids": ["R008"], "reason": "Synthetic test hierarchy"},
+                                    {"slide": 1, "shape_id": 3, "action": "geometry", "bounds_inches": [0.5, 1.5, 5, 2.5], "rule_ids": [], "reason": "Synthetic test layout"}]}
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def write(self, target, parts):
+        with zipfile.ZipFile(target, "w") as z:
+            for name, data in parts.items():
+                z.writestr(name, data)
+
+    def candidate(self):
+        parts, _, _ = palate.expected_parts(self.source, self.plan)
+        path = self.folder / "candidate.pptx"
+        palate.write_package(self.source, path, parts)
+        return path, parts
+
+    def test_slide_order_hidden_native_inventory_and_notes(self):
+        analysis = palate.analyse(self.source)
+        self.assertEqual(analysis["slides"][0]["part"], "ppt/slides/slide2.xml")
+        self.assertTrue(analysis["slides"][1]["hidden"])
+        self.assertIn("simulated data", analysis["slides"][0]["notes"])
+        self.assertEqual(analysis["slides"][0]["shapes"][2]["native_charts"], ["ppt/charts/chart1.xml"])
+
+    def test_preserves_all_science_and_native_objects(self):
+        before = palate.sha(self.source)
+        candidate, parts = self.candidate()
+        result = palate.validate(self.source, candidate, self.plan)
+        self.assertEqual(result["status"], "passed")
+        self.assertEqual(result["visual_review"], "pending")
+        self.assertEqual(palate.sha(self.source), before)
+        self.assertEqual(parts["ppt/charts/chart1.xml"], self.parts["ppt/charts/chart1.xml"])
+        self.assertEqual(parts["ppt/embeddings/workbook.xlsx"], self.parts["ppt/embeddings/workbook.xlsx"])
+        self.assertEqual(parts["ppt/slides/slide1.xml"], self.parts["ppt/slides/slide1.xml"])
+        tree = palate.xml(parts["ppt/slides/slide2.xml"])
+        props = tree.find(".//a:rPr", palate.NS)
+        self.assertEqual([palate.E.QName(c).localname for c in props], ["solidFill", "latin", "ea", "cs"])
+
+    def test_rejects_changed_units_captions_and_equations(self):
+        _, parts = self.candidate()
+        for before, after in ((b"mg/L", b"g/L"), (b"12", b"13"), (b"x=12", b"x=21")):
+            changed = dict(parts)
+            changed["ppt/slides/slide2.xml"] = changed["ppt/slides/slide2.xml"].replace(before, after)
+            path = self.folder / ("tampered" + str(len(after)) + str(len(before)) + ".pptx")
+            self.write(path, changed)
+            self.assertEqual(palate.validate(self.source, path, self.plan)["status"], "failed")
+
+    def test_rejects_media_workbook_notes_and_chart_tampering(self):
+        _, parts = self.candidate()
+        for name in ("ppt/media/image1.png", "ppt/charts/chart1.xml", "ppt/embeddings/workbook.xlsx", "ppt/notesSlides/notesSlide2.xml"):
+            modified = dict(parts); modified[name] += b"changed"
+            path = self.folder / "tampered.pptx"; self.write(path, modified)
+            self.assertEqual(palate.validate(self.source, path, self.plan)["status"], "failed")
+
+    def test_requires_current_hash_and_missing_depth(self):
+        for field in ("hash", "detail"):
+            plan = copy.deepcopy(self.plan)
+            if field == "hash": plan["source_sha256"] = "stale"
+            else: del plan["context"]["detail_level"]
+            with self.assertRaises(ValueError): palate.expected_parts(self.source, plan)
+
+    def test_context_defaults_overrides_and_scope(self):
+        context = palate.resolve_context(self.plan["context"])
+        self.assertEqual(context["duration_minutes"], 10)
+        custom = dict(self.plan["context"], duration_minutes=15)
+        self.assertEqual(palate.resolve_context(custom)["duration_minutes"], 15)
+        with self.assertRaises(ValueError):
+            palate.resolve_context(dict(custom, profile="internal-monthly-update"))
+
+    def test_refuses_stretch_offslide_and_nan(self):
+        for box in ([0, 0, 5, 1], [9, 1, 5, 2.5], [0, float("nan"), 5, 2.5]):
+            plan = copy.deepcopy(self.plan); plan["operations"][1]["bounds_inches"] = box
+            with self.assertRaises(ValueError): palate.expected_parts(self.source, plan)
+
+    def test_native_table_placement_preserves_grid_but_resize_is_rejected(self):
+        op = {"slide": 1, "shape_id": 5, "action": "geometry", "bounds_inches": [2, 4, 1, 0.5], "reason": "Move synthetic native table", "rule_ids": []}
+        self.plan["operations"] = [op]
+        candidate, _ = self.candidate()
+        self.assertEqual(palate.validate(self.source, candidate, self.plan)["status"], "passed")
+        op["bounds_inches"] = [2, 4, 2, 0.5]
+        with self.assertRaises(ValueError): palate.expected_parts(self.source, self.plan)
+
+    def test_nonstandard_chart_part_location(self):
+        parts = dict(self.parts)
+        parts["ppt/slides/charts/chart-special.xml"] = parts.pop("ppt/charts/chart1.xml")
+        rel = "ppt/slides/_rels/slide2.xml.rels"
+        parts[rel] = parts[rel].replace(b"../charts/chart1.xml", b"charts/chart-special.xml")
+        self.write(self.source, parts)
+        analysis = palate.analyse(self.source)
+        self.assertEqual(analysis["package_native_charts"], ["ppt/slides/charts/chart-special.xml"])
+
+    def test_animation_and_math_guard(self):
+        parts = dict(self.parts)
+        parts["ppt/slides/slide2.xml"] = parts["ppt/slides/slide2.xml"].replace(b"</p:sld>", b"<p:timing/></p:sld>")
+        self.write(self.source, parts); self.plan["source_sha256"] = palate.sha(self.source)
+        with self.assertRaises(ValueError): palate.expected_parts(self.source, self.plan)
+        self.write(self.source, self.parts); self.plan["source_sha256"] = palate.sha(self.source)
+        self.plan["operations"][0]["shape_id"] = 6
+        with self.assertRaises(ValueError): palate.expected_parts(self.source, self.plan)
+
+    def test_unknown_action_rule_and_keys(self):
+        for key, value in (("action", "rewrite_science"), ("rule_ids", ["R006"]), ("ignore_checks", True)):
+            plan = copy.deepcopy(self.plan); plan["operations"][0][key] = value
+            with self.assertRaises(ValueError): palate.expected_parts(self.source, plan)
+
+    def test_refuses_overwrites(self):
+        candidate, parts = self.candidate()
+        with self.assertRaises(ValueError): palate.write_package(self.source, candidate, parts)
+        with self.assertRaises(ValueError): palate.write_package(self.source, self.source, parts)
+
+    def test_review_must_bind_hash_and_all_slides(self):
+        candidate, _ = self.candidate()
+        review = {"candidate_sha256": palate.sha(candidate), "reviewed_slides": [1, 2], "visual_status": "passed", "scientific_status": "passed", "editability_status": "passed", "reviewer": "unit test synthetic reviewer", "remaining_issues": []}
+        for key, value in (("candidate_sha256", "stale"), ("reviewed_slides", [1]), ("remaining_issues", ["unresolved"]), ("scientific_status", "pending")):
+            invalid = dict(review); invalid[key] = value
+            with self.assertRaises(ValueError): palate.finalize(self.source, candidate, self.plan, invalid, self.folder / "final.pptx", self.folder / "report.md")
+        result = palate.finalize(self.source, candidate, self.plan, review, self.folder / "final.pptx", self.folder / "report.md")
+        self.assertEqual(result["final_sha256"], palate.sha(candidate))
+        self.assertIn("R008 (primary)", (self.folder / "report.md").read_text(encoding="utf-8"))
+
+    def test_duplicate_zip_and_dtd_rejected(self):
+        path = self.folder / "duplicate.pptx"
+        import warnings
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            with zipfile.ZipFile(path, "w") as z:
+                z.writestr("x", b"1"); z.writestr("x", b"2")
+        with self.assertRaises(ValueError): palate.read_package(path)
+        with self.assertRaises(ValueError): palate.xml(b'<!DOCTYPE a [<!ENTITY x "secret">]><a>&x;</a>')
+
+
+class PackagingTests(unittest.TestCase):
+    def test_managed_update_retains_removed_runtime_files_in_backup(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            installed = root / "skills/palate-by-sherry"
+            packager.install(package, installed)
+            retired = installed / "references/retired-reference.md"
+            retired.write_text("Former managed runtime reference", encoding="utf-8")
+            marker = installed / "package-manifest.json"
+            old = json.loads(marker.read_text())
+            old["files"]["references/retired-reference.md"] = packager.digest(retired.read_bytes())
+            marker.write_text(json.dumps(old), encoding="utf-8")
+            packager.install(package, installed)
+            self.assertFalse((installed / "references/retired-reference.md").exists())
+            backups = list((installed.parent / ".palate-backups").glob("*/palate-by-sherry/references/retired-reference.md"))
+            self.assertEqual(len(backups), 1)
+            self.assertEqual(backups[0].read_text(), "Former managed runtime reference")
+
+    def test_allowlist_install_and_local_edit_preservation(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            manifest = packager.build(package)
+            with zipfile.ZipFile(package) as z:
+                self.assertFalse(any("assets/" in p or "analysis/" in p or ".git/" in p for p in z.namelist()))
+            installed = root / "skills/palate-by-sherry"
+            packager.install(package, installed)
+            self.assertEqual(palate.sha(installed / "SKILL.md"), manifest["files"]["SKILL.md"])
+            (installed / "SKILL.md").write_text("local unfinished edit", encoding="utf-8")
+            with self.assertRaises(ValueError): packager.install(package, installed)
+            self.assertEqual((installed / "SKILL.md").read_text(), "local unfinished edit")
+
+
+if __name__ == "__main__":
+    unittest.main()

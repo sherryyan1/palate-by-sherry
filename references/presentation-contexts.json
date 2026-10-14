@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "duration_interpretation": "Context defaults; current instructions override them. Q&A allocation is specified by the brief.",
+  "profiles": [
+    {
+      "id": "internal-research",
+      "setting": "internal",
+      "audience": "research group",
+      "audience_expertise": null,
+      "duration_minutes": 60,
+      "detail_level": null,
+      "slide_count": null,
+      "skill_scope": "current_research_presentation_skill",
+      "name": "Internal group meeting on research"
+    },
+    {
+      "id": "internal-monthly-update",
+      "setting": "internal",
+      "audience": "research group",
+      "audience_expertise": null,
+      "duration_minutes": 5,
+      "detail_level": null,
+      "slide_count": 1,
+      "skill_scope": "out_of_scope",
+      "name": "Internal monthly progress update"
+    },
+    {
+      "id": "internal-tutorial",
+      "setting": "internal",
+      "audience": "research group",
+      "audience_expertise": null,
+      "duration_minutes": 10,
+      "detail_level": null,
+      "slide_count": null,
+      "skill_scope": "current_research_presentation_skill",
+      "name": "Internal tutorial"
+    },
+    {
+      "id": "external-government-project",
+      "setting": "external",
+      "audience": "government project meeting participants",
+      "audience_expertise": null,
+      "duration_minutes": 30,
+      "detail_level": null,
+      "slide_count": null,
+      "skill_scope": "current_research_presentation_skill",
+      "name": "External meeting on a government project"
+    },
+    {
+      "id": "external-expert-seminar",
+      "setting": "external",
+      "audience": "expert audience",
+      "audience_expertise": "expert",
+      "duration_minutes": 60,
+      "detail_level": null,
+      "slide_count": null,
+      "skill_scope": "current_research_presentation_skill",
+      "name": "External seminar for an expert audience"
+    },
+    {
+      "id": "external-general-speech",
+      "setting": "external",
+      "audience": "general audience",
+      "audience_expertise": "general",
+      "duration_minutes": 30,
+      "detail_level": null,
+      "slide_count": null,
+      "skill_scope": "current_research_presentation_skill",
+      "name": "External speech for a general audience"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "rule_policy": {
+    "primary": "Style direction applied within its trigger and exceptions.",
+    "contextual": "Composition option evaluated against the content and presentation brief."
+  },
+  "rules": [
+    {
+      "id": "R001",
+      "name": "Evidence-led result hierarchy",
+      "dimension": "information_hierarchy",
+      "status": "contextual",
+      "trigger": "A result slide supports an interpretable finding.",
+      "decision": "Make the supported finding easy to locate beside readable evidence.",
+      "execution": "Use a title, subtitle or adjacent explanation according to the content. Preserve uncertainty, scope and units.",
+      "exceptions": [
+        "Setup and methods slides may need a topic title instead of a finding."
+      ],
+      "validation": [
+        "The statement is supported and its qualifiers remain visible."
+      ]
+    },
+    {
+      "id": "R002",
+      "name": "Concise scientific explanation",
+      "dimension": "scientific_storytelling",
+      "status": "primary",
+      "trigger": "A figure needs explanation in a research talk.",
+      "decision": "Prefer concise interpretation to a full caption on the main slide.",
+      "execution": "Retain scientific qualifications and sources. Trace supplementary detail to notes or an appendix.",
+      "exceptions": [
+        "Live technical verification can require a complete caption or derivation.",
+        "Essential interpretation details stay visible."
+      ],
+      "validation": [
+        "Explanation, evidence and qualifications can be read together."
+      ]
+    },
+    {
+      "id": "R003",
+      "name": "Comparable dimensions",
+      "dimension": "layout_logic",
+      "status": "contextual",
+      "trigger": "A slide compares alternatives, mechanisms or results.",
+      "decision": "Organize around shared dimensions and consistent visual encoding.",
+      "execution": "Align scales, label conventions and reading order; keep unequal baselines explicit.",
+      "exceptions": [
+        "Alternatives may require different amounts of evidence or unmatched controls."
+      ],
+      "validation": [
+        "The layout does not imply scientific equivalence that the source does not support."
+      ]
+    },
+    {
+      "id": "R004",
+      "name": "Stable context with focused emphasis",
+      "dimension": "information_hierarchy",
+      "status": "contextual",
+      "trigger": "A sequence explains components of one framework.",
+      "decision": "Retain orientation while emphasizing the current component.",
+      "execution": "Keep meaningful labels and context stable; choose emphasis from the actual progression.",
+      "exceptions": [
+        "Independent topics may need a fresh composition.",
+        "Do not imitate overlapping animation states."
+      ],
+      "validation": [
+        "The listener can locate the current topic in the framework."
+      ]
+    },
+    {
+      "id": "R005",
+      "name": "Relationship-driven composition",
+      "dimension": "layout_logic",
+      "status": "contextual",
+      "trigger": "Content has a scientific relationship to explain.",
+      "decision": "Let comparison, mechanism, hierarchy or time determine the composition.",
+      "execution": "Choose a reading order and native objects that expose the relationship.",
+      "exceptions": [
+        "A mandatory template can constrain arrangement."
+      ],
+      "validation": [
+        "Connections and groupings match the source science."
+      ]
+    },
+    {
+      "id": "R007",
+      "name": "Section arrow navigation",
+      "dimension": "navigation",
+      "status": "primary",
+      "trigger": "The listener needs orientation in a section sequence.",
+      "decision": "Use meaningful section arrows with restrained emphasis.",
+      "execution": "Retain existing navigation when useful; highlight the actual current section.",
+      "exceptions": [
+        "Navigation is optional on a self-contained page.",
+        "Do not invent an unrelated sequence."
+      ],
+      "validation": [
+        "Section names and emphasis match the talk structure."
+      ]
+    },
+    {
+      "id": "R008",
+      "name": "Teal and scientific color roles",
+      "dimension": "visual_encoding",
+      "status": "primary",
+      "trigger": "A palette or emphasis color is needed.",
+      "decision": "Use teal or a requested scientific palette with deliberate semantic roles.",
+      "execution": "Preserve category mappings; pair color with labels and markers; check contrast.",
+      "exceptions": [
+        "Scientific figure colors and existing legends take priority.",
+        "Operational hex values are adjustable, not a prescribed journal palette."
+      ],
+      "validation": [
+        "The palette is legible and every changed mapping has a consistent legend."
+      ]
+    },
+    {
+      "id": "R009",
+      "name": "Conceptual part markers",
+      "dimension": "navigation",
+      "status": "primary",
+      "trigger": "A subject is explained through multiple conceptual parts.",
+      "decision": "Use title markers such as (1/3) to identify conceptual progress.",
+      "execution": "Count conceptual parts, which may span more than one page. Preserve useful existing markers.",
+      "exceptions": [
+        "Do not invent a denominator or renumber by slide count."
+      ],
+      "validation": [
+        "Markers match the explanation structure."
+      ]
+    },
+    {
+      "id": "R010",
+      "name": "Context before density",
+      "dimension": "workflow",
+      "status": "primary",
+      "trigger": "A presentation is being designed or transformed.",
+      "decision": "Resolve audience, available time and technical depth before choosing density.",
+      "execution": "Reuse named profiles and the current purpose. Ask only consequential missing information.",
+      "exceptions": [
+        "Analysis-only work needs no invented talk context.",
+        "Current instructions override defaults."
+      ],
+      "validation": [
+        "The design matches the brief without silently losing checkable detail."
+      ]
+    },
+    {
+      "id": "R011",
+      "name": "Crisp and considered diagrams",
+      "dimension": "aesthetic_judgment",
+      "status": "primary",
+      "trigger": "A diagram or explanatory visual needs design work.",
+      "decision": "Use readable labels, adequate resolution and intentional color.",
+      "execution": "Prefer native editable relationships when reconstruction is verified. Preserve complex figures otherwise.",
+      "exceptions": [
+        "Upscaling does not recover missing detail.",
+        "A visual technique is judged by its role rather than a blanket ban."
+      ],
+      "validation": [
+        "Labels are readable and scientific relationships remain correct."
+      ]
+    }
+  ]
+}

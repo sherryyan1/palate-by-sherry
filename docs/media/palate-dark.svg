@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480" role="img" aria-labelledby="title description">
+  <title id="title">palate. by Sherry</title>
+  <desc id="description">Good research deserves good taste. Not just how it looks. How it thinks.</desc>
+  <rect width="1200" height="480" rx="24" fill="#13191D"/>
+  <g text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif">
+    <text x="600" y="194" font-size="142" font-weight="700" letter-spacing="-8" fill="#F5F7F7">palate<tspan fill="#7CBEC1">.</tspan></text>
+    <text x="600" y="242" font-size="23" letter-spacing="1.2" fill="#9DACB1">by Sherry</text>
+    <text x="600" y="323" font-size="31" font-weight="500" letter-spacing="-0.5" fill="#F5F7F7">Good research deserves good taste.</text>
+    <text x="600" y="367" font-size="22" fill="#9DACB1">Not just how it looks. How it thinks.</text>
+  </g>
+  <g transform="translate(538 414)">
+    <rect width="24" height="6" rx="3" fill="#7CBEC1"/>
+    <rect x="34" width="24" height="6" rx="3" fill="#217A80"/>
+    <rect x="68" width="24" height="6" rx="3" fill="#739ABD"/>
+    <rect x="102" width="24" height="6" rx="3" fill="#C69A64"/>
+  </g>
+</svg>

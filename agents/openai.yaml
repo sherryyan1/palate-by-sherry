@@ -1,0 +1,4 @@
+interface:
+  display_name: "palate. by Sherry"
+  short_description: "Research slides with personal taste and scientific fidelity"
+  default_prompt: "Use $palate-by-sherry to redesign this research PPTX for my audience, time and technical depth, preserving scientific meaning and editable objects."
