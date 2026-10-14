@@ -518,5 +518,5 @@ if __name__ == "__main__":
     try:
         main()
     except (ValueError, OSError, KeyError, zipfile.BadZipFile, E.XMLSyntaxError) as exc:
-        print(f"palate: {exc}", file=sys.stderr)
+        print(f"palate. {exc}", file=sys.stderr)
         sys.exit(2)

@@ -26,8 +26,8 @@ Validate the authored package with the available presentation finalizer and inde
 
 ## Review record and delivery
 
-Structural integrity, visual quality, scientific interpretation and editability are separate checks. Record which application rendered/opened the output. “PowerPoint checked” requires an actual PowerPoint open/inspection; static export does not establish animation playback.
+Structural integrity, visual quality, scientific interpretation and editability are separate checks. Record which application rendered/opened the output. “PowerPoint checked” or “Keynote checked” requires an actual open/inspection in that application; static export does not establish animation playback. A conversion adds a separate comparison against the original, including chart data, formulas, equations, notes, fonts and build stages. Read the [Keynote workflow](keynote-workflow.md) when that format is involved.
 
 For conservative output, provide a hash-bound review record as documented in the plan contract. The reviewer can be the agent; never invent human approval. Finalization requires all review statuses passed and no unresolved issues. If a source scientific contradiction prevents certification, deliver only a clearly labeled candidate plus the unresolved issue; do not assert the content is scientifically correct.
 
-Deliver a new editable PPTX and a concise report: audience/time/depth, source/output mapping, meaningful changes and decision basis, preserved evidence, checks actually performed and material limitations. Keep detailed extracted content and validation artifacts local. No research uploads are implied by Skill invocation.
+Deliver a new editable deck and a concise report: audience/time/depth, source/output mapping, meaningful changes and decision basis, preserved evidence, checks actually performed and material limitations. If native Keynote delivery was requested, certify it only after saving and reviewing in Keynote; otherwise state the remaining handoff. Keep detailed extracted content and validation artifacts local. No research uploads are implied by Skill invocation.

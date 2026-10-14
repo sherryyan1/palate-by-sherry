@@ -1,6 +1,8 @@
-# PPTX analysis, design, transformation and validation
+# PowerPoint object preservation and validation
 
 ## Runtime and task workspace
+
+This adapter handles PowerPoint sources and verified Keynote exports. Identify the input with [presentation_route.py](../scripts/presentation_route.py); follow the [Keynote workflow](keynote-workflow.md) for source conversion or native Keynote delivery. A preservation pass covers the interchange file, not a later application conversion.
 
 Locate bundled runtimes with the desktop dependency tool. Use Python with `lxml`; Pillow adds raster pixel diagnostics. The preservation helper does not need Node or a presentation SDK. Rendering on Windows requires installed PowerPoint and may need scoped COM permission. Use another available renderer if necessary and state which one; an unavailable renderer means visual review remains pending.
 

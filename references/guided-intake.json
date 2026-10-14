@@ -12,7 +12,7 @@
   ],
   "duration_minutes": [10, 20, 30, 45, 60],
   "depths": [
-    {"value": "automatic", "label": "Let Palate decide", "description": "Choose depth from the audience, time and source content."},
+    {"value": "automatic", "label": "Let palate. choose", "description": "Choose depth from the audience, time and source content."},
     {"value": "overview", "label": "Key takeaways", "description": "Prioritize clear findings and essential explanation."},
     {"value": "technical", "label": "Full technical detail", "description": "Keep methods and derivations available for close discussion."}
   ]

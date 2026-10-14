@@ -1,69 +1,63 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/media/palate-dark.svg">
-  <img src="docs/media/palate-light.svg" alt="palate. by Sherry — Good research deserves good taste. Not just how it looks. How it thinks." width="1200">
+  <img src="docs/media/palate-light.svg" alt="palate. by Sherry — Good research deserves good taste." width="1200">
 </picture>
 
-<p align="center">Research presentation design. With a sense of taste.</p>
-
 <p align="center">
-  <a href="#use-palate">Get started</a> &nbsp;·&nbsp;
+  <a href="#quick-start">Get started</a> &nbsp;·&nbsp;
   <a href="references/design-system.md">Design principles</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">Documentation</a>
 </p>
 
-<br>
+**palate. by Sherry** is a Codex skill for refining research presentations in Sherry's style. It adapts structure, visual hierarchy and detail to the audience and time available, while preserving the scientific evidence.
 
-## Clear ideas. Considered slides.
+A palate for ideas, a palette for slides.
 
-**palate. by Sherry** is a Codex skill for research presentations. It brings structure, visual judgment and scientific care to an editable PowerPoint deck, shaped around the audience, the time and the depth of the talk.
+## Quick start
 
-A palate for ideas. A palette for slides. Yes, the name is doing a little extra work.
-
-| You bring | Palate returns |
-| :--- | :--- |
-| A research PPTX | An editable redesigned deck |
-| An audience, a time, a purpose | A considered reading order and level of detail |
-| Scientific evidence | Preserved data, qualifications and references |
-| A design brief | A concise transformation report |
-
-<br>
-
-## Good taste has a method.
-
-Teal accents. Clear hierarchy. Room for the evidence. Section arrows and conceptual part markers where they help the listener follow the argument.
-
-The design follows the research: a comparison gets comparable scales; a method gets a readable chain of reasoning; a result gets evidence and explanation together. Text, charts, tables and diagrams stay native where possible. Complex source figures stay intact when reconstruction cannot be verified.
-
-## Use Palate
-
-Install from the repository with Python 3.11 or later:
+From the repository root, install the dependencies and skill:
 
 ```powershell
 python -m pip install -r requirements.txt
 python scripts/package_skill.py --output dist/palate-by-sherry.zip --install "$env:USERPROFILE\.codex\skills\palate-by-sherry"
 ```
 
-Use an existing bundled Python runtime when available. Then attach a research deck and ask:
+Attach your slides and ask:
 
 ```text
-Use palate-by-sherry to polish my PPT.
+Use palate-by-sherry to polish my slides.
 ```
 
-Palate guides the brief with short choices: internal tutorial, internal research or an external presentation. External talks branch into expert, executive or general audiences. Choose a duration and a level of detail, or let Palate decide the depth. Supplied information is skipped. In compatible Codex hosts, these appear as native choice cards; other hosts use concise questions.
+palate. asks for missing context through short choices: presentation setting, audience, duration and level of detail. You can provide a brief upfront or delegate the depth. Information already supplied is not asked again. Compatible Codex hosts display choice cards; other hosts use concise questions.
 
-PowerPoint on Windows provides the included render workflow. New or rebuilt slides use an available native presentation authoring workflow. Single-page monthly updates are outside this skill's scope.
+## What it does
 
-<details>
-<summary>Explore the workflow</summary>
+- Improves reading order, spacing and the connection between evidence and explanation.
+- Preserves data, units, equations, labels, uncertainty, caveats and references.
+- Delivers a new editable deck and a concise report of changes, checks and any limits.
 
-- [Usage and requirements](docs/usage.md)
+The design uses clear hierarchy, teal accents and room for the evidence. Layouts follow the content: comparable scales for comparisons, a clear sequence for methods, and results presented with their interpretation. Section arrows and part markers help listeners follow longer arguments. Complex figures remain intact when reconstruction cannot be verified.
+
+## Formats and requirements
+
+One design workflow serves both PowerPoint and Keynote. File handling follows the source format.
+
+| Source | Workflow | Final review |
+| :--- | :--- | :--- |
+| PowerPoint | Preserve native objects; use native authoring for larger revisions. | Check content, appearance and editability in the delivery application. |
+| Keynote | Export a PowerPoint copy, then use the shared design workflow. | Open the result in Keynote; check conversion, fonts, native objects and playback. |
+
+The [format router](references/keynote-workflow.md) identifies compatible inputs and the next required step. Native Keynote delivery requires Keynote on Mac. Windows can prepare the interchange deck; Keynote review remains pending until performed there.
+
+The bundled scripts require Python 3.11+, `lxml` and Pillow. Use an existing bundled runtime when available. The included Windows preview renderer requires Microsoft PowerPoint; new or rebuilt slides require an available native presentation authoring workflow.
+
+Output is saved to a new file. Research files remain local unless their upload is explicitly authorized. Single-page monthly updates are outside this skill's scope.
+
+## Documentation
+
+- [Usage, installation and requirements](docs/usage.md)
 - [Design system](references/design-system.md)
-- [Transformation plan](references/transform-plan.md)
+- [Keynote workflow](references/keynote-workflow.md)
 - [Scientific fidelity](references/scientific-fidelity.md)
+- [Transformation plan](references/transform-plan.md)
 - [Validation](docs/validation.md)
-
-</details>
-
-<br>
-
-<p align="center"><em>Good research deserves good taste.</em><br><sub>Not just how it looks. How it thinks.</sub></p>

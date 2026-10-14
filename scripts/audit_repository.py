@@ -11,7 +11,7 @@ SECRETS = [re.compile(pattern) for pattern in (
     r"gh[pousr]_[A-Za-z0-9]{20,}", r"github_pat_[A-Za-z0-9_]{20,}",
     r"AKIA[A-Z0-9]{16}", r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")]
 PRIVATE_PREFIXES = ("assets/", "analysis/", "local/", "interviews/", "dist/", "docs/local/")
-RESEARCH_SUFFIXES = {".pptx", ".ppt", ".pdf", ".xlsx", ".csv", ".tsv", ".parquet", ".png", ".zip"}
+RESEARCH_SUFFIXES = {".pptx", ".ppt", ".key", ".pdf", ".xlsx", ".csv", ".tsv", ".parquet", ".png", ".zip"}
 PRIVATE_FIELDS = {"confirmation", "revision_history", "name_zh", "render_path"}
 
 
@@ -39,7 +39,8 @@ def audit(staged=False):
     checked = 0
     for name in names:
         path = ROOT / name
-        if name.startswith(PRIVATE_PREFIXES) or path.suffix.lower() in RESEARCH_SUFFIXES:
+        if (name.startswith(PRIVATE_PREFIXES) or path.suffix.lower() in RESEARCH_SUFFIXES
+                or any(part.lower().endswith(".key") for part in Path(name).parts)):
             findings.append({"file": name, "issue": "private_or_generated_material"})
         data = git("show", ":" + name) if staged else path.read_bytes()
         try:
