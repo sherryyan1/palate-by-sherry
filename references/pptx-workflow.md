@@ -33,6 +33,8 @@ Choose from the design system according to the content. Meaningful title part ma
 
 Before planning placement, record the symmetric work area and type roles from the [design system](design-system.md#03--use-space-and-typography-to-show-relationships). Inspect actual font use and effective sizes across slides, layouts, masters, tables and charts; theme names alone do not establish the visible typography. Apply the intended Fira title family explicitly where needed, preserve script and mathematical coverage, and review the 10.5 pt floor after text fitting. Define or adjust master guides through native authoring when needed; the conservative helper preserves masters. Its canvas-bound geometry guard does not check the smaller work area, and its direct-style inventory cannot certify inherited or image-interior text. Complete those checks through appropriate native inspection and rendered review.
 
+Apply the [text-box and table defaults](design-system.md#text-boxes-and-tables) through native authoring when alignment or padding needs to change. The conservative helper cannot set those properties. Review vertical middle anchoring separately from horizontal alignment, keeping descriptive table text left and short entries, including numbers, centered unless explicitly instructed otherwise. Give substantial text a deliberate visual treatment while preserving its reasoning and qualifications, then check internal spacing and fit in PowerPoint.
+
 ## Two implementation paths
 
 Choose the implementation from the change the slide needs:

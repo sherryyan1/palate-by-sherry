@@ -11,6 +11,8 @@ Use this guide when composing a slide or reviewing a layout that feels crowded, 
 3. **Inspect the visible content as well as its coordinates.** Text boxes include internal margins and space beyond glyph bounds; letters, symbols and different type weights carry unequal visual mass. Compare visible edges and baselines, then make modest optical adjustments where equal coordinates appear uneven. Preserve chart-axis alignment and meaningful comparison scales while doing so.
 4. **Review the final render at the intended display scale.** Judge breathing room and association together with text scale, weight and leading. Keep labels, units, legends and uncertainty readable. Dense scientific evidence can justify compact spacing when each relationship remains clear and the required detail can still be inspected.
 
+Inspect space inside containers as well as between them. Text boxes and table cells default to vertical middle anchoring; set their internal margins so multiline text has comfortable clearance. In tables, left-align descriptive text and center very short entries such as numbers, using right alignment only when explicitly instructed. A substantial text block also needs a deliberate visual treatment and internal hierarchy, as described in the [text-box and table guidance](design-system.md#text-boxes-and-tables). Keep those treatments within the work area and preserve the association between the explanation and its evidence.
+
 When a layout fails, identify the relationship at fault before changing all the gaps:
 
 | Condition | Design response and check |

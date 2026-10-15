@@ -66,6 +66,20 @@ Typography and space work together: heading scale, explanatory text and the inte
 
 Check visible letterforms, edges and baselines in the rendered slide. Equal text-box coordinates can look uneven because internal margins and glyph shapes differ. The [spacing and hierarchy guide](spacing-and-hierarchy.md) explains how to combine geometric alignment with optical judgment while preserving scientific associations and comparison scales.
 
+### Text boxes and tables
+
+Default to vertical middle anchoring for text in every text box and table cell. This places the text block within its container; horizontal paragraph alignment is a separate choice. Set internal margins deliberately and inspect multiline text in the final render, because a middle anchor alone does not establish balanced visible spacing.
+
+| Content | Vertical alignment | Horizontal alignment |
+| :--- | :--- | :--- |
+| Text-box content | Middle | Keep the paragraph alignment appropriate to the explanation. |
+| Descriptive table text | Middle | Left |
+| Very short table entries, including numbers | Middle | Center |
+
+Apply the table choices consistently to comparable entries, including headers according to their content. Use right or decimal alignment only when explicitly instructed; a numerical data type does not supply that instruction. If centering exposes a fit problem, adjust the container, padding or composition while preserving the 10.5 pt minimum. An explicitly required layout can override the defaults, with its reason retained in the private design specification.
+
+Substantial text needs a visible design treatment that gives the explanation a clear entry and internal hierarchy. Depending on its role, use a concise heading with an accent rule, a restrained background treatment or clearly labeled groups with deliberate spacing. Choose the treatment to reveal the argument and its relationship to nearby evidence. Keep continuous reasoning in connected prose, retain scientific qualifications, and reserve enough space for the text to remain readable. Short labels and captions can remain plain.
+
 ## 04 | Give color a consistent purpose
 
 Use teal for emphasis or a requested scientific palette for the distinctions the audience needs to follow. A restrained palette can make categories and relationships easier to track when each color has a consistent role across related slides. Support that role with labels, markers or line styles rather than relying on color alone.

@@ -234,6 +234,42 @@
         "Visible foreground extents, including groups, rotations, connectors and overflowing text, remain inside it.",
         "The slide number is the only foreground exception and has the required bottom-right position and black or white color."
       ]
+    },
+    {
+      "id": "R016",
+      "name": "Middle anchoring and content-aware table alignment",
+      "dimension": "text_alignment",
+      "status": "primary",
+      "trigger": "Formatting text boxes or native table cells.",
+      "decision": "Default to vertical middle anchoring; left-align descriptive table text and horizontally center very short entries, including numbers.",
+      "execution": "Follow design-system.md#text-boxes-and-tables. Treat vertical anchoring and horizontal paragraph alignment separately. Set internal margins deliberately, apply consistent alignment to comparable entries and use right or decimal alignment only when explicitly instructed. Use native authoring for alignment changes beyond the bounded helpers' operation sets.",
+      "exceptions": [
+        "An explicit required layout or alignment instruction takes precedence; retain its reason in the private design specification.",
+        "Short table entries are judged by their content and role rather than an invented fixed character-count threshold."
+      ],
+      "validation": [
+        "Native text boxes and table cells use middle vertical anchoring unless an explicit requirement overrides it.",
+        "Descriptive table text is left-aligned, short entries are centered and no right or decimal alignment was introduced without instruction.",
+        "Multiline text, internal margins, wraps and fit are checked in the delivery application without reducing text below 10.5 pt."
+      ]
+    },
+    {
+      "id": "R017",
+      "name": "Considered design for substantial text",
+      "dimension": "text_container_design",
+      "status": "primary",
+      "trigger": "A slide contains a substantial text block or a dense explanation.",
+      "decision": "Give the text a visible design treatment and a clear internal hierarchy that helps the audience follow the explanation.",
+      "execution": "Use a meaningful heading, restrained accent rule, background treatment or labeled grouping with deliberate spacing according to the content. Keep continuous reasoning in connected prose and retain essential scientific qualifications with their evidence. Judge the treatment, type hierarchy and available space together.",
+      "exceptions": [
+        "Short labels and captions can remain plain.",
+        "A mandatory template can constrain the available treatment; improve hierarchy within its requirements."
+      ],
+      "validation": [
+        "Substantial text has a clear entry, readable grouping and purposeful visual treatment.",
+        "The treatment supports the scientific reading order without obscuring evidence, adding unsupported meaning or losing qualifications.",
+        "Text and its treatment remain within the work area, with the required size floor and comfortable internal spacing."
+      ]
     }
   ]
 }
