@@ -9,7 +9,7 @@
   <a href="docs/usage.md">Documentation</a>
 </p>
 
-**palate by Sherry** is a Codex skill for refining research presentations in Sherry's style. It adapts structure, visual hierarchy and detail to the audience and time available, while preserving the scientific evidence.
+**palate** is a Codex skill for refining research presentations in Sherry's style. It adapts structure, visual hierarchy and detail to the audience and time available, while preserving the scientific evidence.
 
 A palate for ideas, a palette for slides.
 
