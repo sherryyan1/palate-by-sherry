@@ -1,4 +1,4 @@
-"""Inspect presentation containers and select the palate. format workflow.
+"""Inspect presentation containers and select the palate format workflow.
 
 Read-only, standard-library helper: no conversion, application launch or upload.
 Keynote signatures recognize containers, not native validity or editable objects.
@@ -210,7 +210,7 @@ def route_presentation(path, target="pptx"):
     if target not in {"pptx", "keynote"}:
         raise ValueError("Target must be pptx or keynote")
     source = inspect_presentation(path)
-    result = {"schema_version": 1, "skill": "palate-by-sherry", "source": source,
+    result = {"schema_version": 1, "skill": "palate", "source": source,
               "target": target, "status": "unsupported", "can_transform_now": False,
               "can_deliver_target_now": False, "adapter": None, "steps": [],
               "source_policy": "Read source only; preserve its hash and use new export, candidate and delivery names.",

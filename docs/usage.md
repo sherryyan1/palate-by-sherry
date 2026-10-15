@@ -19,27 +19,35 @@ From the repository root:
 
 ```powershell
 python -m pip install -r requirements.txt
-python scripts/package_skill.py --output dist/palate-by-sherry.zip --install "$env:USERPROFILE\.codex\skills\palate-by-sherry"
+python scripts/package_skill.py --output dist/palate.zip --install "$env:USERPROFILE\.codex\skills\palate"
 ```
 
-On other systems, install to the configured Codex skills directory under `palate-by-sherry`. Use a fresh package filename for updates. The installer verifies the package, refuses to overwrite local edits and keeps a recoverable previous snapshot.
+On other systems, install to the configured Codex skills directory under `palate`. Use a fresh package filename for updates. The installer verifies the package, refuses to overwrite local edits and keeps a recoverable previous snapshot.
+
+To migrate an earlier installation, name it explicitly:
+
+```powershell
+python scripts/package_skill.py --output dist/palate-update.zip --install "$env:USERPROFILE\.codex\skills\palate" --migrate-legacy "$env:USERPROFILE\.codex\skills\palate-by-sherry"
+```
+
+The installer verifies the complete managed installation before archiving it outside the skills directory. Local edits stop migration; the previous files remain intact.
 
 ## Start with one sentence
 
 Attach your research slides and ask:
 
 ```text
-Use palate-by-sherry to polish my slides.
+Use palate to polish my slides.
 ```
 
-palate. obtains missing context through [guided choices](../references/guided-intake.md):
+palate obtains missing context through [guided choices](../references/guided-intake.md):
 
 | Selection | Options |
 | :--- | :--- |
 | Setting | Internal tutorial, internal research, external |
 | External audience | Experts, C-suite/executives, general audience |
 | Duration | Common times or custom minutes |
-| Depth | Let palate. choose, key takeaways, full technical detail |
+| Depth | Let palate choose, key takeaways, full technical detail |
 
 The external-audience question appears only on that branch. Duration and depth can share a short question card. Native choice cards depend on the host's available tools; concise numbered questions provide the fallback. The user can enter a custom answer or provide a detailed brief upfront. Supplied fields are not asked again.
 

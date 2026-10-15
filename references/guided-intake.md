@@ -1,6 +1,6 @@
 # Guided presentation intake
 
-A short request such as “Use palate-by-sherry to polish my slides” is sufficient to start. Match the skill without requiring a long brief or exact punctuation. Obtain the deck from supplied files/current workspace and identify its format with [presentation_route.py](../scripts/presentation_route.py). Ask for a missing file in ordinary chat when needed, not through a text-only choice tool. Follow the [Keynote route](keynote-workflow.md) for native Keynote input or delivery; reuse the same design brief across formats.
+A short request such as “Use palate to polish my slides” is sufficient to start. Match the skill without requiring a long brief or exact punctuation. Obtain the deck from supplied files/current workspace and identify its format with [presentation_route.py](../scripts/presentation_route.py). Ask for a missing file in ordinary chat when needed, not through a text-only choice tool. Follow the [Keynote route](keynote-workflow.md) for native Keynote input or delivery; reuse the same design brief across formats.
 
 ## Native choice cards
 
@@ -17,11 +17,11 @@ If only `request_user_input` is available, respect its mode and option-count res
 | Setting | Internal tutorial, internal research, external | Already specified |
 | External audience | Experts, C-suite/executives, general audience | Audience already known; internal branch |
 | Duration | Profile default and common times; custom minutes | Time explicitly supplied |
-| Depth | Let palate. choose, key takeaways, full technical detail | Depth or delegation already supplied |
+| Depth | Let palate choose, key takeaways, full technical detail | Depth or delegation already supplied |
 
 Ask the setting first. Ask external audience only after that branch is selected. Duration and depth are independent and can share one short question-tool call. Use named profile durations as suggested choices, not silently submitted answers. Preserve current-request overrides and custom audiences, times and explicit constraints. Do not identify an external expert talk as a seminar or a government project merely from its audience.
 
-When the user chooses “Let palate. choose,” technical depth is delegated. Choose it from the actual source, audience, available time and purpose after inspection, and record the decision in the transformation context. Do not mechanically equate expertise with every equation or duration with slide count. Keep essential qualifications visible and retain supporting detail in a traced location.
+When the user chooses “Let palate choose,” technical depth is delegated. Choose it from the actual source, audience, available time and purpose after inspection, and record the decision in the transformation context. Do not mechanically equate expertise with every equation or duration with slide count. Keep essential qualifications visible and retain supporting detail in a traced location.
 
 Use the polish request as the purpose when no narrower purpose is supplied. Ask an additional goal/familiarity question only when it changes a consequential design decision. Do not ask users to select fonts, palettes or layouts before ordinary polishing.
 

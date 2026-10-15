@@ -2,7 +2,7 @@
 
 Use the request and [context profiles](presentation-contexts.json) before asking for information. Reuse known defaults; ask only missing fields that affect the design.
 
-For a short polish request, use the [guided choice workflow](guided-intake.md). Native question tools present missing fields as choice cards. Known profile durations are suggestions until accepted or overridden; current explicit durations skip the question. Users may delegate technical depth to palate.. Inspect the source before resolving that delegation into the actual presentation design.
+For a short polish request, use the [guided choice workflow](guided-intake.md). Native question tools present missing fields as choice cards. Known profile durations are suggestions until accepted or overridden; current explicit durations skip the question. Users may delegate technical depth to palate. Inspect the source before resolving that delegation into the actual presentation design.
 
 | Field | Design consequence |
 | :--- | :--- |

@@ -1,4 +1,4 @@
 interface:
-  display_name: "palate. by Sherry"
+  display_name: "palate by Sherry"
   short_description: "Research slides with personal taste and scientific fidelity"
-  default_prompt: "Use $palate-by-sherry to polish my slides."
+  default_prompt: "Use $palate to polish my slides."

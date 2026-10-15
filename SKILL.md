@@ -1,19 +1,19 @@
 ---
-name: palate-by-sherry
+name: palate
 description: "Polish research slides in Sherry's style from a short request, with guided choices for audience, time and depth. Use for PowerPoint and Keynote presentations, tutorials, research meetings, project briefings, seminars and talks. Preserve scientific evidence and native editability; route Keynote through verified interchange."
 ---
 
-# palate. by Sherry
+# palate by Sherry
 
 *Good research deserves good taste.*
 
-Deliver a new editable deck and a concise transformation report when redesign is requested. Respond in the user's requested language. Use **palate.** consistently in prose; retain **palate-by-sherry** for invocation and technical identifiers.
+Deliver a new editable deck and a concise transformation report when redesign is requested. Respond in the user's requested language. Use **palate** consistently in prose and **palate by Sherry** for the full display name. Invoke the skill as `$palate`.
 
 ## Design judgment
 
 Read the [design system](references/design-system.md) and relevant [decision rules](references/design-decision-library.json). Primary rules define the style direction; contextual rules are available composition choices, evaluated against the actual content and brief. Preserve their exceptions. A report or reference can inform visual organization without importing its entire brand palette.
 
-Accept a short request such as “Use palate-by-sherry to polish my slides.” Follow [guided intake](references/guided-intake.md): use the available question tool for missing context, branch from setting to external audience, then collect duration and depth. Reuse [context profiles](references/presentation-contexts.json); skip supplied fields. Let users delegate depth and leave visual design to palate. Do not require a long prompt. Do not infer slide counts from duration, assume Q&A allocations or invent subject familiarity. Single-page monthly updates are outside this workflow.
+Accept a short request such as “Use palate to polish my slides.” Follow [guided intake](references/guided-intake.md): use the available question tool for missing context, branch from setting to external audience, then collect duration and depth. Reuse [context profiles](references/presentation-contexts.json); skip supplied fields. Let users delegate depth and leave visual design to palate. Do not require a long prompt. Do not infer slide counts from duration, assume Q&A allocations or invent subject familiarity. Single-page monthly updates are outside this workflow.
 
 ## Execute
 

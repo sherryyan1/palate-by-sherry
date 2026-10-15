@@ -4,7 +4,7 @@ The workflow checks scientific content, native editability and rendered appearan
 
 | Check | Coverage |
 | :--- | :--- |
-| Automated regression | 45 intake, format routing, OOXML and packaging tests |
+| Automated regression | 57 intake, format routing, OOXML and packaging tests |
 | End-to-end transformation | Two-slide native chart, table, text and process fixture |
 | Render review | Before/after PowerPoint exports, individually inspected |
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
@@ -20,6 +20,8 @@ python scripts/audit_repository.py
 ```
 
 The test suite covers stale hashes, unsafe image geometry, native table placement, animation/math guards, unknown actions, overwrites, review coverage and installed local-edit preservation. Chart identity follows relationship targets rather than assumed package locations.
+
+Installation tests also cover explicit name migration, complete manifest verification, archives outside skill discovery, unrelated-path protection, backup collisions and rollback when installation fails.
 
 Guided-intake tests cover scenario branching, external audience selection, executive priorities, custom durations, delegated depth, prefilled briefs, profile overrides and out-of-scope requests. Pending questions cannot be treated as submitted answers or permit the dependent transformation. The helper emits host-tool payloads; display behavior is supplied by the available Codex question tool.
 

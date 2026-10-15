@@ -1,6 +1,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/media/palate-dark.svg">
-  <img src="docs/media/palate-light.svg" alt="palate. by Sherry — Good research deserves good taste." width="1200">
+  <img src="docs/media/palate-light.svg" alt="palate by Sherry — Good research deserves good taste." width="1200">
 </picture>
 
 <p align="center">
@@ -9,7 +9,7 @@
   <a href="docs/usage.md">Documentation</a>
 </p>
 
-**palate. by Sherry** is a Codex skill for refining research presentations in Sherry's style. It adapts structure, visual hierarchy and detail to the audience and time available, while preserving the scientific evidence.
+**palate by Sherry** is a Codex skill for refining research presentations in Sherry's style. It adapts structure, visual hierarchy and detail to the audience and time available, while preserving the scientific evidence.
 
 A palate for ideas, a palette for slides.
 
@@ -19,16 +19,16 @@ From the repository root, install the dependencies and skill:
 
 ```powershell
 python -m pip install -r requirements.txt
-python scripts/package_skill.py --output dist/palate-by-sherry.zip --install "$env:USERPROFILE\.codex\skills\palate-by-sherry"
+python scripts/package_skill.py --output dist/palate.zip --install "$env:USERPROFILE\.codex\skills\palate"
 ```
 
 Attach your slides and ask:
 
 ```text
-Use palate-by-sherry to polish my slides.
+Use palate to polish my slides.
 ```
 
-palate. asks for missing context through short choices: presentation setting, audience, duration and level of detail. You can provide a brief upfront or delegate the depth. Information already supplied is not asked again. Compatible Codex hosts display choice cards; other hosts use concise questions.
+palate asks for missing context through short choices: presentation setting, audience, duration and level of detail. You can provide a brief upfront or delegate the depth. Information already supplied is not asked again. Compatible Codex hosts display choice cards; other hosts use concise questions.
 
 ## What it does
 

@@ -3,8 +3,11 @@ import copy
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -184,12 +187,28 @@ class PreserveTests(unittest.TestCase):
 
 
 class PackagingTests(unittest.TestCase):
+    def legacy_install(self, root):
+        installed = root / "skills/palate-by-sherry"
+        payload = {"SKILL.md": b"Synthetic legacy managed skill", "references/retired.md": b"Synthetic legacy runtime"}
+        for name, data in payload.items():
+            path = installed / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+        manifest = {"name": "palate-by-sherry", "schema_version": 1,
+                    "files": {name: packager.digest(data) for name, data in payload.items()}}
+        (installed / "package-manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+        return installed
+
+    def tree(self, directory):
+        return {path.relative_to(directory).as_posix(): path.read_bytes()
+                for path in directory.rglob("*") if path.is_file()}
+
     def test_managed_update_retains_removed_runtime_files_in_backup(self):
         with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
             root = Path(temp)
             package = root / "skill.zip"
             packager.build(package)
-            installed = root / "skills/palate-by-sherry"
+            installed = root / "skills/palate"
             packager.install(package, installed)
             retired = installed / "references/retired-reference.md"
             retired.write_text("Former managed runtime reference", encoding="utf-8")
@@ -199,23 +218,224 @@ class PackagingTests(unittest.TestCase):
             marker.write_text(json.dumps(old), encoding="utf-8")
             packager.install(package, installed)
             self.assertFalse((installed / "references/retired-reference.md").exists())
-            backups = list((installed.parent / ".palate-backups").glob("*/palate-by-sherry/references/retired-reference.md"))
+            backups = list((root / ".palate-backups").glob("*/palate/references/retired-reference.md"))
             self.assertEqual(len(backups), 1)
             self.assertEqual(backups[0].read_text(), "Former managed runtime reference")
+            self.assertFalse((installed.parent / ".palate-backups").exists())
 
     def test_allowlist_install_and_local_edit_preservation(self):
         with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
             root = Path(temp)
             package = root / "skill.zip"
             manifest = packager.build(package)
+            self.assertEqual(manifest["name"], "palate")
             with zipfile.ZipFile(package) as z:
                 self.assertFalse(any("assets/" in p or "analysis/" in p or ".git/" in p for p in z.namelist()))
-            installed = root / "skills/palate-by-sherry"
+                self.assertTrue(all(name.startswith("palate/") for name in z.namelist()))
+            installed = root / "skills/palate"
             packager.install(package, installed)
             self.assertEqual(palate.sha(installed / "SKILL.md"), manifest["files"]["SKILL.md"])
             (installed / "SKILL.md").write_text("local unfinished edit", encoding="utf-8")
             with self.assertRaises(ValueError): packager.install(package, installed)
             self.assertEqual((installed / "SKILL.md").read_text(), "local unfinished edit")
+
+    def test_old_install_target_is_refused_without_touching_existing_tree(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            legacy = self.legacy_install(root)
+            before = self.tree(legacy)
+            with self.assertRaises(ValueError): packager.install(package, legacy)
+            self.assertEqual(self.tree(legacy), before)
+
+    def test_explicit_migration_archives_unchanged_legacy_outside_discovery(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            package_before = package.read_bytes()
+            legacy = self.legacy_install(root)
+            legacy_before = self.tree(legacy)
+            unrelated = root / "skills/unrelated"
+            unrelated.mkdir()
+            (unrelated / "SKILL.md").write_text("Unrelated skill", encoding="utf-8")
+            installed = root / "skills/palate"
+            result = packager.install(package, installed, migrate_legacy=legacy)
+            self.assertEqual(result, str(installed.resolve()))
+            self.assertFalse(legacy.exists())
+            self.assertEqual(json.loads((installed / "package-manifest.json").read_text())["name"], "palate")
+            backups = list((root / ".palate-backups").glob("*/palate-by-sherry"))
+            self.assertEqual(len(backups), 1)
+            self.assertEqual(self.tree(backups[0]), legacy_before)
+            self.assertFalse(backups[0].is_relative_to(installed.parent))
+            self.assertEqual((unrelated / "SKILL.md").read_text(), "Unrelated skill")
+            self.assertEqual(package.read_bytes(), package_before)
+
+    def test_legacy_sibling_requires_explicit_migration_flag(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            legacy = self.legacy_install(root)
+            before = self.tree(legacy)
+            installed = root / "skills/palate"
+            with self.assertRaisesRegex(ValueError, "explicitly"):
+                packager.install(package, installed)
+            self.assertEqual(self.tree(legacy), before)
+            self.assertFalse(installed.exists())
+
+    def test_changed_and_extra_legacy_files_are_preserved_and_refused(self):
+        for modification in ("edit", "extra"):
+            with self.subTest(modification=modification), tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+                root = Path(temp)
+                package = root / "skill.zip"
+                packager.build(package)
+                legacy = self.legacy_install(root)
+                if modification == "edit":
+                    (legacy / "SKILL.md").write_text("Local unfinished legacy edit", encoding="utf-8")
+                else:
+                    (legacy / "notes.md").write_text("Local private legacy note", encoding="utf-8")
+                before = self.tree(legacy)
+                installed = root / "skills/palate"
+                with self.assertRaises(ValueError):
+                    packager.install(package, installed, migrate_legacy=legacy)
+                self.assertEqual(self.tree(legacy), before)
+                self.assertFalse(installed.exists())
+                self.assertFalse((root / ".palate-backups").exists())
+
+    def test_migration_cannot_target_an_unrelated_directory(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            unrelated = self.legacy_install(root / "unrelated")
+            before = self.tree(unrelated)
+            installed = root / "skills/palate"
+            with self.assertRaisesRegex(ValueError, "exact sibling"):
+                packager.install(package, installed, migrate_legacy=unrelated)
+            self.assertEqual(self.tree(unrelated), before)
+            self.assertFalse(installed.exists())
+
+    def test_migration_requires_a_valid_old_name_manifest(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            legacy = self.legacy_install(root)
+            marker = legacy / "package-manifest.json"
+            manifest = json.loads(marker.read_text())
+            manifest["name"] = "unrelated"
+            marker.write_text(json.dumps(manifest), encoding="utf-8")
+            before = self.tree(legacy)
+            with self.assertRaises(ValueError):
+                packager.install(package, root / "skills/palate", migrate_legacy=legacy)
+            self.assertEqual(self.tree(legacy), before)
+
+    def test_migration_refuses_unsafe_manifest_paths_without_touching_other_files(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            legacy = self.legacy_install(root)
+            marker = legacy / "package-manifest.json"
+            manifest = json.loads(marker.read_text())
+            outside = legacy.parent / "outside.txt"
+            outside.write_text("Unrelated content", encoding="utf-8")
+            manifest["files"]["../outside.txt"] = packager.digest(outside.read_bytes())
+            marker.write_text(json.dumps(manifest), encoding="utf-8")
+            with self.assertRaises(ValueError):
+                packager.install(package, root / "skills/palate", migrate_legacy=legacy)
+            self.assertEqual(outside.read_text(), "Unrelated content")
+            self.assertTrue(legacy.exists())
+
+    def test_migration_can_update_an_existing_unchanged_new_install(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            installed = root / "skills/palate"
+            packager.install(package, installed)
+            current_before = self.tree(installed)
+            legacy = self.legacy_install(root)
+            legacy_before = self.tree(legacy)
+            packager.install(package, installed, migrate_legacy=legacy)
+            self.assertEqual(self.tree(installed), current_before)
+            self.assertFalse(legacy.exists())
+            archives = root / ".palate-backups"
+            self.assertEqual(self.tree(next(archives.glob("*/palate"))), current_before)
+            self.assertEqual(self.tree(next(archives.glob("*/palate-by-sherry"))), legacy_before)
+
+    def test_migration_refuses_backup_collisions_before_moving_either_install(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            installed = root / "skills/palate"
+            packager.install(package, installed)
+            legacy = self.legacy_install(root)
+            backup = packager.snapshot_path(legacy, (legacy / "package-manifest.json").read_bytes())
+            backup.mkdir(parents=True)
+            (backup / "keep.txt").write_text("Existing archive", encoding="utf-8")
+            new_before, old_before = self.tree(installed), self.tree(legacy)
+            with self.assertRaisesRegex(ValueError, "Previous snapshot"):
+                packager.install(package, installed, migrate_legacy=legacy)
+            self.assertEqual(self.tree(installed), new_before)
+            self.assertEqual(self.tree(legacy), old_before)
+            self.assertEqual((backup / "keep.txt").read_text(), "Existing archive")
+
+    def test_failed_new_install_rolls_back_both_managed_directories(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            packager.build(package)
+            installed = root / "skills/palate"
+            packager.install(package, installed)
+            legacy = self.legacy_install(root)
+            new_before, old_before = self.tree(installed), self.tree(legacy)
+            original_rename = Path.rename
+
+            def fail_staged_rename(path, target):
+                if path.parent.name.startswith("palate-stage-") and path.name == "palate":
+                    raise OSError("Synthetic install failure")
+                return original_rename(path, target)
+
+            with patch.object(Path, "rename", fail_staged_rename):
+                with self.assertRaisesRegex(OSError, "Synthetic install failure"):
+                    packager.install(package, installed, migrate_legacy=legacy)
+            self.assertEqual(self.tree(installed), new_before)
+            self.assertEqual(self.tree(legacy), old_before)
+
+    def test_cli_explicit_migration_reports_the_preserved_archive(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            installed = root / "skills/palate"
+            legacy = self.legacy_install(root)
+            completed = subprocess.run(
+                [sys.executable, str(ROOT / "scripts/package_skill.py"), "--output", str(package),
+                 "--install", str(installed), "--migrate-legacy", str(legacy)],
+                capture_output=True, text=True,
+            )
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            result = json.loads(completed.stdout)
+            self.assertEqual(Path(result["installed"]), installed)
+            self.assertTrue(Path(result["legacy_archived"]).is_dir())
+            self.assertFalse(Path(result["legacy_archived"]).is_relative_to(installed.parent))
+            self.assertFalse(legacy.exists())
+
+    def test_cli_migration_requires_an_install_target_before_building(self):
+        with tempfile.TemporaryDirectory(dir=TEST_TEMP) as temp:
+            root = Path(temp)
+            package = root / "skill.zip"
+            completed = subprocess.run(
+                [sys.executable, str(ROOT / "scripts/package_skill.py"), "--output", str(package),
+                 "--migrate-legacy", str(root / "skills/palate-by-sherry")],
+                capture_output=True, text=True,
+            )
+            self.assertEqual(completed.returncode, 2)
+            self.assertIn("requires --install", completed.stderr)
+            self.assertFalse(package.exists())
 
 
 if __name__ == "__main__":

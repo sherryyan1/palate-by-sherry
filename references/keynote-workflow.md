@@ -1,6 +1,6 @@
-# Keynote format handoff for palate.
+# Keynote format handoff for palate
 
-palate. uses the same intake, design decisions and scientific fidelity rules for PowerPoint and Keynote. The executable adapter edits compatible PPTX objects. Keynote sources enter through a verified export, and native Keynote delivery requires an actual Keynote runtime. There is no native `.key` editor or transformer in this package.
+palate uses the same intake, design decisions and scientific fidelity rules for PowerPoint and Keynote. The executable adapter edits compatible PPTX objects. Keynote sources enter through a verified export, and native Keynote delivery requires an actual Keynote runtime. There is no native `.key` editor or transformer in this package.
 
 ## Inspect and choose a route
 

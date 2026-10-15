@@ -161,4 +161,4 @@ if __name__ == "__main__":
         main()
     except (ValueError, OSError) as error:
         parser_error = str(error)
-        raise SystemExit(f"palate. intake: {parser_error}")
+        raise SystemExit(f"palate intake: {parser_error}")

@@ -461,7 +461,7 @@ def finalize(source, candidate, plan, review, output, report):
         status = ", ".join(f"{r} ({library[r]['status']})" for r in op["rule_ids"]) or "task-specific"
         reason = op["reason"].replace("|", "/").replace("\n", " ")
         rows.append(f"| {op['slide']} | {op.get('shape_id', 'background')} | {op['action']} | {status} | {reason} |")
-    text = "# palate. by Sherry — Transformation report\n\n" + \
+    text = "# palate by Sherry — Transformation report\n\n" + \
         f"Source: `{Path(source).name}`; SHA-256 `{result['source_sha256']}`.\n\n" + \
         f"Output: `{Path(output).name}`; SHA-256 `{result['final_sha256']}`.\n\n" + \
         f"Context: {json.dumps(result['context'], ensure_ascii=False)}\n\n" + \
@@ -518,5 +518,5 @@ if __name__ == "__main__":
     try:
         main()
     except (ValueError, OSError, KeyError, zipfile.BadZipFile, E.XMLSyntaxError) as exc:
-        print(f"palate. {exc}", file=sys.stderr)
+        print(f"palate: {exc}", file=sys.stderr)
         sys.exit(2)

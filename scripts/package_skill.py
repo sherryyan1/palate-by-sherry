@@ -7,7 +7,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import shutil
+import re
 import tempfile
 import zipfile
 
@@ -23,7 +23,8 @@ FILES = [
     "references/pptx-workflow.md", "references/scientific-fidelity.md",
     "references/style-adaptation.md",
 ]
-NAME = "palate-by-sherry"
+NAME = "palate"
+LEGACY_NAME = "palate-by-sherry"
 
 
 def digest(data):
@@ -44,10 +45,69 @@ def build(output):
     return manifest
 
 
-def install(package, destination):
-    destination = Path(destination).resolve()
+def linked(path):
+    return path.is_symlink() or (hasattr(path, "is_junction") and path.is_junction())
+
+
+def managed_snapshot(directory, expected_name):
+    """Verify the complete managed tree before moving or replacing it."""
+    marker = directory / "package-manifest.json"
+    if not directory.is_dir() or linked(directory) or not marker.is_file() or linked(marker):
+        raise ValueError("Existing Skill is unmanaged or linked; preserve it and choose another resolution")
+    marker_bytes = marker.read_bytes()
+    try:
+        manifest = json.loads(marker_bytes)
+        files = manifest["files"]
+        if manifest.get("name") != expected_name or manifest.get("schema_version") != 1 or not isinstance(files, dict) or not files:
+            raise ValueError("Unexpected installation manifest")
+        for name, checksum in files.items():
+            if (not isinstance(name, str) or not name or "\\" in name or ":" in name or
+                    Path(name).is_absolute() or any(part in {"", ".", ".."} for part in name.split("/")) or
+                    not (directory / name).resolve().is_relative_to(directory.resolve()) or
+                    not isinstance(checksum, str) or not re.fullmatch(r"[0-9a-f]{64}", checksum)):
+                raise ValueError("Unsafe installation manifest")
+        members = list(directory.rglob("*"))
+        if any(linked(member) for member in members):
+            raise ValueError("Linked installation members are unsupported")
+        existing = {member.relative_to(directory).as_posix() for member in members if member.is_file()}
+        if existing != set(files) | {"package-manifest.json"}:
+            raise ValueError("Installation has extra/changed managed files; preserve them")
+        if any(digest((directory / name).read_bytes()) != checksum for name, checksum in files.items()):
+            raise ValueError("Installation contains local edits; refusing to overwrite or migrate")
+    except (KeyError, TypeError, json.JSONDecodeError) as error:
+        raise ValueError("Invalid installation manifest; preserve the existing Skill") from error
+    return marker_bytes
+
+
+def snapshot_path(directory, marker_bytes):
+    # The archive is a sibling of the skills directory, outside skill discovery.
+    return directory.parent.parent / ".palate-backups" / digest(marker_bytes)[:12] / directory.name
+
+
+def prepare_archive(backup, discovery_root):
+    archive_root = discovery_root.parent / ".palate-backups"
+    if linked(archive_root) or linked(backup.parent) or linked(backup):
+        raise ValueError("Linked backup locations are unsupported")
+    if not backup.resolve().is_relative_to(archive_root.resolve()) or backup.resolve().is_relative_to(discovery_root.resolve()):
+        raise ValueError("Backup must remain outside the skills discovery directory")
+    if backup.exists():
+        raise ValueError("Previous snapshot exists; preserve it before the next update")
+
+
+def install(package, destination, migrate_legacy=None):
+    requested = Path(destination).absolute()
+    if linked(requested):
+        raise ValueError("Install destination must not be linked")
+    destination = requested.resolve()
     if destination.name != NAME or destination == ROOT.resolve() or destination in ROOT.resolve().parents:
-        raise ValueError("Install to a separate skills/palate-by-sherry directory")
+        raise ValueError("Install to a separate skills/palate directory")
+    legacy = destination.parent / LEGACY_NAME
+    if migrate_legacy is not None:
+        supplied = Path(migrate_legacy).absolute()
+        if supplied != legacy or linked(supplied):
+            raise ValueError("Legacy migration must name the exact sibling skills/palate-by-sherry directory")
+    elif legacy.exists():
+        raise ValueError("Legacy Skill exists; explicitly use --migrate-legacy to archive it outside discovery")
     with zipfile.ZipFile(package) as z:
         names = z.namelist()
         if len(names) != len(set(names)):
@@ -61,19 +121,15 @@ def install(package, destination):
         payload = {n: z.read(NAME + "/" + n) for n in FILES}
         if any(digest(data) != manifest["files"][n] for n, data in payload.items()):
             raise ValueError("Package hash mismatch")
+    snapshots = []
     if destination.exists():
-        marker = destination / "package-manifest.json"
-        if not marker.exists():
-            raise ValueError("Existing Skill is unmanaged; preserve it and choose another resolution")
-        old = json.loads(marker.read_text(encoding="utf-8"))
-        existing = {p.relative_to(destination).as_posix() for p in destination.rglob("*") if p.is_file()}
-        old_files = set(old.get("files", {}))
-        safe_paths = all(not Path(n).is_absolute() and ".." not in Path(n).parts and
-                         (destination / n).resolve().is_relative_to(destination) for n in old_files)
-        if old.get("name") != NAME or old.get("schema_version") != 1 or not safe_paths or existing != old_files | {"package-manifest.json"}:
-            raise ValueError("Installation has extra/changed managed files; preserve them")
-        if any(not (destination / n).exists() or digest((destination / n).read_bytes()) != h for n, h in old["files"].items()):
-            raise ValueError("Installation contains local edits; refusing to overwrite")
+        marker_bytes = managed_snapshot(destination, NAME)
+        snapshots.append((destination, snapshot_path(destination, marker_bytes), marker_bytes, NAME))
+    if migrate_legacy is not None:
+        marker_bytes = managed_snapshot(legacy, LEGACY_NAME)
+        snapshots.append((legacy, snapshot_path(legacy, marker_bytes), marker_bytes, LEGACY_NAME))
+    for _, backup, _, _ in snapshots:
+        prepare_archive(backup, destination.parent)
     destination.parent.mkdir(parents=True, exist_ok=True)
     # Stage and verify before replacing only this managed directory. No recursive delete.
     with tempfile.TemporaryDirectory(prefix="palate-stage-", dir=destination.parent) as temp:
@@ -84,21 +140,21 @@ def install(package, destination):
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
         (stage / "package-manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-        if destination.exists():
-            # Keep the prior installation as a recoverable sibling snapshot.
-            old_id = digest(marker.read_bytes())[:12]
-            backup = destination.parent / ".palate-backups" / old_id / NAME
-            if backup.exists():
-                raise ValueError("Previous snapshot exists; preserve it before the next update")
-            backup.parent.mkdir(parents=True, exist_ok=True)
-            destination.rename(backup)
-            try:
-                stage.rename(destination)
-            except Exception:
-                backup.rename(destination)
-                raise
-        else:
+        managed_snapshot(stage, NAME)
+        moved = []
+        try:
+            for original, backup, marker_bytes, expected_name in snapshots:
+                if managed_snapshot(original, expected_name) != marker_bytes:
+                    raise ValueError("Installation changed while staging; preserve it")
+                prepare_archive(backup, destination.parent)
+                backup.parent.mkdir(parents=True, exist_ok=True)
+                original.rename(backup)
+                moved.append((original, backup))
             stage.rename(destination)
+        except Exception:
+            for original, backup in reversed(moved):
+                backup.rename(original)
+            raise
     return str(destination)
 
 
@@ -106,11 +162,19 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
     parser.add_argument("--install")
+    parser.add_argument("--migrate-legacy", help="Explicitly archive the unchanged managed sibling skills/palate-by-sherry outside discovery")
     args = parser.parse_args()
+    if args.migrate_legacy and not args.install:
+        parser.error("--migrate-legacy requires --install")
     manifest = build(args.output)
-    installed = install(args.output, args.install) if args.install else None
+    legacy_backup = None
+    if args.migrate_legacy:
+        legacy = Path(args.migrate_legacy).resolve()
+        legacy_backup = snapshot_path(legacy, managed_snapshot(legacy, LEGACY_NAME))
+    installed = install(args.output, args.install, migrate_legacy=args.migrate_legacy) if args.install else None
     print(json.dumps({"package": str(Path(args.output).resolve()), "file_count": len(manifest["files"]),
-                      "bytes": Path(args.output).stat().st_size, "installed": installed}))
+                      "bytes": Path(args.output).stat().st_size, "installed": installed,
+                      "legacy_archived": str(legacy_backup) if legacy_backup else None}))
 
 
 if __name__ == "__main__":
