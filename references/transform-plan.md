@@ -81,7 +81,7 @@ The action limits determine when the plan must move to a native authoring workfl
 | Table geometry | Placement only. |
 | Text styling | Do not change math-bearing objects. Uniform styling must preserve meaningful emphasis. |
 
-Within this contract, text, image bytes and crops, chart data and style parts, workbook formulas, captions, notes, equations, layouts, masters and relationships are immutable. That boundary makes preservation verifiable. Summarizing, splitting, rebuilding and chart-internal styling require the authoring path and content ledger described in [scientific fidelity](scientific-fidelity.md).
+Within this contract, text, image bytes and crops, chart data and style parts, workbook formulas, captions, notes, equations, layouts, masters and relationships are immutable. That boundary makes preservation verifiable. The helper cannot translate or rewrite text; `text_style` cannot carry replacement wording. Translation, summarizing, splitting, rebuilding and chart-internal styling require the authoring path and private content ledger described in [scientific fidelity](scientific-fidelity.md), including its [translation preflight and review](scientific-fidelity.md#scientific-translation) when applicable. Keep language and glossary decisions in that ledger rather than extending this plan schema.
 
 ## Review and finalization
 

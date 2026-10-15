@@ -10,6 +10,18 @@ Use concrete decisions to express the style. For example, explain why an assumpt
 
 Choose familiar words and state the action or decision directly. Write for an international research audience: explain when to provide information and how much technical detail to include, rather than relying on idioms or abstract shorthand. Preserve precise scientific terms and explain unfamiliar terms where readers first need them.
 
+## Write READMEs for researchers
+
+**Don't describe what needs to happen. Explain what palate does for the user.** Review each section from the perspective of a researcher deciding whether and how to use the skill.
+
+| Reader's question | Explain |
+| :--- | :--- |
+| What can palate do for me? | The useful action and its practical value, within the available tools' capabilities. |
+| When do I need to provide input? | The decision or missing access, when it matters and why palate asks. |
+| What will I receive? | The deliverable, checks actually completed and any limit that affects use. |
+
+Make palate the subject when it performs an action. If a step depends on the user's files, terminology decision or access to an application, explain that dependency directly. Keep essential prerequisites and limitations visible, while moving internal mechanics to the relevant technical guide. Preserve passages that already answer the reader's questions; this principle calls for targeted edits, not a new voice or a complete rewrite. Never turn a required but unavailable check into a claim that palate has completed it.
+
 ## Match the form to the information
 
 | Information | Suitable form | Purpose |

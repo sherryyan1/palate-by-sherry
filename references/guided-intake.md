@@ -23,9 +23,9 @@ Use the polish request as the purpose unless a narrower goal has been supplied. 
 
 ## Language choices
 
-The README version, conversation language and slide language serve different purposes. Reuse an explicit presentation-language request independently of the language used for the conversation or documentation. Preserve the source language when no change is requested; when the intended language is ambiguous, clarify it before rewriting. This keeps a Korean discussion of an English conference presentation from silently becoming a Korean slide deck.
+The README version, conversation language and slide language serve different purposes. Reuse an explicit presentation-language request independently of the language used for the conversation or documentation. Preserve the source language when no change is requested. For a requested translation, follow the [scientific translation preflight](scientific-fidelity.md#scientific-translation), resolving an unclear target before rewriting and reusing confirmed terminology decisions. This keeps a Korean discussion of an English conference presentation from silently becoming a Korean slide deck.
 
-Record language preferences in the private brief alongside the helper's audience, time and depth context. The choice helper does not accept extra language fields in its state or `--known` input. Translation is content-changing work, so use the native authoring path and review its scientific meaning against the source as described in [scientific fidelity](scientific-fidelity.md).
+Record the requested target and terminology decisions in the private content ledger alongside the brief. The choice helper does not accept extra language fields in its state or `--known` input. Its `ready` status settles audience, time and depth; it does not resolve translation questions or authorize rewriting while required language answers are pending. Translation uses the content-changing authoring and review path in [scientific fidelity](scientific-fidelity.md).
 
 ## Presenting the questions
 
@@ -59,4 +59,4 @@ python scripts/guided_intake.py next build/intake-02.json
 | Custom audience | Use `audience` and, where supplied, `audience_expertise`. |
 | Monthly single-page update | Return the out-of-scope route for this multi-slide skill. |
 
-Once the brief is resolved, state the audience, time and depth briefly and begin the requested design work without another approval step. The [design system](design-system.md) and [scientific fidelity](scientific-fidelity.md) guide the choices that follow; the brief provides their context rather than selecting a fixed template.
+Once the brief and any required translation clarifications are resolved, state the audience, time and depth briefly and begin the requested design work without another approval step. The [design system](design-system.md) and [scientific fidelity](scientific-fidelity.md) guide the choices that follow; the brief provides their context rather than selecting a fixed template.

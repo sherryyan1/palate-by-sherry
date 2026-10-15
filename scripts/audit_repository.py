@@ -29,6 +29,7 @@ REVIEWED_README_ICON_ASSETS = frozenset({
 RESEARCH_SUFFIXES = {".pptx", ".ppt", ".key", ".pdf", ".xlsx", ".csv", ".tsv", ".parquet", ".png", ".zip"}
 PRIVATE_FIELDS = {"confirmation", "revision_history", "name_zh", "render_path"}
 LOCALIZED_READMES = frozenset({"README.zh-CN.md", "README.ja.md", "README.ko.md"})
+README_LANGUAGE_NAMES = "**English, \u7b80\u4f53\u4e2d\u6587, \u65e5\u672c\u8a9e, and \ud55c\uad6d\uc5b4**"
 LANGUAGE_NAVIGATION = (
     "<!-- language-navigation -->\n"
     '<p align="center">\n'
@@ -78,8 +79,8 @@ def audit(staged=False):
         checked += 1
         language_text = text
         if name == "README.md":
-            # Line endings do not widen the exact navigation-content exception.
-            language_text = text.replace("\r\n", "\n").replace(LANGUAGE_NAVIGATION, "", 1)
+            # Permit only the exact navigation and one approved language-name list.
+            language_text = text.replace("\r\n", "\n").replace(LANGUAGE_NAVIGATION, "", 1).replace(README_LANGUAGE_NAMES, "", 1)
         if name not in LOCALIZED_READMES and CJK.search(language_text):
             findings.append({"file": name, "issue": "non_English_script"})
         if any(pattern.search(text) for pattern in SECRETS):

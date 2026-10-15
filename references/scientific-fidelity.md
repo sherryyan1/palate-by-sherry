@@ -12,17 +12,19 @@ A retained raster figure keeps its original content, while its interior labels r
 
 Summarizing text, splitting slides, reconstructing figures and recoloring chart internals can change what the evidence communicates. These operations sit outside the conservative patcher's contract and require an appropriate native authoring tool.
 
-Translation also follows this path, even when the layout is retained. Confirm the requested slide language independently of the README and conversation, then trace source wording to the translated version. Review terminology, comparison baselines, negation, uncertainty and qualifications alongside numerical values, units, equations, labels, legends and references. Resolve ambiguous scientific terms against the source or with the owner; the preservation helper cannot rewrite or translate text.
+Translation also follows this path, even when the layout is retained. Complete the [scientific translation preflight](#scientific-translation) before rewriting and use its source-to-output checks during review. The preservation helper cannot rewrite or translate text.
 
 Before authoring, create a task-local ledger that traces each changed slide from its source to the proposed output:
 
 | Ledger field | Required record |
 | --- | --- |
 | Source identity | Original file hash, one-based slide and shape ID or figure/table/equation identity. |
-| Scientific content | Source statement; all numbers, units, axes and legends; uncertainty and qualifications. |
+| Scientific content | Source statement and protected content: numbers, units, axes, legends, equations, quantitative relationships, uncertainty, assumptions, limitations, caveats, claim strength, references, citations and identifiers. |
 | Destination | Output slide, object, notes or appendix, with the exact replacement statement. |
 | Reason and interpretation | Why the change is needed and the support for any interpretation. Distinguish an owner's approved correction from an agent's proposal. |
 | Editability and dependencies | Native editability before/after, workbook formulas, animation states and other relevant dependencies. |
+
+For translation, keep the target language, established terminology glossary and source-backed or user-confirmed interpretation decisions with this same private ledger. Link decisions to the affected source and destination objects so a confirmed choice can be applied consistently without adding fields to the intake helper or conservative plan schema.
 
 Capture the full caption and source detail before shortening anything. Then compare the proposed wording with the source for meaning, negation, comparison baseline, conditions, correlation or causation, and uncertainty. Matching numeric tokens cannot establish fidelity: the same numbers may have been attached to different quantities. Essential uncertainty and conditions must remain near the evidence even when a long derivation moves to notes or an appendix. A formula may be replaced only by an explanation whose equivalence has been verified; an intuitive paraphrase alone is insufficient.
 
@@ -35,6 +37,27 @@ Reconstruction needs checks matched to the object being rebuilt:
 | Equation | Retain a math object or another verified editable equation representation. |
 
 After authoring, use the available presentation finalizer to validate the package and independently compare the ledger with output text, chart data, equations, notes and references. Render and inspect every page to check how that content appears. The conservation validator enforces the preservation contract, so its failures cannot be ignored to approve a rebuild that follows a different contract.
+
+### Scientific translation
+
+Translation changes the expression of the research, so establish the following before rewriting any source text:
+
+1. Preserve the source language unless the user explicitly requests a language change, regardless of the README or conversation language. Reuse a supplied target. If translation is requested but its target is unclear, ask which language the output should use and wait for the actual answer before rewriting; neither elapsed time nor a completed audience brief supplies that answer.
+2. Inspect the source wording and research context, including relevant notes, captions, labels and equations, before choosing scientific terms. Use established terminology and the source's definitions to resolve clear cases without questioning ordinary terms. When multiple plausible interpretations remain and the choice could materially change scientific meaning, briefly explain the alternatives and their difference, ask the user to choose or clarify, and wait for the answer before applying that term. Record the confirmed choice in the ledger and reuse it throughout the output. Do not invent a specialist translation or silently select an unresolved interpretation. Independent source inventory and layout analysis may continue while the answer is pending.
+3. Confirm that an available authoring path can produce and inspect the requested editable output. If the source cannot be read reliably or no supported authoring/application path is available, explain the limit and obtain a supported editable source or arrange the required application handoff. A translation draft or plan does not establish that a translated presentation has been authored and checked.
+
+Before applying translated wording, record the source statements and protected content in the existing ledger. Preserve their scientific role as well as their surface form:
+
+| Protected content | Source-to-output check |
+| --- | --- |
+| Values, units and mathematics | Preserve numerical values, signs, units, equations, mathematical notation and variable identifiers. Keep each value attached to the same quantity; preserve ratios, baselines, thresholds and other quantitative relationships. |
+| Claims and qualifications | Preserve negation, comparison direction, uncertainty, assumptions, limitations and caveats. Retain the source's claim strength and distinction between association and causation; a tentative finding must not become a demonstrated conclusion. |
+| Labels and terminology | Use the established glossary consistently across titles, text, tables, axes, legends, captions and notes within the translation scope. Keep translated labels attached to the same evidence, categories and scientific concepts. |
+| References and identity | Preserve references, citation markers and identifiers, including their association with the supported claim. Translate surrounding explanation without substituting a different source or changing an identifier. |
+
+After authoring, compare each translated source object with the actual output using the ledger, including notes and figure labels within scope. Check both extracted content and the rendered presentation: a preserved qualification can still be obscured by clipping or moved away from its evidence. Retained figures with untranslated interior labels need an explicit scope and editability limit; they must not be reported as fully translated figures.
+
+Scientific equivalence requires agent or disciplinary review of the source and translation. Matching numeric tokens, package validation and the authoring finalizer cannot certify it automatically. Report the target language, material terminology decisions, source-to-output checks actually performed, unresolved scientific uncertainty and checks that remain unrun. Do not report a completed translation review when required clarification, authoring or application inspection is still pending; use the candidate and delivery limits below.
 
 ## Review record and delivery
 

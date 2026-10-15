@@ -4,7 +4,8 @@ Validation asks three different questions: did the scientific content survive, c
 
 | Check | Coverage |
 | :--- | :--- |
-| Automated regression | 79 intake, format routing, OOXML, packaging and repository-audit tests |
+| Automated regression | 82 intake, format routing, OOXML, packaging and repository-audit tests |
+| Language decisions | Five independent instruction simulations, plus a terminology-confirmation follow-up |
 | End-to-end transformation | Two-slide native chart, table, text and process fixture |
 | Render review | Before/after PowerPoint exports, individually inspected |
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
@@ -30,6 +31,8 @@ Regression tests exercise the boundaries that keep a routine operation from sile
 | Repository audit | Narrow README language exceptions and an exact allowlist for reviewed icons; credentials, private materials, unexpected binaries and local links remain checked. Staged audits inspect the exact Git index. |
 
 The intake helper emits payloads for the available Codex question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
+
+The language simulations used synthetic slide excerpts to exercise source-language retention, separate conversation and presentation languages, clarification of a missing translation target, preservation of scientific content and clarification of a materially ambiguous term. A follow-up checked consistent reuse of the user's confirmed terminology. Source-to-draft review compared numerical values, units, equations and references alongside assumptions, uncertainty, qualifications and claim strength. These were instruction-following and text-review checks; they did not author or render a translated deck, test its native editability or certify the underlying science.
 
 Integration review follows the actual authoring and delivery sequence:
 

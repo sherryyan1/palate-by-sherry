@@ -67,6 +67,32 @@ class RepositoryAuditTests(unittest.TestCase):
         result, _ = self.fixture(files)
         self.assertEqual(result["status"], "passed", result)
 
+    def test_approved_language_names_are_allowed_in_the_english_readme(self):
+        for staged in (False, True):
+            for newline in ("\n", "\r\n"):
+                with self.subTest(staged=staged, newline=newline):
+                    files = self.readmes()
+                    files["README.md"] += "\nThis README is available in " + repository_audit.README_LANGUAGE_NAMES + ".\n"
+                    files["README.md"] = files["README.md"].replace("\n", newline)
+                    result, _ = self.fixture(files, staged=staged)
+                    self.assertEqual(result["status"], "passed", result)
+
+    def test_language_name_exception_rejects_extra_text_duplicates_and_other_paths(self):
+        names = repository_audit.README_LANGUAGE_NAMES
+        for text in (names + " \u79d1\u7814\u7b14\u8bb0", names + "\n" + names, names.replace("English", "English edition")):
+            with self.subTest(text=text):
+                result, _ = self.fixture({"README.md": text})
+                self.assertIn("non_English_script", self.issues(result, "README.md"))
+        for path in ("SKILL.md", "references/guide.md", "docs/README.md"):
+            with self.subTest(path=path):
+                result, _ = self.fixture({path: names})
+                self.assertIn("non_English_script", self.issues(result, path))
+
+    def test_language_name_exception_keeps_credentials_and_links_checked(self):
+        text = repository_audit.README_LANGUAGE_NAMES + "\n" + "ghp_" + "x" * 24 + '\n<a href="missing.md">Guide</a>\n'
+        result, _ = self.fixture({"README.md": text})
+        self.assertEqual(self.issues(result, "README.md"), {"credential_pattern", "untracked_or_missing_link"})
+
     def test_cjk_outside_canonical_navigation_is_rejected(self):
         files = self.readmes()
         files["README.md"] += "\n\u4e2d\u6587 outside the navigation.\n"

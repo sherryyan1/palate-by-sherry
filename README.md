@@ -41,11 +41,13 @@ Use palate to polish my slides.
 
 Start with this request, or tell palate who the audience is, how long the presentation will be and how much technical detail you want. palate uses the information you have already provided and asks only for missing details that affect the design. If you want palate to choose how much detail to include, it reviews your slides and considers the audience and time available. The [usage guide](docs/usage.md) explains how these choices guide the design.
 
-## <img src="assets/icons/languages.svg" width="22" height="22" align="bottom" alt="">&nbsp; Language choices
+## <img src="assets/icons/languages.svg" width="22" height="22" align="bottom" alt="">&nbsp; Languages
 
-You can read this README in Korean, discuss the brief in Korean and still ask for an English conference presentation. Those choices serve different purposes: documentation should be easy to read, while the slides should use the language your audience needs. palate preserves the source language unless you request a change, and clarifies an uncertain target before rewriting.
+This README is available in **English, 简体中文, 日本語, and 한국어**. You can switch languages using the links at the top of the page.
 
-Translation is a content revision. It requires an available native authoring workflow and scientific review to preserve terminology, numerical values, units and qualifications. The object-preservation helper adjusts existing objects; it does not translate their text.
+Your presentation stays in its original language unless you request a translation.
+
+If you do, palate will help translate the content while preserving numerical values, units, and scientific meaning. If a technical term has multiple possible translations, palate will ask you to clarify rather than guess.
 
 ## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; How it approaches the slides
 
@@ -73,24 +75,24 @@ Section arrows and part markers can help listeners follow a longer argument when
 
 <sub><em>What must the design preserve?</em></sub>
 
-palate preserves data, units, equations, labels, uncertainty, caveats and references. Existing native objects remain editable where the tools support them, and complex figures stay intact when reconstruction cannot be verified.
+palate preserves data, units, equations, labels, legends, uncertainty, caveats and references. Existing native objects remain editable where the tools support them, and complex figures stay intact when reconstruction cannot be verified.
 
 ### <img src="assets/icons/package-check.svg" width="22" height="22" align="top" alt="">&nbsp; What you get
 
-You receive a new editable deck and a concise report explaining the changes, the checks performed and any remaining limits. Content, editability and rendered appearance are reviewed separately.
+You receive a new editable deck and a concise report explaining the changes, checks completed and any remaining limits. palate checks content, editability and appearance separately. If it cannot complete a required check, it identifies the remaining work and marks the deck as a candidate.
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; Formats and requirements
 
-PowerPoint and Keynote use the same design principles, with different preparation and review requirements.
+palate applies the same design principles to PowerPoint and Keynote. The source format determines which files it needs and where it can complete the final review.
 
-| Source | Preparation | Final review |
+| Source | What palate does | When you need to help |
 | :--- | :--- | :--- |
-| PowerPoint | Inspect a compatible editable deck, preserving native objects or using native authoring for larger revisions. | Check content, appearance and editability in the delivery application. |
-| Keynote | Export a PowerPoint copy and PDF reference, then compare the export with the source before design. | Open and save the result in Keynote; check conversion, fonts, native editability and any playback. |
+| PowerPoint | Refines a compatible editable deck, preserves editable objects where supported and reviews the result against the source. | Provide a compatible editable copy if the source cannot be opened. If palate cannot access the delivery application, it guides you through the remaining checks. |
+| Keynote | Compares a PowerPoint export with the source and PDF reference before design, then polishes a new PowerPoint copy and guides the final Keynote review. | If palate cannot access Keynote on Mac, provide PowerPoint and PDF exports and complete the native save and review there. |
 
-The [Keynote workflow](references/keynote-workflow.md) explains the export and conversion checks. Windows can prepare the PowerPoint interchange deck. Native Keynote delivery requires Keynote on Mac, where the final deck must be saved and reviewed; that work remains pending until it has been performed there.
+On Windows, palate can prepare the PowerPoint copy but cannot edit a native `.key` file. If it cannot access Keynote on Mac, palate guides you through the exports and final save and review, and records any outstanding native Keynote steps in the report. The [Keynote workflow](references/keynote-workflow.md) explains these steps and the checks required before native Keynote delivery is complete.
 
-The bundled scripts require Python 3.11+, `lxml` and Pillow. Use an existing bundled runtime when available. The included Windows preview renderer requires Microsoft PowerPoint; new or rebuilt slides require an available native presentation authoring workflow.
+The bundled scripts require Python 3.11+, `lxml` and Pillow; palate uses an existing bundled runtime when available. Microsoft PowerPoint must be installed for the included Windows slide previews. Translating or rewriting text, creating slides and rebuilding editable objects require an available presentation editor; palate explains the delivery limits if that editor is unavailable.
 
 The original deck is preserved and output is saved to a new file. Research files remain local unless their upload is explicitly authorized. This skill covers multi-slide presentations; single-page monthly updates are outside its scope.
 
