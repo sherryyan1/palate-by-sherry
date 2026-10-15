@@ -22,7 +22,11 @@
 
 **palate** is a Codex skill that helps researchers turn complex work into presentations their audience can follow.
 
-Whether you're preparing a conference talk, a research meeting, or a tutorial, palate helps you decide what deserves attention, how to tell the story, and how to present the evidence. It adapts to your audience, purpose, and time available, while keeping your scientific meaning, data, and important caveats intact.
+**Start with the slides you already have.** Upload your PowerPoint, even if it's crowded, inconsistent, or still a work in progress. You don't need to redesign it first. That's what palate is here for.
+
+palate starts by understanding your audience, purpose, and time available. It then reorganizes your content into a clearer narrative, decides what deserves emphasis, and refines each slide so the evidence and reasoning are easier to follow. Whether you're preparing a conference talk, a research meeting, or a tutorial, the design adapts to your needs while preserving the scientific meaning of your work.
+
+You'll receive a **refined, editable PowerPoint** and a brief report of what changed, what was checked, and anything that still needs your attention.
 
 *A palate for ideas, a palette for slides.*
 
