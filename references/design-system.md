@@ -20,6 +20,12 @@ A layout earns its place by explaining the research. Comparisons need shared dim
 | Mechanism | Use labeled objects and meaningful connections. | Reconstruct only relationships that can be checked. |
 | Reference | Give citations and supporting detail enough space. | Keep sources readable and traceable. |
 
+## Space and hierarchy
+
+Use spacing to make the structure of the explanation visible. A figure and its interpretation need enough proximity to read as one group, while a separate argument needs a clearer interval. Establish those groups before choosing the margins and gaps, so the composition gives the evidence room without detaching its labels, units or qualifications.
+
+Typography and space work together. A large heading, a smaller explanation and the gap between them should establish their roles at a glance. Check the visible letterforms and objects in the rendered slide, since equal text-box coordinates can still look uneven. The [spacing and hierarchy guide](spacing-and-hierarchy.md) develops these judgments through external design references and their application to scientific slides. Keep the rhythm consistent across related pages, adjusting it when a different scientific relationship calls for another composition.
+
 ## Audience and depth
 
 Audience, time and purpose determine how far the explanation needs to develop. A tutorial may need to introduce a mechanism before showing its formal expression, while a specialist discussion may need assumptions and uncertainty close to the result. Use the brief to decide what listeners need during the talk and what they may need to inspect afterward.

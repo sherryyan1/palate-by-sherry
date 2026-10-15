@@ -177,6 +177,25 @@
         "The reader can follow how the explanation develops and why the design choice fits the content.",
         "Tables organize genuinely discrete information without fragmenting a continuous argument."
       ]
+    },
+    {
+      "id": "R013",
+      "name": "Space as structure",
+      "dimension": "spacing_and_hierarchy",
+      "status": "primary",
+      "trigger": "Composing or reviewing the hierarchy and spatial relationships of a slide.",
+      "decision": "Use proximity, distinct group intervals and surrounding space to express the reading order and relationships in the research.",
+      "execution": "Follow spacing-and-hierarchy.md. Judge typography, visible object edges, outer margins and repeated gaps together at the intended display size; adapt proportions to the actual canvas.",
+      "exceptions": [
+        "Dense technical evidence can require compact spacing while labels and scientific qualifications remain readable.",
+        "Mandatory layouts and comparison axes constrain rearrangement; preserve evidence associations and scales.",
+        "External brand ratios and UI spacing tokens are references, not universal slide presets."
+      ],
+      "validation": [
+        "Related evidence, labels, units and qualifications remain visibly associated.",
+        "Groups, hierarchy and reading order are clear without forcing all gaps to be equal.",
+        "Spacing remains coherent across related slides and readable at the intended display scale."
+      ]
     }
   ]
 }

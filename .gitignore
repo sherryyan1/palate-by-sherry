@@ -79,6 +79,8 @@ id_ed25519*
 *.svg
 !/docs/media/palate-light.svg
 !/docs/media/palate-dark.svg
+!/docs/media/palate-light-mobile.svg
+!/docs/media/palate-dark-mobile.svg
 *.mp4
 *.gif
 /output/

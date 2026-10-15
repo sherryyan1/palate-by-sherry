@@ -1,4 +1,6 @@
 <picture>
+  <source media="(prefers-color-scheme: dark) and (max-width: 640px)" srcset="docs/media/palate-dark-mobile.svg">
+  <source media="(max-width: 640px)" srcset="docs/media/palate-light-mobile.svg">
   <source media="(prefers-color-scheme: dark)" srcset="docs/media/palate-dark.svg">
   <img src="docs/media/palate-light.svg" alt="palate by Sherry — Good research deserves good taste." width="1200">
 </picture>
