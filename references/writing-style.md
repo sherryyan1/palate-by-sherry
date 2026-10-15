@@ -8,6 +8,8 @@ Build each paragraph around a question or judgment. Explain what the audience ne
 
 Use concrete decisions to express the style. For example, explain why an assumption belongs beside a result or why a comparison needs shared scales. Words such as clear, considered and intentional should describe an identifiable choice. Keep the voice professional and direct; do not invent first-person statements or beliefs on Sherry's behalf.
 
+Choose familiar words and state the action or decision directly. Write for an international research audience: explain when to provide information and how much technical detail to include, rather than relying on idioms or abstract shorthand. Preserve precise scientific terms and explain unfamiliar terms where readers first need them.
+
 ## Match the form to the information
 
 | Information | Suitable form | Purpose |

@@ -33,13 +33,13 @@ python -m pip install -r requirements.txt
 python scripts/package_skill.py --output dist/palate.zip --install "$env:USERPROFILE\.codex\skills\palate"
 ```
 
-Attach your slides and ask:
+Then, attach your slides and ask:
 
 ```text
 Use palate to polish my slides.
 ```
 
-You can provide a brief upfront or begin with this sentence. palate uses what you have already shared and asks for the context that would change the design; when you leave the depth open, it reviews your slides before deciding how much explanation the talk needs. The [usage guide](docs/usage.md) explains the choices that shape the brief.
+Start with this request, or tell palate who the audience is, how long the presentation will be and how much technical detail you want. palate uses the information you have already provided and asks only for missing details that affect the design. If you want palate to choose how much detail to include, it reviews your slides and considers the audience and time available. The [usage guide](docs/usage.md) explains how these choices guide the design.
 
 ## Language choices
 

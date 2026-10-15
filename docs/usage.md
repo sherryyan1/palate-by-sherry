@@ -57,7 +57,7 @@ The brief uses these choices to establish the setting and the level of explanati
 | Duration | Suggested times or custom minutes | Sets the pace and the amount of explanation that can be developed during the talk. |
 | Depth | Let palate choose, key takeaways, full technical detail | Determines how much derivation and supporting detail should be visible, while preserving the evidence needed for interpretation. |
 
-You can enter a custom answer or supply the whole brief upfront. When you choose "Let palate choose," the source, audience and available time guide the decision after inspection. Named [presentation contexts](../references/presentation-contexts.md) offer starting points, including suggested durations; your current instructions take precedence. Slide count and Q&A time are used only when supplied, and single-page monthly updates remain outside this workflow.
+You can write your own answer or provide all the presentation details in your first message. If you select "Let palate choose," palate reviews your slides and uses your audience and available time to decide how much detail to include. The [presentation contexts](../references/presentation-contexts.md) suggest starting points, including durations; your current instructions take precedence. Slide count and Q&A time are used only when supplied, and single-page monthly updates remain outside this workflow.
 
 The [runtime intake guide](../references/guided-intake.md) covers the host's question tools and how supplied answers are reused. You do not need to choose fonts, palettes or layouts before asking for a polish.
 
