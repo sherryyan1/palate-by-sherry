@@ -35,6 +35,8 @@ Before planning placement, record the symmetric work area and type roles from th
 
 Apply the [text-box and table defaults](design-system.md#text-boxes-and-tables) through native authoring when alignment or padding needs to change. The conservative helper cannot set those properties. Review vertical middle anchoring separately from horizontal alignment, keeping descriptive table text left and short entries, including numbers, centered unless explicitly instructed otherwise. Give substantial text a deliberate visual treatment while preserving its reasoning and qualifications, then check internal spacing and fit in PowerPoint.
 
+When tables are present, resolve the [two-color comparison](design-system.md#table-color-options) using the same representative content before applying final table colors. Use native authoring for table fills, borders or numeric-display changes beyond the helper's contract. Follow [numeric display](scientific-fidelity.md#numeric-display), preserving underlying values and formulas while reviewing grouped quantities, consistent comparable precision and necessary exceptions.
+
 ## Two implementation paths
 
 Choose the implementation from the change the slide needs:

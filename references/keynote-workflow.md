@@ -53,6 +53,8 @@ The adapter requires macOS, Keynote, `/usr/bin/osascript` and permission for the
 
 Use the shared [text-box and table guidance](design-system.md#text-boxes-and-tables): default to vertical middle anchoring, left-align descriptive table text and horizontally center short entries such as numbers. Right alignment requires an explicit instruction. Give substantial text a deliberate visual treatment and readable hierarchy. The bounded adapter cannot change anchoring, paragraph alignment, table-cell alignment or padding; use controlled native Keynote authoring for those changes and inspect both the actual properties and rendered fit. An unavailable native workflow leaves these changes pending.
 
+For a deck with tables, offer the [Nature-inspired and deck-matched color comparison](design-system.md#table-color-options) using identical representative content, then reuse the resolved choice. Table fills, borders, corner treatments and numeric-display changes need suitable controlled native authoring; they are outside the bounded adapter. Apply the shared [numeric display](scientific-fidelity.md#numeric-display) rules, preserving raw values and formulas and separately reviewing their display. Native Keynote work remains pending when Mac application access is unavailable.
+
 A native PDF export supplies visual evidence. Inspect its actual coverage: include skipped slides and notes where needed and obtain build-stage exports or playback evidence separately. Apple documents PDF settings for presenter notes, skipped slides and individual build stages; one PDF page does not always correspond to one source slide. ([Apple export guide](https://support.apple.com/guide/keynote/export-to-powerpoint-or-another-file-format-tana0d19882a/mac))
 
 ## Native adapter contract

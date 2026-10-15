@@ -80,6 +80,36 @@ Apply the table choices consistently to comparable entries, including headers ac
 
 Substantial text needs a visible design treatment that gives the explanation a clear entry and internal hierarchy. Depending on its role, use a concise heading with an accent rule, a restrained background treatment or clearly labeled groups with deliberate spacing. Choose the treatment to reveal the argument and its relationship to nearby evidence. Keep continuous reasoning in connected prose, retain scientific qualifications, and reserve enough space for the text to remain readable. Short labels and captions can remain plain.
 
+### Choosing a text-box treatment
+
+A light neutral fill can make a self-contained explanation easier to distinguish from neighboring evidence. Consider a pale gray panel with gently rounded corners when the text needs that enclosure, giving it comfortable internal space and a clear heading. Treat fill, corner shape, inset spacing and type hierarchy as one composition; the enclosure should clarify a group without crowding its content or competing with the figure.
+
+| Relationship to explain | Treatment to consider | Check |
+| :--- | :--- | :--- |
+| A self-contained rationale or interpretation beside evidence | Light gray fill with slight corner rounding; restrained outline if needed | The panel reads as one explanation and stays associated with its evidence. |
+| Several comparable explanations | Shared fill, corner treatment and insets, with aligned headings and gutters | Comparable roles are clear without forcing equal text lengths or reducing type size. |
+| A qualification or takeaway needs a distinct location | A shallow neutral or accent-tinted band, or a heading with an accent rule | Emphasis matches the statement's scientific role and strength. |
+| A label or caption belongs directly to a figure | No fill, or a fine separating rule where useful | The text remains visually attached to the figure. |
+
+Use a modest radius relative to panel height, preserve visible clearance around the text and keep the complete treatment inside the work area. On dark slides, choose a neutral tone that suits the background and preserves contrast. The [reference comparisons](spacing-and-hierarchy.md#design-references-and-their-limits) inform these choices; specific brand colors and shapes remain local examples. A panel can improve grouping, while headings and intervals still carry the explanation within it.
+
+### Table color options
+
+After inspecting a deck that contains tables, offer two color treatments using one representative table. Keep the content, layout, typography, numeric precision and emphasis targets identical in both previews so the choice concerns color. Use a native preview or a clearly identified design preview, and present the choices through the available question tool.
+
+| Option | Color treatment | What remains consistent |
+| :--- | :--- | :--- |
+| Nature-inspired | A restrained scientific palette: neutral cells, dark readable text and selective muted accents for headers or meaningful groups. Draw on research-figure hierarchy and accessibility principles. | Scientific category mappings, quantities, uncertainty and source precision. |
+| Deck-matched | Derive headers, light fills and accents from the deck's established colors; use a coherent light-to-dark hierarchy with readable contrast. | The deck's semantic color roles and the same scientific content. |
+
+Nature-inspired describes palate's adaptation of scientific color principles; choose the actual colors for the table and viewing conditions. Nature's [scientific illustration guide](https://www.nature.com/documents/Nature_scientific_illustration_author_guide.pdf) discusses color hierarchy and accessibility for conceptual figures. Its scope does not set a universal table palette, slide typography or slide-size specification.
+
+Ask only when a table is present and the current request has not already supplied or delegated the palette decision. Offer exactly these two preset choices, retaining any custom-answer facility supplied by the host. Wait for a submitted choice or explicit delegation before applying final table colors; continue independent content and layout work while it is pending. Reuse the choice for comparable tables in that deck. Keep it in the private design specification rather than adding unsupported fields to a helper schema.
+
+Color can encode a category, sign, threshold or magnitude. Preserve that mapping in both options, including heatmaps and significance markings; adjust nonsemantic headers, rules and neutral fills where necessary. Check contrast in light and dark slides, retain explicit labels, and preserve the existing alignment, 10.5 pt minimum and numeric-display rules.
+
+For an image-only table, first establish whether an editable reconstruction can be verified. A design preview does not establish native editability; retain the original or obtain a suitable source when reconstruction cannot preserve its evidence reliably, and state the remaining limit.
+
 ## 04 | Give color a consistent purpose
 
 Use teal for emphasis or a requested scientific palette for the distinctions the audience needs to follow. A restrained palette can make categories and relationships easier to track when each color has a consistent role across related slides. Support that role with labels, markers or line styles rather than relying on color alone.

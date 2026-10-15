@@ -23,6 +23,8 @@ When users select “Let palate choose,” inspect their slides before deciding 
 
 Use the polish request as the purpose unless a narrower goal has been supplied. Ask about a specific goal or subject familiarity when the answer would change a consequential design choice. Fonts, palettes and layouts are part of the design work; ordinary polishing should not require users to choose them in advance.
 
+Table colors have a separate choice after source inspection. When tables are present, follow the [two-option comparison](design-system.md#table-color-options): show Nature-inspired and deck-matched versions of the same representative table, keeping all other design and content decisions equal. Ask through the available question tool unless the current request already supplies or delegates that decision. Do not ask this question for a deck without tables or make it a required global brief field. A pending table choice holds final table coloring, while independent inspection and layout work can continue.
+
 ## Language choices
 
 The README version, conversation language and slide language serve different purposes. Reuse an explicit presentation-language request independently of the language used for the conversation or documentation. Preserve the source language when no change is requested. For a requested translation, follow the [scientific translation preflight](scientific-fidelity.md#scientific-translation), resolving an unclear target before rewriting and reusing confirmed terminology decisions. This keeps a Korean discussion of an English conference presentation from silently becoming a Korean slide deck.

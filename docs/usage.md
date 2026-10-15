@@ -39,6 +39,8 @@ The [runtime intake guide](../references/guided-intake.md) explains question ord
 
 **palate** first establishes what each slide contributes to the argument and where its evidence needs clearer explanation or placement. It inspects the source structure and rendered slides together, so the redesign can account for labels, notes, charts and other content that a text-only inspection may miss. If a source cannot be opened or a required application is unavailable, **palate** explains what file or review is needed before it can complete the task.
 
+If your slides contain tables, **palate** shows two color treatments of the same representative table: Nature-inspired and deck-matched. The content, layout and numeric precision stay the same so you can compare the colors directly. Choose one, supply a preference or ask **palate** to decide; it reuses that decision for comparable tables while preserving meaningful scientific color mappings. A deck without tables needs no table-color choice.
+
 ### Make the changes the content needs
 
 Composition follows the scientific relationship and the brief. **palate** records changes against the source and chooses an editing route that can preserve the objects and meaning involved:
@@ -50,6 +52,8 @@ Composition follows the scientific relationship and the brief. **palate** record
 | New diagrams, summaries, slide splits, changes inside charts or table resizing | Uses an available presentation authoring tool that supports native, editable objects and records how the revised content represents the source. |
 
 Grouped objects and animation states receive their own review. Translation and rewritten text also use the authoring path, with the [scientific translation safeguards](../references/scientific-fidelity.md#scientific-translation).
+
+**palate** also makes displayed quantities easier to compare with thousands separators and consistent decimal places where scientifically appropriate. It preserves underlying values and formulas, keeps years and identifiers intact, and retains the precision needed for small values, uncertainty and meaningful differences. The [numeric display guide](../references/scientific-fidelity.md#numeric-display) explains those exceptions and the checks behind them.
 
 The [design system](../references/design-system.md) explains why audience, evidence and scientific integrity guide these choices. The [PowerPoint plan contract](../references/transform-plan.md) and [Keynote workflow](../references/keynote-workflow.md) define their respective operations and checks; the [scientific fidelity guide](../references/scientific-fidelity.md) covers work that changes content. A supported native file format does not mean the included helper can perform every requested edit. If an appropriate authoring method is unavailable, **palate** identifies the blocked change rather than converting the deck without agreement.
 

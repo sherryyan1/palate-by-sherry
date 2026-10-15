@@ -42,6 +42,21 @@ Reconstruction needs checks matched to the object being rebuilt:
 
 After authoring, use the available presentation finalizer to validate the package and independently compare the ledger with output text, chart data, equations, notes and references. Render and inspect every page to check how that content appears. The conservation validator enforces the preservation contract, so its failures cannot be ignored to approve a rebuild that follows a different contract.
 
+### Numeric display
+
+Numeric formatting should make comparisons easier while preserving the source data, formulas and unrounded values. Treat the source value and its displayed string as separate records. Use native number formatting where the object supports it; when changing plain text, record the original string, numeric meaning, unit, chosen precision and replacement string in the private content ledger.
+
+| Decision | Default | Exceptions and checks |
+| :--- | :--- | :--- |
+| Thousands grouping | Use comma separators when a quantity's integer part has four or more digits: `1000` becomes `1,000`, and `12345.67` becomes `12,345.67`. Preserve signs and the fractional part. | Keep years, dates, identifiers, reference numbers, codes, versions and mathematical notation intact. Four digits after a decimal point do not trigger integer grouping. Respect an explicitly required locale convention. |
+| Decimal places | Use consistent decimal places for directly comparable values in the same table. One precision can serve a whole table of the same quantity and unit. | Mixed quantities or units can justify different precision by column or measurement. Keep counts integral and respect supported significant figures, measurement resolution and disciplinary conventions. |
+| Small values and uncertainty | Retain signs, inequalities, uncertainty, interval bounds, significance marks and missing-value meanings. Choose coherent precision for an estimate and its interval where scientifically appropriate. | Never round a small nonzero value or p value to an apparent zero, invent a threshold, or hide a meaningful difference. Retain appropriate scientific notation or source-supported precision. |
+| Rounding and trailing zeros | Base display precision on the source and the comparison the audience needs to make. | Preserve unrounded data; do not add zeros that imply unsupported measurement precision or change a conclusion, ordering or threshold interpretation. Record a justified exception when uniform decimals would mislead. |
+
+Review displayed quantities across text, tables, chart labels and notes within the task scope. This is a semantic formatting decision, not a global text replacement. Text within a retained image cannot be reformatted automatically; use a verified reconstruction or retain and disclose the remaining formatting limit.
+
+Changing a numeric string or a chart's display format follows the authoring path, because the bounded preservation helper keeps text and chart parts immutable. Compare source values and formulas separately from display strings, then inspect the actual output for units, rounding, missing values, interpretation and fit. Formatting consistency does not certify scientific equivalence.
+
 ### Scientific translation
 
 Translation changes the expression of the research, so establish the following before rewriting any source text:

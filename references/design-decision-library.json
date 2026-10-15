@@ -270,6 +270,63 @@
         "The treatment supports the scientific reading order without obscuring evidence, adding unsupported meaning or losing qualifications.",
         "Text and its treatment remain within the work area, with the required size floor and comfortable internal spacing."
       ]
+    },
+    {
+      "id": "R018",
+      "name": "Soft neutral panels for contained explanations",
+      "dimension": "text_container_design",
+      "status": "contextual",
+      "trigger": "A self-contained explanation needs a visible boundary or separation from neighboring evidence.",
+      "decision": "Consider a light gray fill with gentle corner rounding when it clarifies the explanation's grouping.",
+      "execution": "Evaluate fill, corner shape, insets, heading hierarchy and surrounding space together using design-system.md#choosing-a-text-box-treatment. Keep shared treatments coherent across comparable blocks, preserve evidence associations and use appropriate native authoring for changes outside a helper's operation set.",
+      "exceptions": [
+        "Labels and captions may communicate their association more clearly without a filled enclosure.",
+        "Dark backgrounds need an appropriate neutral tone and checked contrast.",
+        "External consulting examples inform grouping decisions without prescribing a universal corner shape or brand palette."
+      ],
+      "validation": [
+        "The treatment creates a meaningful group without crowding the text or competing with the evidence.",
+        "Internal clearance, vertical middle anchoring, the type-size floor and the symmetric work area remain intact."
+      ]
+    },
+    {
+      "id": "R019",
+      "name": "Two table-color choices after inspection",
+      "dimension": "table_color",
+      "status": "primary",
+      "trigger": "The deck contains tables and the current table-palette decision is unresolved.",
+      "decision": "Offer Nature-inspired and deck-matched color treatments of the same representative table for the user to choose.",
+      "execution": "Follow design-system.md#table-color-options and guided-intake.md. Keep content, layout, fonts, numeric precision and emphasis targets identical in both previews. Present exactly two preset choices through the available tool and wait for a submitted choice or explicit delegation before final table coloring. Record and reuse the resolved choice privately for comparable tables.",
+      "exceptions": [
+        "Reuse an explicit current choice or delegation; do not ask for a deck without tables.",
+        "Existing scientific category, heatmap, sign and significance mappings remain protected in both options.",
+        "A mandatory template can constrain the permitted color changes; a design preview does not establish native editability."
+      ],
+      "validation": [
+        "The alternatives differ in color treatment while their scientific content and other design decisions match.",
+        "The final table palette follows the actual resolved choice rather than a preselection or elapsed time.",
+        "Contrast, labels, semantic colors and the established alignment and size rules remain sound."
+      ]
+    },
+    {
+      "id": "R020",
+      "name": "Readable quantities and consistent table precision",
+      "dimension": "numeric_display",
+      "status": "primary",
+      "trigger": "Formatting displayed quantities in slide text, tables or chart labels.",
+      "decision": "Group quantity values with four or more integer digits and keep decimal places consistent for comparable values in a table.",
+      "execution": "Follow scientific-fidelity.md#numeric-display. Preserve raw values, formulas and unrounded data separately from display strings. Use comma grouping unless an explicit locale requires otherwise, choose a supported precision for comparable quantities and record meaningful exceptions. Changes beyond the bounded helpers require native authoring and source-to-display review.",
+      "exceptions": [
+        "Years, dates, identifiers, references, codes, versions and mathematical notation retain their meaning and syntax.",
+        "Different units, quantity types, significant figures and measurement resolution can justify different precision within a table.",
+        "Small nonzero values, p values, uncertainty and thresholds need suitable source-supported notation; uniform decimals must not create false zeros or unsupported precision.",
+        "Retained image text needs verified reconstruction or an explicit remaining-formatting limit."
+      ],
+      "validation": [
+        "Grouping applies to quantities rather than a mechanical replacement of every four-digit token.",
+        "Comparable table values use a coherent display precision, with justified exceptions traceable to the source.",
+        "Displayed signs, units, inequalities, uncertainty and interpretations match the preserved raw values and formulas."
+      ]
     }
   ]
 }
