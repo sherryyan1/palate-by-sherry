@@ -360,8 +360,10 @@ def planned_inventory(source_hash, inventory, plan):
                 raise ValueError("Only native font size, family and color styling is supported")
             if not item["text"] or not item["uniform_style"] or re.search(r"[=∑∫√±^_]|\\(?:frac|sum|int|sqrt)", item["text"]):
                 raise ValueError("Mixed styles or math-bearing text require native authoring")
-            if "font_size_pt" in style and (type(style["font_size_pt"]) is not int or not 1 <= style["font_size_pt"] <= 512):
-                raise ValueError("Native font size must be an integer between 1 and 512 points")
+            if "font_size_pt" in style:
+                size = style["font_size_pt"]
+                if type(size) not in (int, float) or not 1 <= size <= 512 or not math.isfinite(size):
+                    raise ValueError("Native font size must be a finite number between 1 and 512 points")
             if "font_family" in style and (not isinstance(style["font_family"], str) or not style["font_family"].strip() or len(style["font_family"]) > 128 or any(ord(c) < 32 for c in style["font_family"])):
                 raise ValueError("Use a plain native font family name")
             if "color" in style and (not isinstance(style["color"], str) or not re.fullmatch(r"[0-9A-Fa-f]{6}", style["color"])):

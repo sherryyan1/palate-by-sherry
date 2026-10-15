@@ -164,9 +164,38 @@ class KeynoteNativeTests(unittest.TestCase):
             with self.assertRaises(ValueError): native.planned_inventory(self.digest, data, plan)
 
     def test_text_styles_use_bounded_types_and_plain_hex(self):
-        for style in ({"font_size_pt": 0}, {"font_size_pt": 2.5}, {"font_size_pt": True}, {"font_family": "Bad\nFont"}, {"color": "#217A80"}, {"bold": True}):
+        for style in ({"font_family": "Bad\nFont"}, {"color": "#217A80"}, {"bold": True}):
             plan = self.plan("text_style"); plan["operations"][0]["style"] = style
             with self.assertRaises(ValueError): native.planned_inventory(self.digest, inventory(), plan)
+
+    def test_font_size_refuses_nonfinite_nonnumeric_and_out_of_range_values(self):
+        for size in (0, -1, 0.5, 512.5, 10 ** 1000, True, False, "10.5", None,
+                     float("nan"), float("inf"), -float("inf")):
+            with self.subTest(size=repr(size)):
+                plan = self.plan("text_style")
+                plan["operations"][0]["style"] = {"font_size_pt": size}
+                with self.assertRaisesRegex(ValueError, "finite number between 1 and 512"):
+                    native.planned_inventory(self.digest, inventory(), plan)
+
+    def test_integer_and_fractional_font_sizes_survive_planned_inventory_roundtrip(self):
+        for size in (1, 1.0, 2.5, 10.5, 12, 16.0, 511.75, 512):
+            with self.subTest(size=size):
+                plan = self.plan("text_style")
+                plan["operations"][0]["style"] = {"font_size_pt": size}
+                source = inventory()
+                expected = native.planned_inventory(self.digest, source, plan)
+                actual = native.validate_inventory(json.loads(json.dumps(expected, allow_nan=False)))
+                self.assertEqual(actual["slides"][0]["text_items"][0]["style"]["font_size_pt"], size)
+                self.assertEqual(native.compare_inventory(expected, actual), [])
+                self.assertEqual(source, inventory())
+
+    def test_inventory_comparison_detects_rounded_fractional_font_size(self):
+        plan = self.plan("text_style")
+        plan["operations"][0]["style"] = {"font_size_pt": 10.5}
+        expected = native.planned_inventory(self.digest, inventory(), plan)
+        rounded = copy.deepcopy(expected)
+        rounded["slides"][0]["text_items"][0]["style"]["font_size_pt"] = 10
+        self.assertTrue(native.compare_inventory(expected, rounded))
 
     def test_source_review_requires_all_slides_actual_identity_and_evidence(self):
         for field, value in [("source_sha256", "0" * 64), ("reviewed_slides", []), ("reviewed_slides", [True]), ("reviewer", ""), ("evidence", []), ("target_safety_status", "pending")]:

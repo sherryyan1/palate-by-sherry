@@ -102,6 +102,24 @@ class PreserveTests(unittest.TestCase):
             self.write(path, changed)
             self.assertEqual(palate.validate(self.source, path, self.plan)["status"], "failed")
 
+    def test_fractional_size_and_fira_family_preserve_source_content(self):
+        self.plan["operations"] = [{
+            "slide": 1, "shape_id": 2, "action": "text_style",
+            "style": {"font_size_pt": 10.5, "font_family": "Fira Sans"},
+            "rule_ids": ["R014"], "reason": "Check fractional point sizes without changing evidence",
+        }]
+        candidate, parts = self.candidate()
+        self.assertEqual(palate.validate(self.source, candidate, self.plan)["status"], "passed")
+        tree = palate.xml(parts["ppt/slides/slide2.xml"])
+        props = tree.find(".//a:rPr", palate.NS)
+        self.assertEqual(props.get("sz"), "1050")
+        self.assertEqual(props.find("a:latin", palate.NS).get("typeface"), "Fira Sans")
+        original = palate.xml(self.parts["ppt/slides/slide2.xml"])
+        self.assertEqual(palate.text_of(tree), palate.text_of(original))
+        for name, data in self.parts.items():
+            if name != "ppt/slides/slide2.xml":
+                self.assertEqual(parts[name], data, name)
+
     def test_rejects_media_workbook_notes_and_chart_tampering(self):
         _, parts = self.candidate()
         for name in ("ppt/media/image1.png", "ppt/charts/chart1.xml", "ppt/embeddings/workbook.xlsx", "ppt/notesSlides/notesSlide2.xml"):

@@ -44,9 +44,25 @@ Hierarchy also helps listeners follow a longer explanation. Use meaningful secti
 
 ## 03 | Use space and typography to show relationships
 
-Group the scientific content before choosing margins and gaps. A figure and its interpretation need enough proximity to read together, while a separate argument needs a clearer interval. Space should give the evidence room without detaching its labels, units, legend or qualifications. Keep the rhythm coherent across related pages, adapting the composition when the scientific relationship changes.
+Define the work area before placing content. It is a rectangle centered on the slide, with equal left and right margins and equal top and bottom margins; horizontal and vertical margins need not be the same. Choose its dimensions for the actual canvas and record its bounds and units in the private design specification. A coordinate example such as horizontal and vertical half-extents does not prescribe the same physical size for every deck. Use matching master or layout guides where the native workflow supports them.
 
-Typography and space work together: heading scale, explanatory text and the interval between them should show their roles at a glance. Size text for the actual canvas and display conditions. When it overflows, reconsider the layout and explanation before reducing the type size. Preserve useful font pairings and embedded fonts, and check availability before choosing another family. A missing registry entry alone does not prove that a font has been substituted.
+Keep titles, section navigation, figures, labels, explanations, citations and footnotes inside this area. The slide number is the only foreground-content exception: place it outside the work area at the bottom right, using black on a light background and white on a dark one. A slide background may fill the canvas. Check the visible extent of grouped and rotated objects, connectors and text overflow, rather than only their unrotated frames.
+
+Within that boundary, group the scientific content before choosing gaps. A figure and its interpretation need enough proximity to read together, while a separate argument needs a clearer interval. Space should give the evidence room without detaching its labels, units, legend or qualifications. Keep the rhythm coherent across related pages, adapting the composition when the scientific relationship changes.
+
+Use the following type hierarchy when applying Sherry's style. The minimum is a requirement; the usual sizes are starting points that can increase for the content and viewing conditions.
+
+| Role | Typeface or size | Design intent |
+| :--- | :--- | :--- |
+| Slide title | Fira Sans family, usually Extra Condensed Bold | Retain a suitable variant from the approved reference; size the title for its role and available space. |
+| Prominent subheading | Usually 16 pt | Make a meaningful secondary level easy to identify. |
+| Body text | Fira Sans for Latin text, usually 12 pt | Keep the explanation readable without competing with the title. Use a suitable companion for other scripts. |
+| Footnote or minor supporting text | At least 10.5 pt | Reserve the smallest size for low-priority information. Essential qualifications remain prominent with their evidence. |
+| All displayed text | Never below 10.5 pt | Include editable table text, chart labels, legends, units and citations in the review. |
+
+Read actual text formatting as well as theme defaults: a deck can declare Arial in its theme while using Fira on its visible titles. Preserve useful body-font pairings, embedded fonts and the fonts needed for other scripts or mathematics. Verify availability and rendered glyphs before choosing a family; a missing registry entry alone does not establish substitution. Do not silently substitute Arial or Calibri for the intended title font, or assign Fira to text whose script it cannot render. When the intended font cannot be used, explain the limitation and resolve a suitable alternative before final delivery.
+
+Typography and space work together: heading scale, explanatory text and the interval between them should show their roles at a glance. Check effective sizes after inheritance, group scaling and automatic text fitting. When text overflows, rearrange, enlarge its space or split the explanation with a content ledger instead of shrinking it below the minimum. Text inside a retained image needs a separate legibility review at its final placed size; a native font-size check cannot certify it. Enlarge or reconstruct that evidence only when scientific fidelity can be verified, and keep an unresolved limitation explicit.
 
 Check visible letterforms, edges and baselines in the rendered slide. Equal text-box coordinates can look uneven because internal margins and glyph shapes differ. The [spacing and hierarchy guide](spacing-and-hierarchy.md) explains how to combine geometric alignment with optical judgment while preserving scientific associations and comparison scales.
 

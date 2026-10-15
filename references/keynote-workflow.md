@@ -62,7 +62,7 @@ A native PDF export supplies visual evidence. Inspect its actual coverage: inclu
 | Source identity | Bind the current source hash and the inspected inventory hash. A changed source needs fresh inspection and a new plan. |
 | Selector | One-based `slide`, `object_kind` (`text_item` or `shape`) and one-based `object_index` within that inspected kind/order. These are not persistent object IDs across document revisions. |
 | `geometry` | `bounds_points: [x, y, width, height]`. Text-item frames may move/resize; shapes may move without resizing custom diagrams. Keep the target inside the slide. |
-| `text_style` | Uniform `font_size_pt` as an integer, `font_family` or six-digit hex `color` without `#`, on supported native text only. Preserve meaningful emphasis, mathematics and scientific color encoding. |
+| `text_style` | Uniform `font_size_pt` as a finite number from 1 to 512 points, including fractional sizes such as `10.5`; `font_family` or six-digit hex `color` without `#`, on supported native text only. Preserve meaningful emphasis, mathematics and scientific color encoding. |
 | Design basis | Every operation needs `reason` and `rule_ids`; use an empty list for engineering or task-specific choices. |
 | Source review | A hash-bound record of all source slides, actual target-safety review, reviewer and evidence is required before applying changes. It records performed judgments; it does not automate them. |
 | Excluded operations | Text rewriting/translation, grouped or locked targets, styling mixed or math-bearing text, image reconstruction, chart-internal edits, table resizing and build changes need appropriate native authoring and separate review. |

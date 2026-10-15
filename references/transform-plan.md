@@ -14,6 +14,8 @@ python scripts/palate_pptx.py validate input.pptx build/candidate.pptx --plan bu
 
 Begin with `inspect` to identify the actual objects that a plan can address. It resolves slide order through relationships and reports stable native shape IDs, hidden and animated slides, chart/workbook parts, text, notes, direct styles and local bounds. Image resolution is included when Pillow is available. Read the rendered slides alongside this inventory: the helper neither resolves every inherited style nor interprets scientific meaning.
 
+The helper's numeric and geometry limits describe supported operations, not the full design standard. Record and review the [symmetric work area and type hierarchy](design-system.md#03--use-space-and-typography-to-show-relationships) separately: all foreground content belongs inside the work area except the bottom-right slide number, and displayed text must be at least 10.5 pt. Fractional point sizes are supported. The helper does not audit effective fonts, automatic text fitting, chart-interior labels or text inside images. Its `font_family` operation assigns one family to Latin, East Asian and complex-script declarations, so use native authoring when a target needs distinct script fonts or meaningful mixed styles.
+
 ## Plan JSON
 
 Create the plan from the inspected objects and resolved user context. The IDs below are illustrative and must be replaced with identities from the actual source. The full current source hash binds the plan to that file; a different revision needs a new inspection and plan. Use the following conventions consistently:

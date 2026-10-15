@@ -196,6 +196,44 @@
         "Groups, hierarchy and reading order are clear without forcing all gaps to be equal.",
         "Spacing remains coherent across related slides and readable at the intended display scale."
       ]
+    },
+    {
+      "id": "R014",
+      "name": "Fira typography and readable size hierarchy",
+      "dimension": "typography",
+      "status": "primary",
+      "trigger": "Applying Sherry's style to slide text or reviewing text legibility.",
+      "decision": "Use Fira Sans titles and a deliberate size hierarchy, with no displayed text below 10.5 pt.",
+      "execution": "Follow design-system.md: use a suitable Fira title variant, usually Extra Condensed Bold, and Fira Sans for Latin body text. Usually use 12 pt body text and 16 pt prominent subheadings, reserving 10.5 pt for minor information. Resolve actual fonts beyond theme defaults; check script coverage and effective sizes after fitting and scaling. Rearrange or split content rather than shrinking below the floor.",
+      "exceptions": [
+        "An explicit current typography requirement takes precedence over style defaults.",
+        "Other scripts and mathematics need suitable fonts and preserved notation; do not force an unsupported Fira substitution.",
+        "Raster labels need separate review at final placed size. Retain scientific fidelity and report an unresolved legibility limit instead of claiming a native-size pass."
+      ],
+      "validation": [
+        "Titles use the intended Fira family or an explicitly resolved alternative, without a silent Arial or Calibri substitution.",
+        "Native text, tables, chart labels, legends, units and footnotes meet the size floor after fitting and scaling.",
+        "The final render preserves readable evidence and scientific notation; image interiors are not certified by a text-style inventory."
+      ]
+    },
+    {
+      "id": "R015",
+      "name": "Symmetric work area and separate slide number",
+      "dimension": "layout_geometry",
+      "status": "primary",
+      "trigger": "Defining a slide master, laying out slide content or checking content boundaries.",
+      "decision": "Establish a centered rectangular work area before placement and keep all foreground content inside it except the slide number.",
+      "execution": "Record bounds and units for the actual canvas, with equal left/right and equal top/bottom margins. Include titles, navigation, figures, labels, explanations, citations and footnotes. Place the slide number outside the work area at the bottom right, black on light backgrounds and white on dark backgrounds. Use matching master or layout guides through a suitable native workflow.",
+      "exceptions": [
+        "Slide backgrounds may fill the canvas; they are not foreground content.",
+        "An explicit current mandatory template or requested layout takes precedence; explain a conflict rather than silently changing its boundaries.",
+        "A coordinate example does not establish universal dimensions across different canvases."
+      ],
+      "validation": [
+        "The private design specification records a symmetric work area that fits the actual slide.",
+        "Visible foreground extents, including groups, rotations, connectors and overflowing text, remain inside it.",
+        "The slide number is the only foreground exception and has the required bottom-right position and black or white color."
+      ]
     }
   ]
 }
