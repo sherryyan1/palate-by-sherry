@@ -37,6 +37,10 @@ The four README versions share one set of capabilities, requirements and scienti
 
 Keep the execution standard and detailed references in English so all entry points lead to the same design rules. Make clear that reading a localized README does not choose the language of the conversation or the presentation. Treat approved native-language wording as the source of truth and make only necessary corrections.
 
+Choose subjects and pronouns for the language being written. Chinese, Japanese and Korean often omit reader references where English uses direct second-person sentences. Omit a subject when the context supplies it naturally, using direct verbs and the language's usual topic structure and level of politeness. Replacing every Chinese reader reference with a more formal address, adding Japanese honorifics or introducing Korean audience labels can make the prose less natural.
+
+Keep responsibility explicit. Name **palate** or Codex when an omitted subject could leave the actor unclear, and state required files or actions directly. Retain a reader reference when it clarifies who must confirm a term or complete an application check. Judge the sentence and paragraph as a whole rather than applying a global replacement rule; literal request examples retain the speaker's intended perspective.
+
 Describe the presentation separately from its application or file format. Choose terminology for what the sentence actually describes:
 
 | Subject | Wording |
