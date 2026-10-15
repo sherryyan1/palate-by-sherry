@@ -43,4 +43,4 @@ Animation makes reading order depend on time as well as position. The conservati
 
 ## Deliverables and updates
 
-Return the editable deck and concise transformation report with the checks actually performed and any material limits. Keep source-specific evidence and detailed review artifacts local. When the skill itself changes, review tracked content and run relevant tests before sharing it. Push only an authorized branch and compare its remote SHA; rebuild and reinstall explicitly when runtime files change so Git, package and installed copy do not drift.
+Return the editable deck and concise transformation report with the checks actually performed and any material limits. Keep source-specific evidence and detailed review artifacts private within the authorized execution environment; follow the file-handling limits in [scientific fidelity](scientific-fidelity.md#review-record-and-delivery). When the skill itself changes, review tracked content and run relevant tests before sharing it. Push only an authorized branch and compare its remote SHA; rebuild and reinstall explicitly when runtime files change so Git, package and installed copy do not drift.

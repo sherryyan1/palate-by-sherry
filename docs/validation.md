@@ -5,7 +5,8 @@ Validation asks three different questions: did the scientific content survive, c
 | Check | Coverage |
 | :--- | :--- |
 | Automated regression | 82 intake, format routing, OOXML, packaging and repository-audit tests |
-| Language decisions | Five independent instruction simulations, plus a terminology-confirmation follow-up |
+| Language decisions | Seven independent instruction simulations, plus a terminology-confirmation follow-up |
+| Installation and discovery | Allowlisted package installed in a disposable Windows project and listed as enabled by Codex |
 | End-to-end transformation | Two-slide native chart, table, text and process fixture |
 | Render review | Before/after PowerPoint exports, individually inspected |
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
@@ -32,7 +33,9 @@ Regression tests exercise the boundaries that keep a routine operation from sile
 
 The intake helper emits payloads for the available Codex question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
 
-The language simulations used synthetic slide excerpts to exercise source-language retention, separate conversation and presentation languages, clarification of a missing translation target, preservation of scientific content and clarification of a materially ambiguous term. A follow-up checked consistent reuse of the user's confirmed terminology. Source-to-draft review compared numerical values, units, equations and references alongside assumptions, uncertainty, qualifications and claim strength. These were instruction-following and text-review checks; they did not author or render a translated deck, test its native editability or certify the underlying science.
+The language simulations used synthetic slide excerpts to exercise source-language retention, separate conversation and presentation languages, clarification of a missing translation target, preservation of scientific content and clarification of a materially ambiguous term. They also checked that clear statistical terms receive no unnecessary terminology question and that an unavailable native Keynote workflow is reported as pending. A follow-up checked consistent reuse of the user's confirmed terminology. Source-to-draft review compared numerical values, units, equations and references alongside assumptions, uncertainty, qualifications and claim strength. These were instruction-following and text-review checks; they did not author or render a translated deck, test its native editability or certify the underlying science.
+
+Installation checks built the current allowlisted package, compared every installed file with its manifest and confirmed actual enabled discovery through the local Codex skill-listing interface. An unchanged managed update retained its recoverable snapshot; modified and unmanaged installations were refused without altering them. The test used a disposable repository-scoped skill directory and did not replace a user's existing installation or invoke a model. It ran on Windows; macOS and Linux installation remain untested. The [installation guide](installation.md) explains the verified route and why a standard installer pointed at this repository's root is insufficient.
 
 Integration review follows the actual authoring and delivery sequence:
 

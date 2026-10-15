@@ -11,7 +11,7 @@ Deliver a new editable deck and a concise transformation report when redesign is
 
 ## Design judgment
 
-Read the [design system](references/design-system.md) and relevant [decision rules](references/design-decision-library.json) before choosing a layout. Primary rules establish the style direction, while contextual rules offer ways to explain a particular scientific relationship. Evaluate those choices against the content and brief, preserving each rule's exceptions. Reference material can inform how evidence is organized without requiring adoption of its full brand palette.
+Use [communication design](references/communication-design.md) to identify what the audience needs to understand, organize the explanation and make its reasoning visible. README navigation, icon choices and heading syntax do not prescribe slide layouts. Read the [design system](references/design-system.md) and relevant [decision rules](references/design-decision-library.json) before choosing a layout. Primary rules establish the style direction, while contextual rules offer ways to explain a particular scientific relationship. Evaluate those choices against the content and brief, preserving each rule's exceptions. Reference material can inform how evidence is organized without requiring adoption of its full brand palette.
 
 Treat [spacing and hierarchy](references/spacing-and-hierarchy.md) as part of the explanation. Establish groups and reading order before choosing gaps, then judge type scale, visible edges and outer margins together in the final render. Keep evidence associated with its labels and qualifications, and adapt spacing to the actual canvas and viewing conditions.
 
@@ -33,7 +33,7 @@ Keep README language, conversation language and presentation language independen
 
 Read [scientific fidelity](references/scientific-fidelity.md) before changing content. Preserve conclusions, data, units, labels, legends, uncertainty, caveats, equations and references, keeping essential qualifications visible with their evidence. Supplementary detail can move to notes or an appendix when its location remains traceable and the main explanation retains its meaning. Retain complex source figures when reconstruction cannot be verified.
 
-Review content, appearance and editability separately because a structurally intact file can still communicate the research incorrectly. Render and inspect every final slide in the delivery application, comparing changed slides with the source. Verify native text, tables, charts and diagrams remain editable; preserve chart workbooks and check fonts, equations, notes and hidden-slide behavior across conversion. Review changed animation states through playback. Finalize only after the appropriate reviews, including native Keynote inspection when that format is requested; an interchange-file check does not cover the later conversion.
+Review content, appearance and editability separately because a structurally intact file can still communicate the research incorrectly. Render and inspect every final slide in the delivery application, comparing changed slides with the source. Verify native text, tables, charts and diagrams remain editable; preserve chart workbooks and check fonts, equations, notes and hidden-slide behavior across conversion. Review changed animation states through playback. Finalize only after the appropriate reviews, including native Keynote inspection when that format is requested; an interchange-file check does not cover the later conversion. If an essential check cannot be completed, identify the limitation and treat any output as a candidate, with no claim that the unsupported review was performed.
 
 ## Runtime
 
@@ -48,4 +48,4 @@ Locate bundled runtimes with `load_workspace_dependencies` when available, then 
 
 The conservative helper preserves package parts and source content; it cannot translate or rewrite text. Animation edits, nested-group geometry, table resizing, changed text and rebuilt evidence use the dedicated authoring path, with a content ledger and review. Stale hashes, stretched figures and existing output paths are rejected. Do not bypass a rejected operation by deleting evidence or disabling checks.
 
-Keep research-bearing inputs, outputs, plans and review artifacts private. Skill invocation does not authorize uploading them. Use a new output file and state material limits that affect delivery.
+Keep research-bearing inputs, outputs, plans and review artifacts private within the user's authorized execution environment, which may be local or cloud-based. Do not publish them or transfer them to additional third-party services without explicit authorization. Use a new output file and state material limits that affect delivery.

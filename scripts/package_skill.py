@@ -23,6 +23,7 @@ FILES = [
     "references/pptx-workflow.md", "references/scientific-fidelity.md",
     "references/style-adaptation.md",
     "references/writing-style.md",
+    "references/communication-design.md",
     "references/spacing-and-hierarchy.md",
 ]
 NAME = "palate"

@@ -1,6 +1,6 @@
 # Design system
 
-A research slide should make it easy to follow an explanation and inspect the evidence behind it. Begin by identifying the relationship the audience needs to understand, then give that relationship a visible structure. The [decision rules](design-decision-library.json) provide the style direction and composition choices to use with the actual research and presentation brief.
+A research slide should make it easy to follow an explanation and inspect the evidence behind it. Begin by identifying the relationship the audience needs to understand, then give that relationship a visible structure. The [communication design guide](communication-design.md) explains how to choose the order and depth of that explanation. The [decision rules](design-decision-library.json) provide the style direction and composition choices to use with the actual research and presentation brief. Apply each within its trigger and exceptions; whitespace, accents and navigation should serve a relationship rather than appear on every page.
 
 ## Explanation and hierarchy
 
@@ -61,6 +61,6 @@ Check contrast, label legibility and legend consistency in the final render. A d
 
 ## Typography and written explanation
 
-Preserve useful font pairings and embedded fonts, and check availability before choosing another family. A missing registry entry alone does not prove that a font has been substituted. Size text for the actual canvas and display conditions. When it overflows, reconsider the layout and the explanation before reducing the type size.
+Size text for the actual canvas and display conditions. When it overflows, reconsider the layout and the explanation before reducing the type size. Preserve useful font pairings and embedded fonts, and check availability before choosing another family. A missing registry entry alone does not prove that a font has been substituted.
 
 Follow the [writing style](writing-style.md) for explanatory prose: develop a continuous argument in connected sentences, and use tables when the audience needs to compare discrete information. Keep technical detail visible where it supports inspection, with supplementary material traced to notes or an appendix. Topic-specific illustrations, such as a lightbulb for energy, are optional choices rather than brand requirements.

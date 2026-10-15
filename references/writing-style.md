@@ -1,6 +1,6 @@
 # Writing style
 
-Writing is part of the presentation's design: the order of the explanation should help the reader understand the research and the choices made around it. Concision comes from deciding what matters and expressing it precisely, with enough context to follow the reasoning.
+Writing is part of the presentation's design: the order of the explanation should help the reader understand the research and the choices made around it. The [communication design guide](communication-design.md) explains how to decide what matters, where it belongs and how much context the audience needs. This reference covers how to express those decisions.
 
 ## Develop the explanation
 
@@ -12,15 +12,7 @@ Choose familiar words and state the action or decision directly. Write for an in
 
 ## Write READMEs for researchers
 
-**Don't describe what needs to happen. Explain what palate does for the user.** Review each section from the perspective of a researcher deciding whether and how to use the skill.
-
-| Reader's question | Explain |
-| :--- | :--- |
-| What can palate do for me? | The useful action and its practical value, within the available tools' capabilities. |
-| When do I need to provide input? | The decision or missing access, when it matters and why palate asks. |
-| What will I receive? | The deliverable, checks actually completed and any limit that affects use. |
-
-Make palate the subject when it performs an action. If a step depends on the user's files, terminology decision or access to an application, explain that dependency directly. Keep essential prerequisites and limitations visible, while moving internal mechanics to the relevant technical guide. Preserve passages that already answer the reader's questions; this principle calls for targeted edits, not a new voice or a complete rewrite. Never turn a required but unavailable check into a claim that palate has completed it.
+Explain what **palate** does, when the user needs to contribute and what they receive. Keep essential conditions visible, and link to technical procedures rather than making readers learn the architecture before they can begin. The [communication design guide](communication-design.md) develops this reader journey and the judgment behind targeted edits; preserve passages that already serve their readers.
 
 ## Match the form to the information
 
@@ -43,4 +35,4 @@ On slides, match the amount of prose to the audience and time available. A conci
 
 The four README versions share one set of capabilities, requirements and scientific safeguards. Write each for researchers who use that language: choose familiar terminology, develop the explanation in a natural order and adapt examples where useful. Sentence-by-sentence matching is unnecessary, but a change of language must not introduce a different promise or omit a material limit.
 
-Keep the execution standard and detailed references in English so all entry points lead to the same design rules. Make clear that reading a localized README does not choose the language of the conversation or the presentation.
+Keep the execution standard and detailed references in English so all entry points lead to the same design rules. Make clear that reading a localized README does not choose the language of the conversation or the presentation. Use slides or slide deck for the material in English, and familiar software-neutral equivalents in localized prose; reserve PowerPoint and Keynote for application, compatibility and file-handling distinctions. Treat approved native-language wording as the source of truth and make only necessary corrections. Avoid em dashes and en dashes as prose separators, while preserving literal filenames, commands and scientific notation. Write the product name as **palate** in prose; leave code, paths and invocation syntax exact.
