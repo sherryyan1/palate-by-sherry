@@ -1,46 +1,44 @@
 # Design system
 
-Clear explanations, deliberate color and room for scientific evidence. Use the [decision rules](design-decision-library.json) with the content and presentation brief.
+A research slide should make it easy to follow an explanation and inspect the evidence behind it. Begin by identifying the relationship the audience needs to understand, then give that relationship a visible structure. The [decision rules](design-decision-library.json) provide the style direction and composition choices to use with the actual research and presentation brief.
 
-## Style direction
+## Explanation and hierarchy
 
-| Element | Design choice | Boundary |
-| :--- | :--- | :--- |
-| Explanation | Concise interpretation beside evidence | Keep essential caveats visible |
-| Navigation | Meaningful section arrows | Use actual sections, not decorative tabs |
-| Color | Teal with restrained scientific colors | Preserve category and legend mappings |
-| Part markers | Conceptual `(i/n)` titles | Count ideas, not pages |
-| Density | Match audience, time and depth | Keep technical detail traceable |
-| Diagrams | Crisp labels and intentional color | Reconstruct only verified relationships |
+Place a concise interpretation near the evidence it explains, so listeners can connect the finding with the figure while hearing the argument. Keep the qualifications needed to interpret that finding visible as well. A full caption or derivation belongs on the main slide when the audience needs to examine it during the talk; supporting detail can move to mapped notes or an appendix when its absence does not change the meaning.
+
+Hierarchy should show where to begin and how to proceed. In a longer talk, meaningful section arrows help listeners locate the current topic, while title markers such as `(1/3)` show progress through a concept. Count the parts of the explanation rather than the number of slides, and use navigation where it provides useful orientation.
 
 ## Composition follows the relationship
 
-| Slide purpose | Composition |
+A layout earns its place by explaining the research. Comparisons need shared dimensions so that differences can be assessed fairly; a method needs a sequence that connects its symbols, assumptions and steps. For mechanisms, spatial grouping and connections should reflect verified relationships in the source. These choices depend on the content, so retain a source layout when it already explains the material well.
+
+| Content | Design choice | Scientific condition |
+| :--- | :--- | :--- |
+| Result | Keep evidence beside its interpretation. | Preserve the finding's scope and uncertainty. |
+| Comparison | Align scales, labels and reading order. | Make unequal baselines or unmatched controls explicit. |
+| Method | Connect symbols, intuition and technical steps. | Retain the chain listeners need to verify. |
+| Mechanism | Use labeled objects and meaningful connections. | Reconstruct only relationships that can be checked. |
+| Reference | Give citations and supporting detail enough space. | Keep sources readable and traceable. |
+
+## Audience and depth
+
+Audience, time and purpose determine how far the explanation needs to develop. A tutorial may need to introduce a mechanism before showing its formal expression, while a specialist discussion may need assumptions and uncertainty close to the result. Use the brief to decide what listeners need during the talk and what they may need to inspect afterward.
+
+| Context | Emphasis to consider |
 | :--- | :--- |
-| Result | Evidence and its qualified explanation together |
-| Method | Symbols, intuition and a readable technical chain |
-| Comparison | Shared dimensions, scales and label conventions |
-| Mechanism | Native labeled objects with verified connections |
-| Section | Clear heading and restrained navigation |
-| Reference | Readable citations and checkable detail |
+| Internal tutorial | Build toward the learning objective through a guided explanation. |
+| Internal research | Make the question, method and evidence available for discussion. |
+| External experts | Explain the contribution through comparable evidence, assumptions and uncertainty. |
+| C-suite / executives | Connect supported implications to relevant decisions, evidence and risk. |
+| General audience | Introduce the concepts needed to understand the qualified finding. |
 
-These compositions are contextual choices. Select the one that explains the actual research; retain a useful source layout when appropriate.
+These priorities guide judgment within the brief. An expert audience may not need every derivation, and a short talk still needs the qualifications that make its result accurate. Financial or operational claims require source support; an audience category does not supply an ROI, a decision or a scientific conclusion. Likewise, duration alone does not determine slide count.
 
-## Audience priorities
+## Color
 
-| Audience | Foreground |
-| :--- | :--- |
-| Internal tutorial | Learning objective, mechanism and guided explanation |
-| Internal research | Research question, method, evidence and discussion |
-| External experts | Contribution, comparable evidence, assumptions and uncertainty |
-| C-suite / executives | Supported implications, decisions, evidence and risk |
-| General audience | Clear concepts, intuitive explanation and qualified findings |
+Use teal for emphasis and a restrained scientific palette for distinctions that the reader needs to follow. Give each color a consistent role across related slides, supported by labels, markers or line styles. Before changing a figure, inspect its legend and category mappings: those mappings carry meaning and take priority over a preferred palette.
 
-Use time, purpose and source content together. Executive talks retain scientific qualifications; financial or operational claims require source support. Expert talks need not display every derivation. Do not invent a fixed slide count, ROI, decision or scientific conclusion to fit an audience category.
-
-## Palette
-
-Operational defaults are adjustable to the brief. They are not a prescribed journal palette or a mandate to recolor scientific figures.
+The values below are adjustable working defaults. They do not prescribe a journal's palette or authorize recoloring scientific figures without checking the result.
 
 | Role | Hex |
 | :--- | :--- |
@@ -53,10 +51,10 @@ Operational defaults are adjustable to the brief. They are not a prescribed jour
 | Comparison ochre | `B77932` |
 | Comparison purple | `80669D` |
 
-Pair color with labels, markers or line styles. Audit legends before changing a mapping. Check contrast and readability in the final render.
+Check contrast, label legibility and legend consistency in the final render. A diagram also needs enough resolution to keep its relationships and labels readable; retain a complex source figure when reconstruction cannot be verified.
 
-## Typography and detail
+## Typography and written explanation
 
-Preserve useful font pairings and embedded fonts. Confirm availability before choosing another family; a missing registry entry alone does not prove substitution. Scale typography to the actual canvas and display conditions. Resolve overflow by reconsidering layout and explanation before shrinking text.
+Preserve useful font pairings and embedded fonts, and check availability before choosing another family. A missing registry entry alone does not prove that a font has been substituted. Size text for the actual canvas and display conditions. When it overflows, reconsider the layout and the explanation before reducing the type size.
 
-Keep technical detail visible when the audience needs to inspect it. Use mapped notes or an appendix for supporting material, while preserving qualifications needed to interpret the result. Topic-specific illustration, such as a lightbulb for energy, is optional rather than a brand requirement.
+Follow the [writing style](writing-style.md) for explanatory prose: develop a continuous argument in connected sentences, and use tables when the audience needs to compare discrete information. Keep technical detail visible where it supports inspection, with supplementary material traced to notes or an appendix. Topic-specific illustrations, such as a lightbulb for energy, are optional choices rather than brand requirements.

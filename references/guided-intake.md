@@ -1,33 +1,43 @@
 # Guided presentation intake
 
-A short request such as “Use palate to polish my slides” is sufficient to start. Match the skill without requiring a long brief or exact punctuation. Obtain the deck from supplied files/current workspace and identify its format with [presentation_route.py](../scripts/presentation_route.py). Ask for a missing file in ordinary chat when needed, not through a text-only choice tool. Follow the [Keynote route](keynote-workflow.md) for native Keynote input or delivery; reuse the same design brief across formats.
+The brief should settle the decisions that change how the research is explained. A request such as “Use palate to polish my slides” is enough to begin: use the supplied deck and context, then ask only for information that affects the audience's understanding. Users can leave visual choices and technical depth to palate.
 
-## Native choice cards
+Identify the supplied file with [presentation_route.py](../scripts/presentation_route.py). If the deck is missing, ask for it in ordinary chat because the choice tool accepts text rather than attachments. The [Keynote workflow](keynote-workflow.md) covers native Keynote sources and delivery; both formats use the same presentation brief.
 
-Use the host's available user-input tool. Prefer `request_user_input_async` when present: its `questions` entries take `title` and optional `options` strings. Each choice set represents one single-choice question; the host also permits a custom text answer. This is an in-chat selection card, not an operating-system modal created by the skill.
+## From the brief to a design decision
 
-Translate visible questions and labels into the user's language while preserving stable field values. Never add a redundant “Other” option when the host supplies custom input. A suggested/preselected option is not an answer until the user submits it. Do not infer answers from elapsed time. Wait for required input before the dependent transformation; source inventory and visual analysis can continue independently.
+Start with the setting because it provides context for the design decisions. On the external branch, establish the audience next so the explanation can account for what listeners know and what they need from the talk. Time and depth then help decide how much of the reasoning should unfold on the main slides. They can share a question-tool call because neither depends on the other's answer.
 
-If only `request_user_input` is available, respect its mode and option-count restrictions. Group a longer menu into follow-up choices when necessary. When neither tool is available, ask the same concise numbered choices in chat. Do not claim a popup was displayed when it was not.
-
-## Branches
-
-| Step | Choices | Skip when |
+| Question | Choices | Ask when |
 | :--- | :--- | :--- |
-| Setting | Internal tutorial, internal research, external | Already specified |
-| External audience | Experts, C-suite/executives, general audience | Audience already known; internal branch |
-| Duration | Profile default and common times; custom minutes | Time explicitly supplied |
-| Depth | Let palate choose, key takeaways, full technical detail | Depth or delegation already supplied |
+| Setting | Internal tutorial, internal research, external | The setting has not been supplied. |
+| External audience | Experts, C-suite/executives, general audience | The setting is external and the audience is unknown. |
+| Duration | Profile suggestion, common times or custom minutes | The request gives no explicit duration. |
+| Depth | Let palate choose, key takeaways, full technical detail | Neither a depth nor delegation has been supplied. |
 
-Ask the setting first. Ask external audience only after that branch is selected. Duration and depth are independent and can share one short question-tool call. Use named profile durations as suggested choices, not silently submitted answers. Preserve current-request overrides and custom audiences, times and explicit constraints. Do not identify an external expert talk as a seminar or a government project merely from its audience.
+Use [context profiles](presentation-contexts.json) to suggest a duration, while leaving the choice open until the user accepts it. Preserve explicit times, custom audiences and other constraints from the current request. An expert audience alone does not establish whether the event is a seminar or a government project briefing.
 
-When the user chooses “Let palate choose,” technical depth is delegated. Choose it from the actual source, audience, available time and purpose after inspection, and record the decision in the transformation context. Do not mechanically equate expertise with every equation or duration with slide count. Keep essential qualifications visible and retain supporting detail in a traced location.
+When users select “Let palate choose,” inspect their slides before deciding the depth and record that decision in the transformation context. Consider the reasoning listeners need to follow and the evidence they need to check within the available time. Keep essential qualifications beside the finding, and give supplementary detail a traceable place in notes or an appendix. Expertise does not require every equation to be displayed, just as duration does not imply a fixed slide count.
 
-Use the polish request as the purpose when no narrower purpose is supplied. Ask an additional goal/familiarity question only when it changes a consequential design decision. Do not ask users to select fonts, palettes or layouts before ordinary polishing.
+Use the polish request as the purpose unless a narrower goal has been supplied. Ask about a specific goal or subject familiarity when the answer would change a consequential design choice. Fonts, palettes and layouts are part of the design work; ordinary polishing should not require users to choose them in advance.
 
-## Router and state
+## Presenting the questions
 
-[guided_intake.py](../scripts/guided_intake.py) uses [choice configuration](guided-intake.json) and [context profiles](presentation-contexts.json). It returns stable question IDs, semantic option values and a ready-to-call async question payload. It does not call the UI itself; the agent invokes the available host tool. Task-local state is private and should be saved outside tracked paths.
+Use the host's available input tool to keep the brief easy to answer. Translate visible questions and labels into the user's language while retaining stable field values, so the selected context reaches the runtime unchanged.
+
+| Available tool | Presentation | Contract |
+| :--- | :--- | :--- |
+| `request_user_input_async` | In-chat choice cards, with a custom text answer | Prefer this tool when available. Each `questions` entry takes `title` and optional `options` strings; each set is single-choice. |
+| `request_user_input` | Choice cards within the host's limits | Respect its mode and option-count restrictions; divide longer menus into follow-up choices when needed. |
+| Neither | Concise numbered choices in chat | Ask for the same context without claiming that a popup was displayed. |
+
+These cards are supplied by the host, rather than an operating-system modal created by the skill. When the host provides custom input, use that facility instead of adding a redundant “Other” option.
+
+A suggested or preselected option becomes an answer only when the user submits it. Elapsed time does not supply consent or missing context. Wait for required answers before the dependent transformation, while continuing source inventory and visual analysis where those tasks are independent. Follow the [writing style](writing-style.md) when explaining the resulting design choices.
+
+## Runtime state
+
+[guided_intake.py](../scripts/guided_intake.py) reads the [choice configuration](guided-intake.json) and [context profiles](presentation-contexts.json), then returns question IDs, semantic option values and an async question payload. The agent calls the host tool; the helper itself does not display UI. Save task state outside tracked paths because it contains the presentation brief.
 
 ```text
 python scripts/guided_intake.py start --output build/intake-01.json
@@ -35,6 +45,12 @@ python scripts/guided_intake.py answer build/intake-01.json --field scenario --v
 python scripts/guided_intake.py next build/intake-02.json
 ```
 
-Map the actual selected label to its semantic value; normalize custom durations without changing the user's meaning. `--known` accepts a JSON object of fields already supplied in the request. Supplied information skips its question. A custom audience uses `audience`/`audience_expertise`; arbitrary numeric times are supported. Single-page monthly update profiles route out of scope.
+| Input | Handling |
+| :--- | :--- |
+| Selected label | Map the submitted label to its semantic value. |
+| Custom duration | Normalize the number without changing the requested time. |
+| `--known` | Supply a JSON object of existing brief fields to skip their questions. |
+| Custom audience | Use `audience` and, where supplied, `audience_expertise`. |
+| Monthly single-page update | Return the out-of-scope route for this multi-slide skill. |
 
-On completion, briefly state the resolved audience/time/depth and begin design. No extra approval is needed for the already requested polishing. Apply the [design system](design-system.md), audience priorities and [scientific fidelity](scientific-fidelity.md); the dialogue chooses the context, not a fixed template.
+Once the brief is resolved, state the audience, time and depth briefly and begin the requested design work without another approval step. The [design system](design-system.md) and [scientific fidelity](scientific-fidelity.md) guide the choices that follow; the brief provides their context rather than selecting a fixed template.

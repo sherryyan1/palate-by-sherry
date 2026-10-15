@@ -9,7 +9,7 @@
   <a href="docs/usage.md">Documentation</a>
 </p>
 
-**palate** is a Codex skill for refining research presentations in Sherry's style. It adapts structure, visual hierarchy and detail to the audience and time available, while preserving the scientific evidence.
+**palate** is a Codex skill for refining research presentations in Sherry's style. It shapes the explanation around the audience, purpose and time available, then arranges the slides so the evidence and reasoning are easy to follow. Throughout the redesign, it preserves the meaning and qualifications of the research.
 
 A palate for ideas, a palette for slides.
 
@@ -28,30 +28,30 @@ Attach your slides and ask:
 Use palate to polish my slides.
 ```
 
-palate asks for missing context through short choices: presentation setting, audience, duration and level of detail. You can provide a brief upfront or delegate the depth. Information already supplied is not asked again. Compatible Codex hosts display choice cards; other hosts use concise questions.
+You can provide a brief upfront or begin with this sentence. palate uses what you have already shared and asks for the context that would change the design; when you leave the depth open, it reviews your slides before deciding how much explanation the talk needs. The [usage guide](docs/usage.md) explains the choices that shape the brief.
 
-## What it does
+## How it approaches the slides
 
-- Improves reading order, spacing and the connection between evidence and explanation.
-- Preserves data, units, equations, labels, uncertainty, caveats and references.
-- Delivers a new editable deck and a concise report of changes, checks and any limits.
+The design begins with what listeners need to understand. A tutorial may need a mechanism explained in stages, while a research meeting may need methods and uncertainty visible for discussion. The time available determines how much of that explanation can be developed during the talk and which supporting material belongs in notes or an appendix. It does not determine a fixed slide count.
 
-The design uses clear hierarchy, teal accents and room for the evidence. Layouts follow the content: comparable scales for comparisons, a clear sequence for methods, and results presented with their interpretation. Section arrows and part markers help listeners follow longer arguments. Complex figures remain intact when reconstruction cannot be verified.
+Clear hierarchy, teal accents and space around the evidence help make those relationships readable. Comparable results use comparable scales; methods follow a clear sequence; findings stay close to the evidence and qualifications needed to interpret them. Section arrows and part markers can help listeners follow a longer argument when the content calls for them.
+
+palate preserves data, units, equations, labels, uncertainty, caveats and references. Existing native objects remain editable where the tools support them, and complex figures stay intact when reconstruction cannot be verified. The result is a new editable deck and a concise report explaining the changes, the checks performed and any remaining limits. Content, editability and rendered appearance are reviewed separately.
 
 ## Formats and requirements
 
-One design workflow serves both PowerPoint and Keynote. File handling follows the source format.
+PowerPoint and Keynote use the same design principles, with different preparation and review requirements.
 
-| Source | Workflow | Final review |
+| Source | Preparation | Final review |
 | :--- | :--- | :--- |
-| PowerPoint | Preserve native objects; use native authoring for larger revisions. | Check content, appearance and editability in the delivery application. |
-| Keynote | Export a PowerPoint copy, then use the shared design workflow. | Open the result in Keynote; check conversion, fonts, native objects and playback. |
+| PowerPoint | Inspect a compatible editable deck, preserving native objects or using native authoring for larger revisions. | Check content, appearance and editability in the delivery application. |
+| Keynote | Export a PowerPoint copy and PDF reference, then compare the export with the source before design. | Open and save the result in Keynote; check conversion, fonts, native editability and any playback. |
 
-The [format router](references/keynote-workflow.md) identifies compatible inputs and the next required step. Native Keynote delivery requires Keynote on Mac. Windows can prepare the interchange deck; Keynote review remains pending until performed there.
+The [Keynote workflow](references/keynote-workflow.md) explains the export and conversion checks. Windows can prepare the PowerPoint interchange deck. Native Keynote delivery requires Keynote on Mac, where the final deck must be saved and reviewed; that work remains pending until it has been performed there.
 
 The bundled scripts require Python 3.11+, `lxml` and Pillow. Use an existing bundled runtime when available. The included Windows preview renderer requires Microsoft PowerPoint; new or rebuilt slides require an available native presentation authoring workflow.
 
-Output is saved to a new file. Research files remain local unless their upload is explicitly authorized. Single-page monthly updates are outside this skill's scope.
+The original deck is preserved and output is saved to a new file. Research files remain local unless their upload is explicitly authorized. This skill covers multi-slide presentations; single-page monthly updates are outside its scope.
 
 ## Documentation
 

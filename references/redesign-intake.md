@@ -1,16 +1,18 @@
 # Presentation brief
 
-Use the request and [context profiles](presentation-contexts.json) before asking for information. Reuse known defaults; ask only missing fields that affect the design.
+The brief establishes what the audience needs to understand and what the presentation must help them do with the research. Use the current request, the supplied deck and any named [context profile](presentation-contexts.md) before asking for more information. A short polish request is enough to begin; ask only for missing context that could change a consequential design choice.
 
-For a short polish request, use the [guided choice workflow](guided-intake.md). Native question tools present missing fields as choice cards. Known profile durations are suggestions until accepted or overridden; current explicit durations skip the question. Users may delegate technical depth to palate. Inspect the source before resolving that delegation into the actual presentation design.
+Audience familiarity determines where explanation is needed. Listeners who know the field may still need an unfamiliar mechanism explained, while a research discussion may require methods and uncertainty to remain visible for scrutiny. Purpose determines which contribution, finding or decision should organize that explanation. When a narrower purpose has not been supplied, use the request to improve the research presentation rather than requiring an additional goal statement.
 
-| Field | Design consequence |
-| :--- | :--- |
-| Audience and familiarity | Vocabulary, definitions and conceptual support |
-| Available time | Pacing and depth of explanation |
-| Technical depth | Full derivation, guided steps or concise overview |
-| Purpose | The finding, mechanism or decision to foreground |
+| Brief field | What to establish | Design consequence |
+| :--- | :--- | :--- |
+| Audience and familiarity | Who will listen and what relevant concepts they already know | Choose terminology, definitions and the conceptual support needed to follow the evidence. |
+| Available time | The stated duration and any explicit Q&A allocation | Set the pace and decide how fully the explanation can develop during the talk. |
+| Technical depth | A concise overview, full technical detail or a decision delegated to palate | Decide which reasoning must be visible and which supporting material can be traced to notes or an appendix. |
+| Purpose | The finding, mechanism, discussion or decision the deck should support | Establish the central argument and the evidence that needs the most attention. |
 
-Honor supplied slide count, format and Q&A constraints. Do not calculate slide count from minutes or assume a time allocation. Determine whether listeners need to verify methods and results during the talk.
+Time and depth work together. A short talk needs an economical route through its main evidence, while a longer one can develop more of the reasoning. Neither duration nor expertise determines a slide count or requires every derivation to appear. Honor supplied slide count, format and Q&A constraints, and establish whether listeners need to verify methods and results during the talk. A profile duration is a suggestion to confirm when time is missing; explicit current instructions override it.
 
-Concise explanation preserves scientific meaning. Keep units, labels, uncertainty, comparisons, limitations and sources in the context needed to interpret the evidence.
+Users may delegate technical depth to palate. Resolve that choice after inspecting the source and the brief, then record the decision in the transformation context. Keep units, labels, uncertainty, comparisons, limitations and sources wherever they are needed to interpret the evidence. Moving supplementary detail is appropriate only when its connection to the source and the visible argument remains clear.
+
+Use the [guided intake reference](guided-intake.md) for question order, host interaction and answer handling. Reuse supplied answers and leave ordinary visual decisions to the skill. Single-page monthly updates are outside this multi-slide workflow.

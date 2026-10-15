@@ -160,6 +160,23 @@
       "validation": [
         "Labels are readable and scientific relationships remain correct."
       ]
+    },
+    {
+      "id": "R012",
+      "name": "Connected explanation and comparable information",
+      "dimension": "writing_style",
+      "status": "primary",
+      "trigger": "Drafting documentation, transformation reports or explanatory prose for a presentation.",
+      "decision": "Develop continuous reasoning in natural paragraphs; use tables for discrete information that benefits from shared comparison criteria.",
+      "execution": "Explain the design choice, its reason and any limiting condition. Follow writing-style.md; preserve sufficient context and exact scientific or technical qualifications.",
+      "exceptions": [
+        "Ordered procedures retain their sequence; commands and schemas retain literal syntax.",
+        "Labels, equations and slide text use the form and length appropriate to their purpose."
+      ],
+      "validation": [
+        "The reader can follow how the explanation develops and why the design choice fits the content.",
+        "Tables organize genuinely discrete information without fragmenting a continuous argument."
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Conservative transformation contract
 
-Run the scripts with the actual bundled Python path; below, `python` stands for that executable. Use quoted absolute paths on Windows. Plans, inspections and receipts contain research and stay in the private task build directory.
+The conservative helper applies a bounded set of changes to a known source, then checks that the result matches the plan. Run it with the actual bundled Python executable; `python` below stands for that path. On Windows, quote absolute paths so file selection is unambiguous. Plans, inspections and receipts can contain research, so keep them in the private task build directory.
 
 ```text
 python scripts/palate_pptx.py inspect input.pptx --output build/inspection.json
@@ -8,11 +8,18 @@ python scripts/palate_pptx.py apply input.pptx --plan build/plan.json --output b
 python scripts/palate_pptx.py validate input.pptx build/candidate.pptx --plan build/plan.json --receipt build/recheck.json
 ```
 
-`inspect` resolves slide order through relationships, reports stable native shape IDs, hidden/animated slides, chart/workbook parts, text, notes, direct styles, local bounds and image resolution when Pillow is available. It does not resolve all inherited styles or interpret scientific meaning. Read rendered slides alongside it.
+Begin with `inspect` to identify the actual objects that a plan can address. It resolves slide order through relationships and reports stable native shape IDs, hidden and animated slides, chart/workbook parts, text, notes, direct styles and local bounds. Image resolution is included when Pillow is available. Read the rendered slides alongside this inventory: the helper neither resolves every inherited style nor interprets scientific meaning.
 
 ## Plan JSON
 
-Create the plan from actual inspected objects and the user context, not the illustrative IDs below. Source SHA is the full hash of the current source. Color codes omit `#`; geometry uses inches regardless of original canvas dimensions; typography uses points. Keep output geometry inside the actual slide size.
+Create the plan from the inspected objects and resolved user context. The IDs below are illustrative and must be replaced with identities from the actual source. The full current source hash binds the plan to that file; a different revision needs a new inspection and plan. Use the following conventions consistently:
+
+| Value | Contract |
+| --- | --- |
+| Source SHA | Full hash of the current source. |
+| Color | Hex code without `#`. |
+| Geometry | Inches, regardless of the original canvas dimensions; output geometry must stay inside the actual slide size. |
+| Typography | Points. |
 
 ```json
 {
@@ -45,9 +52,17 @@ Create the plan from actual inspected objects and the user context, not the illu
 }
 ```
 
-Named profiles fill audience class and duration only when absent. Custom contexts need explicit `audience`, positive `duration_minutes`, `detail_level`, `purpose`. Do not pass null for a known default. Specific request overrides apply. Monthly update is rejected as outside this Skill's scope. Detail/purpose values in a test are test assumptions, not learned user preferences.
+Resolve the context before applying the plan. Profiles provide missing context while explicit requests retain precedence; the following conditions remain binding:
 
-Every operation needs `slide`, `action`, nonempty `reason`, `rule_ids` (empty for engineering/task-specific choices). `shape_id` is required except background. Reports identify primary or contextual rule IDs alongside each change. Supported actions:
+| Context condition | Required handling |
+| --- | --- |
+| Named profile | Fill audience class and duration only when absent. Apply specific request overrides. |
+| Custom context | Supply explicit `audience`, positive `duration_minutes`, `detail_level` and `purpose`. |
+| Known default | Omit the field when the default should apply; do not pass null. |
+| Monthly update | Reject it as outside this skill's scope. |
+| Test detail or purpose | Treat it as a test assumption, never as a learned user preference. |
+
+Each operation must identify `slide` and `action`, give a nonempty `reason`, and supply `rule_ids`; use an empty list for engineering or task-specific choices. `shape_id` is required for every action except `background`. Reports retain primary or contextual rule IDs beside each change so the design basis stays visible. The supported actions are:
 
 | Action | Fields | Scope |
 | --- | --- | --- |
@@ -57,15 +72,22 @@ Every operation needs `slide`, `action`, nonempty `reason`, `rule_ids` (empty fo
 | line | color, width_pt | Native line styling; retain arrowheads and dashes |
 | background | color | Per-slide background; retain source masters |
 
-Geometry is `[x, y, width, height]` in inches. Group/inherited geometry and animated slides use the native authoring path. Table geometry supports placement only. Text styling does not change math-bearing objects; uniform styling must preserve meaningful emphasis.
+The action limits determine when the plan must move to a native authoring workflow:
 
-Text, image bytes/crops, chart data/style parts, workbook formulas, captions, notes, equations, layouts/masters and relationships are immutable on this path. Summarizing, splitting, rebuilding and chart-internal styling use the authoring path in [scientific fidelity](scientific-fidelity.md).
+| Operation or object | Boundary |
+| --- | --- |
+| Geometry | Use `[x, y, width, height]` in inches. |
+| Group/inherited geometry or animated slides | Use the native authoring path. |
+| Table geometry | Placement only. |
+| Text styling | Do not change math-bearing objects. Uniform styling must preserve meaningful emphasis. |
+
+Within this contract, text, image bytes and crops, chart data and style parts, workbook formulas, captions, notes, equations, layouts, masters and relationships are immutable. That boundary makes preservation verifiable. Summarizing, splitting, rebuilding and chart-internal styling require the authoring path and content ledger described in [scientific fidelity](scientific-fidelity.md).
 
 ## Review and finalization
 
-Render the source and candidate using `render_pptx.ps1` on Windows PowerPoint. It uses a new directory, opens read-only and does not close unrelated decks. All output slides, including hidden ones, need individual inspection. A partial selected-slide render is useful for iteration but not complete delivery review.
+Render both source and candidate with `render_pptx.ps1` on Windows PowerPoint. The renderer uses a new directory, opens the deck read-only and leaves unrelated decks open. Inspect every output slide individually, including hidden slides, because a layout defect may occur outside the visible presentation sequence. A selected-slide render is useful while iterating, but cannot establish complete delivery review.
 
-Create a task-local review JSON only after actually reviewing it:
+Only after reviewing the actual candidate, create the task-local review JSON:
 
 ```json
 {
@@ -80,10 +102,10 @@ Create a task-local review JSON only after actually reviewing it:
 }
 ```
 
-Record real slide numbers and actual evidence; do not copy an example pass status into an unreviewed candidate. A source contradiction or a failed visual check must be resolved or kept as an explicitly unreviewed candidate. `finalize` checks the plan again, binds review to the candidate hash, requires every slide reviewed and emits a separate final plus a concise mapping report and validation receipt:
+Replace the example slide numbers and evidence with the slides and checks actually reviewed. Never copy a pass status into an unreviewed candidate. Resolve a source contradiction or failed visual check before certification; otherwise label the output as a candidate with unresolved issues. Once review is complete, `finalize` checks the plan again, binds the review to the candidate hash and requires coverage of every slide. It emits a separate final deck, a concise mapping report and a validation receipt:
 
 ```text
 python scripts/palate_pptx.py finalize input.pptx build/candidate.pptx --plan build/plan.json --review build/review.json --output outputs/redesigned.pptx --report outputs/transformation-report.md
 ```
 
-It does not independently prove the reviewer's judgments. All commands refuse existing outputs and receipts; use new revision filenames. Original decks are never overwritten.
+The finalizer verifies that the review record satisfies the contract; it cannot independently prove the reviewer's judgments. Every command refuses existing outputs and receipts, so use fresh revision filenames throughout. Original decks are never overwritten.

@@ -1,6 +1,6 @@
 # Validation
 
-The workflow checks scientific content, native editability and rendered appearance separately.
+Validation asks three different questions: did the scientific content survive, can the intended objects still be edited, and does the rendered deck communicate the evidence clearly? Each needs its own evidence. The current validation record covers the following:
 
 | Check | Coverage |
 | :--- | :--- |
@@ -10,7 +10,7 @@ The workflow checks scientific content, native editability and rendered appearan
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
 | Content conservation | Values, units, categories, qualifiers, media, notes and workbooks |
 
-The integration fixture contains synthetic data only. Its authoring package, layout, chart, font and import checks passed. Transformation preserved all six chart values and the embedded workbook; the reviewed candidate was finalized with a mapping report.
+The integration fixture uses synthetic data only. Its authoring package, layout, chart, font and import checks passed, and transformation preserved all six chart values together with the embedded workbook. Those conservation results were followed by render and editability review before the candidate was finalized with a mapping report.
 
 ## Run regression tests
 
@@ -19,20 +19,28 @@ python -m unittest discover -s tests -v
 python scripts/audit_repository.py
 ```
 
-The test suite covers stale hashes, unsafe image geometry, native table placement, animation/math guards, unknown actions, overwrites, review coverage and installed local-edit preservation. Chart identity follows relationship targets rather than assumed package locations.
+Regression tests exercise the boundaries that keep a routine operation from silently becoming a content change or an unsafe update:
 
-Installation tests also cover explicit name migration, complete manifest verification, archives outside skill discovery, unrelated-path protection, backup collisions and rollback when installation fails.
+| Area | Coverage and limit |
+| --- | --- |
+| Object preservation | Stale hashes, unsafe image geometry, native table placement, animation/math guards, unknown actions, overwrites and review coverage. Chart identity follows relationship targets rather than assumed package locations. |
+| Installation | Installed local-edit preservation, explicit name migration, complete manifest verification, archives outside skill discovery, unrelated-path protection, backup collisions and rollback after installation failure. |
+| Guided intake | Scenario branching, external audience selection, executive priorities, custom durations, delegated depth, prefilled briefs, profile overrides and out-of-scope requests. |
+| Format routing | PowerPoint package structure, modern and legacy Keynote containers, directory bundles, nested indexes, credential keys, reference-only PDFs and invalid inputs; read-only behavior, source hashes and pending review states. |
 
-Guided-intake tests cover scenario branching, external audience selection, executive priorities, custom durations, delegated depth, prefilled briefs, profile overrides and out-of-scope requests. Pending questions cannot be treated as submitted answers or permit the dependent transformation. The helper emits host-tool payloads; display behavior is supplied by the available Codex question tool.
+The intake helper emits payloads for the available Codex question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
 
-Format-routing tests cover PowerPoint package structure, modern and legacy Keynote containers, directory bundles, nested indexes, credential keys, reference-only PDFs and invalid inputs. They check read-only behavior, source hashes and pending review states. Synthetic Keynote containers establish detection and routing; they do not establish native Keynote compatibility.
+Integration review follows the actual authoring and delivery sequence:
 
-For integration, create a fixture with `tests/create_fixture.mjs` using the bundled presentation authoring workflow, then apply `tests/run_integration.py`. Render source and candidate with `scripts/render_pptx.ps1`, inspect every slide and exercise `tests/check_powerpoint_objects.ps1`. Record actual review evidence before finalization.
+1. Create a fixture with `tests/create_fixture.mjs` through the bundled presentation authoring workflow.
+2. Apply `tests/run_integration.py`, then render source and candidate with `scripts/render_pptx.ps1`.
+3. Inspect every slide and exercise `tests/check_powerpoint_objects.ps1` to check native editability in PowerPoint.
+4. Record the actual review evidence before finalization.
 
 ## Scope of a pass
 
-Structural checks establish package/content conservation. Human or agent review establishes the visual and scientific judgment recorded for that output. Static exports do not verify animation playback. Raster interiors remain raster unless verified reconstruction is performed. A test pass is not a guarantee for arbitrary scientific content or unsupported imported objects.
+A structural pass establishes package and content conservation under the tested contract. Human or agent review supplies the visual and scientific judgments recorded for the particular output. Neither result extends automatically to arbitrary scientific content or unsupported imported objects. Static exports also leave animation playback unverified, and raster interiors remain raster unless reconstruction has been performed and verified.
 
-Content rewriting, table resizing, chart-internal styling, grouped geometry and animation changes use the native authoring path and its content ledger. Every deliverable still receives the checks appropriate to its actual changes.
+Content rewriting, table resizing, chart-internal styling, grouped geometry and animation changes require the native authoring path with its content ledger. Their review must follow the objects and meanings actually changed, rather than relying on a preservation pass that enforces a different contract. Every deliverable receives the checks appropriate to its own changes.
 
-The [Keynote workflow](../references/keynote-workflow.md) uses verified export/import handoffs. Native Keynote import, save, rendering, editing and playback have not been exercised in this Windows environment. A reviewed PowerPoint interchange deck leaves native Keynote review pending.
+The [Keynote workflow](../references/keynote-workflow.md) adds comparisons at export and import so conversion losses can be distinguished from design changes. Native Keynote import, save, rendering, editing and playback have not been exercised in this Windows environment. A reviewed PowerPoint interchange deck therefore leaves native Keynote review pending.

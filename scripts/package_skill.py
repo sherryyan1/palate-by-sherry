@@ -22,6 +22,7 @@ FILES = [
     "references/redesign-intake.md", "references/transform-plan.md",
     "references/pptx-workflow.md", "references/scientific-fidelity.md",
     "references/style-adaptation.md",
+    "references/writing-style.md",
 ]
 NAME = "palate"
 LEGACY_NAME = "palate-by-sherry"

@@ -1,33 +1,41 @@
 # Scientific fidelity and editability
 
-Before editing, inventory every source slide, including hidden slides, speaker notes, charts/workbooks, tables, equations, images, references and animation. Distinguish a source contradiction from a transformation defect. Flag uncertain units/legends/claims for the owner; never guess corrections.
+Scientific fidelity depends on preserving the relationship between a claim, its evidence and the conditions under which it holds. Before editing, inventory every source slide, including hidden slides, speaker notes, charts and workbooks, tables, equations, images, references and animation. This baseline allows a later review to distinguish a source contradiction from a defect introduced during transformation. Flag uncertain units, legends or claims for the owner; never guess a correction.
 
 ## Preservation path
 
-`palate_pptx.py` changes only explicitly planned presentation styling/geometry. It compares source text/run order, equations, table grids, shape identities, relationships, hidden flags and timing. Every unmodified part, including media, charts, embedded workbooks, notes, layouts, masters and themes, must remain byte-identical. Changed slide XML must match the plan; a structural pass has visual/scientific review pending.
+`palate_pptx.py` changes only the presentation styling and geometry explicitly named in the plan. Its comparisons cover source text and run order, equations, table grids, shape identities, relationships, hidden flags and timing. Every unmodified part must remain byte-identical, including media, charts, embedded workbooks, notes, layouts, masters and themes; changed slide XML must match the plan. These checks establish that the stored evidence survived the operation. A structural pass still leaves visual and scientific review pending, because unchanged content can become unreadable or misleading in a different arrangement.
 
-Retaining a raster figure preserves its content but does not make interior labels editable. State this distinction. Enlarging it does not add resolution. Prefer original vector/high-resolution data or verified native reconstruction; do not invent missing pixels or read values from a blurry plot as if exact.
+A retained raster figure keeps its original content, while its interior labels remain part of the image. State that editability limit explicitly. Enlarging the figure adds no resolution, so prefer an original vector or high-resolution source, or a native reconstruction whose accuracy can be verified. Never invent missing pixels or report values read from a blurry plot as exact.
 
 ## Content-changing/rebuilding path
 
-The conservative patcher intentionally cannot summarize text, split slides, reconstruct figures or recolor chart internals. Perform these with a native authoring tool when appropriate. Before authoring, create a task-local content ledger for each changed slide:
+Summarizing text, splitting slides, reconstructing figures and recoloring chart internals can change what the evidence communicates. These operations sit outside the conservative patcher's contract and require an appropriate native authoring tool. Before authoring, create a task-local ledger that traces each changed slide from its source to the proposed output:
 
-- Original file hash, one-based slide, shape ID/figure/table/equation identity.
-- Source scientific statement and all numbers/units/axes/legends, uncertainty and qualifications.
-- New location: output slide/object/notes/appendix and exact replacement statement.
-- Change reason, any interpretation and its support; distinguish an owner's approved correction from an agent's proposal.
-- Native editability before/after, dependencies such as workbook formulas and animation states.
+| Ledger field | Required record |
+| --- | --- |
+| Source identity | Original file hash, one-based slide and shape ID or figure/table/equation identity. |
+| Scientific content | Source statement; all numbers, units, axes and legends; uncertainty and qualifications. |
+| Destination | Output slide, object, notes or appendix, with the exact replacement statement. |
+| Reason and interpretation | Why the change is needed and the support for any interpretation. Distinguish an owner's approved correction from an agent's proposal. |
+| Editability and dependencies | Native editability before/after, workbook formulas, animation states and other relevant dependencies. |
 
-Capture full caption/source detail before shortening. Review meaning, negation, comparison baseline, conditions, correlation/causation and uncertainty manually against the source. Numeric token matching alone is insufficient: identical numbers can be assigned to the wrong quantity. Keep essential uncertainty/conditions near the evidence, even if long derivations move elsewhere. Do not replace a formula with an unverified intuitive paraphrase.
+Capture the full caption and source detail before shortening anything. Then compare the proposed wording with the source for meaning, negation, comparison baseline, conditions, correlation or causation, and uncertainty. Matching numeric tokens cannot establish fidelity: the same numbers may have been attached to different quantities. Essential uncertainty and conditions must remain near the evidence even when a long derivation moves to notes or an appendix. A formula may be replaced only by an explanation whose equivalence has been verified; an intuitive paraphrase alone is insufficient.
 
-For reconstructed diagrams, check each label and directional connection. Use native shapes/text/connectors when editability is required. For charts preserve full categories/series/errors/units, correct axis types/scales and workbook lineage. Preserve original workbook formulas when required; a cached-data snapshot is not equivalent. Native equations should remain math objects or another verified editable equation representation.
+Reconstruction needs checks matched to the object being rebuilt:
 
-Validate the authored package with the available presentation finalizer and independently compare the ledger against output text, chart data, equations, notes and references. Render and inspect every page. Do not run the conservation validator on a rebuild and then ignore its failures; it enforces a different contract.
+| Object | Required preservation and review |
+| --- | --- |
+| Diagram | Check every label and directional connection. Use native shapes, text and connectors when editability is required. |
+| Chart | Preserve all categories, series, errors and units, correct axis types and scales, and workbook lineage. Retain original workbook formulas when required; cached data are not equivalent. |
+| Equation | Retain a math object or another verified editable equation representation. |
+
+After authoring, use the available presentation finalizer to validate the package and independently compare the ledger with output text, chart data, equations, notes and references. Render and inspect every page to check how that content appears. The conservation validator enforces the preservation contract, so its failures cannot be ignored to approve a rebuild that follows a different contract.
 
 ## Review record and delivery
 
-Structural integrity, visual quality, scientific interpretation and editability are separate checks. Record which application rendered/opened the output. “PowerPoint checked” or “Keynote checked” requires an actual open/inspection in that application; static export does not establish animation playback. A conversion adds a separate comparison against the original, including chart data, formulas, equations, notes, fonts and build stages. Read the [Keynote workflow](keynote-workflow.md) when that format is involved.
+The review record must distinguish structural integrity, visual quality, scientific interpretation and editability, because evidence for one does not establish the others. Name the application that actually opened or rendered the output. “PowerPoint checked” or “Keynote checked” requires opening and inspecting the file in that application, and playback requires more than a static export. When conversion is involved, compare the converted file with the original separately, including chart data, formulas, equations, notes, fonts and build stages. Follow the [Keynote workflow](keynote-workflow.md) for that format.
 
-For conservative output, provide a hash-bound review record as documented in the plan contract. The reviewer can be the agent; never invent human approval. Finalization requires all review statuses passed and no unresolved issues. If a source scientific contradiction prevents certification, deliver only a clearly labeled candidate plus the unresolved issue; do not assert the content is scientifically correct.
+For conservative output, use the hash-bound review record specified in the plan contract so the judgments apply to the exact candidate being delivered. The reviewer may be the agent; never invent human approval. Finalization requires every review status to pass and no unresolved issues. If a source scientific contradiction prevents certification, deliver only a clearly labeled candidate with the unresolved issue and do not assert that its content is scientifically correct.
 
-Deliver a new editable deck and a concise report: audience/time/depth, source/output mapping, meaningful changes and decision basis, preserved evidence, checks actually performed and material limitations. If native Keynote delivery was requested, certify it only after saving and reviewing in Keynote; otherwise state the remaining handoff. Keep detailed extracted content and validation artifacts local. No research uploads are implied by Skill invocation.
+Deliver a new editable deck with a concise account of the audience, time and depth, the source/output mapping, meaningful changes and their design basis, preserved evidence, checks performed and material limitations. Certify a requested native Keynote deliverable only after saving and reviewing it in Keynote; otherwise describe the remaining handoff. Detailed extracted content and validation artifacts stay local. Invoking the skill does not authorize research uploads.
