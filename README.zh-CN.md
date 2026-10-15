@@ -42,7 +42,7 @@
 检查 Codex 实际运行的环境，按照仓库中的 docs/installation.md 完成安装，并确认可以调用 $palate。如果已安装 palate，请先询问我是否替换。
 ```
 
-Codex 会检查仓库访问权限、依赖和 Skill 是否可被发现。如果列表中没有 **palate**，重启 Codex 后再检查。[安装指南（英文）](docs/installation.md)提供了具体操作。
+Codex 会根据当前环境安装 **palate**，并检查是否可以正常使用。如需额外设置，会给出相应提示。[安装指南（英文）](docs/installation.md)提供了具体操作。
 
 ### 02 | 上传 PPT
 
