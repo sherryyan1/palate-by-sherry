@@ -1,6 +1,6 @@
 # Conservative transformation contract
 
-Use this contract after the [PPTX workflow](pptx-workflow.md#two-implementation-paths) has established that the requested changes fit the conservative helper. It applies a bounded set of changes to a known source, then checks that the result matches the plan. Text rewriting, translation and reconstruction follow the authoring path instead.
+Use this contract after the [PPTX workflow](pptx-workflow.md#two-implementation-paths) has established that the requested changes fit the conservative helper. It applies a bounded set of changes to a known `.pptx` source, then checks that the result matches the plan. Native `.key` uses the separate [Keynote adapter contract](keynote-workflow.md#native-adapter-contract); its object identities and geometry units are different. Text rewriting, translation and reconstruction follow the appropriate authoring path instead.
 
 The sequence is inspect, plan, apply, independently validate, then review and finalize. A successful command establishes its own part of that sequence; it does not establish scientific interpretation, visual quality or editability on its own. The sections below define the [plan fields](#plan-json) and the separate [review record](#review-and-finalization).
 
@@ -89,7 +89,9 @@ Within this contract, text, image bytes and crops, chart data and style parts, w
 
 ## Review and finalization
 
-Render both source and candidate with `render_pptx.ps1` on Windows PowerPoint. The renderer uses a new directory, opens the deck read-only and leaves unrelated decks open. Inspect every output slide individually, including hidden slides, because a layout defect may occur outside the visible presentation sequence. A selected-slide render is useful while iterating, but cannot establish complete delivery review.
+Render both source and candidate in the delivery application. For PowerPoint, the included `render_pptx.ps1` provides a Windows route: it uses a new directory, opens the deck read-only and leaves unrelated decks open. An available native PowerPoint workflow on another platform can supply the review instead; Windows and this script are not universal requirements. Record the application/version and actual evidence. If the delivery application is unavailable, its appearance and editability checks remain pending, regardless of another renderer's output.
+
+Inspect every output slide individually, including hidden slides, because a layout defect may occur outside the visible presentation sequence. A selected-slide render is useful while iterating, but cannot establish complete delivery review. For requested cross-format delivery, the PPTX finalizer establishes only this contract; separately save and review the converted deliverable in its target application.
 
 Only after reviewing the actual candidate, create the task-local review JSON. Its hash and slide coverage connect the recorded judgments to the file that will be delivered:
 

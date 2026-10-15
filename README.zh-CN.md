@@ -100,16 +100,18 @@ $palate 帮我打磨这份汇报 PPT。
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; 文件格式与运行要求
 
-**palate** 对 PowerPoint 和 Keynote 采用相同的设计原则；文件处理和最终检查则取决于原稿及交付格式。
+**palate** 共用一套设计标准，PowerPoint 和 Keynote 分别走各自的原生流程。未指定其他交付格式时，保留原稿格式；Keynote 原稿无需经过 PowerPoint。
 
-| 原稿 | **palate** 会提供什么 | 何时需要你协助 |
-| :--- | :--- | :--- |
-| PowerPoint（`.pptx`） | 一份新的可编辑 `.pptx`，并与原稿核对。 | 原稿无法打开时，请提供兼容的可编辑副本。如果 **palate** 无法访问交付使用的应用，它会指导你完成余下检查。 |
-| Keynote（`.key`） | 根据 PowerPoint 导出文件和 PDF 参考制作的可编辑 `.pptx`；原生 `.key` 成品还需在 Mac 的 Keynote 中保存并检查。 | 如果 **palate** 无法访问 Mac 上的 Keynote，请提供导出文件，并完成原生格式的保存与检查。 |
+| 原稿 | **palate** 会提供什么 |
+| :--- | :--- |
+| PowerPoint（`.pptx`） | 一份新的可编辑 `.pptx`，在 PowerPoint 中完成最终检查。 |
+| Keynote（`.key`） | 在 Mac 的 Keynote 中，通过当前支持的操作制作新的原生 `.key` 候选稿。 |
 
-本流程无法在 Windows 上直接编辑原生 `.key`。[Keynote 指南（英文）](references/keynote-workflow.md)说明了导出、转换和最终原生检查；报告会写明实际交付的格式及尚未完成的 Keynote 工作。
+原稿无法打开时，**palate** 会请求兼容的可编辑副本。Keynote 处理需要允许所需的 Mac 自动化访问。如果交付使用的应用不可用，**palate** 会将该应用内的工作保留为待完成状态，并说明交接方式和尚需完成的检查。
 
-Python 工具需要 Python 3.11+、`lxml` 和 Pillow；环境中有可用的捆绑运行时时，Codex 会优先使用。附带的 Windows 预览功能需要 Microsoft PowerPoint；翻译或改写文字、新建幻灯片及重建可编辑对象，需要可用的演示文稿创作工具。缺少工具或无法完成检查时，**palate** 会说明交付限制。
+附带的 Keynote 原生流程目前为**实验性功能，尚未在 Mac 上实测**，需要 macOS、Keynote，以及允许 Codex 执行进程控制该应用的权限。自动编辑仅覆盖现有文本框和形状的位置、文字样式；其他修改需要可用的原生编辑方式，否则保持待完成状态。[Keynote 指南（英文）](references/keynote-workflow.md)列出了操作范围和检查要求。只有明确选择转换方案或要求其他交付格式时，才会采用格式转换，并单独核对转换损失。
+
+Python 工具需要 Python 3.11+；`.pptx` 检查使用 `lxml`，图片分辨率诊断使用 Pillow。有可用的捆绑运行时时，Codex 会优先使用。附带的 Windows PowerPoint 渲染器只是特定平台的一种预览方式，Keynote 和其他 PowerPoint 环境无需强制使用。**palate** 会在实际交付使用的应用中检查结果，并说明缺少的工具或尚未完成的检查。安装 Skill 不会同时安装 PowerPoint 或 Keynote，也不代表已获得应用访问权限。
 
 安装针对 Codex 实际执行任务的电脑或远程环境，这可能不是聊天时使用的设备。本仓库不提供 iOS 或 iPadOS 原生安装流程。[安装指南（英文）](docs/installation.md)包含环境检查和手动设置方法。
 

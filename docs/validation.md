@@ -12,7 +12,7 @@ The transformation report explains what changed, what was checked and what still
 | Native editability | The text, tables, charts and diagrams intended to remain editable can still be edited in the delivery application. A retained raster figure's interior labels remain part of the image. |
 | Rendered appearance | Every final slide has been inspected in the delivery application, with changed slides compared against the source. Changed animation states also need playback review. |
 
-If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate. A PowerPoint interchange deck, for example, does not establish that its later import into Keynote preserves appearance or native objects. The [Keynote workflow](../references/keynote-workflow.md) explains that additional review.
+If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate. Checks follow the actual delivery application: PowerPoint for `.pptx`, Keynote for `.key`. Neither the included Windows renderer nor a PowerPoint conversion is required for a native Keynote task. The [Keynote workflow](../references/keynote-workflow.md) explains the native checks and the additional comparisons needed only when conversion is chosen.
 
 The checks below describe the repository's tested behavior. They do not replace review of your own deck or certify its underlying science. For the task sequence and deliverables, see the [usage guide](usage.md#what-happens-after-you-attach-a-deck).
 
@@ -22,13 +22,14 @@ The current record covers the following:
 
 | Check | Coverage |
 | :--- | :--- |
-| Automated regression | 82 intake, format routing, OOXML, packaging and repository-audit tests |
+| Automated regression | Intake, format routing, OOXML, native Keynote boundary checks, packaging and repository-audit tests |
 | Language decisions | Seven independent instruction simulations, plus a terminology-confirmation follow-up |
 | Installation and discovery | Allowlisted package installed in a disposable Windows project and listed as enabled by Codex |
-| End-to-end transformation | Two-slide native chart, table, text and process fixture |
+| End-to-end transformation | Two-slide PowerPoint native chart, table, text and process fixture |
 | Render review | Before/after PowerPoint exports, individually inspected |
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
 | Content conservation | Values, units, categories, qualifiers, media, notes and workbooks |
+| Native Keynote implementation | Experimental Python/JXA adapter; script-level and mocked boundary checks only. No Mac application execution or end-to-end Keynote result has been tested. |
 
 ### Language decisions
 
@@ -46,6 +47,14 @@ The standard Codex Skill Installer was also tested against the repository root. 
 
 The two-slide integration fixture uses synthetic data only. Its authoring package, layout, chart, font and import checks passed, and transformation preserved all six chart values together with the embedded workbook. Those conservation results were followed by before/after render review and reversible text, table-cell and chart-series edits in PowerPoint before the candidate was finalized with a mapping report.
 
+### Native Keynote validation status
+
+The native Keynote adapter is an implemented experimental path for inspecting a private copy and making bounded placement or text-style changes to existing text boxes and shapes. It uses Python, macOS `osascript` and a fixed JXA script to control Keynote; it does not require Node or PowerPoint. Automated rewriting, slide creation and chart-internal editing are outside this helper's operation set.
+
+The current development environment is Windows. Tests can check routing decisions, plan validation, platform refusal, subprocess boundaries, mocked application responses and JXA syntax. They cannot establish that Keynote accepts the automation calls or that a native document opens, saves, exports or retains its objects. Native Keynote installation, automation permission, import, export, rendering, editability and playback have not been tested on a Mac. Those checks must be performed in the actual Mac environment before claiming a verified native result.
+
+A runtime probe or a matching snapshot does not complete the scientific, visual or native-editability review. Unsupported and uninspected objects need appropriate application review, and animations need playback review. An unavailable Keynote runtime leaves native work pending; tests must not treat it as permission to switch automatically to PowerPoint or a cloud service.
+
 ## Reproduce the repository checks
 
 Run the automated suite and content audit from the repository root:
@@ -62,17 +71,26 @@ Regression tests exercise the boundaries that keep a routine operation from sile
 | Object preservation | Stale hashes, unsafe image geometry, native table placement, animation/math guards, unknown actions, overwrites and review coverage. Chart identity follows relationship targets rather than assumed package locations. |
 | Installation | Installed local-edit preservation, explicit name migration, complete manifest verification, archives outside skill discovery, unrelated-path protection, backup collisions and rollback after installation failure. |
 | Guided intake | Scenario branching, external audience selection, executive priorities, custom durations, delegated depth, prefilled briefs, profile overrides and out-of-scope requests. |
-| Format routing | PowerPoint package structure, modern and legacy Keynote containers, directory bundles, nested indexes, credential keys, reference-only PDFs and invalid inputs; read-only behavior, source hashes and pending review states. |
+| Format routing | PowerPoint package structure, modern and legacy Keynote containers, directory bundles, nested indexes, credential keys, reference-only PDFs and invalid inputs; source-format defaults, separate native routes, read-only behavior, source hashes and pending review states. |
+| Native Keynote adapter | Platform and automation boundaries, source/output safeguards and bounded operation validation with mocked responses. These checks do not establish native Mac compatibility or the scientific correctness of a transformation. |
 | Repository audit | Narrow README language exceptions and an exact allowlist for reviewed icons; credentials, private materials, unexpected binaries and local links remain checked. Staged audits inspect the exact Git index. |
 
 The intake helper emits payloads for the available Codex question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
 
-Integration review follows the actual authoring and delivery sequence:
+The existing PowerPoint integration review follows its authoring and delivery sequence. The Windows renderer below belongs to this fixture, not to every supported workflow:
 
 1. Create a fixture with `tests/create_fixture.mjs` through the bundled presentation authoring workflow.
 2. Apply `tests/run_integration.py`, then render source and candidate with `scripts/render_pptx.ps1`.
 3. Inspect every slide and exercise `tests/check_powerpoint_objects.ps1` to check native editability in PowerPoint.
 4. Record the actual review evidence before finalization.
+
+The native Keynote integration test is opt-in. On a Mac with Keynote and automation access, prepare a private `.key` fixture and a plan based on its current native inspection and actual target-safety review. Set `PALATE_KEYNOTE_FIXTURE` to the source path and `PALATE_KEYNOTE_PLAN` to the plan path, then run:
+
+```text
+python -m unittest discover -s tests -p test_keynote_native.py -v
+```
+
+The integration case inspects, edits, saves, exports PDF and reopens a separate native candidate while checking the original hash. It leaves visual, scientific, editability and playback review pending. Without the Mac prerequisites and both environment variables, the case is skipped, not passed. This integration case has not been run in the Windows development environment.
 
 ## Scope of a pass
 
@@ -80,4 +98,4 @@ A structural pass establishes package and content conservation under the tested 
 
 Content rewriting, table resizing, chart-internal styling, grouped geometry and animation changes require the native authoring path with its content ledger. Their review must follow the objects and meanings actually changed, rather than relying on a preservation pass that enforces a different contract. Every deliverable receives the checks appropriate to its own changes.
 
-The [Keynote workflow](../references/keynote-workflow.md) adds comparisons at export and import so conversion losses can be distinguished from design changes. Native Keynote import, save, rendering, editing and playback have not been exercised in this Windows environment. A reviewed PowerPoint interchange deck therefore leaves native Keynote review pending.
+The [Keynote workflow](../references/keynote-workflow.md) keeps native `.key` work in Keynote. If a different format is explicitly requested or conversion is chosen, it adds comparisons at export and import so conversion losses can be distinguished from design changes. A reviewed `.pptx` does not establish a reviewed `.key`; native Keynote work and its required checks remain pending until actually performed on a Mac.

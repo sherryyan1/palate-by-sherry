@@ -100,16 +100,18 @@ You receive a new editable slide deck in a supported format and a concise report
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; Formats and requirements
 
-**palate** applies the same design principles to PowerPoint and Keynote. File handling and final review depend on the source and delivery format.
+**palate** uses one design standard with separate native workflows for PowerPoint and Keynote. It keeps the source format unless a different delivery format is requested; a Keynote deck does not need to pass through PowerPoint.
 
-| Source | What **palate** provides | When you need to help |
-| :--- | :--- | :--- |
-| PowerPoint (`.pptx`) | A new editable `.pptx` deck, reviewed against the source. | Provide a compatible editable copy if the source cannot be opened. If **palate** cannot access the delivery application, it guides you through the remaining checks. |
-| Keynote (`.key`) | An editable `.pptx` deck prepared from a PowerPoint export and PDF reference. Native `.key` delivery follows saving and review in Keynote on Mac. | Provide the exports and complete the native save and review if **palate** cannot access Keynote on Mac. |
+| Source | What **palate** provides |
+| :--- | :--- |
+| PowerPoint (`.pptx`) | A new editable `.pptx`, with final review in PowerPoint. |
+| Keynote (`.key`) | A new native `.key` candidate, using the supported operations in Keynote on Mac. |
 
-Windows cannot provide native `.key` editing through this workflow. The [Keynote guide](references/keynote-workflow.md) explains the export, conversion and final native checks; the report identifies the format actually delivered and any pending Keynote work.
+If the source cannot be opened, **palate** asks for a compatible editable copy. Keynote work needs the required Mac automation permission. If the delivery application is unavailable, **palate** leaves that application work pending and explains the handoff and remaining checks.
 
-The Python tools require Python 3.11+, `lxml` and Pillow; Codex uses an available bundled runtime where possible. The included Windows previews require Microsoft PowerPoint. Translating or rewriting text, creating slides and rebuilding editable objects require an available presentation authoring tool. **palate** explains any missing tool or review that limits delivery.
+The included native Keynote workflow is **experimental and has not been tested on a Mac**. It requires macOS, Keynote and permission for Codex's execution process to control the application. Automated edits cover placement and text styling of existing text boxes and shapes. Other changes need an available native authoring method or remain pending. The [Keynote guide](references/keynote-workflow.md) describes the operations and review requirements. Conversion is a separate option when requested or explicitly chosen, with additional checks for conversion loss.
+
+Python tools require Python 3.11+; `.pptx` inspection uses `lxml`, and raster-resolution diagnostics use Pillow. Codex reuses an available bundled runtime. The included Windows PowerPoint renderer is one platform-specific preview option, not a requirement for Keynote or every PowerPoint environment. **palate** reviews the result in the actual delivery application and identifies any missing tool or unfinished check. Installing the skill does not install PowerPoint or Keynote or grant application access.
 
 Setup applies to the computer or remote environment where Codex runs, which may differ from the device you use to chat. This repository does not provide native iOS or iPadOS installation. The [installation guide](docs/installation.md) covers environment checks and manual setup.
 

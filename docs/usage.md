@@ -10,7 +10,7 @@ Attach your research slides and ask:
 $palate Polish my slides.
 ```
 
-A detailed brief is optional: **palate** uses the information already supplied and asks for missing context that could materially change the design. You do not need to choose fonts, palettes or layouts first. For a Keynote source, the [format workflow](#powerpoint-and-keynote) explains when export files are needed.
+A detailed brief is optional: **palate** uses the information already supplied and asks for missing context that could materially change the design. You do not need to choose fonts, palettes or layouts first. The [format workflow](#powerpoint-and-keynote) explains which native application handles the deck and when an optional conversion needs additional files.
 
 ## Shape the brief
 
@@ -45,12 +45,13 @@ Composition follows the scientific relationship and the brief. **palate** record
 
 | Your slides need | How **palate** handles the change |
 | :--- | :--- |
-| Placement or supported styling of existing objects | Adjusts placement, chart frames, text styling, shapes, lines and backgrounds while retaining source content and embedded workbooks. This preservation route rejects unsafe geometry and animation edits. |
+| Placement or supported styling of existing PowerPoint objects | Uses the `.pptx` preservation helper for supported placement, chart frames, text styling, shapes, lines and backgrounds while retaining source content and embedded workbooks. It rejects unsafe geometry and animation edits. |
+| Placement or text styling of existing Keynote text boxes and shapes | Uses the experimental native Keynote adapter on Mac within its limited operation set. It does not automatically rewrite text, create slides or edit chart internals. The adapter has not yet been exercised in Keynote on Mac. |
 | New diagrams, summaries, slide splits, changes inside charts or table resizing | Uses an available presentation authoring tool that supports native, editable objects and records how the revised content represents the source. |
 
 Grouped objects and animation states receive their own review. Translation and rewritten text also use the authoring path, with the [scientific translation safeguards](../references/scientific-fidelity.md#scientific-translation).
 
-The [design system](../references/design-system.md) explains why audience, evidence and scientific integrity guide these choices. The [plan contract](../references/transform-plan.md) provides exact commands and fields for the existing-object route; the [scientific fidelity guide](../references/scientific-fidelity.md) covers work that changes content.
+The [design system](../references/design-system.md) explains why audience, evidence and scientific integrity guide these choices. The [PowerPoint plan contract](../references/transform-plan.md) and [Keynote workflow](../references/keynote-workflow.md) define their respective operations and checks; the [scientific fidelity guide](../references/scientific-fidelity.md) covers work that changes content. A supported native file format does not mean the included helper can perform every requested edit. If an appropriate authoring method is unavailable, **palate** identifies the blocked change rather than converting the deck without agreement.
 
 ### Review the result and explain what remains
 
@@ -60,17 +61,22 @@ The [validation guide](validation.md) explains the evidence behind each kind of 
 
 ## PowerPoint and Keynote
 
-**palate** uses the requested delivery application, or preserves the source application when none is specified. The brief and scientific checks remain the same for PowerPoint and Keynote; conversion adds a separate comparison so losses during the handoff can be identified.
+**palate** uses one design standard and separate native workflows. It preserves the source application unless a different delivery format is requested. A Keynote deck stays in Keynote; neither a PowerPoint export nor Windows PowerPoint is a prerequisite.
 
-For a Keynote source, **palate** follows this sequence. If it cannot access Keynote on Mac, it guides you through the exports and the native save and review:
+| Delivery application | Native workflow | Current limit |
+| :--- | :--- | :--- |
+| PowerPoint | Edit a new `.pptx` and review it in PowerPoint. Use an available PowerPoint rendering method; the included Windows renderer is one option. | Native editing and review require actual application access. The supplied Windows script is not a renderer for macOS or Linux. |
+| Keynote | Edit and save a new `.key` in Keynote on Mac, then review it there. The included adapter supports bounded placement and text styling of existing text boxes and shapes. | Experimental implementation; no Mac application execution has been tested. It requires macOS, Keynote, `osascript` and permission to control Keynote. |
 
-1. Preserve the original and obtain a PowerPoint export plus a PDF visual reference.
-2. Compare the PowerPoint export with the source before design so conversion defects can be distinguished from later changes.
-3. After design, if delivery is in Keynote, open the reviewed candidate there and save a new native deck. Inspect every slide, confirm native editability, and review playback when the deck contains builds, transitions or media.
+The native Keynote route keeps the source and the candidate separate:
 
-The [Keynote workflow](../references/keynote-workflow.md) gives the export settings and conversion checks.
+1. Check the Mac runtime and required automation access. Inspect a private copy of the source, retaining its hash and the application/version evidence.
+2. Apply only supported changes to a new native candidate. Translation, rewritten text, new slides and unsupported objects need another available native authoring method with the same scientific safeguards; otherwise the relevant work remains pending.
+3. Compare scientific content against the source, confirm editability in Keynote, and inspect every final slide. Review playback separately when builds, transitions or media are present. The included adapter's limited snapshots cannot establish all of these results.
 
-Windows can prepare the PowerPoint interchange deck, but native Keynote delivery and review require Keynote on Mac. If that application is unavailable, the report records the native Keynote work as pending. A PDF supplies visual evidence for comparison; it does not establish that charts, tables or labels remain editable. Renaming a file does not convert its format.
+The [Keynote workflow](../references/keynote-workflow.md) gives the commands, supported operations and review requirements. Python and script-level checks on Windows do not establish that this adapter works in Keynote on Mac. Until the native operations and required reviews have actually succeeded, the report identifies the untested or pending work and the output remains a candidate.
+
+If the execution environment lacks Keynote, **palate** explains the Mac handoff and leaves native `.key` work pending. It does not automatically replace the requested format with `.pptx` or use a cloud service. Conversion is an option when the user requests another format or explicitly chooses that route. Compare the exported baseline with the source before redesign, then inspect any later import in the delivery application so conversion losses remain distinguishable from design changes. PDF is visual evidence, not proof of native editability, and renaming a file does not convert its format.
 
 ## Requirements
 
@@ -81,9 +87,10 @@ Requirements apply where Codex executes commands, which may differ from the devi
 | Identify source format and route the workflow | Python 3.11+ |
 | Inspect and preserve objects in `.pptx` files | Python 3.11+, lxml |
 | Raster-resolution diagnostics | Pillow |
-| Included Windows rendering | Microsoft PowerPoint |
+| Included Windows PowerPoint rendering option | Windows and Microsoft PowerPoint |
 | New or rebuilt native slides, including translated or rewritten text | Available native presentation authoring workflow |
-| Native Keynote delivery and review | Keynote on Mac |
+| Experimental native Keynote adapter | macOS, Keynote, `osascript`, Python 3.11+ and automation permission; no Node or PowerPoint dependency |
+| Native Keynote delivery and review | Successful native save plus content, editability, visual and applicable playback review in Keynote on Mac |
 
 Reuse an existing bundled runtime where available. Installing the skill does not install a presentation editor or establish application access. **palate** reports missing tools and checks rather than claiming those operations succeeded.
 

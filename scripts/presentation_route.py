@@ -11,6 +11,7 @@ import io
 import json
 from pathlib import Path, PurePosixPath
 import re
+import shutil
 import stat
 import sys
 import xml.etree.ElementTree as ET
@@ -159,16 +160,17 @@ def inspect_presentation(path):
                     raise ValueError("Bundle index exceeds inspection limits")
                 modern = nested_keynote_signature(index.read_bytes())
             if modern:
-                # Bind the directory contents without following links or copying media.
-                digest = hashlib.sha256()
-                for name in sorted(names):
-                    digest.update(json.dumps([name, file_hash(source / name)], ensure_ascii=True).encode("ascii") + b"\n")
-                result.update(kind="keynote-modern", source_sha256=digest.hexdigest(), hash_kind="bundle-manifest-sha256",
-                              evidence=["IWA document and slide members"])
+                result.update(kind="keynote-modern", evidence=["IWA document and slide members"])
             elif any(name.lower() in {"index.apxl", "index.apxl.gz"} for name in names):
                 result.update(kind="keynote-legacy", evidence=["Legacy APXL marker; requires Keynote inspection"])
             else:
                 result["evidence"] = ["No recognized Keynote document/slide signature"]
+            if result["kind"] in {"keynote-modern", "keynote-legacy"}:
+                # Both native package forms need a complete, read-only source identity.
+                digest = hashlib.sha256()
+                for name in sorted(names):
+                    digest.update(json.dumps([name, file_hash(source / name)], ensure_ascii=True).encode("ascii") + b"\n")
+                result.update(source_sha256=digest.hexdigest(), hash_kind="bundle-manifest-sha256")
             return result
         if not source.is_file():
             raise ValueError("Source is not a regular file")
@@ -205,56 +207,82 @@ def inspect_presentation(path):
     return result
 
 
-def route_presentation(path, target="pptx"):
-    """Choose a format handoff; states describe work remaining, never completed QA."""
-    if target not in {"pptx", "keynote"}:
-        raise ValueError("Target must be pptx or keynote")
+def keynote_environment():
+    """Detect local prerequisites without launching Keynote or granting automation."""
+    mac = sys.platform == "darwin"
+    runner = shutil.which("osascript") if mac else None
+    candidates = (Path("/Applications/Keynote.app"), Path.home() / "Applications/Keynote.app")
+    app = next((str(p) for p in candidates if p.is_dir()), None) if mac else None
+    return {"platform": sys.platform, "osascript": runner, "keynote_app": app,
+            "prerequisites_detected": bool(mac and runner and app),
+            "automation_access": "not-probed", "native_mac_validation": "not-run"}
+
+
+def route_presentation(path, target=None):
+    """Preserve the source application unless a different target was requested."""
+    if target not in {None, "auto", "pptx", "keynote"}:
+        raise ValueError("Target must be auto, pptx or keynote")
     source = inspect_presentation(path)
-    result = {"schema_version": 1, "skill": "palate", "source": source,
-              "target": target, "status": "unsupported", "can_transform_now": False,
-              "can_deliver_target_now": False, "adapter": None, "steps": [],
-              "source_policy": "Read source only; preserve its hash and use new export, candidate and delivery names.",
-              "native_keynote_adapter": "not-implemented",
-              "validation": {"content": "pending", "appearance": "pending", "editability": "pending", "keynote_runtime": "not-run"}}
     kind = source["kind"]
-    if kind == "pptx":
-        result.update(status="ready-pptx" if target == "pptx" else "requires-keynote-runtime",
+    source_application = "pptx" if kind == "pptx" else "keynote" if kind in {"keynote-modern", "keynote-legacy"} else None
+    explicit = target not in {None, "auto"}
+    resolved_target = target if explicit else source_application
+    conversion = bool(source_application and resolved_target != source_application)
+    result = {"schema_version": 1, "skill": "palate", "source": source,
+              "target": resolved_target, "target_origin": "explicit" if explicit else "source",
+              "conversion_requested": conversion, "status": "unsupported", "can_transform_now": False,
+              "can_deliver_target_now": False, "adapter": None, "steps": [],
+              "source_policy": "Preserve the source application and original hash; work on new native copies. Convert formats only for an explicit target request.",
+              "native_keynote_adapter": "experimental-mac-unverified",
+              "validation": {"content": "pending", "appearance": "pending", "editability": "pending", "keynote_runtime": "not-run"}}
+    if source_application == "keynote" or resolved_target == "keynote":
+        result["keynote_environment"] = keynote_environment()
+    if conversion:
+        result.update(status="requires-format-conversion", adapter="explicit-application-conversion")
+        if resolved_target == "keynote":
+            result["steps"] = [
+                "The requested target differs from the PowerPoint source. Preserve the original; in Keynote on Mac open a duplicate using File > Open and save a new .key baseline.",
+                "Compare the imported native baseline against the original before redesign, including scientific content, objects, fonts, notes and builds. Record conversion effects separately.",
+                "Route the saved .key again with the default native Keynote path; complete native inspection, editing and review before delivery.",
+            ]
+        else:
+            result["steps"] = [
+                "The requested target differs from the Keynote source. Preserve the original; export a new PowerPoint copy from Keynote on Mac using File > Export To > PowerPoint.",
+                "Compare the exported baseline against the original before redesign; record scientific content and conversion effects separately. A PDF can supplement visual comparison only.",
+                "Route the exported .pptx again for the native PowerPoint workflow; review the actual delivery in PowerPoint, without requiring a particular operating system.",
+            ]
+    elif kind == "pptx":
+        result.update(status="ready-pptx",
                       can_transform_now=True, adapter="shared-pptx-workflow")
         result["steps"] = [
             "Run scripts/palate_pptx.py inspect on the source; complete the shared intake, design and scientific-fidelity workflow.",
             "Create a new editable PPTX candidate; compare source/candidate content, rendered slides and native objects independently.",
+            "Review final appearance, native editability and any playback in the delivery PowerPoint application. The included Windows renderer is one option, not a global platform requirement.",
         ]
-        if target == "keynote":
-            result["steps"] += [
-                "In available Keynote on Mac, open the candidate PPTX using File > Open; inspect conversion and missing-font warnings.",
-                "Save the imported candidate as a new .key file; compare it with the reviewed PPTX and the original research deck in Keynote.",
-                "Export a Keynote PDF reference; verify native text, chart data, tables, equations and playback in Keynote before declaring .key delivery complete.",
-            ]
     elif kind in {"keynote-modern", "keynote-legacy"}:
-        result.update(status="requires-export", adapter="keynote-export-to-shared-pptx-workflow")
+        environment = result["keynote_environment"]
+        result.update(status="requires-keynote-preflight" if environment["prerequisites_detected"] else "requires-keynote-runtime",
+                      adapter="native-keynote")
         result["steps"] = [
-            "Use an available Keynote runtime, or obtain local exports from the presentation owner. This helper cannot edit or export .key on Windows.",
-            "Preserve the original .key. In Keynote on Mac, work from a duplicate and export new copies using File > Export To > PowerPoint and File > Export To > PDF.",
-            "For source review include skipped slides, notes when needed, and each build stage in the PDF. Record the export settings and Keynote version privately.",
-            "Compare exported PPTX content and native objects with the original in Keynote before applying the shared PPTX workflow; the PDF is visual evidence only.",
-            "Run this router again on the exported PPTX, then create and independently validate a new editable PPTX candidate.",
+            "Keep the .key source and delivery format. In a Mac environment with Keynote, run scripts/keynote_native.py probe, then inspect a private duplicate before planning native changes.",
+            "Use the native Keynote adapter for supported bounded edits and a new .key candidate; export PDF previews directly from Keynote. No PowerPoint conversion or Windows application is required for this route.",
+            "Independently review scientific content, every rendered slide, native editability and any builds or media in Keynote; complete the hash-bound review before finalization.",
+            "If the Mac runtime, automation permission or required operation is unavailable, keep native delivery pending and explain what is needed. Offer cross-format work only as a user-selected alternative.",
         ]
-        if target == "keynote":
-            result["steps"] += [
-                "Open the reviewed candidate PPTX in Keynote, save as a new .key, then inspect every slide and native object against both original .key and reviewed PPTX.",
-                "Validate playback in Keynote and export a final Keynote PDF; .key delivery requires an actual Keynote runtime and review.",
-            ]
+        if kind == "keynote-legacy":
+            result["steps"][0] = "Keep the legacy .key original. Run scripts/keynote_native.py probe on Mac, then open a private duplicate in Keynote, review it and save a new modern .key baseline. Route that baseline again before using the native adapter, which does not accept legacy APXL containers."
     elif kind == "pdf":
         result.update(status="reference-only", adapter="visual-reference")
-        result["steps"] = ["Use the PDF for visual review; obtain an editable PPTX or a Keynote export before polishing native slide objects."]
+        result["steps"] = ["Use the PDF for visual review; obtain the editable PowerPoint or native Keynote source before polishing native slide objects."]
     elif kind == "credential-key":
         result["steps"] = ["Exclude this credential file; select the actual presentation. Do not upload it or include its contents in reports."]
     else:
-        result["steps"] = ["Select a compatible PPTX or obtain local PowerPoint/PDF exports from Keynote; do not rename an unknown file to simulate conversion."]
+        result["steps"] = ["Select the actual editable PowerPoint or Keynote source; do not rename an unknown file to simulate conversion."]
     result["limitations"] = [
         "Container recognition is not full content, render, editability or application compatibility validation.",
-        "Keynote conversion can change fonts, chart types, connector behavior, builds and other objects; native review is required.",
-        "No native Keynote editing, export, import or playback has been executed by this helper. It never launches apps or uploads files.",
+        "The native Keynote adapter is implemented as an experimental macOS path; Mac application integration has not been tested in this repository's Windows validation environment.",
+        "Explicit cross-format conversion can change fonts, charts, connectors and builds; compare the conversion before redesign.",
+        "This router detects prerequisites without launching applications, requesting automation access or uploading files. It never marks a native application review as complete.",
     ]
     return result
 
@@ -262,7 +290,8 @@ def route_presentation(path, target="pptx"):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", help="Presentation file or .key directory bundle")
-    parser.add_argument("--target", choices=("pptx", "keynote"), default="pptx")
+    parser.add_argument("--target", choices=("auto", "pptx", "keynote"), default="auto",
+                        help="Preserve the detected source application by default; another target explicitly requests conversion")
     args = parser.parse_args()
     result = route_presentation(args.source, args.target)
     print(json.dumps(result, indent=2))

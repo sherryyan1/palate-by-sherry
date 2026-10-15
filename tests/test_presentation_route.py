@@ -51,27 +51,77 @@ class PresentationRouteTests(unittest.TestCase):
         self.assertTrue(result["can_transform_now"])
         self.assertFalse(result["can_deliver_target_now"])
         self.assertEqual(result["adapter"], "shared-pptx-workflow")
+        self.assertEqual(result["target"], "pptx")
+        self.assertEqual(result["target_origin"], "source")
+        self.assertFalse(result["conversion_requested"])
         self.assertEqual(result["validation"]["content"], "pending")
         self.assertEqual(result["source"]["source_sha256"], route.file_hash(source))
         self.assertEqual(source.read_bytes(), original)
         self.assertEqual(list(self.folder.iterdir()), [source])
 
-    def test_pptx_for_keynote_keeps_transform_available_but_requires_native_review(self):
+    def test_pptx_for_keynote_is_explicit_conversion_before_native_work(self):
         result = route.route_presentation(self.archive("source.pptx", pptx_parts()), "keynote")
-        self.assertEqual(result["status"], "requires-keynote-runtime")
-        self.assertTrue(result["can_transform_now"])
-        self.assertEqual(result["native_keynote_adapter"], "not-implemented")
+        self.assertEqual(result["status"], "requires-format-conversion")
+        self.assertTrue(result["conversion_requested"])
+        self.assertFalse(result["can_transform_now"])
+        self.assertEqual(result["native_keynote_adapter"], "experimental-mac-unverified")
         self.assertEqual(result["validation"]["keynote_runtime"], "not-run")
         self.assertTrue(any("File > Open" in step for step in result["steps"]))
 
-    def test_modern_keynote_zip_requires_export_for_both_targets(self):
+    def test_keynote_default_preserves_native_source_without_conversion(self):
         source = self.archive("source.KEY", self.modern_parts())
-        for target in ("pptx", "keynote"):
+        original = source.read_bytes()
+        for target in (None, "auto", "keynote"):
             result = route.route_presentation(source, target)
             self.assertEqual(result["source"]["kind"], "keynote-modern")
-            self.assertEqual(result["status"], "requires-export")
+            self.assertEqual(result["adapter"], "native-keynote")
+            self.assertEqual(result["target"], "keynote")
+            self.assertFalse(result["conversion_requested"])
             self.assertFalse(result["can_transform_now"])
-            self.assertTrue(any("PowerPoint" in step and "PDF" in step for step in result["steps"]))
+            self.assertFalse(result["can_deliver_target_now"])
+            self.assertEqual(result["validation"]["keynote_runtime"], "not-run")
+            self.assertEqual(result["native_keynote_adapter"], "experimental-mac-unverified")
+        self.assertEqual(source.read_bytes(), original)
+        self.assertEqual(list(self.folder.iterdir()), [source])
+
+    def test_native_keynote_missing_runtime_does_not_fall_back_to_pptx(self):
+        environment = {"platform": "win32", "prerequisites_detected": False,
+                       "automation_access": "not-probed", "native_mac_validation": "not-run"}
+        with patch.object(route, "keynote_environment", return_value=environment):
+            result = route.route_presentation(self.archive("source.key", self.modern_parts()))
+        self.assertEqual(result["status"], "requires-keynote-runtime")
+        self.assertEqual(result["adapter"], "native-keynote")
+        self.assertEqual(result["target"], "keynote")
+        self.assertFalse(result["conversion_requested"])
+
+    def test_detected_mac_prerequisites_still_require_actual_preflight(self):
+        environment = {"platform": "darwin", "prerequisites_detected": True,
+                       "automation_access": "not-probed", "native_mac_validation": "not-run"}
+        with patch.object(route, "keynote_environment", return_value=environment):
+            result = route.route_presentation(self.archive("source.key", self.modern_parts()))
+        self.assertEqual(result["status"], "requires-keynote-preflight")
+        self.assertFalse(result["can_transform_now"])
+        self.assertFalse(result["can_deliver_target_now"])
+        self.assertEqual(result["keynote_environment"]["automation_access"], "not-probed")
+        self.assertEqual(result["keynote_environment"]["native_mac_validation"], "not-run")
+
+    def test_only_explicit_pptx_target_converts_keynote(self):
+        result = route.route_presentation(self.archive("source.key", self.modern_parts()), "pptx")
+        self.assertEqual(result["target_origin"], "explicit")
+        self.assertEqual(result["target"], "pptx")
+        self.assertEqual(result["status"], "requires-format-conversion")
+        self.assertEqual(result["adapter"], "explicit-application-conversion")
+        self.assertTrue(result["conversion_requested"])
+        self.assertFalse(result["can_transform_now"])
+
+    def test_prerequisite_detection_never_claims_automation_or_mac_validation(self):
+        with patch.object(route.sys, "platform", "win32"), patch.object(route.shutil, "which") as which:
+            result = route.keynote_environment()
+        which.assert_not_called()
+        self.assertFalse(result["prerequisites_detected"])
+        self.assertIsNone(result["keynote_app"])
+        self.assertEqual(result["automation_access"], "not-probed")
+        self.assertEqual(result["native_mac_validation"], "not-run")
 
     def test_directory_bundle_is_read_only_and_hash_changes_when_content_changes(self):
         source = self.folder / "source.key"
@@ -104,11 +154,26 @@ class PresentationRouteTests(unittest.TestCase):
         source = self.archive("source.key", {"Index/Document.iwa": b"synthetic Pages or Numbers document"})
         self.assertEqual(route.route_presentation(source)["status"], "unsupported")
 
-    def test_legacy_marker_gets_export_route_without_native_validity_claim(self):
+    def test_legacy_marker_gets_native_preflight_without_native_validity_claim(self):
         source = self.archive("legacy.key", {"index.apxl": b"synthetic legacy marker"})
         result = route.route_presentation(source)
         self.assertEqual(result["source"]["kind"], "keynote-legacy")
-        self.assertEqual(result["status"], "requires-export")
+        self.assertEqual(result["adapter"], "native-keynote")
+        self.assertFalse(result["conversion_requested"])
+        self.assertIn(result["status"], {"requires-keynote-runtime", "requires-keynote-preflight"})
+        self.assertIn("modern .key baseline", result["steps"][0])
+        self.assertIn("does not accept legacy", result["steps"][0])
+
+    def test_legacy_directory_native_source_has_content_bound_hash(self):
+        source = self.folder / "legacy.key"
+        source.mkdir()
+        (source / "index.apxl").write_bytes(b"synthetic legacy document")
+        result = route.route_presentation(source)
+        self.assertEqual(result["source"]["kind"], "keynote-legacy")
+        self.assertEqual(result["source"]["hash_kind"], "bundle-manifest-sha256")
+        first_hash = result["source"]["source_sha256"]
+        (source / "index.apxl").write_bytes(b"another synthetic revision")
+        self.assertNotEqual(first_hash, route.inspect_presentation(source)["source_sha256"])
 
     def test_private_public_and_putty_keys_are_excluded_without_returning_text(self):
         headers = [b"-----BEGIN " + kind + b"-----" for kind in (b"PRIVATE KEY", b"RSA PRIVATE KEY", b"OPENSSH PRIVATE KEY", b"PUBLIC KEY")]
@@ -202,7 +267,11 @@ class PresentationRouteTests(unittest.TestCase):
         source = self.archive("source.key", self.modern_parts())
         completed = subprocess.run([sys.executable, str(ROOT / "scripts/presentation_route.py"), str(source), "--target", "keynote"], capture_output=True, text=True)
         self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertEqual(json.loads(completed.stdout)["status"], "requires-export")
+        self.assertEqual(json.loads(completed.stdout)["adapter"], "native-keynote")
+        self.assertFalse(json.loads(completed.stdout)["conversion_requested"])
+        completed = subprocess.run([sys.executable, str(ROOT / "scripts/presentation_route.py"), str(source)], capture_output=True, text=True)
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertEqual(json.loads(completed.stdout)["target"], "keynote")
         completed = subprocess.run([sys.executable, str(ROOT / "scripts/presentation_route.py"), str(self.folder / "missing.key")], capture_output=True, text=True)
         self.assertEqual(completed.returncode, 2)
         self.assertEqual(json.loads(completed.stdout)["status"], "unsupported")

@@ -4,7 +4,7 @@ Use this workflow to turn a compatible PPTX source into a separately reviewed ed
 
 ## Runtime and task workspace
 
-This adapter handles PowerPoint sources and verified Keynote exports. Begin with [presentation_route.py](../scripts/presentation_route.py) so the source format and requested delivery determine the file route. When Keynote is involved, the [Keynote workflow](keynote-workflow.md) establishes the conversion baseline and the review needed after import. The preservation checks here apply to the PPTX itself; a later application conversion needs its own comparison.
+This adapter handles compatible PowerPoint `.pptx` sources. Begin with [presentation_route.py](../scripts/presentation_route.py) so the source format and requested delivery determine the file route. Keynote sources stay in the [native Keynote workflow](keynote-workflow.md) unless the user requests conversion. A user-selected PowerPoint export from Keynote may enter this workflow only after its conversion baseline has been reviewed. The preservation checks here apply to the PPTX itself; any application conversion needs its own comparison.
 
 Locate bundled runtimes with the desktop dependency tool. Check the tools for the operation being attempted rather than treating a successful package inspection as proof that rendering is available:
 
@@ -13,8 +13,9 @@ Locate bundled runtimes with the desktop dependency tool. Check the tools for th
 | Preserve and inspect PPTX objects | Python with `lxml`; neither Node nor a presentation SDK is needed by the preservation helper. |
 | Raster pixel diagnostics | Pillow, in addition to the preservation runtime. |
 | Render with the included Windows helper | Installed PowerPoint; scoped COM permission may be needed. |
+| Review through another native PowerPoint workflow | Access to the actual delivery application, with application/version and performed checks recorded. The Windows helper is not mandatory. |
 
-If another available renderer is used, identify it in the review record. If rendering is unavailable, visual review remains pending.
+If another available renderer is used during iteration, identify it in the review record. Its render does not establish PowerPoint compatibility; complete final appearance and object checks in the requested delivery application. If that application is unavailable, the corresponding checks remain pending and the output remains a candidate. This workflow does not require Windows when a suitable native PowerPoint workflow is available elsewhere.
 
 Create small task-local `build/` and `outputs/` directories outside the reference corpus. Keep the source immutable and retain its SHA-256, because plans and render evidence must refer to the same baseline. Fresh output names preserve that baseline through each revision. Research-bearing files stay out of version control by default; never copy the entire research corpus or install GitHub Desktop for this workflow.
 
