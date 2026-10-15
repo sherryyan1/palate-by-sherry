@@ -20,9 +20,11 @@
   <a href="docs/usage.md">Documentation</a>
 </p>
 
-**palate** is a Codex skill for refining research presentations in Sherry's style. It shapes the explanation around the audience, purpose and time available, then arranges the slides so the evidence and reasoning are easy to follow. Throughout the redesign, it preserves the meaning and qualifications of the research.
+**palate** is a Codex skill that helps researchers turn complex work into presentations their audience can follow.
 
-A palate for ideas, a palette for slides.
+Whether you're preparing a conference talk, a research meeting, or a tutorial, palate helps you decide what deserves attention, how to tell the story, and how to present the evidence. It adapts to your audience, purpose, and time available, while keeping your scientific meaning, data, and important caveats intact.
+
+*A palate for ideas, a palette for slides.*
 
 ## <img src="assets/icons/square-terminal.svg" width="22" height="22" align="bottom" alt="">&nbsp; Quick start
 
