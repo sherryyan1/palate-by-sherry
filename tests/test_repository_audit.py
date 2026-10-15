@@ -119,6 +119,71 @@ class RepositoryAuditTests(unittest.TestCase):
         result, _ = self.fixture({"README.ja.md": b"\xff\xfe\x00"})
         self.assertEqual(self.issues(result, "README.ja.md"), {"unexpected_binary"})
 
+    def test_exact_reviewed_readme_icon_assets_are_allowed(self):
+        files = {
+            "assets/icons/LICENSE": "Synthetic English license.\n",
+            "assets/icons/arrow-down.svg": "<svg/>\n",
+            "assets/icons/book-open.svg": "<svg/>\n",
+            "assets/icons/chart-no-axes-combined.svg": "<svg/>\n",
+            "assets/icons/compass.svg": "<svg/>\n",
+            "assets/icons/files.svg": "<svg/>\n",
+            "assets/icons/languages.svg": "<svg/>\n",
+            "assets/icons/package-check.svg": "<svg/>\n",
+            "assets/icons/shield-check.svg": "<svg/>\n",
+            "assets/icons/square-terminal.svg": "<svg/>\n",
+            "assets/icons/users-round.svg": "<svg/>\n",
+        }
+        self.assertIsInstance(repository_audit.REVIEWED_README_ICON_ASSETS, frozenset)
+        self.assertEqual(repository_audit.REVIEWED_README_ICON_ASSETS, frozenset(files))
+        files["README.md"] = "\n".join(f'<img src="{name}">' for name in files)
+        for staged in (False, True):
+            with self.subTest(staged=staged):
+                result, _ = self.fixture(files, staged=staged)
+                self.assertEqual(result["status"], "passed", result)
+                self.assertEqual(result["files_checked"], 12)
+
+    def test_unreviewed_icon_siblings_and_research_assets_are_rejected(self):
+        files = {name: "Synthetic unreviewed material.\n" for name in (
+            "assets/icons/unreviewed.svg",
+            "assets/icons/arrow-down.svg.bak",
+            "assets/icons/ARROW-DOWN.svg",
+            "assets/icons/nested/arrow-down.svg",
+            "assets/research.svg",
+            "assets/icons/research.pdf",
+            "assets/icons/research.png",
+            "assets/icons/deck.key/notes.svg",
+            "docs/research.pdf",
+            "docs/deck.key/notes.svg",
+        )}
+        result, _ = self.fixture(files)
+        for name in files:
+            with self.subTest(path=name):
+                self.assertEqual(self.issues(result, name), {"private_or_generated_material"})
+
+    def test_reviewed_asset_exception_keeps_research_suffix_and_key_directory_checks(self):
+        files = {
+            "assets/icons/research.pdf": "Synthetic research material.\n",
+            "assets/icons/deck.key/notes.svg": "<svg/>\n",
+        }
+        reviewed = repository_audit.REVIEWED_README_ICON_ASSETS | frozenset(files)
+        with patch.object(repository_audit, "REVIEWED_README_ICON_ASSETS", reviewed):
+            result, _ = self.fixture(files)
+        for name in files:
+            with self.subTest(path=name):
+                self.assertEqual(self.issues(result, name), {"private_or_generated_material"})
+
+    def test_reviewed_icon_assets_still_reject_credentials_binary_and_non_english_text(self):
+        cases = (
+            ("ghp_" + "x" * 24, "credential_pattern"),
+            (b"\xff\xfe\x00", "unexpected_binary"),
+            ("<svg><title>\u4e2d\u6587</title></svg>\n", "non_English_script"),
+        )
+        for name in sorted(repository_audit.REVIEWED_README_ICON_ASSETS):
+            for content, issue in cases:
+                with self.subTest(path=name, issue=issue):
+                    result, _ = self.fixture({name: content})
+                    self.assertEqual(self.issues(result, name), {issue})
+
     def test_markdown_href_src_and_srcset_links_are_preserved(self):
         files = {
             "README.md": '[Guide](docs/guide.md#details)\n<a href="docs/guide.md">Guide</a>\n<a href=docs/guide.md>Guide</a>\n<img src=\'docs/media/light.svg\'>\n<SOURCE SRCSET = "docs/media/dark.svg">\n',

@@ -1,5 +1,7 @@
 # Research originals and all derived scientific evidence stay local.
-/assets/
+/assets/*
+!/assets/icons/
+/assets/icons/*
 /analysis/
 /PROJECT_STATE.md
 /references/design-dna-report.md
@@ -81,6 +83,18 @@ id_ed25519*
 !/docs/media/palate-dark.svg
 !/docs/media/palate-light-mobile.svg
 !/docs/media/palate-dark-mobile.svg
+# Track only the reviewed README icons and their license.
+!/assets/icons/LICENSE
+!/assets/icons/arrow-down.svg
+!/assets/icons/book-open.svg
+!/assets/icons/chart-no-axes-combined.svg
+!/assets/icons/compass.svg
+!/assets/icons/files.svg
+!/assets/icons/languages.svg
+!/assets/icons/package-check.svg
+!/assets/icons/shield-check.svg
+!/assets/icons/square-terminal.svg
+!/assets/icons/users-round.svg
 *.mp4
 *.gif
 /output/
