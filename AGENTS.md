@@ -1,6 +1,6 @@
 # Repository guidance
 
-Use SKILL.md as the runtime entrypoint. Keep tracked documentation, code comments, examples and metadata in English; respond to users in their requested language.
+Use SKILL.md as the single English runtime entrypoint. Keep references, detailed documentation, code comments, examples and metadata in English; respond to users in their requested conversation language. The root README.zh-CN.md, README.ja.md and README.ko.md are localized human-facing entry points. README.md remains English apart from the shared language navigation. Keep the four READMEs aligned on capabilities and requirements while adapting their prose naturally; do not create translated execution rules.
 
 Write connected explanations that make the design judgment and its reasoning explicit. Use tables for discrete options, requirements and comparisons, and ordered steps when sequence matters. Preserve sufficient context, exact technical contracts and scientific qualifications; brevity alone is not the goal. Follow references/writing-style.md when drafting documentation or explanatory prose.
 

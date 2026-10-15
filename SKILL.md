@@ -7,7 +7,7 @@ description: "Polish research slides in Sherry's style from a short request, wit
 
 *Good research deserves good taste.*
 
-Deliver a new editable deck and a concise transformation report when redesign is requested. Respond in the user's requested language. Use **palate** consistently in prose and **palate by Sherry** for the full display name. Invoke the skill as `$palate`.
+Deliver a new editable deck and a concise transformation report when redesign is requested. Respond in the user's requested conversation language. Use **palate** consistently in prose and **palate by Sherry** for the full display name. Invoke the skill as `$palate`.
 
 ## Design judgment
 
@@ -18,6 +18,8 @@ Treat [spacing and hierarchy](references/spacing-and-hierarchy.md) as part of th
 Accept a short request such as “Use palate to polish my slides.” The brief should establish what listeners need to understand and inspect, because that determines the explanation and level of detail. Follow [guided intake](references/guided-intake.md) to collect missing context: begin with the setting, ask about the audience on the external branch, then resolve duration and depth. Reuse supplied fields and [context profiles](references/presentation-contexts.json), and let users delegate design choices. Preserve explicit constraints without inferring slide counts, Q&A allocations or subject familiarity. Single-page monthly updates are outside this workflow.
 
 Follow the [writing style](references/writing-style.md) when drafting documentation, reports and explanatory prose. Develop continuous reasoning in connected sentences that explain a choice and its purpose. Use tables for discrete information that benefits from comparison, while keeping commands, ordered procedures and scientific qualifications exact.
+
+Keep README language, conversation language and presentation language independent. Preserve the source presentation language unless the user requests a change; clarify the target only when ambiguous before rewriting. A Korean conversation can request English slides. Translation uses the content-changing authoring path and a source-to-output ledger, with scientific terminology and qualifications reviewed against the original. The preservation helper does not translate text. All README versions use this one English execution standard.
 
 ## Execute
 

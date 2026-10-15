@@ -24,3 +24,9 @@ A table needs a meaningful basis for comparison. Avoid splitting a continuous ex
 For documentation and transformation reports, explain the method and its consequences before introducing implementation detail. Keep tool-specific instructions where a reader needs them to act. Preserve binding conditions, exceptions, scientific qualifications and capability limits when editing for flow.
 
 On slides, match the amount of prose to the audience and time available. A concise interpretation can still make its reasoning explicit; this writing preference does not require paragraph-length text on every slide. Technical labels, equations and structured data keep the form that makes them easiest to understand and verify.
+
+## Localized entry points
+
+The four README versions share one set of capabilities, requirements and scientific safeguards. Write each for researchers who use that language: choose familiar terminology, develop the explanation in a natural order and adapt examples where useful. Sentence-by-sentence matching is unnecessary, but a change of language must not introduce a different promise or omit a material limit.
+
+Keep the execution standard and detailed references in English so all entry points lead to the same design rules. Make clear that reading a localized README does not choose the language of the conversation or the presentation.

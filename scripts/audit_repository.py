@@ -2,17 +2,30 @@
 import argparse
 import json
 from pathlib import Path
+import posixpath
 import re
 import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 CJK = re.compile(r"[\u3400-\u9fff\uf900-\ufaff\u3040-\u30ff\uac00-\ud7af]")
+HTML_LINK = re.compile(r'''(?<![\w:-])(?:href|src|srcset)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))''', re.IGNORECASE)
 SECRETS = [re.compile(pattern) for pattern in (
     r"gh[pousr]_[A-Za-z0-9]{20,}", r"github_pat_[A-Za-z0-9_]{20,}",
     r"AKIA[A-Z0-9]{16}", r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")]
 PRIVATE_PREFIXES = ("assets/", "analysis/", "local/", "interviews/", "dist/", "docs/local/")
 RESEARCH_SUFFIXES = {".pptx", ".ppt", ".key", ".pdf", ".xlsx", ".csv", ".tsv", ".parquet", ".png", ".zip"}
 PRIVATE_FIELDS = {"confirmation", "revision_history", "name_zh", "render_path"}
+LOCALIZED_READMES = frozenset({"README.zh-CN.md", "README.ja.md", "README.ko.md"})
+LANGUAGE_NAVIGATION = (
+    "<!-- language-navigation -->\n"
+    '<p align="center">\n'
+    '  <a href="README.md" lang="en">English</a> &nbsp;\u00b7&nbsp;\n'
+    '  <a href="README.zh-CN.md" lang="zh-CN">\u7b80\u4f53\u4e2d\u6587</a> &nbsp;\u00b7&nbsp;\n'
+    '  <a href="README.ja.md" lang="ja">\u65e5\u672c\u8a9e</a> &nbsp;\u00b7&nbsp;\n'
+    '  <a href="README.ko.md" lang="ko">\ud55c\uad6d\uc5b4</a>\n'
+    "</p>\n"
+    "<!-- /language-navigation -->"
+)
 
 
 def git(*args):
@@ -49,7 +62,11 @@ def audit(staged=False):
             findings.append({"file": name, "issue": "unexpected_binary"})
             continue
         checked += 1
-        if CJK.search(text):
+        language_text = text
+        if name == "README.md":
+            # Line endings do not widen the exact navigation-content exception.
+            language_text = text.replace("\r\n", "\n").replace(LANGUAGE_NAVIGATION, "", 1)
+        if name not in LOCALIZED_READMES and CJK.search(language_text):
             findings.append({"file": name, "issue": "non_English_script"})
         if any(pattern.search(text) for pattern in SECRETS):
             findings.append({"file": name, "issue": "credential_pattern"})
@@ -57,13 +74,19 @@ def audit(staged=False):
             findings.append({"file": name, "issue": "private_provenance_fields"})
         if path.suffix == ".md":
             links = re.findall(r"\[[^\]]*\]\(([^)]+)\)", text)
-            links += re.findall(r'(?:src|srcset)="([^"]+)"', text)
+            links += [next((value for value in match if value), "") for match in HTML_LINK.findall(text)]
             for target in links:
                 target = target.strip("<>").split("#", 1)[0]
                 if not target or re.match(r"[a-zA-Z]+:", target):
                     continue
-                resolved = (path.parent / target).resolve()
-                if not resolved.is_relative_to(ROOT) or resolved.relative_to(ROOT).as_posix() not in available:
+                if staged:
+                    # Resolve index paths without consulting working-tree files or links.
+                    resolved = posixpath.normpath(posixpath.join(posixpath.dirname(name), target))
+                    missing = target.startswith("/") or resolved == ".." or resolved.startswith("../") or resolved not in available
+                else:
+                    resolved = (path.parent / target).resolve()
+                    missing = not resolved.is_relative_to(ROOT) or resolved.relative_to(ROOT).as_posix() not in available
+                if missing:
                     findings.append({"file": name, "issue": "untracked_or_missing_link", "target": target})
     return {"status": "passed" if not findings else "failed", "files_checked": checked, "findings": findings}
 

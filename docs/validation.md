@@ -4,7 +4,7 @@ Validation asks three different questions: did the scientific content survive, c
 
 | Check | Coverage |
 | :--- | :--- |
-| Automated regression | 57 intake, format routing, OOXML and packaging tests |
+| Automated regression | 75 intake, format routing, OOXML, packaging and repository-audit tests |
 | End-to-end transformation | Two-slide native chart, table, text and process fixture |
 | Render review | Before/after PowerPoint exports, individually inspected |
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
@@ -27,6 +27,7 @@ Regression tests exercise the boundaries that keep a routine operation from sile
 | Installation | Installed local-edit preservation, explicit name migration, complete manifest verification, archives outside skill discovery, unrelated-path protection, backup collisions and rollback after installation failure. |
 | Guided intake | Scenario branching, external audience selection, executive priorities, custom durations, delegated depth, prefilled briefs, profile overrides and out-of-scope requests. |
 | Format routing | PowerPoint package structure, modern and legacy Keynote containers, directory bundles, nested indexes, credential keys, reference-only PDFs and invalid inputs; read-only behavior, source hashes and pending review states. |
+| Repository audit | Narrow language exceptions for the four README entry points; credentials, private materials, unexpected binaries and local links remain checked. Staged audits inspect the exact Git index. |
 
 The intake helper emits payloads for the available Codex question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
 

@@ -5,6 +5,15 @@
   <img src="docs/media/palate-light.svg" alt="palate by Sherry — Good research deserves good taste." width="1200">
 </picture>
 
+<!-- language-navigation -->
+<p align="center">
+  <a href="README.md" lang="en">English</a> &nbsp;·&nbsp;
+  <a href="README.zh-CN.md" lang="zh-CN">简体中文</a> &nbsp;·&nbsp;
+  <a href="README.ja.md" lang="ja">日本語</a> &nbsp;·&nbsp;
+  <a href="README.ko.md" lang="ko">한국어</a>
+</p>
+<!-- /language-navigation -->
+
 <p align="center">
   <a href="#quick-start">Get started</a> &nbsp;·&nbsp;
   <a href="references/design-system.md">Design principles</a> &nbsp;·&nbsp;
@@ -31,6 +40,12 @@ Use palate to polish my slides.
 ```
 
 You can provide a brief upfront or begin with this sentence. palate uses what you have already shared and asks for the context that would change the design; when you leave the depth open, it reviews your slides before deciding how much explanation the talk needs. The [usage guide](docs/usage.md) explains the choices that shape the brief.
+
+## Language choices
+
+You can read this README in Korean, discuss the brief in Korean and still ask for an English conference presentation. Those choices serve different purposes: documentation should be easy to read, while the slides should use the language your audience needs. palate preserves the source language unless you request a change, and clarifies an uncertain target before rewriting.
+
+Translation is a content revision. It requires an available native authoring workflow and scientific review to preserve terminology, numerical values, units and qualifications. The object-preservation helper adjusts existing objects; it does not translate their text.
 
 ## How it approaches the slides
 

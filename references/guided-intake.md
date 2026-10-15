@@ -21,6 +21,12 @@ When users select “Let palate choose,” inspect their slides before deciding 
 
 Use the polish request as the purpose unless a narrower goal has been supplied. Ask about a specific goal or subject familiarity when the answer would change a consequential design choice. Fonts, palettes and layouts are part of the design work; ordinary polishing should not require users to choose them in advance.
 
+## Language choices
+
+The README version, conversation language and slide language serve different purposes. Reuse an explicit presentation-language request independently of the language used for the conversation or documentation. Preserve the source language when no change is requested; when the intended language is ambiguous, clarify it before rewriting. This keeps a Korean discussion of an English conference presentation from silently becoming a Korean slide deck.
+
+Record language preferences in the private brief alongside the helper's audience, time and depth context. The choice helper does not accept extra language fields in its state or `--known` input. Translation is content-changing work, so use the native authoring path and review its scientific meaning against the source as described in [scientific fidelity](scientific-fidelity.md).
+
 ## Presenting the questions
 
 Use the host's available input tool to keep the brief easy to answer. Translate visible questions and labels into the user's language while retaining stable field values, so the selected context reaches the runtime unchanged.

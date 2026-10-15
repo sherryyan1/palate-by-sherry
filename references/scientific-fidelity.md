@@ -10,7 +10,11 @@ A retained raster figure keeps its original content, while its interior labels r
 
 ## Content-changing/rebuilding path
 
-Summarizing text, splitting slides, reconstructing figures and recoloring chart internals can change what the evidence communicates. These operations sit outside the conservative patcher's contract and require an appropriate native authoring tool. Before authoring, create a task-local ledger that traces each changed slide from its source to the proposed output:
+Summarizing text, splitting slides, reconstructing figures and recoloring chart internals can change what the evidence communicates. These operations sit outside the conservative patcher's contract and require an appropriate native authoring tool.
+
+Translation also follows this path, even when the layout is retained. Confirm the requested slide language independently of the README and conversation, then trace source wording to the translated version. Review terminology, comparison baselines, negation, uncertainty and qualifications alongside numerical values, units, equations, labels, legends and references. Resolve ambiguous scientific terms against the source or with the owner; the preservation helper cannot rewrite or translate text.
+
+Before authoring, create a task-local ledger that traces each changed slide from its source to the proposed output:
 
 | Ledger field | Required record |
 | --- | --- |
