@@ -35,4 +35,15 @@ On slides, match the amount of prose to the audience and time available. A conci
 
 The four README versions share one set of capabilities, requirements and scientific safeguards. Write each for researchers who use that language: choose familiar terminology, develop the explanation in a natural order and adapt examples where useful. Sentence-by-sentence matching is unnecessary, but a change of language must not introduce a different promise or omit a material limit.
 
-Keep the execution standard and detailed references in English so all entry points lead to the same design rules. Make clear that reading a localized README does not choose the language of the conversation or the presentation. Use slides or slide deck for the material in English, and familiar software-neutral equivalents in localized prose; reserve PowerPoint and Keynote for application, compatibility and file-handling distinctions. Treat approved native-language wording as the source of truth and make only necessary corrections. Avoid em dashes and en dashes as prose separators, while preserving literal filenames, commands and scientific notation. Write the product name as **palate** in prose; leave code, paths and invocation syntax exact.
+Keep the execution standard and detailed references in English so all entry points lead to the same design rules. Make clear that reading a localized README does not choose the language of the conversation or the presentation. Treat approved native-language wording as the source of truth and make only necessary corrections.
+
+Describe the presentation separately from its application or file format. Choose terminology for what the sentence actually describes:
+
+| Subject | Wording |
+| :--- | :--- |
+| Presentation materials | Use slides or slide deck in English, with familiar software-neutral equivalents in localized prose. Distinguish the whole deck from an individual slide where the language does so. |
+| Application, compatibility or file handling | Retain PowerPoint, Keynote and exact format names when that distinction matters to the task. |
+
+These are contextual choices, not a global replacement list. Keep the prose natural without weakening the technical distinction.
+
+Avoid em dashes and en dashes as prose separators, while preserving literal filenames, commands and scientific notation. Write the product name as **palate** in prose; leave code, paths and invocation syntax exact.

@@ -1,6 +1,24 @@
 # Validation
 
-Validation asks three different questions: did the scientific content survive, can the intended objects still be edited, and does the rendered deck communicate the evidence clearly? Each needs its own evidence. The current validation record covers the following:
+Validation asks three different questions: did the scientific content survive, can the intended objects still be edited, and does the rendered deck communicate the evidence clearly? Each needs its own evidence. **palate** records those outcomes separately so a passed file check cannot conceal an unfinished visual or scientific review.
+
+## Read the report for your deck
+
+The transformation report explains what changed, what was checked and what still needs attention. Look for evidence that matches the actual changes and requested delivery format:
+
+| Review | What it establishes |
+| :--- | :--- |
+| Scientific content | The revised explanation preserves the source's claims, data, units, equations, uncertainty, assumptions, caveats and references. Matching stored values is only part of this review. |
+| Native editability | The text, tables, charts and diagrams intended to remain editable can still be edited in the delivery application. A retained raster figure's interior labels remain part of the image. |
+| Rendered appearance | Every final slide has been inspected in the delivery application, with changed slides compared against the source. Changed animation states also need playback review. |
+
+If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate. A PowerPoint interchange deck, for example, does not establish that its later import into Keynote preserves appearance or native objects. The [Keynote workflow](../references/keynote-workflow.md) explains that additional review.
+
+The checks below describe the repository's tested behavior. They do not replace review of your own deck or certify its underlying science. For the task sequence and deliverables, see the [usage guide](usage.md#what-happens-after-you-attach-a-deck).
+
+## Repository validation record
+
+The current record covers the following:
 
 | Check | Coverage |
 | :--- | :--- |
@@ -12,9 +30,25 @@ Validation asks three different questions: did the scientific content survive, c
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
 | Content conservation | Values, units, categories, qualifiers, media, notes and workbooks |
 
-The integration fixture uses synthetic data only. Its authoring package, layout, chart, font and import checks passed, and transformation preserved all six chart values together with the embedded workbook. Those conservation results were followed by render and editability review before the candidate was finalized with a mapping report.
+### Language decisions
 
-## Run regression tests
+The language simulations used synthetic slide excerpts to exercise source-language retention, separate conversation and presentation languages, clarification of a missing translation target, preservation of scientific content and clarification of a materially ambiguous term. They also checked that clear statistical terms receive no unnecessary terminology question and that an unavailable native Keynote workflow is reported as pending. A follow-up checked consistent reuse of the user's confirmed terminology.
+
+Source-to-draft review compared numerical values, units, equations and references alongside assumptions, uncertainty, qualifications and claim strength. These were instruction-following and text-review checks; they did not author or render a translated deck, test its native editability or certify the underlying science.
+
+### Installation and discovery
+
+Installation checks built the allowlisted package, compared every installed file with its manifest and confirmed actual enabled discovery through the local Codex skill-listing interface. An unchanged managed update retained its recoverable snapshot; modified and unmanaged installations were refused without altering them. The test used a disposable repository-scoped `.agents/skills/palate` directory and did not replace a user's existing installation or invoke a model. It ran on Windows; macOS and Linux installation remain untested.
+
+The standard Codex Skill Installer was also tested against the repository root. It needs the root path and destination name explicitly. In the isolated Windows test, its Git method with `--path . --name palate` produced a directory containing `SKILL.md` and Git metadata but omitted the runtime subdirectories because of its sparse checkout. Its download method copies the selected tree without applying this repository's package allowlist. These observations support the managed package route in the [installation guide](installation.md); they do not establish the behavior of every future installer version.
+
+### Native-object transformation fixture
+
+The two-slide integration fixture uses synthetic data only. Its authoring package, layout, chart, font and import checks passed, and transformation preserved all six chart values together with the embedded workbook. Those conservation results were followed by before/after render review and reversible text, table-cell and chart-series edits in PowerPoint before the candidate was finalized with a mapping report.
+
+## Reproduce the repository checks
+
+Run the automated suite and content audit from the repository root:
 
 ```text
 python -m unittest discover -s tests -v
@@ -32,10 +66,6 @@ Regression tests exercise the boundaries that keep a routine operation from sile
 | Repository audit | Narrow README language exceptions and an exact allowlist for reviewed icons; credentials, private materials, unexpected binaries and local links remain checked. Staged audits inspect the exact Git index. |
 
 The intake helper emits payloads for the available Codex question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
-
-The language simulations used synthetic slide excerpts to exercise source-language retention, separate conversation and presentation languages, clarification of a missing translation target, preservation of scientific content and clarification of a materially ambiguous term. They also checked that clear statistical terms receive no unnecessary terminology question and that an unavailable native Keynote workflow is reported as pending. A follow-up checked consistent reuse of the user's confirmed terminology. Source-to-draft review compared numerical values, units, equations and references alongside assumptions, uncertainty, qualifications and claim strength. These were instruction-following and text-review checks; they did not author or render a translated deck, test its native editability or certify the underlying science.
-
-Installation checks built the current allowlisted package, compared every installed file with its manifest and confirmed actual enabled discovery through the local Codex skill-listing interface. An unchanged managed update retained its recoverable snapshot; modified and unmanaged installations were refused without altering them. The test used a disposable repository-scoped skill directory and did not replace a user's existing installation or invoke a model. It ran on Windows; macOS and Linux installation remain untested. The [installation guide](installation.md) explains the verified route and why a standard installer pointed at this repository's root is insufficient.
 
 Integration review follows the actual authoring and delivery sequence:
 

@@ -1,5 +1,7 @@
 # Presentation brief
 
+Use this reference to interpret the brief; use [guided intake](guided-intake.md) to collect missing answers and manage the host's question tools. The brief supplies a reason for the design choices that follow, rather than selecting a fixed template.
+
 The brief establishes what the audience needs to understand and what the presentation must help them do with the research. Use the current request, the supplied deck and any named [context profile](presentation-contexts.md) before asking for more information. A short polish request is enough to begin; ask only for missing context that could change a consequential design choice.
 
 Audience familiarity determines where explanation is needed. Listeners who know the field may still need an unfamiliar mechanism explained, while a research discussion may require methods and uncertainty to remain visible for scrutiny. Purpose determines which contribution, finding or decision should organize that explanation. When a narrower purpose has not been supplied, use the request to improve the research presentation rather than requiring an additional goal statement.
@@ -15,4 +17,4 @@ Time and depth work together. A short talk needs an economical route through its
 
 Users may delegate technical depth to palate. Resolve that choice after inspecting the source and the brief, then record the decision in the transformation context. Keep units, labels, uncertainty, comparisons, limitations and sources wherever they are needed to interpret the evidence. Moving supplementary detail is appropriate only when its connection to the source and the visible argument remains clear.
 
-Use the [guided intake reference](guided-intake.md) for question order, host interaction and answer handling. Reuse supplied answers and leave ordinary visual decisions to the skill. Single-page monthly updates are outside this multi-slide workflow.
+Once the brief is resolved, carry these decisions into the [design system](design-system.md) and record them in the transformation context. Reuse supplied answers and leave ordinary visual decisions to the Skill. Single-page monthly updates are outside this multi-slide workflow.

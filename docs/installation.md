@@ -8,9 +8,20 @@ Install the palate Codex skill from https://github.com/sherryyan1/palate-by-sher
 Check the environment where Codex runs, follow docs/installation.md, and verify that $palate is available. If palate is already installed, ask before replacing it.
 ```
 
-Codex can inspect the environment, select an appropriate runtime and install the small runtime package described below. You do not need to choose an installation directory or run the advanced commands yourself. It may need your approval to write outside the current project, install a missing dependency or authenticate to a private repository. Use the available secure GitHub sign-in; never paste a password or token into the conversation.
+Codex checks the environment, selects an appropriate runtime and installs the runtime files that **palate** needs. You do not need to choose an installation directory or run the advanced commands yourself. Installation is complete when Codex has verified the installed files, checked the helper dependencies and confirmed that `$palate` is available as an enabled skill.
 
-Installation makes **palate** available to Codex. Editing and reviewing a particular deck also depend on the tools available in that environment. Codex should explain any missing capability before promising a finished file.
+Editing and reviewing a particular deck also depend on the presentation tools in that environment. Codex explains any missing capability before promising a finished file. Once installation is confirmed, follow the [usage guide](usage.md) to attach your slides and start a task.
+
+## When Codex needs your help
+
+Codex handles the setup checks. It asks you to act when the next step depends on access or a choice it cannot make on your behalf:
+
+| Situation | What happens next |
+| :--- | :--- |
+| The repository is private | Complete the available secure GitHub sign-in. Never paste a password or token into the conversation. |
+| **palate** is already installed | Codex asks before replacing it, even when the managed files are unchanged. It preserves local edits and explains any conflict. |
+| A dependency is missing or the destination needs additional permission | Codex explains the proposed setup and requests any required environment permission. |
+| The installed skill does not appear | Reload or restart Codex and check again. Until discovery is confirmed, Codex reports the installation as pending. |
 
 ## Install in the environment that will do the work
 
@@ -23,11 +34,11 @@ The computer displaying Codex and the environment running its tools may be diffe
 | Linux or a remote execution environment | A discoverable skills directory, Python and the helper dependencies. Check for a compatible presentation editor and rendering workflow separately; installing the skill does not supply desktop PowerPoint or Keynote. |
 | iPhone or iPad | Do not treat these as supported native installation environments. A client may connect to another execution environment, whose installation and editing capabilities must be checked separately. |
 
-The [usage guide](usage.md) explains which files and application checks a slide task needs. A successful installation does not establish native application access or complete a deck's scientific, editability or visual checks.
+The [usage requirements](usage.md#requirements) identify the files and application capabilities needed for each task. The [validation guide](validation.md) explains how installation checks differ from the content, editability and visual reviews of a particular deck.
 
 ## Procedure for Codex
 
-Follow these steps when handling the installation request. They apply to the execution environment, including when the user is working through a remote client.
+This procedure is for Codex or someone performing the installation directly. Researchers using the request above do not need to run these steps themselves. Apply every step in the execution environment, including when the user is working through a remote client.
 
 1. **Inspect the source and existing installation.** Read this repository's `SKILL.md`, `requirements.txt` and `scripts/package_skill.py` from an existing trusted checkout or a small temporary checkout of the requested revision. If access is private, use the environment's configured authentication. Identify the active Codex skills directories and look for both `palate` and the legacy `palate-by-sherry` before writing anything. Ask before replacing an existing installation, even if its managed files are unchanged. Preserve local edits and do not create a second discoverable copy to bypass that decision.
 2. **Select the runtime and destination.** Reuse a bundled Python runtime when available; otherwise check for Python 3.11 or later. Check `lxml` and Pillow in that same interpreter. If either is missing, explain the required setup and obtain any necessary environment permission before installing the repository's requirements. Choose a directory the running Codex actually scans, rather than assuming the bundled installer default matches this host. Current Codex supports `.agents/skills` discovery; some environments also use a configured or legacy `$CODEX_HOME/skills` directory. Reuse a recognized existing location when updating, and keep the install directory named `palate` so the invocation remains `$palate`.
@@ -39,11 +50,9 @@ For current discovery and invocation guidance, see [OpenAI's skill documentation
 
 ## Why the repository uses a runtime package
 
-The skill entrypoint lives at the repository root, with its runtime references and scripts in sibling directories. The standard Codex Skill Installer can select that root only when the caller supplies the root path and the destination name explicitly. Selecting it does not enforce this repository's runtime allowlist.
+The skill entrypoint lives at the repository root, with its runtime references and scripts in sibling directories. Copying only `SKILL.md` leaves those references and tools behind; copying the whole repository includes files that do not belong in an installed skill. The package builder selects the explicit runtime allowlist and records each file's hash so the installation can be checked and later updated without discarding local work.
 
-An isolated Windows test of the bundled installer's Git method with `--path . --name palate` produced a directory containing `SKILL.md` and Git metadata but omitted the runtime subdirectories because of its sparse checkout. The download method copies the selected tree without applying the package allowlist. Neither is the recommended installation route for this repository. Codex should use the existing package builder and managed installer rather than claiming that an ordinary root install is complete.
-
-The managed route was tested on Windows in a disposable destination: runtime hashes matched the package, edited and unmanaged installations were preserved, and the installed skill was discovered as enabled from a repository-scoped `.agents/skills/palate` directory. These checks did not replace an existing user installation or exercise native slide editing. macOS and Linux installation were not executed in that test; Codex must verify their environment and discovery when installing there.
+Use the existing package builder and managed installer. A standard Codex Skill Installer pointed at this repository's root does not enforce that allowlist and can omit required runtime directories. The [installation validation record](validation.md#installation-and-discovery) describes the tested Windows paths, the observed root-install failure and the limits of those checks. macOS and Linux installation remain untested; Codex must verify the actual environment and discovery when installing there.
 
 ## Advanced manual setup
 

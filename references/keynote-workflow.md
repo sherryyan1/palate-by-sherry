@@ -1,6 +1,10 @@
 # Keynote format handoff for palate
 
-PowerPoint and Keynote presentations need the same design judgment: the audience must be able to follow the argument and read the evidence without losing its qualifications. palate therefore shares intake, design decisions and scientific fidelity rules across both applications. File handling changes at the format boundary. The executable preservation adapter edits compatible PPTX objects, so a Keynote source first needs a verified export and a native Keynote deliverable needs an actual Keynote runtime. This package contains no native `.key` editor or transformer.
+PowerPoint and Keynote presentations need the same design judgment: the audience must be able to follow the argument and read the evidence without losing its qualifications. **palate** therefore shares intake, design decisions and scientific fidelity rules across both applications.
+
+This reference guides the agent through the file handoff when the source or requested deliverable is a Keynote presentation. The executable preservation adapter edits compatible PPTX objects, so a Keynote source first needs a verified export and a native Keynote deliverable needs an actual Keynote runtime. This package contains no native `.key` editor or transformer.
+
+Begin by [identifying the route](#inspect-and-choose-a-route). A Keynote source then needs an [export baseline](#keynote-source-to-a-reviewed-pptx-candidate); native Keynote delivery needs a separate [import and review](#reviewed-pptx-candidate-to-native-keynote-delivery). If that application work is unavailable, use the [delivery limits](#windows-delivery-limits-and-validation-status) to explain what remains pending.
 
 ## Inspect and choose a route
 
@@ -78,4 +82,6 @@ When a local Keynote runtime cannot be used, obtain exports from the owner or de
 
 Apple also offers Keynote for iCloud through supported browsers on Windows. That cloud workflow can synchronize presentation changes, which makes it a separate file-handling decision from the local route described here. The local route does not invoke iCloud, create an account or upload research, and iCloud is not an automatic fallback. ([Apple Keynote for iCloud overview](https://support.apple.com/guide/keynote-icloud/intro-to-keynote-for-icloud-gilf2fb004e2/icloud))
 
-The final report should make the handoff assessable: identify the original, export and candidate; explain meaningful design changes; and record separate content, appearance and editability results, conversion defects, and the application/version actually used. Include native Keynote results only when those checks were performed. Otherwise record `not-run` and the remaining handoff. Keep research-bearing files and detailed review evidence outside version control.
+## Report the handoff
+
+The final report should let the owner distinguish the design work from conversion effects and unfinished application checks. Identify the original, export and candidate; explain meaningful design changes; and record separate content, appearance and editability results, conversion defects, and the application/version actually used. Include native Keynote results only when those checks were performed. Otherwise record `not-run` and the remaining handoff. Keep research-bearing files and detailed review evidence outside version control.

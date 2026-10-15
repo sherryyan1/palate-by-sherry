@@ -2,6 +2,8 @@
 
 The brief should settle the decisions that change how the research is explained. A request such as “Use palate to polish my slides” is enough to begin: use the supplied deck and context, then ask only for information that affects the audience's understanding. Users can leave visual choices and technical depth to palate.
 
+This is an agent-facing interaction reference. [Question order](#from-the-brief-to-a-design-decision) explains which answers depend on earlier ones, [language choices](#language-choices) covers translation decisions, and [runtime state](#runtime-state) defines the helper's input and output. For the design reasoning behind the brief fields, see [Presentation brief](redesign-intake.md).
+
 Identify the supplied file with [presentation_route.py](../scripts/presentation_route.py). If the deck is missing, ask for it in ordinary chat because the choice tool accepts text rather than attachments. The [Keynote workflow](keynote-workflow.md) covers native Keynote sources and delivery; both formats use the same presentation brief.
 
 ## From the brief to a design decision
@@ -37,7 +39,7 @@ Use the host's available input tool to keep the brief easy to answer. Translate 
 | `request_user_input` | Choice cards within the host's limits | Respect its mode and option-count restrictions; divide longer menus into follow-up choices when needed. |
 | Neither | Concise numbered choices in chat | Ask for the same context without claiming that a popup was displayed. |
 
-These cards are supplied by the host, rather than an operating-system modal created by the skill. When the host provides custom input, use that facility instead of adding a redundant “Other” option.
+The host supplies these cards; the Skill does not create an operating-system modal. When the host provides custom input, use that facility instead of adding a redundant “Other” option.
 
 A suggested or preselected option becomes an answer only when the user submits it. Elapsed time does not supply consent or missing context. Wait for required answers before the dependent transformation, while continuing source inventory and visual analysis where those tasks are independent. Follow the [writing style](writing-style.md) when explaining the resulting design choices.
 

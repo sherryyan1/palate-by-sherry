@@ -1,6 +1,10 @@
 # Conservative transformation contract
 
-The conservative helper applies a bounded set of changes to a known source, then checks that the result matches the plan. Run it with the actual bundled Python executable; `python` below stands for that path. On Windows, quote absolute paths so file selection is unambiguous. Plans, inspections and receipts can contain research, so keep them in the private task build directory.
+Use this contract after the [PPTX workflow](pptx-workflow.md#two-implementation-paths) has established that the requested changes fit the conservative helper. It applies a bounded set of changes to a known source, then checks that the result matches the plan. Text rewriting, translation and reconstruction follow the authoring path instead.
+
+The sequence is inspect, plan, apply, independently validate, then review and finalize. A successful command establishes its own part of that sequence; it does not establish scientific interpretation, visual quality or editability on its own. The sections below define the [plan fields](#plan-json) and the separate [review record](#review-and-finalization).
+
+Run the commands with the actual bundled Python executable; `python` below stands for that path. On Windows, quote absolute paths so file selection is unambiguous. Plans, inspections and receipts can contain research, so keep them in the private task build directory.
 
 ```text
 python scripts/palate_pptx.py inspect input.pptx --output build/inspection.json
@@ -87,7 +91,7 @@ Within this contract, text, image bytes and crops, chart data and style parts, w
 
 Render both source and candidate with `render_pptx.ps1` on Windows PowerPoint. The renderer uses a new directory, opens the deck read-only and leaves unrelated decks open. Inspect every output slide individually, including hidden slides, because a layout defect may occur outside the visible presentation sequence. A selected-slide render is useful while iterating, but cannot establish complete delivery review.
 
-Only after reviewing the actual candidate, create the task-local review JSON:
+Only after reviewing the actual candidate, create the task-local review JSON. Its hash and slide coverage connect the recorded judgments to the file that will be delivered:
 
 ```json
 {

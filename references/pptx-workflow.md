@@ -1,10 +1,20 @@
 # PowerPoint object preservation and validation
 
+Use this workflow to turn a compatible PPTX source into a separately reviewed editable output. It guides the agent from source inspection through implementation and delivery, keeping the design decision separate from the evidence that the resulting file is sound. The [implementation paths](#two-implementation-paths) distinguish bounded changes to existing objects from rewriting or rebuilding; the [review sequence](#review-and-deliver) applies to both.
+
 ## Runtime and task workspace
 
 This adapter handles PowerPoint sources and verified Keynote exports. Begin with [presentation_route.py](../scripts/presentation_route.py) so the source format and requested delivery determine the file route. When Keynote is involved, the [Keynote workflow](keynote-workflow.md) establishes the conversion baseline and the review needed after import. The preservation checks here apply to the PPTX itself; a later application conversion needs its own comparison.
 
-Locate bundled runtimes with the desktop dependency tool. The preservation helper uses Python with `lxml` and needs neither Node nor a presentation SDK; Pillow adds raster pixel diagnostics. The included Windows renderer requires installed PowerPoint and may need scoped COM permission. If another available renderer is used, identify it in the review record. If rendering is unavailable, visual review remains pending.
+Locate bundled runtimes with the desktop dependency tool. Check the tools for the operation being attempted rather than treating a successful package inspection as proof that rendering is available:
+
+| Operation | Required environment and limit |
+| --- | --- |
+| Preserve and inspect PPTX objects | Python with `lxml`; neither Node nor a presentation SDK is needed by the preservation helper. |
+| Raster pixel diagnostics | Pillow, in addition to the preservation runtime. |
+| Render with the included Windows helper | Installed PowerPoint; scoped COM permission may be needed. |
+
+If another available renderer is used, identify it in the review record. If rendering is unavailable, visual review remains pending.
 
 Create small task-local `build/` and `outputs/` directories outside the reference corpus. Keep the source immutable and retain its SHA-256, because plans and render evidence must refer to the same baseline. Fresh output names preserve that baseline through each revision. Research-bearing files stay out of version control by default; never copy the entire research corpus or install GitHub Desktop for this workflow.
 
@@ -43,4 +53,8 @@ Animation makes reading order depend on time as well as position. The conservati
 
 ## Deliverables and updates
 
-Return the editable deck and concise transformation report with the checks actually performed and any material limits. Keep source-specific evidence and detailed review artifacts private within the authorized execution environment; follow the file-handling limits in [scientific fidelity](scientific-fidelity.md#review-record-and-delivery). When the skill itself changes, review tracked content and run relevant tests before sharing it. Push only an authorized branch and compare its remote SHA; rebuild and reinstall explicitly when runtime files change so Git, package and installed copy do not drift.
+Return the editable deck and concise transformation report with the checks actually performed and any material limits. Keep source-specific evidence and detailed review artifacts private within the authorized execution environment; follow the file-handling limits in [scientific fidelity](scientific-fidelity.md#review-record-and-delivery).
+
+### When the Skill itself changes
+
+Maintaining the Skill is a separate task from delivering a redesigned deck. Review tracked content and run relevant tests before sharing Skill changes. Push only an authorized branch and compare its remote SHA; rebuild and reinstall explicitly when runtime files change so Git, package and installed copy do not drift.

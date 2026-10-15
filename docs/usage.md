@@ -10,7 +10,7 @@ Attach your research slides and ask:
 $palate Polish my slides.
 ```
 
-You can also invoke the skill explicitly as `$palate`. A detailed brief is optional: **palate** uses the information already supplied and asks for missing context that could materially change the design.
+A detailed brief is optional: **palate** uses the information already supplied and asks for missing context that could materially change the design. You do not need to choose fonts, palettes or layouts first. For a Keynote source, the [format workflow](#powerpoint-and-keynote) explains when export files are needed.
 
 ## Shape the brief
 
@@ -29,13 +29,19 @@ The brief uses these choices to establish the setting and the level of explanati
 
 You can write your own answer or provide all the presentation details in your first message. If you select "Let palate choose," **palate** reviews your slides and uses your audience and available time to decide how much detail to include. The [presentation contexts](../references/presentation-contexts.md) suggest starting points, including durations; your current instructions take precedence. Slide count and Q&A time are used only when supplied, and single-page monthly updates remain outside this workflow.
 
-The [runtime intake guide](../references/guided-intake.md) covers the host's question tools and how supplied answers are reused. You do not need to choose fonts, palettes or layouts before asking for a polish.
+Your slides stay in their original language unless you request a translation; the language of this guide or the conversation does not change that choice. If you request translation without naming the target language, **palate** asks for it before rewriting. It also asks when a technical term has plausible translations that could materially change the scientific meaning, and reuses the terminology you confirm. See the [scientific translation safeguards](../references/scientific-fidelity.md#scientific-translation) for the content checks behind that process.
 
-## Workflow
+The [runtime intake guide](../references/guided-intake.md) explains question order, the host's question tools and answer handling for agents implementing the interview.
 
-The initial review establishes what each slide contributes to the argument and where its evidence needs clearer explanation or placement. It includes the source structure and rendered slides, so the redesign can account for labels, notes, charts and other content that may be missed by a text-only inspection. Composition follows the scientific relationship and the brief, with changes recorded against the source.
+## What happens after you attach a deck
 
-**palate** chooses the editing route according to the changes your slides need:
+### Review the source and the argument
+
+**palate** first establishes what each slide contributes to the argument and where its evidence needs clearer explanation or placement. It inspects the source structure and rendered slides together, so the redesign can account for labels, notes, charts and other content that a text-only inspection may miss. If a source cannot be opened or a required application is unavailable, **palate** explains what file or review is needed before it can complete the task.
+
+### Make the changes the content needs
+
+Composition follows the scientific relationship and the brief. **palate** records changes against the source and chooses an editing route that can preserve the objects and meaning involved:
 
 | Your slides need | How **palate** handles the change |
 | :--- | :--- |
@@ -44,9 +50,13 @@ The initial review establishes what each slide contributes to the argument and w
 
 Grouped objects and animation states receive their own review. Translation and rewritten text also use the authoring path, with the [scientific translation safeguards](../references/scientific-fidelity.md#scientific-translation).
 
+The [design system](../references/design-system.md) explains why audience, evidence and scientific integrity guide these choices. The [plan contract](../references/transform-plan.md) provides exact commands and fields for the existing-object route; the [scientific fidelity guide](../references/scientific-fidelity.md) covers work that changes content.
+
+### Review the result and explain what remains
+
 **palate** checks scientific content, native editability and rendered appearance separately. It reviews every final slide in the delivery application and compares changed slides with the source. You receive a new editable deck in a supported format and a concise report of the changes, completed checks and material limits. If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate.
 
-See the [plan contract](../references/transform-plan.md) for CLI commands and the [scientific fidelity guide](../references/scientific-fidelity.md) for work that changes content.
+The [validation guide](validation.md) explains the evidence behind each kind of check and the scope of the repository's existing tests. A report distinguishes completed review from remaining work so you can decide whether the candidate is ready for your intended use.
 
 ## PowerPoint and Keynote
 

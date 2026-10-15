@@ -1,34 +1,20 @@
 # Design system
 
-A research slide should make it easy to follow an explanation and inspect the evidence behind it. Begin by identifying the relationship the audience needs to understand, then give that relationship a visible structure. The [communication design guide](communication-design.md) explains how to choose the order and depth of that explanation. The [decision rules](design-decision-library.json) provide the style direction and composition choices to use with the actual research and presentation brief. Apply each within its trigger and exceptions; whitespace, accents and navigation should serve a relationship rather than appear on every page.
+A research slide should help listeners follow an explanation and inspect the evidence behind it. **palate** begins with what the audience needs to understand, gives that relationship a visible structure, and then uses typography, space and color to make the structure easier to read. Scientific meaning limits every design choice: a cleaner composition is useful only if the evidence and its qualifications remain intact.
 
-## Explanation and hierarchy
+This guide connects the design reasoning to the choices used on slides. The [communication design guide](communication-design.md) develops the reasoning behind explanation and reading order; the [decision library](design-decision-library.json) records the rules, their triggers and their exceptions.
 
-Place a concise interpretation near the evidence it explains, so listeners can connect the finding with the figure while hearing the argument. Keep the qualifications needed to interpret that finding visible as well. A full caption or derivation belongs on the main slide when the audience needs to examine it during the talk; supporting detail can move to mapped notes or an appendix when its absence does not change the meaning.
+| Kind of guidance | Purpose and example |
+| :--- | :--- |
+| Design principles | Help the audience understand the research, for example by keeping a finding close to its evidence and essential qualifications. |
+| Design preferences | Give the deck a recognizable identity through recurring choices such as teal emphasis, meaningful section arrows and conceptual part markers. |
+| Implementation rules | Make changes reliable and review traceable, for example by preserving scientific color mappings and checking content, editability and appearance separately. |
 
-Hierarchy should show where to begin and how to proceed. In a longer talk, meaningful section arrows help listeners locate the current topic, while title markers such as `(1/3)` show progress through a concept. Count the parts of the explanation rather than the number of slides, and use navigation where it provides useful orientation.
+These categories explain the purpose of the guidance. The library's **primary** and **contextual** statuses determine how to apply its rules: apply a primary rule within its trigger and exceptions, and evaluate a contextual composition option against the content and brief. A recurring preference does not belong on every page, and a contextual layout does not become a universal personal preference.
 
-## Composition follows the relationship
+## 01 | Establish what the audience needs
 
-A layout earns its place by explaining the research. Comparisons need shared dimensions so that differences can be assessed fairly; a method needs a sequence that connects its symbols, assumptions and steps. For mechanisms, spatial grouping and connections should reflect verified relationships in the source. These choices depend on the content, so retain a source layout when it already explains the material well.
-
-| Content | Design choice | Scientific condition |
-| :--- | :--- | :--- |
-| Result | Keep evidence beside its interpretation. | Preserve the finding's scope and uncertainty. |
-| Comparison | Align scales, labels and reading order. | Make unequal baselines or unmatched controls explicit. |
-| Method | Connect symbols, intuition and technical steps. | Retain the chain listeners need to verify. |
-| Mechanism | Use labeled objects and meaningful connections. | Reconstruct only relationships that can be checked. |
-| Reference | Give citations and supporting detail enough space. | Keep sources readable and traceable. |
-
-## Space and hierarchy
-
-Use spacing to make the structure of the explanation visible. A figure and its interpretation need enough proximity to read as one group, while a separate argument needs a clearer interval. Establish those groups before choosing the margins and gaps, so the composition gives the evidence room without detaching its labels, units or qualifications.
-
-Typography and space work together. A large heading, a smaller explanation and the gap between them should establish their roles at a glance. Check the visible letterforms and objects in the rendered slide, since equal text-box coordinates can still look uneven. The [spacing and hierarchy guide](spacing-and-hierarchy.md) develops these judgments through external design references and their application to scientific slides. Keep the rhythm consistent across related pages, adjusting it when a different scientific relationship calls for another composition.
-
-## Audience and depth
-
-Audience, time and purpose determine how far the explanation needs to develop. A tutorial may need to introduce a mechanism before showing its formal expression, while a specialist discussion may need assumptions and uncertainty close to the result. Use the brief to decide what listeners need during the talk and what they may need to inspect afterward.
+Resolve the audience, available time, purpose and technical depth before choosing how much information to show. A tutorial may need to introduce a mechanism before its formal expression; a specialist discussion may need assumptions and uncertainty close to the result. The brief determines what listeners need during the talk and what they may need to inspect afterward.
 
 | Context | Emphasis to consider |
 | :--- | :--- |
@@ -38,13 +24,37 @@ Audience, time and purpose determine how far the explanation needs to develop. A
 | C-suite / executives | Connect supported implications to relevant decisions, evidence and risk. |
 | General audience | Introduce the concepts needed to understand the qualified finding. |
 
-These priorities guide judgment within the brief. An expert audience may not need every derivation, and a short talk still needs the qualifications that make its result accurate. Financial or operational claims require source support; an audience category does not supply an ROI, a decision or a scientific conclusion. Likewise, duration alone does not determine slide count.
+These priorities guide judgment within the brief. An expert audience may not need every derivation, and a short talk still needs the qualifications that make its result accurate. Financial or operational claims require source support; an audience category does not supply an ROI, a decision or a scientific conclusion. Duration guides pacing and depth rather than a fixed slide count. Use [presentation contexts](presentation-contexts.md) for starting points and confirmation of missing context, not as fixed templates.
 
-## Color
+## 02 | Give the evidence a readable structure
 
-Use teal for emphasis and a restrained scientific palette for distinctions that the reader needs to follow. Give each color a consistent role across related slides, supported by labels, markers or line styles. Before changing a figure, inspect its legend and category mappings: those mappings carry meaning and take priority over a preferred palette.
+Choose the composition from the relationship the slide explains. Comparisons need shared dimensions so differences can be assessed fairly; a method needs a sequence that connects its symbols, assumptions and steps. For mechanisms, grouping and connections must reflect verified relationships in the source. Retain a source layout when it already explains the material well.
 
-The values below are adjustable working defaults. They do not prescribe a journal's palette or authorize recoloring scientific figures without checking the result.
+| Content | Design choice | Scientific condition |
+| :--- | :--- | :--- |
+| Result | Keep evidence beside its interpretation. | Preserve the finding's scope and uncertainty. |
+| Comparison | Align scales, labels and reading order. | Make unequal baselines or unmatched controls explicit. |
+| Method | Connect symbols, intuition and technical steps. | Retain the chain listeners need to verify. |
+| Mechanism | Use labeled objects and meaningful connections. | Reconstruct only relationships that can be checked. |
+| Reference | Give citations and supporting detail enough space. | Keep sources readable and traceable. |
+
+Place a concise interpretation near the evidence it explains so listeners can connect the finding with the figure while hearing the argument. Keep essential qualifications visible with it. A full caption or derivation belongs on the main slide when the audience needs to examine it during the talk; supplementary detail can move to mapped notes or an appendix when its absence does not change the meaning.
+
+Hierarchy also helps listeners follow a longer explanation. Use meaningful section arrows when orientation is needed, highlighting the actual current section. A self-contained page may not need navigation. For a subject explained through conceptual parts, use title markers such as `(1/3)` to show progress. Count the parts of the explanation, which may span several slides; do not invent a denominator or renumber by slide count.
+
+## 03 | Use space and typography to show relationships
+
+Group the scientific content before choosing margins and gaps. A figure and its interpretation need enough proximity to read together, while a separate argument needs a clearer interval. Space should give the evidence room without detaching its labels, units, legend or qualifications. Keep the rhythm coherent across related pages, adapting the composition when the scientific relationship changes.
+
+Typography and space work together: heading scale, explanatory text and the interval between them should show their roles at a glance. Size text for the actual canvas and display conditions. When it overflows, reconsider the layout and explanation before reducing the type size. Preserve useful font pairings and embedded fonts, and check availability before choosing another family. A missing registry entry alone does not prove that a font has been substituted.
+
+Check visible letterforms, edges and baselines in the rendered slide. Equal text-box coordinates can look uneven because internal margins and glyph shapes differ. The [spacing and hierarchy guide](spacing-and-hierarchy.md) explains how to combine geometric alignment with optical judgment while preserving scientific associations and comparison scales.
+
+## 04 | Give color a consistent purpose
+
+Use teal for emphasis or a requested scientific palette for the distinctions the audience needs to follow. A restrained palette can make categories and relationships easier to track when each color has a consistent role across related slides. Support that role with labels, markers or line styles rather than relying on color alone.
+
+Before changing a figure, inspect its legend and category mappings. Those mappings carry scientific meaning and take priority over the preferred palette. The values below are adjustable working defaults; they do not prescribe a journal's palette or authorize recoloring scientific figures without checking the result.
 
 | Role | Hex |
 | :--- | :--- |
@@ -57,10 +67,10 @@ The values below are adjustable working defaults. They do not prescribe a journa
 | Comparison ochre | `B77932` |
 | Comparison purple | `80669D` |
 
-Check contrast, label legibility and legend consistency in the final render. A diagram also needs enough resolution to keep its relationships and labels readable; retain a complex source figure when reconstruction cannot be verified.
+Check contrast, label legibility and legend consistency in the final render. A diagram also needs enough resolution for its relationships and labels to remain readable. Prefer native editable relationships when reconstruction can be verified, and retain a complex source figure otherwise. Upscaling cannot recover missing detail. Topic-specific illustrations, such as a lightbulb for energy, are optional choices rather than brand requirements.
 
-## Typography and written explanation
+## 05 | Check the result against the research
 
-Size text for the actual canvas and display conditions. When it overflows, reconsider the layout and the explanation before reducing the type size. Preserve useful font pairings and embedded fonts, and check availability before choosing another family. A missing registry entry alone does not prove that a font has been substituted.
+A visual decision is complete only when the resulting slide still communicates the source accurately. Use the [scientific fidelity workflow](scientific-fidelity.md) to trace content changes and review scientific meaning, editability and rendered appearance separately. A successful structural check does not establish that a rearranged figure is legible or that a shortened explanation preserves its meaning. If an essential check cannot be completed, state the limit and describe the output as a candidate.
 
-Follow the [writing style](writing-style.md) for explanatory prose: develop a continuous argument in connected sentences, and use tables when the audience needs to compare discrete information. Keep technical detail visible where it supports inspection, with supplementary material traced to notes or an appendix. Topic-specific illustrations, such as a lightbulb for energy, are optional choices rather than brand requirements.
+When explaining the changes, follow the [writing style](writing-style.md): connect the decision with the audience's need, its design reason and any limiting condition. Use continuous prose to develop the argument and tables when discrete information benefits from comparison. These documentation forms explain the design; they do not prescribe the layout of a slide.

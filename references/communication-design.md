@@ -8,6 +8,18 @@ Keep complexity that supports interpretation, verification or action. Resolve av
 
 This guide explains the judgment behind those choices. [Writing style](writing-style.md) covers prose and document forms; the [design system](design-system.md) and [spacing guide](spacing-and-hierarchy.md) cover slide composition. [Scientific fidelity](scientific-fidelity.md) remains the authority for content preservation and review. A README's entry sequence, icons or heading syntax do not prescribe the structure of a slide deck.
 
+## Identify the reader before choosing the form
+
+A researcher deciding whether to use **palate** and an agent applying a transformation need different kinds of precision. Establish who will use the document and what they need to do before changing its structure or voice.
+
+| Document purpose | What the reader needs | Editorial approach |
+| :--- | :--- | :--- |
+| Using **palate** | A useful next action, expected result and any condition requiring their help | Explain what **palate** does and when the user contributes. Link to implementation details where they become relevant. |
+| Executing a workflow | Exact inputs, sequence, constraints and evidence of completion | Keep commands, identifiers, mandatory requirements and failure conditions explicit. Add context where it prevents an execution mistake. |
+| Understanding and applying design | The reason for a choice and the limits of its use | Explain the relationship being communicated, then distinguish design principles, recurring preferences and implementation constraints. |
+
+A mixed-purpose reference can serve both readers with an explanation followed by a clearly identified procedure or contract. Separate them within the existing document when that makes the transition easier to follow; create another file only when it resolves a real navigation problem. Review every edit to a runtime reference for changes to obligations, exceptions and supported operations, even when the edit appears purely editorial.
+
 ## Begin with the audience's task
 
 **Why and when:** Readers need to recognize how the material helps them before interpreting its internal organization. In a product guide, identify the useful action, who performs it and the condition that calls for the user's help. In a talk, establish the question the audience needs to understand or evaluate.
@@ -25,6 +37,7 @@ This guide explains the judgment behind those choices. [Writing style](writing-s
 | Before | After |
 | :--- | :--- |
 | An introduction explains adaptable design before explaining how to start. | "Start with the slides you already have." Then explain audience, purpose and time, the design work, and the deliverable. |
+| The design system introduces hierarchy and composition before audience and depth. | "01 \| Establish what the audience needs" comes before evidence structure, spacing and color, so visual choices follow the purpose of the explanation. |
 
 **Boundary:** This product-entry sequence is not a fixed template. An expert methods discussion may need the model's assumptions first; a tutorial may need a concept before its result. Choose the order that supports the audience's actual task.
 
@@ -35,6 +48,7 @@ This guide explains the judgment behind those choices. [Writing style](writing-s
 | Before | After |
 | :--- | :--- |
 | One paragraph combines scientific safeguards, editable objects, the deliverable and review. | Put safeguards under "Keep the science intact" and the deliverable under "What you get." |
+| Installation mixes the user's starting request, the agent's procedure and details of installer experiments. | Explain when Codex needs the user's help, identify the procedure's audience, and link to the experimental evidence in Validation. Keep the supported route and untested platforms visible in Installation. |
 
 **Boundary:** A paragraph with one coherent purpose needs no extra heading. Tables can fragment an argument, and numbering can imply a sequence that does not exist.
 
