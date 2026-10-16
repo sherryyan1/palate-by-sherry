@@ -84,7 +84,7 @@ If a technical term has plausible translations that could materially change its 
 
 ## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-Listen with skepticism when a speaker cherry-picks. Present with confidence when applying Sherry's Picks.
+Listen with skepticism when a speaker **cherry-picks**. Present with confidence when applying **Sherry's Picks**.
 
 It's not about choosing which evidence to show, but making thoughtful choices about how to present it. **palate** works from the big picture to the finer details, guided by four principles.
 
