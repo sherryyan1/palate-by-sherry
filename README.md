@@ -81,9 +81,9 @@ This README is available in **English, 简体中文, 日本語, and 한국어**.
 
 If a technical term has plausible translations that could materially change its scientific meaning, **palate** asks you to clarify before applying one.
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry Picking
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; 'Sherry' Picking
 
-A good research talk shouldn't rely on cherry-picked results. A little **Sherry Picking**, however, can go a long way.
+A good research talk shouldn't rely on cherry-picked results. A little **'Sherry' Picking**, however, can go a long way.
 
 It's not about choosing which evidence to show, but making thoughtful choices about how to present it. **palate** works from the big picture to the finer details, guided by four principles.
 
