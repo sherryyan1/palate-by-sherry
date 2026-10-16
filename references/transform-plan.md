@@ -4,7 +4,7 @@ Use this contract after the [PPTX workflow](pptx-workflow.md#two-implementation-
 
 The sequence is inspect, plan, apply, independently validate, then review and finalize. A successful command establishes its own part of that sequence; it does not establish scientific interpretation, visual quality or editability on its own. The sections below define the [plan fields](#plan-json) and the separate [review record](#review-and-finalization).
 
-Run the commands with the actual bundled Python executable; `python` below stands for that path. On Windows, quote absolute paths so file selection is unambiguous. Plans, inspections and receipts can contain research, so keep them in the private task build directory.
+Run the commands with the verified Python interpreter for this session, reusing a bundled runtime when available; `python` below stands for that path. On Windows, quote absolute paths so file selection is unambiguous. Plans, inspections and receipts can contain research, so keep them in the private task build directory.
 
 ```text
 python scripts/palate_pptx.py inspect input.pptx --output build/inspection.json

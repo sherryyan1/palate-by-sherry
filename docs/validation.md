@@ -31,6 +31,13 @@ The current record covers the following:
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
 | Content conservation | Values, units, categories, qualifiers, media, notes and workbooks |
 | Native Keynote implementation | Experimental Python/JXA adapter; script-level and mocked boundary checks only. No Mac application execution or end-to-end Keynote result has been tested. |
+| ChatGPT Work distribution | Plugin packaging and runtime-source parity can be checked locally. Browser installation, activation, file-tool access, question cards and end-to-end editing have not been tested. |
+
+### ChatGPT Work distribution
+
+The plugin builder packages the same runtime allowlist as the Codex builder under `skills/palate/`, with a portable root `plugin.json`. Regression checks compare runtime bytes and hashes, resolve relative references and reject extra development files and overwrites. These are local package checks. They do not establish that a ChatGPT workspace accepts the package or exposes its scripts and resources to a running skill.
+
+The [web setup guide](chatgpt-work.md) provides an experimental private-plugin path and an explicit verification sequence. No browser installation, `@` activation, native question-card display, workspace resource access, complete slide transformation or native application handoff has been exercised for this distribution. No public directory listing or OpenAI review approval is claimed. Record those results separately when they are actually tested; Windows Codex results do not establish web compatibility.
 
 ### Language decisions
 
@@ -76,7 +83,7 @@ Regression tests exercise the boundaries that keep a routine operation from sile
 | Native Keynote adapter | Platform and automation boundaries, source/output safeguards and bounded operation validation with mocked responses. These checks do not establish native Mac compatibility or the scientific correctness of a transformation. |
 | Repository audit | Narrow README language exceptions and an exact allowlist for reviewed icons; credentials, private materials, unexpected binaries and local links remain checked. Staged audits inspect the exact Git index. |
 
-The intake helper emits payloads for the available Codex question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
+The intake helper emits payloads for the available host question tool, which supplies their display behavior. Pending questions remain unresolved input: they cannot count as submitted answers or permit a transformation that depends on those answers. Format tests have a comparable boundary. Their synthetic Keynote containers establish detection and routing behavior, while native Keynote compatibility still requires application testing.
 
 The existing PowerPoint integration review follows its authoring and delivery sequence. The Windows renderer below belongs to this fixture, not to every supported workflow:
 

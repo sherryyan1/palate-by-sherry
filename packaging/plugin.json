@@ -1,0 +1,23 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "palate",
+  "version": "0.1.0-alpha.1",
+  "description": "Polish research slides in Sherry's style with PowerPoint and Keynote workflows that preserve scientific evidence and native editability.",
+  "author": {
+    "name": "Sherry"
+  },
+  "homepage": "https://github.com/sherryyan1/palate-by-sherry",
+  "repository": "https://github.com/sherryyan1/palate-by-sherry",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "palate by Sherry",
+        "shortDescription": "Polish research slides for PowerPoint and Keynote.",
+        "developerName": "Sherry",
+        "defaultPrompt": [
+          "Use palate to polish my slides."
+        ]
+      }
+    }
+  }
+}

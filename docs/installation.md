@@ -1,5 +1,14 @@
 # Installation
 
+Choose the environment in which the slides will be processed. Both distributions use the same English `SKILL.md`, design references and helpers; installing one does not install or update the other.
+
+| Use **palate** in | Installation path | Validation status |
+| :--- | :--- | :--- |
+| Codex | The managed skill installation below. | Package installation and enabled discovery tested on Windows. Other environments require their own checks. |
+| ChatGPT Work on the web | [Private plugin setup and use](chatgpt-work.md). | Experimental package and setup path. Browser installation, activation and end-to-end editing have not been tested. |
+
+## Codex setup
+
 Open Codex in the environment where you want to work on your slides, then paste:
 
 ```text

@@ -7,7 +7,7 @@ description: "Polish research slides in Sherry's style from a short request, wit
 
 *Good research deserves good taste.*
 
-Deliver a new editable deck and a concise transformation report when redesign is requested. Respond in the user's requested conversation language. Use **palate** consistently in prose and **palate by Sherry** for the full display name. Invoke the skill as `$palate`.
+Deliver a new editable deck and a concise transformation report when redesign is requested. Respond in the user's requested conversation language. Use **palate** consistently in prose and **palate by Sherry** for the full display name. Codex uses `$palate`; ChatGPT uses its `@` picker to select the installed plugin or skill. Both use this same entrypoint and design rules. Follow [host workflows](references/host-workflows.md) when checking the execution environment or continuing a task across hosts.
 
 ## Design judgment
 
@@ -43,7 +43,7 @@ Review content, appearance and editability separately because a structurally int
 
 ## Runtime
 
-Locate bundled runtimes with `load_workspace_dependencies` when available, then choose the tool for the operation below.
+Check the tools actually exposed in the current session before promising an operation. Locate bundled runtimes with `load_workspace_dependencies` when available; otherwise inspect an available execution environment and its dependencies. Do not assume that ChatGPT Work provides Codex tools, local disk access, a presentation library or a native application. Use the host's available authoring and preview tools when they meet the task's requirements, then choose the appropriate helper below. Missing native access does not prevent independent analysis or supported candidate editing, but the required native review remains pending.
 
 | Operation | Tool and requirements |
 | :--- | :--- |

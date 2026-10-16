@@ -26,6 +26,7 @@ FILES = [
     "references/writing-style.md",
     "references/communication-design.md",
     "references/spacing-and-hierarchy.md",
+    "references/host-workflows.md",
 ]
 NAME = "palate"
 LEGACY_NAME = "palate-by-sherry"

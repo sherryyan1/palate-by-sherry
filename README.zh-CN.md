@@ -22,7 +22,7 @@
 
 *A palate for ideas, a palette for slides.*
 
-**palate** 是一个为科研工作者打磨 PPT 的 Codex Skill。它不止于美化版面，更着眼于梳理复杂的研究内容，让听众看得明白，也跟得上思路。
+**palate** 是一个为科研工作者打磨 PPT 的 Skill。它不止于美化版面，更着眼于梳理复杂的研究内容，让听众看得明白，也跟得上思路。
 
 **把现有的 PPT 直接交给palate即可。** 哪怕内容繁杂、排版凌乱，甚至还没做完，都可以直接上传。
 
@@ -30,13 +30,20 @@
 
 调整的是表达，而非研究本身。**palate** 不会擅自改动数据或改变结论原意，也不会为了精简页面，略去影响结果解读的假设、适用条件与不确定性。
 
-完成后，**palate** 会提供一份**可继续编辑的 PPT**，并附上简短的修改说明，交代主要改动、完成的检查，以及尚待确认的地方。
+当前环境支持编辑时，**palate** 会提供一份**可继续编辑的 PPT**，并附上简短的修改说明，交代主要改动、完成的检查，以及尚待确认的地方。
 
 ## <img src="assets/icons/square-terminal.svg" width="22" height="22" align="bottom" alt="">&nbsp; 开始使用
 
 ### 01 | 安装 **palate**
 
-打开 Codex，粘贴以下请求：
+先选择使用环境。两种入口共用同一套设计规则。
+
+| 使用环境 | 如何开始 |
+| :--- | :--- |
+| Codex | 使用下方的安装请求。 |
+| 网页版 ChatGPT Work | 按照[私有插件设置指南（英文）](docs/chatgpt-work.md)操作。此入口仍处于实验阶段，尚未实测网页版安装和完整的 PPT 处理流程。 |
+
+使用 Codex 时，粘贴以下请求：
 
 ```text
 请从 https://github.com/sherryyan1/palate-by-sherry 安装 palate Codex Skill。
@@ -46,13 +53,17 @@
 
 Codex 会根据当前环境安装 **palate**，并检查是否可以正常使用。如需额外设置，会给出相应提示。[安装指南（英文）](docs/installation.md)提供了具体操作。
 
+网页版通过 Plugin Creator 设置私有插件，能否使用取决于账号和工作区权限。只有在 `@` 菜单中能选到 **palate**，并确认它可以读取完整的运行文件后，才算安装完成。本地 Codex 中已安装的 Skill 不会自动同步过去。
+
 ### 02 | 上传 PPT
 
-直接附上现有的 PPT。文字太多、排版不统一或尚未完成，都可以从这里开始。然后提出请求：
+直接附上现有的 PPT。文字太多、排版不统一或尚未完成，都可以从这里开始。在 Codex 中提出请求：
 
 ```text
 $palate 帮我打磨这份汇报 PPT。
 ```
+
+使用网页版 ChatGPT Work 时，输入 `@` 并从菜单中选中已安装的 **palate**，再发送「帮我打磨这份汇报 PPT」。
 
 ### 03 | 告诉 **palate** 这次汇报的情况
 
@@ -117,19 +128,20 @@ $palate 帮我打磨这份汇报 PPT。
 
 原稿无法打开时，**palate** 会请求兼容的可编辑副本。Keynote 处理需要允许所需的 Mac 自动化访问。如果交付使用的应用不可用，**palate** 会将该应用内的工作保留为待完成状态，并说明交接方式和尚需完成的检查。
 
-附带的 Keynote 原生流程目前为**实验性功能，尚未在 Mac 上实测**，需要 macOS、Keynote，以及允许 Codex 执行进程控制该应用的权限。自动编辑仅覆盖现有文本框和形状的位置、文字样式；其他修改需要可用的原生编辑方式，否则保持待完成状态。[Keynote 指南（英文）](references/keynote-workflow.md)列出了操作范围和检查要求。只有明确选择转换方案或要求其他交付格式时，才会采用格式转换，并单独核对转换损失。
+附带的 Keynote 原生流程目前为**实验性功能，尚未在 Mac 上实测**，需要 macOS、Keynote，以及允许实际执行任务的进程控制该应用的权限。自动编辑仅覆盖现有文本框和形状的位置、文字样式；其他修改需要可用的原生编辑方式，否则保持待完成状态。[Keynote 指南（英文）](references/keynote-workflow.md)列出了操作范围和检查要求。只有明确选择转换方案或要求其他交付格式时，才会采用格式转换，并单独核对转换损失。
 
-Python 工具需要 Python 3.11+；`.pptx` 检查使用 `lxml`，图片分辨率诊断使用 Pillow。有可用的捆绑运行时时，Codex 会优先使用。附带的 Windows PowerPoint 渲染器只是特定平台的一种预览方式，Keynote 和其他 PowerPoint 环境无需强制使用。**palate** 会在实际交付使用的应用中检查结果，并说明缺少的工具或尚未完成的检查。安装 Skill 不会同时安装 PowerPoint 或 Keynote，也不代表已获得应用访问权限。
+Python 工具需要 Python 3.11+；`.pptx` 检查使用 `lxml`，图片分辨率诊断使用 Pillow。有可用的捆绑运行时时，会优先使用。附带的 Windows PowerPoint 渲染器只是特定平台的一种预览方式，Keynote 和其他 PowerPoint 环境无需强制使用。**palate** 会在实际交付使用的应用中检查结果，并说明缺少的工具或尚未完成的检查。安装 Skill 不会同时安装 PowerPoint 或 Keynote，也不代表已获得应用访问权限。
 
-安装针对 Codex 实际执行任务的电脑或远程环境，这可能不是聊天时使用的设备。本仓库不提供 iOS 或 iPadOS 原生安装流程。[安装指南（英文）](docs/installation.md)包含环境检查和手动设置方法。
+安装针对实际处理文件的运行环境，这可能不是聊天时使用的设备。网页版不会自动获得本地 PowerPoint 或 Keynote 的访问权限；缺少必需的原生检查时，修改后的文件仍会标为候选稿。[安装指南（英文）](docs/installation.md)和[ChatGPT Work 指南（英文）](docs/chatgpt-work.md)分别说明了设置方法与验证步骤。
 
-文件保存和处理的位置由 Codex 的运行环境决定。**palate** 保留原稿，将修改结果另存为新文件；向其他服务发送研究文件前会先询问。此 Skill 面向多页汇报 PPT，单页月度进展汇报不在适用范围内。
+文件保存和处理的位置由所选运行环境决定，上传到 ChatGPT 的文件会在所选工作区中处理。**palate** 保留原稿，将修改结果另存为新文件；向其他服务发送研究文件前会先询问。此 Skill 面向多页汇报 PPT，单页月度进展汇报不在适用范围内。
 
 ## <img src="assets/icons/book-open.svg" width="22" height="22" align="bottom" alt="">&nbsp; 文档与参考
 
 以下文档均为英文。
 
 - [安装与环境检查](docs/installation.md)
+- [网页版 ChatGPT Work 设置，实验阶段](docs/chatgpt-work.md)
 - [使用方法与汇报需求](docs/usage.md)
 - [沟通设计](references/communication-design.md)
 - [设计系统](references/design-system.md)

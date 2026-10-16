@@ -22,19 +22,26 @@
 
 *A palate for ideas, a palette for slides.*
 
-**palate** is a Codex skill that helps researchers turn complex work into presentations their audience can follow.
+**palate** is a skill that helps researchers turn complex work into presentations their audience can follow.
 
 **Start with the slides you already have.** Upload your slides, even if they're crowded, inconsistent, or still a work in progress. You don't need to redesign them first. That's what **palate** is here for.
 
 **palate** starts by understanding your audience, purpose, and time available. It then reorganizes your content into a clearer narrative, decides what deserves emphasis, and refines each slide so the evidence and reasoning are easier to follow. Whether you're preparing a conference talk, a research meeting, or a tutorial, the design adapts to your needs while preserving the scientific meaning of your work.
 
-You'll receive a **refined, editable slide deck** and a brief report of what changed, what was checked, and anything that still needs your attention.
+When editing tools are available, you'll receive a **refined, editable slide deck** and a brief report of what changed, what was checked, and anything that still needs your attention.
 
 ## <img src="assets/icons/square-terminal.svg" width="22" height="22" align="bottom" alt="">&nbsp; Get started
 
 ### 01 | Install **palate**
 
-Open Codex and paste:
+Choose where to work. Both routes use the same design rules.
+
+| Environment | Get started |
+| :--- | :--- |
+| Codex | Use the installation request below. |
+| ChatGPT Work on the web | Follow the [private plugin setup](docs/chatgpt-work.md). This route is experimental; browser installation and end-to-end editing have not been tested. |
+
+For Codex, paste:
 
 ```text
 Install the palate Codex skill from https://github.com/sherryyan1/palate-by-sherry.
@@ -44,13 +51,17 @@ Check the environment where Codex runs, follow docs/installation.md, and verify 
 
 Codex checks repository access, dependencies and skill discovery. If **palate** does not appear, restart Codex and check again. See the [installation guide](docs/installation.md) for setup details.
 
+For ChatGPT Work, the web guide starts with Plugin Creator and a private plugin. Availability depends on the account and workspace. Setup remains pending until **palate** appears in the `@` picker and its runtime files are accessible; a local Codex installation does not transfer automatically.
+
 ### 02 | Upload your slides
 
-Attach the slides you already have. Then ask:
+Attach the slides you already have. In Codex, ask:
 
 ```text
 $palate Polish my slides.
 ```
+
+In ChatGPT Work, type `@` and select the installed **palate** plugin or skill, then ask `Polish my slides.`
 
 ### 03 | Tell **palate** about your presentation
 
@@ -115,17 +126,18 @@ You receive a new editable slide deck in a supported format and a concise report
 
 If the source cannot be opened, **palate** asks for a compatible editable copy. Keynote work needs the required Mac automation permission. If the delivery application is unavailable, **palate** leaves that application work pending and explains the handoff and remaining checks.
 
-The included native Keynote workflow is **experimental and has not been tested on a Mac**. It requires macOS, Keynote and permission for Codex's execution process to control the application. Automated edits cover placement and text styling of existing text boxes and shapes. Other changes need an available native authoring method or remain pending. The [Keynote guide](references/keynote-workflow.md) describes the operations and review requirements. Conversion is a separate option when requested or explicitly chosen, with additional checks for conversion loss.
+The included native Keynote workflow is **experimental and has not been tested on a Mac**. It requires macOS, Keynote and permission for the execution process to control the application. Automated edits cover placement and text styling of existing text boxes and shapes. Other changes need an available native authoring method or remain pending. The [Keynote guide](references/keynote-workflow.md) describes the operations and review requirements. Conversion is a separate option when requested or explicitly chosen, with additional checks for conversion loss.
 
-Python tools require Python 3.11+; `.pptx` inspection uses `lxml`, and raster-resolution diagnostics use Pillow. Codex reuses an available bundled runtime. The included Windows PowerPoint renderer is one platform-specific preview option, not a requirement for Keynote or every PowerPoint environment. **palate** reviews the result in the actual delivery application and identifies any missing tool or unfinished check. Installing the skill does not install PowerPoint or Keynote or grant application access.
+Python tools require Python 3.11+; `.pptx` inspection uses `lxml`, and raster-resolution diagnostics use Pillow. The agent reuses an available bundled runtime. The included Windows PowerPoint renderer is one platform-specific preview option, not a requirement for Keynote or every PowerPoint environment. **palate** reviews the result in the actual delivery application and identifies any missing tool or unfinished check. Installing the skill does not install PowerPoint or Keynote or grant application access.
 
-Setup applies to the computer or remote environment where Codex runs, which may differ from the device you use to chat. This repository does not provide native iOS or iPadOS installation. The [installation guide](docs/installation.md) covers environment checks and manual setup.
+Setup applies to the environment that processes the files, which may differ from the device used to chat. A web session does not automatically have access to local PowerPoint or Keynote. Without the required native review, any edited output remains a candidate. See the [installation guide](docs/installation.md) and [ChatGPT Work guide](docs/chatgpt-work.md) for their separate setup and verification steps.
 
-Your Codex environment determines where files are stored and processed. **palate** preserves the original, saves revisions separately and asks before sending research files to another service. It covers multi-slide presentations; single-page monthly updates are outside its scope.
+The selected execution environment determines where files are stored and processed. ChatGPT uploads are processed in the selected workspace. **palate** preserves the original, saves revisions separately and asks before sending research files to another service. It covers multi-slide presentations; single-page monthly updates are outside its scope.
 
 ## <img src="assets/icons/book-open.svg" width="22" height="22" align="bottom" alt="">&nbsp; Documentation
 
 - [Installation and environment checks](docs/installation.md)
+- [ChatGPT Work web setup, experimental](docs/chatgpt-work.md)
 - [Usage and presentation brief](docs/usage.md)
 - [Communication design](references/communication-design.md)
 - [Design system](references/design-system.md)

@@ -6,7 +6,7 @@ Use this workflow to turn a compatible PPTX source into a separately reviewed ed
 
 This adapter handles compatible PowerPoint `.pptx` sources. Begin with [presentation_route.py](../scripts/presentation_route.py) so the source format and requested delivery determine the file route. Keynote sources stay in the [native Keynote workflow](keynote-workflow.md) unless the user requests conversion. A user-selected PowerPoint export from Keynote may enter this workflow only after its conversion baseline has been reviewed. The preservation checks here apply to the PPTX itself; any application conversion needs its own comparison.
 
-Locate bundled runtimes with the desktop dependency tool. Check the tools for the operation being attempted rather than treating a successful package inspection as proof that rendering is available:
+Locate bundled runtimes with the host's dependency tool when available; otherwise check an available interpreter and its dependencies. Follow [host workflows](host-workflows.md) for cloud access and handoffs. Check the tools for the operation being attempted rather than treating a successful package inspection as proof that rendering is available:
 
 | Operation | Required environment and limit |
 | --- | --- |

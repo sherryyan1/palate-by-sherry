@@ -1,14 +1,16 @@
 # Usage
 
-Ask Codex to install **palate** using the [installation guide](installation.md). It checks the execution environment, dependencies and skill discovery, and asks before replacing an existing installation. Manual commands and update procedures are documented there.
+Choose the [Codex installation](installation.md#codex-setup) or the experimental [ChatGPT Work web setup](chatgpt-work.md). Both use the same design rules. The web plugin's installation and end-to-end behavior have not yet been tested; its guide explains how to check discovery, resources and available tools before relying on it.
 
 ## Start with one sentence
 
-Attach your research slides and ask:
+In Codex, attach your research slides and ask:
 
 ```text
 $palate Polish my slides.
 ```
+
+In ChatGPT Work, type `@`, select the installed **palate** plugin or skill, attach the slides and ask `Polish my slides.` A typed plugin name does not replace selection or confirm installation.
 
 A detailed brief is optional: **palate** uses the information already supplied and asks for missing context that could materially change the design. You do not need to choose fonts, palettes or layouts first. The [format workflow](#powerpoint-and-keynote) explains which native application handles the deck and when an optional conversion needs additional files.
 
@@ -84,7 +86,7 @@ If the execution environment lacks Keynote, **palate** explains the Mac handoff 
 
 ## Requirements
 
-Requirements apply where Codex executes commands, which may differ from the device used to send the request. The [installation guide](installation.md) covers Windows, macOS, Linux and remote environments, including their untested or application-dependent limits.
+Requirements apply where the agent executes the work, which may differ from the device used to send the request. The [installation guide](installation.md) covers Codex environments; the [ChatGPT Work guide](chatgpt-work.md) covers the experimental web entry and its access checks.
 
 | Task | Required |
 | :--- | :--- |
@@ -98,6 +100,8 @@ Requirements apply where Codex executes commands, which may differ from the devi
 
 Reuse an existing bundled runtime where available. Installing the skill does not install a presentation editor or establish application access. **palate** reports missing tools and checks rather than claiming those operations succeeded.
 
+In a web session, available file tools may support analysis, authoring and previews without access to the native delivery application. **palate** can perform the supported work, but any essential native review remains pending and the output is a candidate. Native Keynote editing itself still needs an authorized Mac environment. See the [host workflow](../references/host-workflows.md) for capability checks and private handoffs.
+
 ## Source files and privacy
 
-**palate** preserves the original and saves exports, candidates and final deliverables as new files. File storage and processing follow the user's authorized Codex execution environment, which may be local or cloud-based. **palate** asks before publishing research or sending it to another service. Research files and task artifacts stay outside version control; the package contains only allowlisted runtime instructions and code. Git, packages and installed copies are synchronized explicitly, so a repository change does not automatically update the installed skill.
+**palate** preserves the original and saves exports, candidates and final deliverables as new files. File storage and processing follow the user's authorized execution environment, which may be local or cloud-based. A ChatGPT upload is processed in the selected workspace. **palate** asks before publishing research or sending it to an additional service. Research files and task artifacts stay outside version control; the packages contain only allowlisted runtime instructions and code. Git, packages and installed copies are synchronized explicitly, so a repository change does not automatically update either installed distribution.
