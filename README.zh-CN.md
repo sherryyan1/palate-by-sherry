@@ -85,7 +85,7 @@ $palate 帮我打磨这份汇报 PPT。
 
 ## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-面对只挑有利结果的演讲者，听时保持审慎；用上 **Sherry's Picks**，讲时更有底气。
+面对**cherry-pick**的演讲者，听时保持审慎；用上 **Sherry's Picks**，讲时更有底气。
 
 研究证据不挑着讲，呈现方式却可以用心选。**palate** 从整体到细节，按以下四个阶段打磨 PPT。
 
