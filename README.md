@@ -28,7 +28,7 @@
 
 **palate** starts by understanding your audience, purpose, and time available. It then reorganizes your content into a clearer narrative, decides what deserves emphasis, and refines each slide so the evidence and reasoning are easier to follow. Whether you're preparing a conference talk, a research meeting, or a tutorial, the design adapts to your needs while preserving the scientific meaning of your work.
 
-When editing tools are available, you'll receive a **refined, editable slide deck** and a brief report of what changed, what was checked, and anything that still needs your attention.
+Once finished, you'll receive a **refined, editable slide deck** and a brief report of what changed, what was checked, and anything that still needs your attention.
 
 ## <img src="assets/icons/square-terminal.svg" width="22" height="22" align="bottom" alt="">&nbsp; Get started
 
