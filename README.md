@@ -46,7 +46,7 @@ Codex checks repository access, dependencies and skill discovery. If **palate** 
 
 ### 02 | Upload your slides
 
-Attach the slides you already have. They can be crowded, inconsistent or unfinished. Then ask:
+Attach the slides you already have. Then ask:
 
 ```text
 $palate Polish my slides.
