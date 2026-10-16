@@ -52,9 +52,15 @@ Attach the slides you already have. Then ask:
 $palate Polish my slides.
 ```
 
-### 03 | Tell **palate** what you need
+### 03 | Tell **palate** about your presentation
 
-You can provide your audience, presentation duration and desired technical depth in your first message. A complete design brief is optional: **palate** uses what you have already shared and asks only for missing details that could materially affect the design. The [usage guide](docs/usage.md) explains the options.
+After you send your request, **palate** asks about three things:
+
+- **Presentation setting:** Is this for a research meeting, a tutorial, or an external presentation?
+- **Duration:** How many minutes do you plan to present?
+- **Technical depth:** How much technical detail would you like to keep? **palate** can decide if you prefer.
+
+You can select the suggested options or answer in your own words. **palate** won't ask again for details you've already shared.
 
 ## <img src="assets/icons/languages.svg" width="22" height="22" align="bottom" alt="">&nbsp; Languages
 
