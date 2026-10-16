@@ -90,7 +90,7 @@ Codex のインストール先は、Codex が動作する Windows、macOS、Linu
 
 ## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-話し手が都合のよい根拠だけを選んでいるときは、鵜呑みにせずに聞く。**Sherry's Picks** を取り入れるときは、自信をもって発表する。
+根拠を **cherry-pick** した発表は、慎重に聞く。**Sherry's Picks** で磨いた発表は、自信をもって語る。
 
 根拠そのものを選り分けるのではなく、その伝え方を工夫します。**palate** は、全体の方向性を定めてから細部を整えるまで、次の4つの考え方を軸にプレゼン資料を見直します。
 
