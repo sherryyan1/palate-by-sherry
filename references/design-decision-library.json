@@ -88,8 +88,8 @@
       "dimension": "navigation",
       "status": "primary",
       "trigger": "The listener needs orientation in a section sequence, or a slide already contains section navigation.",
-      "decision": "Use meaningful section arrows with restrained emphasis when orientation is needed. Whenever a section navigation bar is present, always place it above the slide title and vertically center its labels within the navigation shapes.",
-      "execution": "Retain existing navigation when useful and highlight the actual current section. Reserve a distinct row above the title, keep internal insets consistent across navigation shapes and comparable slides, and inspect rendered label alignment and fit. Navigation labels are an explicit exception to the non-title text-box top-anchor default in R016.",
+      "decision": "Use meaningful section arrows with restrained emphasis when orientation is needed. Keep navigation items compact and visually connected; arrow segments should join closely with only narrow, consistent separators. Whenever a section navigation bar is present, always place it above the slide title and vertically center its labels within the navigation shapes.",
+      "execution": "Retain existing navigation when useful and highlight the actual current section. Reserve a distinct row above the title. Keep adjacent arrow segments tightly joined and judge visible tip-to-notch seams in the render; a small overlap of shape frames may be needed. Fit the bar through segment widths and overall placement, without widening the gaps to fill the row or obscuring labels. Keep internal insets consistent across navigation shapes and comparable slides, and inspect rendered label alignment and fit. Navigation labels are an explicit exception to the non-title text-box top-anchor default in R016.",
       "exceptions": [
         "Navigation is optional on covers and self-contained pages; the placement rule does not require adding a navigation bar.",
         "Do not invent an unrelated sequence."
@@ -97,6 +97,7 @@
       "validation": [
         "Section names and emphasis match the talk structure.",
         "Every section navigation bar is above the slide title, with a visible separation between the two roles.",
+        "Navigation items form a compact group. Arrow segments read as a continuous strip with narrow, consistent visible seams and legible labels.",
         "Navigation labels use vertical middle anchoring with consistent internal insets and readable fit in the delivery application."
       ]
     },
