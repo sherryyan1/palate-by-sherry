@@ -87,15 +87,17 @@
       "name": "Section arrow navigation",
       "dimension": "navigation",
       "status": "primary",
-      "trigger": "The listener needs orientation in a section sequence.",
-      "decision": "Use meaningful section arrows with restrained emphasis.",
-      "execution": "Retain existing navigation when useful; highlight the actual current section.",
+      "trigger": "The listener needs orientation in a section sequence, or a slide already contains section navigation.",
+      "decision": "Use meaningful section arrows with restrained emphasis when orientation is needed. Whenever a section navigation bar is present, always place it above the slide title and vertically center its labels within the navigation shapes.",
+      "execution": "Retain existing navigation when useful and highlight the actual current section. Reserve a distinct row above the title, keep internal insets consistent across navigation shapes and comparable slides, and inspect rendered label alignment and fit. Navigation labels are an explicit exception to the non-title text-box top-anchor default in R016.",
       "exceptions": [
-        "Navigation is optional on a self-contained page.",
+        "Navigation is optional on covers and self-contained pages; the placement rule does not require adding a navigation bar.",
         "Do not invent an unrelated sequence."
       ],
       "validation": [
-        "Section names and emphasis match the talk structure."
+        "Section names and emphasis match the talk structure.",
+        "Every section navigation bar is above the slide title, with a visible separation between the two roles.",
+        "Navigation labels use vertical middle anchoring with consistent internal insets and readable fit in the delivery application."
       ]
     },
     {
@@ -242,15 +244,16 @@
       "dimension": "text_alignment",
       "status": "primary",
       "trigger": "Formatting text boxes or native table cells.",
-      "decision": "Top-anchor non-title text boxes to keep corresponding text starts stable across slides with different line counts. Preserve established title-layout anchoring. Table cells retain vertical middle anchoring; left-align descriptive table text and horizontally center very short entries, including numbers.",
-      "execution": "Follow design-system.md#text-boxes-and-tables. Match the top edge, top inset, paragraph space before and first-line typography for corresponding non-title text roles. Compare their visible first-line positions on successive comparable slides and inspect automatic fitting; matching box coordinates alone are insufficient. Allow content-dependent box heights without moving the starting position. Treat vertical anchoring and horizontal paragraph alignment separately, apply consistent alignment to comparable table entries and use right or decimal alignment only when explicitly instructed. Use native authoring for alignment changes beyond the bounded helpers' operation sets.",
+      "decision": "Top-anchor non-title text boxes other than section navigation labels to keep corresponding text starts stable across slides with different line counts. Navigation labels use vertical middle anchoring within their shapes, and their bar always sits above the slide title. Preserve established title-layout anchoring. Table cells retain vertical middle anchoring; left-align descriptive table text and horizontally center very short entries, including numbers.",
+      "execution": "Follow design-system.md#text-boxes-and-tables. Match the top edge, top inset, paragraph space before and first-line typography for corresponding top-anchored text roles. For navigation, follow R007 and keep internal insets consistent across shapes and comparable slides. Compare the visible first-line positions of top-anchored text on successive comparable slides and inspect automatic fitting; matching box coordinates alone are insufficient. Allow content-dependent box heights without moving the starting position. Treat vertical anchoring and horizontal paragraph alignment separately, apply consistent alignment to comparable table entries and use right or decimal alignment only when explicitly instructed. Use native authoring for alignment changes beyond the bounded helpers' operation sets.",
       "exceptions": [
+        "Section navigation labels use the vertical middle anchoring required by R007; body text, explanations, captions, subheadings and panel headings retain top anchoring.",
         "An explicit required layout or alignment instruction takes precedence; retain its reason in the private design specification.",
         "Short table entries are judged by their content and role rather than an invented fixed character-count threshold."
       ],
       "validation": [
-        "Non-title text boxes use top vertical anchoring unless an explicit requirement overrides it; title-layout anchoring is preserved and table cells retain the middle default.",
-        "Corresponding non-title text begins at the same visible position across comparable slides even when line counts differ; check top edges, top insets, paragraph spacing, first-line typography and fitting.",
+        "Non-title text boxes use top vertical anchoring except navigation labels or an explicit overriding requirement; navigation labels use middle anchoring, title-layout anchoring is preserved and table cells retain the middle default.",
+        "Corresponding top-anchored text begins at the same visible position across comparable slides even when line counts differ; check top edges, top insets, paragraph spacing, first-line typography and fitting.",
         "Descriptive table text is left-aligned, short entries are centered and no right or decimal alignment was introduced without instruction.",
         "Multiline text, internal margins, wraps and fit are checked in the delivery application without reducing text below 10.5 pt."
       ]
@@ -288,7 +291,7 @@
       ],
       "validation": [
         "The treatment creates a meaningful group without crowding the text or competing with the evidence.",
-        "Internal clearance, top anchoring and stable first-line positions for non-title text, the type-size floor and the symmetric work area remain intact."
+        "Internal clearance, top anchoring and stable first-line positions for body text and explanations, the type-size floor and the symmetric work area remain intact."
       ]
     },
     {
@@ -395,7 +398,7 @@
       "status": "primary",
       "trigger": "A slide communicates its substantive explanation only through text.",
       "decision": "Inspect every text-only slide and apply a content-appropriate graphic treatment that makes its distinctions, grouping or relationships easier to understand.",
-      "execution": "Follow design-system.md#visual-treatment-for-text-only-slides. Use an editable table or aligned comparison for shared dimensions, a labeled flowchart for a verified sequence and meaningful outline icons or an infographic for concepts and categories. Preserve continuous reasoning in connected prose within a composed explanation using headings, aligned groups and a purposeful panel, rule or visual cue. Retain an existing successful treatment. Prefer native editable text, tables, shapes and connectors; use a coherent icon family where icons help. Record the chosen treatment or justified exception for each text-only source slide in the private design specification. Preserve scientific qualifications, references, stable top-anchored non-title text, the 10.5 pt minimum and the symmetric work area. R018 remains a contextual choice of enclosure, not a required panel preset.",
+      "execution": "Follow design-system.md#visual-treatment-for-text-only-slides. Use an editable table or aligned comparison for shared dimensions, a labeled flowchart for a verified sequence and meaningful outline icons or an infographic for concepts and categories. Preserve continuous reasoning in connected prose within a composed explanation using headings, aligned groups and a purposeful panel, rule or visual cue. Retain an existing successful treatment. Prefer native editable text, tables, shapes and connectors; use a coherent icon family where icons help. Record the chosen treatment or justified exception for each text-only source slide in the private design specification. Preserve scientific qualifications, references, stable top-anchored body text and explanations, the 10.5 pt minimum and the symmetric work area. R018 remains a contextual choice of enclosure, not a required panel preset.",
       "exceptions": [
         "Title, exact quotation and reference pages may retain their conventional form when their purpose or protected wording requires it; record the slide-specific reason and preserve attribution.",
         "Do not invent a causal, temporal, quantitative or categorical relationship to justify a graphic. If the relationship cannot be verified, use a nonrelational composition where possible and record any unresolved limit.",
@@ -404,7 +407,7 @@
       "validation": [
         "Every text-only source slide has a meaningful visual treatment or an explicit, justified slide-specific exception; generic decorative icons alone do not satisfy the rule.",
         "The treatment exposes only source-supported relationships and retains claims, qualifications, numerical meaning, source attribution and readable references.",
-        "Native editability and the final application render are reviewed separately; icons are legible and consistent, non-title text starts are stable, tables follow their alignment and color rules, and all content respects the work area and type-size floor."
+        "Native editability and the final application render are reviewed separately; icons are legible and consistent, top-anchored text starts are stable, navigation follows R007, tables follow their alignment and color rules, and all content respects the work area and type-size floor."
       ]
     }
   ]

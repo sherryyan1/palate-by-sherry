@@ -40,7 +40,7 @@ Choose the composition from the relationship the slide explains. Comparisons nee
 
 Place a concise interpretation near the evidence it explains so listeners can connect the finding with the figure while hearing the argument. Keep essential qualifications visible with it. A full caption or derivation belongs on the main slide when the audience needs to examine it during the talk; supplementary detail can move to mapped notes or an appendix when its absence does not change the meaning.
 
-Hierarchy also helps listeners follow a longer explanation. Use meaningful section arrows when orientation is needed, highlighting the actual current section. A self-contained page may not need navigation. For a subject explained through conceptual parts, use title markers such as `(1/3)` to show progress. Count the parts of the explanation, which may span several slides; do not invent a denominator or renumber by slide count.
+Hierarchy also helps listeners follow a longer explanation. Use meaningful section arrows when orientation is needed, highlighting the actual current section. Whenever a section navigation bar is present, place it above the slide title so listeners encounter the broader context before the current topic. Vertically center its labels within the navigation shapes, with consistent internal insets across sections and comparable slides. A cover or self-contained page does not need navigation solely to satisfy this placement rule. For a subject explained through conceptual parts, use title markers such as `(1/3)` to show progress. Count the parts of the explanation, which may span several slides; do not invent a denominator or renumber by slide count.
 
 ## 03 | Use space and typography to show relationships
 
@@ -74,16 +74,17 @@ Restore an isolated missing mark through the appropriate native master or layout
 
 ### Text boxes and tables
 
-Default to vertical top anchoring for non-title text boxes. Corresponding body text, explanations, captions and other non-title text should begin at a stable position across comparable slides, even when one box contains one line and another contains two. Centering those blocks vertically can move their first lines despite matching box coordinates. Preserve the established slide-title anchoring; subheadings and panel headings still follow the non-title rule. Table cells retain their vertical middle default. Horizontal paragraph alignment remains a separate choice.
+Default to vertical top anchoring for non-title text boxes, except section navigation labels. Corresponding body text, explanations and captions should begin at a stable position across comparable slides, even when one box contains one line and another contains two. Centering those blocks vertically can move their first lines despite matching box coordinates. Preserve the established slide-title anchoring; subheadings and panel headings still follow the top-anchor rule. Navigation labels are vertically centered within their shapes, and the navigation bar always sits above the slide title. Table cells retain their vertical middle default. Horizontal paragraph alignment remains a separate choice.
 
 | Content | Vertical alignment | Horizontal alignment |
 | :--- | :--- | :--- |
-| Non-title text-box content | Top | Keep the paragraph alignment appropriate to the explanation. |
+| Body text, explanations, captions, subheadings and panel headings | Top | Keep the paragraph alignment appropriate to the explanation. |
+| Section navigation labels | Middle, with consistent internal insets | Keep the established label alignment. |
 | Title text-box content | Preserve the established title layout | Keep the established title paragraph alignment. |
 | Descriptive table text | Middle | Left |
 | Very short table entries, including numbers | Middle | Center |
 
-For repeated non-title text roles, align the box's top edge and keep its top inset, paragraph space before and first-line typography consistent. Inspect automatic fitting and inherited styles as well as direct properties. Compare the visible first-line position across successive slides; a matching container boundary alone is insufficient. Text-box height may follow the content without moving that starting position. Do not move a shorter block downward to center it within a shared panel.
+For repeated top-anchored text roles, align the box's top edge and keep its top inset, paragraph space before and first-line typography consistent. Inspect automatic fitting and inherited styles as well as direct properties. Compare the visible first-line position across successive slides; a matching container boundary alone is insufficient. Text-box height may follow the content without moving that starting position. Do not move a shorter block downward to center it within a shared panel.
 
 Apply the table choices consistently to comparable entries, including headers according to their content. Use right or decimal alignment only when explicitly instructed; a numerical data type does not supply that instruction. If table-cell centering exposes a fit problem, adjust the container, padding or composition while preserving the 10.5 pt minimum. An explicitly required layout can override the defaults, with its reason retained in the private design specification.
 
@@ -102,7 +103,7 @@ A text-only slide still needs a visual idea. Inspect each such page and give it 
 
 Choose the simplest treatment that makes the content easier to follow, then apply it using native editable text, tables, shapes and connectors where feasible. Reuse suitable existing assets or choose a coherent icon family with consistent stroke weight and recognizable meanings. Avoid decorative imagery, invented mechanisms, pseudo-data charts and graphics that suggest evidence the source does not contain. Scientific terms, qualifications, references and source attribution remain readable and editable; a diagram is not permission to shorten away their meaning.
 
-The text-box treatments below support this rule, while their specific fills and corner shapes remain contextual choices under R018. A panel or accent rule should reveal the structure of an explanation rather than merely enclose an unchanged wall of text. Keep all foreground content inside the symmetric work area, preserve the 10.5 pt minimum and top-anchor non-title text so corresponding starts remain stable across slides. Tables retain their own alignment and color-choice rules.
+The text-box treatments below support this rule, while their specific fills and corner shapes remain contextual choices under R018. A panel or accent rule should reveal the structure of an explanation rather than merely enclose an unchanged wall of text. Keep all foreground content inside the symmetric work area, preserve the 10.5 pt minimum and top-anchor body text and explanations so corresponding starts remain stable across slides. Tables retain their own alignment and color-choice rules.
 
 Record each text-only slide's chosen treatment in the private design specification and compare it with the source during visual and scientific review. A title, exact quotation or reference page may need its conventional form; required source wording and attribution must stay intact. If an essential relationship cannot be verified, retain the evidence, use a nonrelational composition where possible and identify the unresolved limit. Record a necessary exception and its reason for that slide rather than treating it as permission to leave other text-only pages undesigned. When the available tools cannot author or verify the selected treatment, keep that work explicitly pending instead of claiming a completed graphic redesign.
 
