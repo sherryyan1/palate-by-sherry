@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#使ってみる">使ってみる</a> &nbsp;·&nbsp;
-  <a href="#sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
+  <a href="#-sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">詳しい使い方（英語）</a>
 </p>
 
