@@ -31,6 +31,28 @@ For documentation and transformation reports, explain the method and its consequ
 
 On slides, match the amount of prose to the audience and time available. A concise interpretation can still make its reasoning explicit; this writing preference does not require paragraph-length text on every slide. Technical labels, equations and structured data keep the form that makes them easiest to understand and verify.
 
+## Research slide wording
+
+Begin a paragraph with its actual topic or message, then develop the evidence, explanation and qualifications the audience needs to follow it. Give each sentence a purpose within that explanation. Remove repetition and details that do not support interpretation or discussion, while retaining assumptions, uncertainty and other conditions that affect the finding. Shortening a sentence is useful when it makes the relationship easier to understand; fixed word limits and disconnected fragments are not substitutes for that judgment.
+
+Describe what the evidence supports rather than announcing the presence of a figure. A source-backed finding or relationship usually gives the audience a more useful starting point than "Figure 2 shows...". Keep the source figure number and citation where they support identification and verification. Do not force a takeaway when the source supports only a question, method or observation, and never turn an association into a causal claim to make a heading sound decisive.
+
+Define a research abbreviation at its first audience-visible occurrence, normally as the full term followed by the abbreviation in parentheses. Check the actual presentation order, including titles, tables, figures and build stages: a definition in later body text, speaker notes or a glossary does not explain an earlier visible abbreviation. Place the full term in the first title or an immediately associated visible explanation when that is where the abbreviation first appears. Use the abbreviation consistently within its scientific context; repeat its definition when a section or slide must stand alone or the audience needs a reminder. When distinct verified concepts share initials, make their full terms or local meaning explicit rather than merging the concepts or silently renaming protected identifiers. Avoid introducing an abbreviation that saves little repetition, and reduce unnecessary jargon according to the audience's familiarity.
+
+Use definitions established by the source and its research context. If the full term cannot be established from the source and research context, or a material ambiguity remains, ask the user to clarify and wait for the answer before applying that expansion. Do not invent a scientific term from its initials. Symbols, chemical formulas, SI unit symbols, identifiers, codes and proper names need their appropriate explanation when unfamiliar, but are not automatically abbreviations to expand. Parentheses used to define an abbreviation remain valid; units attached to quantity labels use square brackets under the [unit-label rules](scientific-fidelity.md#unit-labels).
+
+Review wording across the deck rather than checking body paragraphs alone:
+
+| Check | Apply on slides |
+| :--- | :--- |
+| Spelling, grammar and research terms | Correct ordinary language errors, retain established scientific terms and use consistent spelling. Ask before resolving an ambiguity that could alter the research meaning. |
+| Terminology and notation | Use one term for the same concept across titles, text, tables, axes, legends and notes. Preserve distinctions between different concepts; do not rotate technical synonyms for stylistic variety. |
+| Quantity labels | Keep labels concise and specific, with the correct unit, symbol, case and exponent. Apply square brackets to unit-bearing labels without changing values or converting units. |
+| Citations and cross-references | Keep each citation near the claim it supports. Prefer sentence-end placement when the association remains clear; keep a citation beside a particular clause when moving it would obscure that association. Preserve source figure, table and equation numbers when referring to those source objects. |
+| Tone and emphasis | Report and explain the evidence with concrete nouns and precise verbs. Remove filler and unsupported praise without weakening scientific qualifications or suggesting greater certainty. |
+
+These are slide-writing decisions. Manuscript requirements such as line numbering, fixed line spacing, submission filenames, mandatory acknowledgements or publishing data and code do not become presentation requirements. Likewise, do not number every new slide figure merely because a manuscript numbers its figures. Retain the source's references, attribution and required acknowledgements, and use figure numbers when the audience needs them to locate or discuss evidence. Rewriting follows the [content-changing workflow](scientific-fidelity.md#content-changingrebuilding-path), including a source-to-output meaning check; better prose alone does not establish scientific fidelity.
+
 ## Localized entry points
 
 The four README versions share one set of capabilities, requirements and scientific safeguards. Write each for researchers who use that language: choose familiar terminology, develop the explanation in a natural order and adapt examples where useful. Sentence-by-sentence matching is unnecessary, but a change of language must not introduce a different promise or omit a material limit.

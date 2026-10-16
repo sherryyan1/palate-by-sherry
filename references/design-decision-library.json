@@ -166,16 +166,17 @@
       "name": "Connected explanation and comparable information",
       "dimension": "writing_style",
       "status": "primary",
-      "trigger": "Drafting documentation, transformation reports or explanatory prose for a presentation.",
+      "trigger": "Drafting or reviewing documentation, transformation reports or presentation wording.",
       "decision": "Develop continuous reasoning in natural paragraphs; use tables for discrete information that benefits from shared comparison criteria.",
-      "execution": "Explain the design choice, its reason and any limiting condition. Follow writing-style.md; preserve sufficient context and exact scientific or technical qualifications.",
+      "execution": "Explain the design choice, its reason and any limiting condition. Follow writing-style.md; preserve sufficient context and exact scientific or technical qualifications. For slide wording, follow writing-style.md#research-slide-wording: lead with the actual topic or source-backed finding, proofread labels and terminology, and keep qualifications, attribution and cross-references accurate.",
       "exceptions": [
         "Ordered procedures retain their sequence; commands and schemas retain literal syntax.",
         "Labels, equations and slide text use the form and length appropriate to their purpose."
       ],
       "validation": [
         "The reader can follow how the explanation develops and why the design choice fits the content.",
-        "Tables organize genuinely discrete information without fragmenting a continuous argument."
+        "Tables organize genuinely discrete information without fragmenting a continuous argument.",
+        "Slide wording preserves precise terms, qualified claim strength, first-use definitions and source identities rather than replacing them with filler or unsupported conclusions."
       ]
     },
     {
@@ -364,6 +365,26 @@
         "Editable quantity labels use square-bracket unit notation consistently within the task scope.",
         "Only intended delimiters change; scientific units, associated values and unrelated parentheses remain accurate.",
         "The content ledger and native render confirm label meaning, fit and readability; inaccessible image labels are not falsely reported as reformatted."
+      ]
+    },
+    {
+      "id": "R023",
+      "name": "Full terms at first visible abbreviation use",
+      "dimension": "scientific_terminology",
+      "status": "primary",
+      "trigger": "A research abbreviation or acronym first appears in the audience-visible presentation sequence.",
+      "decision": "Give the verified full term at the first visible occurrence, then use the abbreviation consistently.",
+      "execution": "Follow writing-style.md#research-slide-wording and scientific-fidelity.md. Inspect titles, body text, tables, figures, legends and build stages in actual presentation order. Put the full term with the abbreviation or in an immediately associated visible explanation; a later glossary, appendix or speaker note alone is insufficient. Record the definition and first-use destination in the private content ledger and use native authoring for text changes beyond the bounded helpers.",
+      "exceptions": [
+        "Use the source and research context to establish clear terms without unnecessary questions; unresolved definitions or material ambiguities need an actual answer before expansion.",
+        "SI unit symbols, chemical formulas, mathematical symbols, identifiers, codes and proper names are not automatically acronyms to expand.",
+        "A retained figure can receive an adjacent visible definition without altering its image text; repeat a definition when a section or slide must stand alone or the audience needs a reminder.",
+        "Exact protected quotations and source identities remain intact; add a separate explanation instead of silently rewriting them."
+      ],
+      "validation": [
+        "Each research abbreviation has its correct full term at the earliest audience-visible occurrence, including relevant build states.",
+        "Definitions remain consistent within each scientific context. Distinct verified concepts sharing an abbreviation are visibly disambiguated, preserving protected source terms and identifiers.",
+        "Definitions, scientific notation, source attribution and native editability are reviewed separately from spelling and package checks."
       ]
     }
   ]

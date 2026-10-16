@@ -124,6 +124,8 @@ For an image-only table, first establish whether an editable reconstruction can 
 
 Use teal for emphasis or a requested scientific palette for the distinctions the audience needs to follow. A restrained palette can make categories and relationships easier to track when each color has a consistent role across related slides. Support that role with labels, markers or line styles rather than relying on color alone.
 
+For newly designed or deliberately recolored graphics, choose color-vision-friendly palettes and avoid introducing rainbow gradients. Keep concise axis and legend labels unambiguous, using stable symbols and the [unit-label convention](scientific-fidelity.md#unit-labels). Remove redundant decoration rather than data, uncertainty or essential context. These choices do not authorize recoloring or simplifying retained evidence whose scientific mappings cannot be verified.
+
 Before changing a figure, inspect its legend and category mappings. Those mappings carry scientific meaning and take priority over the preferred palette. The values below are adjustable working defaults; they do not prescribe a journal's palette or authorize recoloring scientific figures without checking the result.
 
 | Role | Hex |

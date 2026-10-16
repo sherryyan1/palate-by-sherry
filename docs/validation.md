@@ -9,6 +9,7 @@ The transformation report explains what changed, what was checked and what still
 | Review | What it establishes |
 | :--- | :--- |
 | Scientific content | The revised explanation preserves the source's claims, data, units, equations, uncertainty, assumptions, caveats and references. Matching stored values is only part of this review. |
+| Slide wording | Research abbreviations are expanded at first visible use, terminology is consistent and labels are proofread. Shortening retains scientific qualifications, attribution and accurate cross-references. |
 | Native editability | The text, tables, charts and diagrams intended to remain editable can still be edited in the delivery application. A retained raster figure's interior labels remain part of the image. |
 | Rendered appearance | Every final slide has been inspected in the delivery application, with changed slides compared against the source. Review includes intended logo and watermark inheritance, unit-label formatting and fit. Changed animation states also need playback review. |
 

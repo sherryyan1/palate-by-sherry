@@ -30,6 +30,10 @@ Before authoring, create a task-local ledger that traces each changed slide from
 
 For translation, keep the target language, established terminology glossary and source-backed or user-confirmed interpretation decisions with this same private ledger. Link decisions to the affected source and destination objects so a confirmed choice can be applied consistently without adding fields to the intake helper or conservative plan schema.
 
+For [first-use abbreviation definitions and editorial changes](writing-style.md#research-slide-wording), record the verified full term, abbreviation and first audience-visible destination with the same ledger. Establish the definition from the source and research context; a material ambiguity needs clarification before that expansion is applied. An abbreviation inside a retained figure can be defined in an adjacent visible explanation without claiming its image text was edited. Review the actual reading order and relevant build stages so an earlier unexplained use is not hidden by a later definition.
+
+Preserve attribution and the link between each reference and its supported statement when paraphrasing or restructuring. Keep source figure, table, equation and panel identities traceable. When deck-local numbering is needed, check its sequence and cross-references separately from the original source numbering; do not relabel a published figure as if its identity had changed. Clearer prose is not evidence of originality or a completed plagiarism check.
+
 Capture the full caption and source detail before shortening anything. Then compare the proposed wording with the source for meaning, negation, comparison baseline, conditions, correlation or causation, and uncertainty. Matching numeric tokens cannot establish fidelity: the same numbers may have been attached to different quantities. Essential uncertainty and conditions must remain near the evidence even when a long derivation moves to notes or an appendix. A formula may be replaced only by an explanation whose equivalence has been verified; an intuitive paraphrase alone is insufficient.
 
 Reconstruction needs checks matched to the object being rebuilt:
