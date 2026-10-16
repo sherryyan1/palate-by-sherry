@@ -65,10 +65,11 @@ In ChatGPT Work, type `@` and select the installed **palate** plugin or skill, t
 
 ### 03 | Tell **palate** about your presentation
 
-After you send your request, **palate** asks about three things:
+After you send your request, **palate** asks about four things:
 
 - **Presentation setting:** Is this for a research meeting, a tutorial, or an external presentation?
 - **Duration:** How many minutes do you plan to present?
+- **Screen format:** Is the venue's screen closer to 4:3 or 16:9? If you're not sure, **palate** keeps the slides' current proportions.
 - **Technical depth:** How much technical detail would you like to keep? **palate** can decide if you prefer.
 
 You can select the suggested options or answer in your own words. **palate** won't ask again for details you've already shared.

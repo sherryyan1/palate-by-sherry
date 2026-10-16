@@ -27,6 +27,7 @@ The brief uses these choices to establish the setting and the level of explanati
 | Setting | Internal tutorial, internal research, external presentation | Establishes whether the deck should primarily teach, support research discussion or explain work to an outside audience. |
 | External audience | Experts, C-suite/executives, general audience | Guides terminology, conceptual support and the order in which evidence and implications are introduced. |
 | Duration | Suggested times or custom minutes | Sets the pace and the amount of explanation that can be developed during the talk. |
+| Venue screen | 4:3, 16:9 or not sure | Fits the layout to the chosen proportions. If the screen format is unknown, **palate** keeps the slides' current proportions. |
 | Depth | Let palate choose, key takeaways, full technical detail | Determines how much derivation and supporting detail should be visible, while preserving the evidence needed for interpretation. |
 
 You can write your own answer or provide all the presentation details in your first message. If you select "Let palate choose," **palate** reviews your slides and uses your audience and available time to decide how much detail to include. The [presentation contexts](../references/presentation-contexts.md) suggest starting points, including durations; your current instructions take precedence. Slide count and Q&A time are used only when supplied, and single-page monthly updates remain outside this workflow.
@@ -41,11 +42,17 @@ The [runtime intake guide](../references/guided-intake.md) explains question ord
 
 **palate** first establishes what each slide contributes to the argument and where its evidence needs clearer explanation or placement. It inspects the source structure and rendered slides together, so the redesign can account for labels, notes, charts and other content that a text-only inspection may miss. If a source cannot be opened or a required application is unavailable, **palate** explains what file or review is needed before it can complete the task.
 
-If your slides contain tables, **palate** shows two color treatments of the same representative table: Nature-inspired and deck-matched. The content, layout and numeric precision stay the same so you can compare the colors directly. Choose one, supply a preference or ask **palate** to decide; it reuses that decision for comparable tables while preserving meaningful scientific color mappings. A deck without tables needs no table-color choice.
+If your slides contain tables or **palate** proposes one, it shows two color treatments of the same representative table: Nature-inspired and deck-matched. The content, layout and numeric precision stay the same so you can compare the colors directly. Choose one, supply a preference or ask **palate** to decide; it reuses that decision for comparable tables while preserving meaningful scientific color mappings. No table-color choice is needed when no tables are present or planned.
 
 ### Make the changes the content needs
 
-Composition follows the scientific relationship and the brief. **palate** records changes against the source and chooses an editing route that can preserve the objects and meaning involved:
+Composition follows the scientific relationship and the brief. **palate** records changes against the source and chooses an editing route that can preserve the objects and meaning involved.
+
+When the chosen screen ratio differs from the original, **palate** uses native authoring to change the canvas and rearrange the content. It checks text fit, figure proportions and the new work area instead of stretching the existing layout. This requires access to the appropriate authoring tools; if that access is missing, **palate** explains that the ratio change remains pending.
+
+Text-only pages receive a visual treatment suited to their content. A comparison may become a table, a verified sequence a flowchart, or a set of concepts an illustrated grouping with labeled icons. Continuous explanations retain their reasoning within a designed composition. **palate** preserves the scientific qualifications and does not invent data or relationships for a graphic; an exact quotation or another page that needs to retain its form can be a documented exception.
+
+The editing route depends on the objects and changes involved:
 
 | Your slides need | How **palate** handles the change |
 | :--- | :--- |

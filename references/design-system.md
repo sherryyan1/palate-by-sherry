@@ -89,6 +89,23 @@ Apply the table choices consistently to comparable entries, including headers ac
 
 Substantial text needs a visible design treatment that gives the explanation a clear entry and internal hierarchy. Depending on its role, use a concise heading with an accent rule, a restrained background treatment or clearly labeled groups with deliberate spacing. Choose the treatment to reveal the argument and its relationship to nearby evidence. Keep continuous reasoning in connected prose, retain scientific qualifications, and reserve enough space for the text to remain readable. Short labels and captions can remain plain.
 
+### Visual treatment for text-only slides
+
+A text-only slide still needs a visual idea. Inspect each such page and give it a content-appropriate graphic treatment that helps the audience understand the explanation. A list with a decorative icon beside every line is not sufficient: the treatment should make a genuine distinction, grouping or relationship easier to see. Retain a successful existing treatment when it already does this work.
+
+| Content relationship | Visual treatment | Condition |
+| :--- | :--- | :--- |
+| Alternatives described along shared dimensions | An editable comparison table or aligned comparison composition | Compare only dimensions supported by the source; do not imply that unmatched evidence is equivalent. |
+| A verified sequence, process or decision path | A labeled flowchart with native shapes and connectors | Every step, connection and direction must be supported; arrows must not invent causality, chronology or decision logic. |
+| Distinct concepts or categories | A labeled infographic or a restrained set of meaningful outline icons | Labels carry the meaning, icons remain consistent and no invented size or count suggests a quantity. |
+| Continuous reasoning or a qualified interpretation | A composed explanation with a clear heading, aligned text groups and a restrained panel, rule or meaningful visual cue | Keep the argument in connected prose and keep each qualification attached to the statement it limits. |
+
+Choose the simplest treatment that makes the content easier to follow, then apply it using native editable text, tables, shapes and connectors where feasible. Reuse suitable existing assets or choose a coherent icon family with consistent stroke weight and recognizable meanings. Avoid decorative imagery, invented mechanisms, pseudo-data charts and graphics that suggest evidence the source does not contain. Scientific terms, qualifications, references and source attribution remain readable and editable; a diagram is not permission to shorten away their meaning.
+
+The text-box treatments below support this rule, while their specific fills and corner shapes remain contextual choices under R018. A panel or accent rule should reveal the structure of an explanation rather than merely enclose an unchanged wall of text. Keep all foreground content inside the symmetric work area, preserve the 10.5 pt minimum and top-anchor non-title text so corresponding starts remain stable across slides. Tables retain their own alignment and color-choice rules.
+
+Record each text-only slide's chosen treatment in the private design specification and compare it with the source during visual and scientific review. A title, exact quotation or reference page may need its conventional form; required source wording and attribution must stay intact. If an essential relationship cannot be verified, retain the evidence, use a nonrelational composition where possible and identify the unresolved limit. Record a necessary exception and its reason for that slide rather than treating it as permission to leave other text-only pages undesigned. When the available tools cannot author or verify the selected treatment, keep that work explicitly pending instead of claiming a completed graphic redesign.
+
 ### Choosing a text-box treatment
 
 A light neutral fill can make a self-contained explanation easier to distinguish from neighboring evidence. Consider a pale gray panel with gently rounded corners when the text needs that enclosure, giving it comfortable internal space and a clear heading. Treat fill, corner shape, inset spacing and type hierarchy as one composition; the enclosure should clarify a group without crowding its content or competing with the figure.

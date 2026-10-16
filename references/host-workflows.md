@@ -12,7 +12,7 @@ Use the same design judgment, intake and scientific safeguards in Codex and Chat
 | Files and execution | Inspect the actual local or remote execution environment. | Check attachment access, code execution, dependencies, editing tools and downloadable output support. Do not assume that a plugin supplies any of these capabilities. |
 | Native applications | Probe the actual delivery application and automation access. | Probe an explicitly available connection to the required application. A browser session or a local installation elsewhere does not establish that connection. |
 
-Reuse supplied audience, purpose, duration, depth, language and design decisions. Do not repeat intake merely because a task changes host. If a required answer is missing, continue independent inspection while waiting for it; do not treat a suggestion as an accepted answer.
+Reuse supplied audience, purpose, duration, venue screen ratio, depth, language and design decisions. Do not repeat intake merely because a task changes host. An explicit unsure screen answer retains the source canvas; changing host does not turn it into an inferred screen ratio. If a required answer is missing, continue independent inspection while waiting for it; do not treat a suggestion as an accepted answer.
 
 ## Continue as far as the available tools support
 

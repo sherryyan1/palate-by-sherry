@@ -64,6 +64,7 @@ Resolve the context before applying the plan. Profiles provide missing context w
 | --- | --- |
 | Named profile | Fill audience class and duration only when absent. Apply specific request overrides. |
 | Custom context | Supply explicit `audience`, positive `duration_minutes`, `detail_level` and `purpose`. |
+| Venue screen | New intake includes `screen_aspect_ratio`: `4:3`, `16:9` or `not_sure`. The helper retains this optional field for older plan compatibility. A specified ratio must match the source canvas within rounding tolerance; otherwise use [native canvas reflow](pptx-workflow.md#match-the-venue-screen). `not_sure` keeps the source canvas and is not a guessed venue ratio. |
 | Known default | Omit the field when the default should apply; do not pass null. |
 | Monthly update | Reject it as outside this skill's scope. |
 | Test detail or purpose | Treat it as a test assumption, never as a learned user preference. |
@@ -85,6 +86,7 @@ The action limits determine when the plan must move to a native authoring workfl
 | Geometry | Use `[x, y, width, height]` in inches. |
 | Group/inherited geometry or animated slides | Use the native authoring path. |
 | Table geometry | Placement only. |
+| Canvas size or new visual objects | Use native authoring to change the slide ratio or add icons, tables and diagrams. This helper preserves the source canvas and object identities; a matching ratio in context does not mean the helper resized the deck. |
 | Text styling | Do not change math-bearing objects. Uniform styling must preserve meaningful emphasis. |
 | Vertical anchoring, paragraph alignment, table-cell alignment or padding | Use native authoring; these are not supported `text_style` fields. Top-anchor non-title text boxes and compare corresponding first-line positions across slides. Preserve title-layout anchoring and the table-cell middle default. Follow the [text-box and table guidance](design-system.md#text-boxes-and-tables), then inspect native properties and the rendered result. |
 | Numeric display, individual table-cell fills/borders or changing corner geometry | Use native authoring. Thousands separators and decimal formatting can change text or chart parts; follow [numeric display](scientific-fidelity.md#numeric-display) and preserve source values and formulas separately. A fill or line operation can restyle a supported existing shape but cannot rebuild its geometry or set individual table-cell fills/borders. Supported uniform table-text styling remains available. |

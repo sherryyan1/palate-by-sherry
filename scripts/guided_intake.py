@@ -13,7 +13,19 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / "references/guided-intake.json").read_text(encoding="utf-8-sig"))
 PROFILES = {p["id"]: p for p in json.loads((ROOT / "references/presentation-contexts.json").read_text(encoding="utf-8-sig"))["profiles"]}
 AUDIENCES = {a["value"]: a for a in CONFIG["audiences"]}
-FIELDS = {"scenario", "profile", "audience_type", "audience", "audience_expertise", "duration_minutes", "detail_level", "purpose", "slide_count", "q_and_a_minutes"}
+FIELDS = {"scenario", "profile", "audience_type", "audience", "audience_expertise", "duration_minutes", "screen_aspect_ratio", "detail_level", "purpose", "slide_count", "q_and_a_minutes"}
+
+
+def normalize_screen_aspect_ratio(value):
+    if not isinstance(value, str):
+        raise ValueError("screen_aspect_ratio must be 16:9, 4:3 or not_sure")
+    value = value.strip().lower()
+    if value in {"not_sure", "not sure", "unsure", "unknown"}:
+        return "not_sure"
+    value = "".join(value.split()).replace("：", ":").replace("×", ":").replace("x", ":").replace("/", ":")
+    if value not in {"16:9", "4:3"}:
+        raise ValueError("Unsupported screen_aspect_ratio; use 16:9, 4:3 or not_sure without guessing the venue screen")
+    return value
 
 
 def validate_answers(answers):
@@ -33,6 +45,16 @@ def validate_answers(answers):
             raise ValueError(f"Invalid {field}")
     if answers.get("slide_count") is not None and (isinstance(answers["slide_count"], bool) or not isinstance(answers["slide_count"], int) or answers["slide_count"] <= 0):
         raise ValueError("Invalid slide_count")
+    if answers.get("screen_aspect_ratio") is not None:
+        normalize_screen_aspect_ratio(answers["screen_aspect_ratio"])
+
+
+def normalize_answers(answers):
+    validate_answers(answers)
+    normalized = {k: v for k, v in answers.items() if v is not None}
+    if "screen_aspect_ratio" in normalized:
+        normalized["screen_aspect_ratio"] = normalize_screen_aspect_ratio(normalized["screen_aspect_ratio"])
+    return normalized
 
 
 def question(id, title, options):
@@ -46,8 +68,7 @@ def pending(questions):
 
 
 def route(answers):
-    validate_answers(answers)
-    answers = {k: v for k, v in answers.items() if v is not None}
+    answers = normalize_answers(answers)
     profile_id = answers.get("profile")
     if not profile_id and answers.get("scenario") in {"internal-tutorial", "internal-research"}:
         profile_id = answers["scenario"]
@@ -79,11 +100,13 @@ def route(answers):
             values = [default] + [v for v in values if v != default]
         options = [{"value": value, "label": f"{value:g} minutes" + (" (profile default)" if value == default else "")} for value in values]
         questions.append(question("duration_minutes", "How many minutes do you have? You can also enter a custom duration.", options))
+    if "screen_aspect_ratio" not in answers:
+        questions.append(question("screen_aspect_ratio", "Which shape is closer to the venue screen?", CONFIG["screen_aspect_ratios"]))
     if "detail_level" not in answers:
         questions.append(question("detail_level", "How much technical detail should the talk show?", CONFIG["depths"]))
     if questions:
         return pending(questions)
-    context = {k: v for k, v in answers.items() if k in {"duration_minutes", "detail_level", "purpose", "slide_count", "q_and_a_minutes"}}
+    context = {k: v for k, v in answers.items() if k in {"duration_minutes", "screen_aspect_ratio", "detail_level", "purpose", "slide_count", "q_and_a_minutes"}}
     if profile:
         context["profile"] = profile_id
     if profile:
@@ -107,7 +130,7 @@ def route(answers):
     return {"status": "ready", "can_inspect_source": True, "can_transform": True, "context": context,
             "design_priorities": priorities,
             "depth_delegated": context["detail_level"] == "automatic",
-            "design_instruction": "Inspect the source before choosing layout, pacing and visible technical detail. Retain scientific evidence; do not derive slide count from minutes."}
+            "design_instruction": "Inspect the source before choosing layout, pacing and visible technical detail. Use the selected screen aspect ratio for the target canvas; not_sure preserves the source canvas without inferring the venue screen. When the ratio changes, reflow a new output in its native application rather than stretching or cropping content. Retain scientific evidence; do not derive slide count from minutes."}
 
 
 def record(answers, field, value):
@@ -119,19 +142,18 @@ def record(answers, field, value):
         value = float(value)
     changed = dict(answers)
     changed[field] = value
-    validate_answers(changed)
-    return changed
+    return normalize_answers(changed)
 
 
 def read_state(path):
     state = json.loads(Path(path).read_text(encoding="utf-8-sig"))
     if state.get("schema_version") != 1:
         raise ValueError("Unknown intake state schema")
-    validate_answers(state.get("answers"))
-    return state["answers"]
+    return normalize_answers(state.get("answers"))
 
 
 def save_state(path, answers):
+    answers = normalize_answers(answers)
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("x", encoding="utf-8") as stream:
@@ -147,7 +169,7 @@ def main():
     args = parser.parse_args()
     if args.command == "start":
         answers = json.loads(Path(args.known).read_text(encoding="utf-8-sig")) if args.known else {}
-        validate_answers(answers); save_state(args.output, answers)
+        answers = normalize_answers(answers); save_state(args.output, answers)
     else:
         answers = read_state(args.state)
         if args.command == "answer":

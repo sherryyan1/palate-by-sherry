@@ -387,6 +387,25 @@
         "Definitions remain consistent within each scientific context. Distinct verified concepts sharing an abbreviation are visibly disambiguated, preserving protected source terms and identifiers.",
         "Definitions, scientific notation, source attribution and native editability are reviewed separately from spelling and package checks."
       ]
+    },
+    {
+      "id": "R024",
+      "name": "Meaningful visual treatment for text-only slides",
+      "dimension": "visual_explanation",
+      "status": "primary",
+      "trigger": "A slide communicates its substantive explanation only through text.",
+      "decision": "Inspect every text-only slide and apply a content-appropriate graphic treatment that makes its distinctions, grouping or relationships easier to understand.",
+      "execution": "Follow design-system.md#visual-treatment-for-text-only-slides. Use an editable table or aligned comparison for shared dimensions, a labeled flowchart for a verified sequence and meaningful outline icons or an infographic for concepts and categories. Preserve continuous reasoning in connected prose within a composed explanation using headings, aligned groups and a purposeful panel, rule or visual cue. Retain an existing successful treatment. Prefer native editable text, tables, shapes and connectors; use a coherent icon family where icons help. Record the chosen treatment or justified exception for each text-only source slide in the private design specification. Preserve scientific qualifications, references, stable top-anchored non-title text, the 10.5 pt minimum and the symmetric work area. R018 remains a contextual choice of enclosure, not a required panel preset.",
+      "exceptions": [
+        "Title, exact quotation and reference pages may retain their conventional form when their purpose or protected wording requires it; record the slide-specific reason and preserve attribution.",
+        "Do not invent a causal, temporal, quantitative or categorical relationship to justify a graphic. If the relationship cannot be verified, use a nonrelational composition where possible and record any unresolved limit.",
+        "A mandatory template may constrain treatment; improve hierarchy within its requirements and record any necessary exception. Unavailable native authoring or review leaves the selected graphic work pending rather than completed."
+      ],
+      "validation": [
+        "Every text-only source slide has a meaningful visual treatment or an explicit, justified slide-specific exception; generic decorative icons alone do not satisfy the rule.",
+        "The treatment exposes only source-supported relationships and retains claims, qualifications, numerical meaning, source attribution and readable references.",
+        "Native editability and the final application render are reviewed separately; icons are legible and consistent, non-title text starts are stable, tables follow their alignment and color rules, and all content respects the work area and type-size floor."
+      ]
     }
   ]
 }

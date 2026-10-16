@@ -142,6 +142,44 @@ class PreserveTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             palate.resolve_context(dict(custom, profile="internal-monthly-update"))
 
+    def test_matching_or_unsure_screen_preserves_canvas_and_context(self):
+        for ratio in ("16:9", "not_sure"):
+            with self.subTest(ratio=ratio):
+                plan = copy.deepcopy(self.plan)
+                plan["context"]["screen_aspect_ratio"] = ratio
+                parts, context, _ = palate.expected_parts(self.source, plan)
+                self.assertEqual(context["screen_aspect_ratio"], ratio)
+                self.assertEqual(parts["ppt/presentation.xml"], self.parts["ppt/presentation.xml"])
+
+    def test_screen_mismatch_requires_native_reflow_in_both_directions(self):
+        plan = copy.deepcopy(self.plan)
+        plan["context"]["screen_aspect_ratio"] = "4:3"
+        with self.assertRaisesRegex(ValueError, "native authoring"):
+            palate.expected_parts(self.source, plan)
+        standard = dict(self.parts)
+        standard["ppt/presentation.xml"] = standard["ppt/presentation.xml"].replace(b'cy="5143500"', b'cy="6858000"')
+        self.write(self.source, standard)
+        plan["source_sha256"] = palate.sha(self.source)
+        parts, context, _ = palate.expected_parts(self.source, plan)
+        self.assertEqual(context["screen_aspect_ratio"], "4:3")
+        self.assertEqual(parts["ppt/presentation.xml"], standard["ppt/presentation.xml"])
+        plan["context"]["screen_aspect_ratio"] = "16:9"
+        with self.assertRaisesRegex(ValueError, "native authoring"):
+            palate.expected_parts(self.source, plan)
+
+    def test_screen_context_rejects_invalid_choices_and_allows_canvas_rounding(self):
+        for value in (None, True, 16 / 9, "16:10", [], {}):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                palate.resolve_context(dict(self.plan["context"], screen_aspect_ratio=value))
+        rounded = dict(self.parts)
+        rounded["ppt/presentation.xml"] = rounded["ppt/presentation.xml"].replace(b'cy="5143500"', b'cy="5143501"')
+        self.write(self.source, rounded)
+        plan = copy.deepcopy(self.plan)
+        plan["source_sha256"] = palate.sha(self.source)
+        plan["context"]["screen_aspect_ratio"] = "16:9"
+        parts, _, _ = palate.expected_parts(self.source, plan)
+        self.assertEqual(parts["ppt/presentation.xml"], rounded["ppt/presentation.xml"])
+
     def test_refuses_stretch_offslide_and_nan(self):
         for box in ([0, 0, 5, 1], [9, 1, 5, 2.5], [0, float("nan"), 5, 2.5]):
             plan = copy.deepcopy(self.plan); plan["operations"][1]["bounds_inches"] = box

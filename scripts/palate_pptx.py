@@ -191,6 +191,8 @@ def resolve_context(context):
     for key in ("detail_level", "purpose"):
         if not isinstance(resolved.get(key), str) or not resolved[key].strip():
             raise ValueError(f"{key} is required; do not invent it for a user redesign")
+    if "screen_aspect_ratio" in resolved and resolved["screen_aspect_ratio"] not in ("4:3", "16:9", "not_sure"):
+        raise ValueError("screen_aspect_ratio must be 4:3, 16:9 or not_sure")
     return resolved
 
 
@@ -346,6 +348,11 @@ def expected_parts(source, plan):
     order = slide_order(parts)
     slide_size = xml(parts["ppt/presentation.xml"]).find("p:sldSz", NS)
     size = [int(slide_size.get(k)) / EMU for k in ("cx", "cy")]
+    screen_ratio = context.get("screen_aspect_ratio")
+    if screen_ratio in ("4:3", "16:9"):
+        target_ratio = {"4:3": 4 / 3, "16:9": 16 / 9}[screen_ratio]
+        if size[1] <= 0 or not math.isclose(size[0] / size[1], target_ratio, rel_tol=0.001):
+            raise ValueError("Venue screen ratio differs from the source canvas; use native authoring to reflow a new deck before bounded edits")
     trees = {}
     for op in plan["operations"]:
         if not 1 <= op["slide"] <= len(order):

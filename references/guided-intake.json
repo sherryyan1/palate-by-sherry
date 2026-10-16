@@ -11,6 +11,11 @@
     {"value": "general", "label": "General audience", "audience": "general audience", "expertise": "general", "priorities": ["Define unfamiliar concepts and explain mechanisms intuitively.", "Keep the finding and essential qualifications visible."]}
   ],
   "duration_minutes": [10, 20, 30, 45, 60],
+  "screen_aspect_ratios": [
+    {"value": "16:9", "label": "16:9 widescreen", "description": "Adapt the slide canvas and layout to a wider venue screen."},
+    {"value": "4:3", "label": "4:3 standard", "description": "Adapt the slide canvas and layout to a more square venue screen."},
+    {"value": "not_sure", "label": "Not sure; keep the current slide shape", "description": "Preserve the source canvas without assuming the venue screen has the same shape."}
+  ],
   "depths": [
     {"value": "automatic", "label": "Let palate choose", "description": "Choose depth from the audience, time and source content."},
     {"value": "overview", "label": "Key takeaways", "description": "Prioritize clear findings and essential explanation."},
