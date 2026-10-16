@@ -22,7 +22,7 @@
 
 *A palate for ideas, a palette for slides.*
 
-**palate** is a skill that helps researchers turn complex work into presentations their audience can follow.
+**palate** is a skill that helps researchers turn complex slides into presentations their audience can follow.
 
 **Start with the slides you already have.** Upload your slides, even if they're crowded, inconsistent, or still a work in progress. You don't need to redesign them first. That's what **palate** is here for.
 
