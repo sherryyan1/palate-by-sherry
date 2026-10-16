@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#开始使用">开始使用</a> &nbsp;·&nbsp;
-  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
+  <a href="#sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">使用指南（英文）</a>
 </p>
 
@@ -83,11 +83,11 @@ $palate 帮我打磨这份汇报 PPT。
 
 如果专业术语的几种合理译法可能实质改变科学含义，**palate** 会先向你确认，再应用译法。
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; 'Sherry' Picking
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-科研汇报不该只挑有利的结果来讲。不过，一点 **'Sherry's' pick**，倒能让表达更到位。
+面对只挑有利结果的演讲者，听时保持审慎；用上 **Sherry's Picks**，讲时更有底气。
 
-这里借用了 *cherry-pick* 的双关：研究证据不挑着讲，呈现方式却可以用心选。**palate** 从整体到细节，按以下四个阶段打磨 PPT。
+研究证据不挑着讲，呈现方式却可以用心选。**palate** 从整体到细节，按以下四个阶段打磨 PPT。
 
 ### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 先了解听众
 

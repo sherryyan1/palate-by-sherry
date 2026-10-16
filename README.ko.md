@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#설치하고-사용하기">설치하고 사용하기</a> &nbsp;·&nbsp;
-  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
+  <a href="#sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">사용 안내(영문)</a>
 </p>
 
@@ -87,11 +87,11 @@ Codex 스킬의 설치 대상은 Codex가 실행되는 Windows, macOS, Linux 환
 
 번역을 요청하지 않으면 **palate**는 발표 자료의 원래 언어를 유지합니다. 번역할 때도 수치, 단위, 과학적 의미를 보존합니다. 전문 용어에 여러 번역이 가능하고 선택에 따라 과학적 의미가 달라질 수 있으면, 임의로 정하지 않고 어떤 번역을 쓸지 묻습니다.
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry Picking
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-연구 발표에서 유리한 결과만 골라 보여주는 ‘체리피킹(cherry-picking)’은 경계해야 합니다. 하지만 **Sherry Picking**이라면 좋은 발표에 도움이 됩니다.
+유리한 근거만 골라 제시하는 발표라면 비판적으로 들어야 합니다. 발표를 준비할 때는 **Sherry's Picks**로 구성과 표현을 다듬고 자신 있게 전달하세요.
 
-**Sherry Picking**은 어떤 근거를 보여줄지 골라내는 일이 아니라, 그 근거를 어떻게 전달할지 신중하게 결정하는 일입니다. **palate**는 네 가지 원칙에 따라 발표 자료의 큰 틀부터 세부 요소까지 다듬습니다.
+**Sherry's Picks**는 어떤 근거를 보여줄지 골라내는 일이 아니라, 그 근거를 어떻게 전달할지 신중하게 결정하는 일입니다. **palate**는 네 가지 원칙에 따라 발표 자료의 큰 틀부터 세부 요소까지 다듬습니다.
 
 ### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 청중과 상황에 맞추기
 

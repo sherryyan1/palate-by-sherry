@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#get-started">Get started</a> &nbsp;·&nbsp;
-  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
+  <a href="#sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">Documentation</a>
 </p>
 
@@ -81,9 +81,9 @@ This README is available in **English, 简体中文, 日本語, and 한국어**.
 
 If a technical term has plausible translations that could materially change its scientific meaning, **palate** asks you to clarify before applying one.
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Pick
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-A good research talk shouldn't rely on cherry-picked results. A little **Sherry's Pick**, however, can go a long way.
+Listen with skepticism when a speaker cherry-picks. Present with confidence when applying Sherry's Picks.
 
 It's not about choosing which evidence to show, but making thoughtful choices about how to present it. **palate** works from the big picture to the finer details, guided by four principles.
 

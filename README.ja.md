@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#使ってみる">使ってみる</a> &nbsp;·&nbsp;
-  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
+  <a href="#sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">詳しい使い方（英語）</a>
 </p>
 
@@ -87,9 +87,9 @@ Codex のインストール先は、Codex が動作する Windows、macOS、Linu
 
 翻訳を依頼しない限り、**palate** はプレゼン資料の元の言語を保ちます。翻訳する場合も、数値、単位、科学的な意味は変えません。専門用語に複数の訳語があり、選び方によって科学的な意味が変わる場合は、推測で決めずに確認します。
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Pick
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-研究発表で、都合のよい結果だけを選んで説得力を装う「cherry-picking」は禁物です。けれども、伝え方を吟味する **Sherry's Pick** なら、発表をよりよくできます。
+話し手が都合のよい根拠だけを選んでいるときは、鵜呑みにせずに聞く。**Sherry's Picks** を取り入れるときは、自信をもって発表する。
 
 根拠そのものを選り分けるのではなく、その伝え方を工夫します。**palate** は、全体の方向性を定めてから細部を整えるまで、次の4つの考え方を軸にプレゼン資料を見直します。
 
