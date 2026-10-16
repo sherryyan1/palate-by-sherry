@@ -90,7 +90,7 @@ Codex 스킬의 설치 대상은 Codex가 실행되는 Windows, macOS, Linux 환
 
 ## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry's Picks
 
-유리한 근거만 골라 제시하는 발표라면 비판적으로 들어야 합니다. 발표를 준비할 때는 **Sherry's Picks**로 구성과 표현을 다듬고 자신 있게 전달하세요.
+**cherry-pick**하는 발표는 비판적으로 들으세요. **Sherry's Picks**로 다듬은 발표는 자신 있게 전하세요.
 
 **Sherry's Picks**는 어떤 근거를 보여줄지 골라내는 일이 아니라, 그 근거를 어떻게 전달할지 신중하게 결정하는 일입니다. **palate**는 네 가지 원칙에 따라 발표 자료의 큰 틀부터 세부 요소까지 다듬습니다.
 
