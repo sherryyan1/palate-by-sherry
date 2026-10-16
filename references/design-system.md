@@ -99,10 +99,14 @@ After inspecting a deck that contains tables, offer two color treatments using o
 
 | Option | Color treatment | What remains consistent |
 | :--- | :--- | :--- |
-| Nature-inspired | A restrained scientific palette: neutral cells, dark readable text and selective muted accents for headers or meaningful groups. Draw on research-figure hierarchy and accessibility principles. | Scientific category mappings, quantities, uncertainty and source precision. |
+| Nature-inspired | Warm stone headers (`D8D6C2`), black header and body text, and white body cells, following Sherry's preferred journal-inspired table treatment. | Scientific category mappings, quantities, uncertainty and source precision. |
 | Deck-matched | Derive headers, light fills and accents from the deck's established colors; use a coherent light-to-dark hierarchy with readable contrast. | The deck's semantic color roles and the same scientific content. |
 
-Nature-inspired describes palate's adaptation of scientific color principles; choose the actual colors for the table and viewing conditions. Nature's [scientific illustration guide](https://www.nature.com/documents/Nature_scientific_illustration_author_guide.pdf) discusses color hierarchy and accessibility for conceptual figures. Its scope does not set a universal table palette, slide typography or slide-size specification.
+Use a restrained table structure in both previews: black horizontal rules at the top, below the header, between meaningful body groups and at the bottom, with no visible vertical grid. A rule around 1 pt is a starting point; check its weight at the final slide size. Add grouped or multi-level headers only when the data needs them. Keep the established typography, alignment and numeric-display rules.
+
+Myriad Pro at 12 pt is the reference face for this table treatment. Use it as a table-specific pairing when its genuine fonts and rendered glyphs can be verified, retaining the established title and body hierarchy. Resolve an available alternative if needed rather than silently substituting a font.
+
+The Nature-inspired option names Sherry's preferred journal-like treatment, not an official Nature table standard. Nature's [scientific illustration guide](https://www.nature.com/documents/Nature_scientific_illustration_author_guide.pdf) informs color hierarchy and accessibility for conceptual figures; it does not prescribe this preset. Adapt contrast for the background and viewing conditions while retaining the chosen treatment and scientific color meanings.
 
 Ask only when a table is present and the current request has not already supplied or delegated the palette decision. Offer exactly these two preset choices, retaining any custom-answer facility supplied by the host. Wait for a submitted choice or explicit delegation before applying final table colors; continue independent content and layout work while it is pending. Reuse the choice for comparable tables in that deck. Keep it in the private design specification rather than adding unsupported fields to a helper schema.
 

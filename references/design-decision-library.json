@@ -296,7 +296,7 @@
       "status": "primary",
       "trigger": "The deck contains tables and the current table-palette decision is unresolved.",
       "decision": "Offer Nature-inspired and deck-matched color treatments of the same representative table for the user to choose.",
-      "execution": "Follow design-system.md#table-color-options and guided-intake.md. Keep content, layout, fonts, numeric precision and emphasis targets identical in both previews. Present exactly two preset choices through the available tool and wait for a submitted choice or explicit delegation before final table coloring. Record and reuse the resolved choice privately for comparable tables.",
+      "execution": "Follow design-system.md#table-color-options and guided-intake.md. Use the reference-defined Nature-inspired preset with warm stone headers, white body cells, black text and horizontal rules without a vertical grid. Keep content, layout, fonts, numeric precision and emphasis targets identical in both previews. Present exactly two preset choices through the available tool and wait for a submitted choice or explicit delegation before final table coloring. Record and reuse the resolved choice privately for comparable tables.",
       "exceptions": [
         "Reuse an explicit current choice or delegation; do not ask for a deck without tables.",
         "Existing scientific category, heatmap, sign and significance mappings remain protected in both options.",
