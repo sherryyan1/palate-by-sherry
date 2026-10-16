@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#get-started">Get started</a> &nbsp;·&nbsp;
-  <a href="references/design-system.md">Design principles</a> &nbsp;·&nbsp;
+  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">Documentation</a>
 </p>
 
@@ -81,39 +81,49 @@ This README is available in **English, 简体中文, 日本語, and 한국어**.
 
 If a technical term has plausible translations that could materially change its scientific meaning, **palate** asks you to clarify before applying one.
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Design principles
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry Picking
 
-### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | Start with the audience
+A good research talk shouldn't rely on cherry-picked results. A little **Sherry Picking**, however, can go a long way.
 
-<sub><em>What does your audience need to understand?</em></sub>
+It's not about choosing which evidence to show, but making thoughtful choices about how to present it. **palate** works from the big picture to the finer details, guided by four principles.
 
-A tutorial may need a mechanism explained step by step. A research meeting may need methods and uncertainty visible for discussion. **palate** adjusts the explanation to the context and the evidence listeners need to examine.
+### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | Read the room
 
-Time shapes the **depth and pacing** of the explanation, not a fixed slide count. Supporting details can move to notes or an appendix when the main explanation remains accurate.
+<sub><em>Know your audience.</em></sub>
 
-<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+Good design begins with understanding the occasion. Who will be listening? What do they already know? What should they take away from the talk?
 
-### <img src="assets/icons/chart-no-axes-combined.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | Let the evidence lead
-
-<sub><em>How can the evidence and reasoning be easier to follow?</em></sub>
-
-**palate** clarifies information hierarchy, aligns comparable scales and develops methods in a logical sequence. It keeps findings close to the evidence and qualifications needed to interpret them.
-
-Space, teal accents and navigation markers help when they reveal a relationship or keep listeners oriented. Their use follows the content rather than a fixed template.
+**palate** first establishes an overall style that suits the audience, purpose, and setting. A conference presentation, a research meeting, and a public lecture each call for a different approach. There is no one-size-fits-all design.
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/shield-check.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | Keep the science intact
+### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | Find the thread
 
-<sub><em>What should never change during a redesign?</em></sub>
+<sub><em>Make the story worth following.</em></sub>
 
-**palate** preserves data, units, equations, labels, legends, uncertainty, caveats and references. It maintains native editability where the tools support it and retains complex figures when reliable reconstruction cannot be verified.
+A good presentation is more than a collection of good slides. The ideas need to connect, and the reasoning should unfold naturally.
 
-### <img src="assets/icons/package-check.svg" width="22" height="22" align="top" alt="">&nbsp; What you get
+**palate** looks at the presentation as a whole, identifies its central argument, and revisits the structure. This may involve rearranging slides, reorganizing sections, or changing how ideas are introduced, so that every part has a clear place in the story.
 
-You receive a new editable slide deck in a supported format and a concise report explaining the changes, completed checks and anything that still needs attention.
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-**palate** checks scientific content, editability and rendered appearance separately. If an essential check cannot be completed, it labels the output as a candidate and explains what remains.
+### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | Distill the message
+
+<sub><em>Seek simplicity in complexity.</em></sub>
+
+Clarity comes from knowing what to keep, what to explain, and what can be said more simply.
+
+**palate** works through the slides one by one, refining dense text, removing repetition, and bringing the key message into focus. The aim is to make complex research easier to understand without losing the precision, nuance, or uncertainty that matters.
+
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | Polish with purpose
+
+<sub><em>Make every detail belong.</em></sub>
+
+Finally, **palate** turns to the visual details: figures, typography, alignment, spacing, and colour.
+
+Graphics should communicate, not merely decorate. Consistent formatting brings the slides together, while thoughtful variation keeps each page suited to its content. The result is a presentation that feels coherent, polished, and professional, without looking as though it came from a fixed template.
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; Formats and requirements
 

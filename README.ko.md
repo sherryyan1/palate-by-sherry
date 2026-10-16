@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#설치하고-사용하기">설치하고 사용하기</a> &nbsp;·&nbsp;
-  <a href="references/design-system.md">디자인 원칙(영문)</a> &nbsp;·&nbsp;
+  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">사용 안내(영문)</a>
 </p>
 
@@ -87,37 +87,49 @@ Codex 스킬의 설치 대상은 Codex가 실행되는 Windows, macOS, Linux 환
 
 번역을 요청하지 않으면 **palate**는 발표 자료의 원래 언어를 유지합니다. 번역할 때도 수치, 단위, 과학적 의미를 보존합니다. 전문 용어에 여러 번역이 가능하고 선택에 따라 과학적 의미가 달라질 수 있으면, 임의로 정하지 않고 어떤 번역을 쓸지 묻습니다.
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; 디자인 원칙
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry Picking
 
-### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 청중에서 출발하기
+연구 발표에서 유리한 결과만 골라 보여주는 ‘체리피킹(cherry-picking)’은 경계해야 합니다. 하지만 **Sherry Picking**이라면 좋은 발표에 도움이 됩니다.
 
-<sub><em>청중이 무엇을 이해해야 할까요?</em></sub>
+**Sherry Picking**은 어떤 근거를 보여줄지 골라내는 일이 아니라, 그 근거를 어떻게 전달할지 신중하게 결정하는 일입니다. **palate**는 네 가지 원칙에 따라 발표 자료의 큰 틀부터 세부 요소까지 다듬습니다.
 
-튜토리얼에서는 원리를 단계적으로 풀어야 할 수 있고, 연구실 미팅에서는 토론에 필요한 방법과 불확실성을 보여주어야 할 수 있습니다. **palate**는 발표 상황에 맞춰 설명의 깊이를 조절합니다.
+### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 청중과 상황에 맞추기
 
-발표 시간은 설명의 **깊이와 진행 속도**를 정하는 기준입니다. 시간만으로 슬라이드 수를 정하지는 않으며, 보충 내용은 필요에 따라 발표자 노트나 부록에 둡니다.
+<sub><em>누가 듣는 발표인지 먼저 생각합니다.</em></sub>
 
-<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+좋은 디자인은 발표가 이루어지는 상황을 이해하는 데서 시작합니다. 누가 듣는지, 청중이 이미 무엇을 알고 있는지, 발표가 끝난 뒤 무엇을 이해하고 기억해야 하는지 살펴봅니다.
 
-### <img src="assets/icons/chart-no-axes-combined.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 근거와 논리 드러내기
-
-<sub><em>근거와 논리의 흐름을 어떻게 더 쉽게 보여줄 수 있을까요?</em></sub>
-
-**palate**는 정보의 중요도를 정리하고, 비교가 타당한 결과는 척도를 맞춰 보여줍니다. 방법은 논리를 따라갈 수 있는 순서로 배치하고, 결과는 이를 뒷받침하는 근거와 해석에 필요한 조건 가까이에 둡니다.
-
-여백, 청록색 강조, 섹션과 설명의 진행을 보여주는 표시는 관계와 순서를 전달하기 위한 도구입니다. 모든 슬라이드에 똑같이 넣지는 않습니다.
+**palate**는 청중과 목적, 발표 환경에 맞춰 전체적인 디자인 방향을 정합니다. 학회 발표와 연구실 미팅, 대중 강연은 어울리는 방식이 서로 다릅니다. 모든 발표에 통하는 하나의 디자인은 없습니다.
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/shield-check.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 연구의 과학적 의미 지키기
+### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 이야기의 흐름 잡기
 
-<sub><em>디자인을 바꾸더라도 무엇은 그대로여야 할까요?</em></sub>
+<sub><em>논리를 자연스럽게 따라갈 수 있도록 구성합니다.</em></sub>
 
-**palate**는 데이터, 수치, 단위, 수식, 라벨, 범례, 불확실성, 해석상의 한계와 참고문헌을 보존합니다. 기존 객체는 도구가 지원하는 범위에서 개별 편집이 가능한 상태로 유지하고, 재구성의 정확성을 검증할 수 없는 복잡한 그림은 원형을 유지합니다.
+잘 만든 슬라이드를 모은다고 발표 자료가 저절로 좋아지지는 않습니다. 내용이 서로 이어지고 논리가 자연스럽게 전개되어야 합니다.
 
-### <img src="assets/icons/package-check.svg" width="22" height="22" align="top" alt="">&nbsp; 받을 수 있는 결과물
+**palate**는 발표 자료 전체를 살펴 핵심 논지를 파악하고 구성을 다시 검토합니다. 필요하면 슬라이드 순서를 바꾸고 섹션을 재구성하거나 개념을 소개하는 방식을 조정해 전체 흐름 속에서 각 부분의 역할이 분명하도록 합니다.
 
-도구와 파일 형식이 지원하는 범위에서 새로 저장한 편집 가능한 발표 자료와 변경 내용, 완료한 검토, 남은 한계를 정리한 짧은 보고서를 받습니다. **palate**는 과학적 내용, 편집 가능 여부, 실제 화면에서의 표시를 각각 검토합니다. 꼭 필요한 검토를 마치지 못하면 남은 작업을 밝히고, 최종본 대신 추가 확인이 필요한 후보본으로 전달합니다.
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+
+### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 핵심이 드러나게 다듬기
+
+<sub><em>복잡한 내용도 명료하게 전달합니다.</em></sub>
+
+무엇을 남기고 무엇을 풀어 설명하며 어디를 더 쉽게 표현할지 판단해야 메시지가 명확해집니다.
+
+**palate**는 슬라이드를 한 장씩 살피며 빽빽한 글을 다듬고 중복을 줄여 핵심이 잘 드러나도록 합니다. 복잡한 연구를 쉽게 풀어 쓰면서도 과학적 정확성을 유지하고 의미의 미묘한 차이나 중요한 불확실성이 사라지지 않도록 합니다.
+
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 시각적 완성도 높이기
+
+<sub><em>작은 요소도 전달하려는 내용에 맞춥니다.</em></sub>
+
+마지막으로 **palate**는 그림, 서체, 정렬, 간격, 색상 등 시각적 요소를 다듬습니다.
+
+그림은 장식에 그치지 않고 내용을 전달해야 합니다. 서식을 일관되게 맞춰 슬라이드 전체에 통일감을 주되, 각 슬라이드의 내용에 따라 배치와 표현에 변화를 줍니다. 그 결과, 고정된 템플릿에 맞춘 듯한 인상 없이도 전체가 자연스럽게 어우러지는, 완성도 높고 전문적인 발표 자료가 됩니다.
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; 파일 형식과 실행 환경
 

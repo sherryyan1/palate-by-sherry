@@ -15,14 +15,14 @@ SECRETS = [re.compile(pattern) for pattern in (
 PRIVATE_PREFIXES = ("assets/", "analysis/", "local/", "interviews/", "dist/", "docs/local/")
 REVIEWED_README_ICON_ASSETS = frozenset({
     "assets/icons/LICENSE",
+    "assets/icons/align-left.svg",
     "assets/icons/arrow-down.svg",
     "assets/icons/book-open.svg",
-    "assets/icons/chart-no-axes-combined.svg",
     "assets/icons/compass.svg",
     "assets/icons/files.svg",
+    "assets/icons/git-branch.svg",
     "assets/icons/languages.svg",
-    "assets/icons/package-check.svg",
-    "assets/icons/shield-check.svg",
+    "assets/icons/palette.svg",
     "assets/icons/square-terminal.svg",
     "assets/icons/users-round.svg",
 })

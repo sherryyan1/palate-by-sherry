@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#开始使用">开始使用</a> &nbsp;·&nbsp;
-  <a href="references/design-system.md">设计原则（英文）</a> &nbsp;·&nbsp;
+  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">使用指南（英文）</a>
 </p>
 
@@ -83,39 +83,49 @@ $palate 帮我打磨这份汇报 PPT。
 
 如果专业术语的几种合理译法可能实质改变科学含义，**palate** 会先向你确认，再应用译法。
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; 设计原则
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry Picking
 
-### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 从听众出发
+科研汇报不该只挑有利的结果来讲。不过，一点 **Sherry Picking**，倒能让表达更到位。
 
-<sub><em>听众需要理解什么？</em></sub>
+这里借用了 *cherry-picking* 的双关：研究证据不挑着讲，呈现方式却可以用心选。**palate** 从整体到细节，按以下四个阶段打磨 PPT。
 
-教学型分享可能需要分步解释一个机制，组会讨论则可能需要把方法和不确定性留在便于核查的位置。**palate** 会根据场景和听众需要检查的证据，调整解释的深度。
+### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 先了解听众
 
-时长决定解释的**深度和节奏**，不对应固定页数。在不改变主要论述含义的前提下，补充细节可以移到备注或附录。
+<sub><em>从听众的理解出发。</em></sub>
 
-<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+设计先从汇报场合开始。听众是谁？对研究已有多少了解？这场汇报最希望他们记住什么？
 
-### <img src="assets/icons/chart-no-axes-combined.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 让证据带领论述
-
-<sub><em>怎样让证据和推理更容易跟上？</em></sub>
-
-**palate** 会梳理信息层级，让可比较的结果采用可比尺度，让方法按逻辑展开，并将结论与支撑它的证据及限定条件放在一起。
-
-留白、青绿色强调色和导航标记，都用于帮助听众辨认关系、掌握进度。是否使用、怎样使用，取决于内容，不是每页都要具备的元素。
+**palate** 会结合听众、目的和场合，确定整体的表达方式与视觉方向。学术会议、组会和公众讲座各有侧重，设计也应随之调整。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/shield-check.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 保留科学内容
+### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 理清叙事线索
 
-<sub><em>重新设计时，哪些内容不能改变？</em></sub>
+<sub><em>让听众跟得上论述。</em></sub>
 
-**palate** 保留数据、单位、公式、标签、图例、不确定性、限定条件和参考文献。在工具支持的范围内，它会保留对象的可编辑性；无法验证重建是否可靠的复杂图件，则保留原图。
+几页各自精彩的幻灯片，未必能构成一场好汇报。观点之间需要联系，推理也需要有自然的展开顺序。
 
-### <img src="assets/icons/package-check.svg" width="22" height="22" align="top" alt="">&nbsp; 会收到什么
+**palate** 会通看整套 PPT，找出贯穿其中的核心论点，再审视内容结构。必要时调整页序、重组章节，或改变引入观点的方式，让每一部分在整场汇报中都有清楚的位置。
 
-**palate** 会另存一份新的 PPT，使用当前工具支持的可编辑格式，并附上简短报告，说明修改内容、已完成的检查和仍需注意的事项。
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-**palate** 分别核对科学内容、可编辑性和实际显示效果。如果有必需的检查无法完成，它会说明限制，并将结果标为候选版本。
+### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 提炼每页的表达
+
+<sub><em>把复杂的研究讲明白。</em></sub>
+
+清楚的表达，来自对内容的判断：哪些信息必须留下，哪些需要解释，哪些可以说得更直接。
+
+**palate** 会逐页梳理文字，删去重复，调整信息密度，让每页要传达的重点更清楚。精简是为了让复杂研究更容易理解，同时保留必要的科学细节、限定条件和不确定性。
+
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 让细节服务内容
+
+<sub><em>每一处细节，都要有用意。</em></sub>
+
+最后，**palate** 会细看图表、字体、对齐、留白与配色。
+
+图形用来传达信息，统一的格式则让整套 PPT 保持连贯。在此基础上，再按每页的内容调整布局与呈现，让整体协调、细节妥帖，而不显得千篇一律。
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; 文件格式与运行要求
 

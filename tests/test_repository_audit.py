@@ -148,14 +148,14 @@ class RepositoryAuditTests(unittest.TestCase):
     def test_exact_reviewed_readme_icon_assets_are_allowed(self):
         files = {
             "assets/icons/LICENSE": "Synthetic English license.\n",
+            "assets/icons/align-left.svg": "<svg/>\n",
             "assets/icons/arrow-down.svg": "<svg/>\n",
             "assets/icons/book-open.svg": "<svg/>\n",
-            "assets/icons/chart-no-axes-combined.svg": "<svg/>\n",
             "assets/icons/compass.svg": "<svg/>\n",
             "assets/icons/files.svg": "<svg/>\n",
+            "assets/icons/git-branch.svg": "<svg/>\n",
             "assets/icons/languages.svg": "<svg/>\n",
-            "assets/icons/package-check.svg": "<svg/>\n",
-            "assets/icons/shield-check.svg": "<svg/>\n",
+            "assets/icons/palette.svg": "<svg/>\n",
             "assets/icons/square-terminal.svg": "<svg/>\n",
             "assets/icons/users-round.svg": "<svg/>\n",
         }

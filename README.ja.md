@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="#使ってみる">使ってみる</a> &nbsp;·&nbsp;
-  <a href="references/design-system.md">デザインの考え方（英語）</a> &nbsp;·&nbsp;
+  <a href="#sherry-picking">Sherry Picking</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">詳しい使い方（英語）</a>
 </p>
 
@@ -87,37 +87,49 @@ Codex のインストール先は、Codex が動作する Windows、macOS、Linu
 
 翻訳を依頼しない限り、**palate** はプレゼン資料の元の言語を保ちます。翻訳する場合も、数値、単位、科学的な意味は変えません。専門用語に複数の訳語があり、選び方によって科学的な意味が変わる場合は、推測で決めずに確認します。
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; デザインの考え方
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry Picking
 
-### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 聴衆から考える
+研究発表で、都合のよい結果だけを選んで説得力を装う「cherry-picking」は禁物です。けれども、伝え方を吟味する **Sherry Picking** なら、発表をよりよくできます。
 
-<sub><em>聴衆に何を理解してもらう必要があるか？</em></sub>
+根拠そのものを選り分けるのではなく、その伝え方を工夫します。**palate** は、全体の方向性を定めてから細部を整えるまで、次の4つの考え方を軸にプレゼン資料を見直します。
 
-チュートリアルでは仕組みを段階的に説明し、研究室のミーティングでは議論に必要な手法や不確実性を示すなど、**palate** は発表の場に合わせて説明の深さを調整します。
+### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 聞き手と場に合わせる
 
-持ち時間は、説明の**深さと進め方**を決める手がかりです。時間からスライド枚数を機械的に決めることはせず、補足情報は必要に応じてノートや付録に置きます。
+<sub><em>まず、聞き手を知る。</em></sub>
 
-<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+どのような場で、誰が聞くのか。すでに何を知っていて、発表後に何を理解していてほしいのか。デザインは、こうした問いから始まります。
 
-### <img src="assets/icons/chart-no-axes-combined.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 根拠と論理を見せる
-
-<sub><em>根拠と論理のつながりを、どうすれば追いやすくできるか？</em></sub>
-
-**palate** は情報の優先順位を整理し、比較が妥当な結果は尺度をそろえて示します。手法は論理を追える順序で示し、結果はその根拠や解釈に必要な条件の近くに置きます。
-
-余白、ティールのアクセント、セクションや説明の進行を示すマーカーは、関係や順序を伝えるために使います。すべてのスライドに一律に加えるものではありません。
+**palate** は、聞き手、目的、発表の場を踏まえて、プレゼン資料全体のスタイルを定めます。学会発表、研究室のミーティング、一般向けの講演では、ふさわしい見せ方も異なります。どの発表にも同じデザインを当てはめることはしません。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/shield-check.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 科学的な意味を守る
+### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 話の筋道を通す
 
-<sub><em>デザインを変えても、変えてはいけないものは何か？</em></sub>
+<sub><em>先を聞きたくなる流れをつくる。</em></sub>
 
-**palate** はデータ、数値、単位、数式、ラベル、凡例、不確実性、限定条件、参考文献を保持します。既存の要素はツールが対応する範囲で編集できる状態を維持し、再構成の正しさを検証できない複雑な図はそのまま残します。
+個々のスライドがよくできていても、それだけでよい発表になるとは限りません。考えがつながり、論理が無理なく展開していくことが大切です。
 
-### <img src="assets/icons/package-check.svg" width="22" height="22" align="top" alt="">&nbsp; 受け取れるもの
+**palate** はプレゼン資料全体を見渡し、中心となる主張を捉えたうえで構成を見直します。必要に応じてスライドの順序やセクションの構成、考えを導入する順番を組み替え、それぞれの内容が話の流れの中で果たす役割を明確にします。
 
-ツールと形式が対応する範囲で、新しい編集可能なプレゼン資料と、変更点、完了した確認、残る制約をまとめた短いレポートを受け取れます。**palate** は科学的内容、編集可能性、実際の表示をそれぞれ確認します。重要な確認を完了できない場合は、残る作業を明記し、資料を最終版ではなく確認待ちの候補版として渡します。
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+
+### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 要点を際立たせる
+
+<sub><em>複雑な内容を、明快に伝える。</em></sub>
+
+何を残し、どこに説明を加え、どこをもっと簡潔にできるか。その見極めが、わかりやすさにつながります。
+
+**palate** はスライドを一枚ずつ見直し、情報が詰まった文章を整理し、重複を減らして、伝えたい要点を明確にします。正確さを損なわず、解釈に関わる細かな意味合いや不確実性も保ったまま、複雑な研究内容を理解しやすくします。
+
+<img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
+
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 意図をもって細部を整える
+
+<sub><em>細部まで、伝える目的に沿って。</em></sub>
+
+最後に、**palate** は図表、文字の大きさや書体、配置、整列、余白、色など、視覚的な細部を整えます。
+
+図表は、飾りではなく内容を伝えるために使います。書式に一貫性を持たせながら、各スライドの内容に合わせて変化をつけることで、プレゼン資料全体のまとまりと、一枚ごとの伝わりやすさを両立します。決まったテンプレートに頼らず、細部まで行き届いた、発表の場にふさわしいプレゼン資料に仕上げます。
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; 対応形式と必要な環境
 

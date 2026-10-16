@@ -85,14 +85,14 @@ id_ed25519*
 !/docs/media/palate-dark-mobile.svg
 # Track only the reviewed README icons and their license.
 !/assets/icons/LICENSE
+!/assets/icons/align-left.svg
 !/assets/icons/arrow-down.svg
 !/assets/icons/book-open.svg
-!/assets/icons/chart-no-axes-combined.svg
 !/assets/icons/compass.svg
 !/assets/icons/files.svg
+!/assets/icons/git-branch.svg
 !/assets/icons/languages.svg
-!/assets/icons/package-check.svg
-!/assets/icons/shield-check.svg
+!/assets/icons/palette.svg
 !/assets/icons/square-terminal.svg
 !/assets/icons/users-round.svg
 *.mp4
