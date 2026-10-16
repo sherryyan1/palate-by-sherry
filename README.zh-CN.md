@@ -83,11 +83,11 @@ $palate 帮我打磨这份汇报 PPT。
 
 如果专业术语的几种合理译法可能实质改变科学含义，**palate** 会先向你确认，再应用译法。
 
-## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; Sherry Picking
+## <img src="assets/icons/compass.svg" width="22" height="22" align="bottom" alt="">&nbsp; 'Sherry' Picking
 
-科研汇报不该只挑有利的结果来讲。不过，一点 **Sherry Picking**，倒能让表达更到位。
+科研汇报不该只挑有利的结果来讲。不过，一点 **'Sherry's' pick**，倒能让表达更到位。
 
-这里借用了 *cherry-picking* 的双关：研究证据不挑着讲，呈现方式却可以用心选。**palate** 从整体到细节，按以下四个阶段打磨 PPT。
+这里借用了 *cherry-pick* 的双关：研究证据不挑着讲，呈现方式却可以用心选。**palate** 从整体到细节，按以下四个阶段打磨 PPT。
 
 ### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 先了解听众
 
