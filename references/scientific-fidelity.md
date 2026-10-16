@@ -28,6 +28,8 @@ Before authoring, create a task-local ledger that traces each changed slide from
 | Reason and interpretation | Why the change is needed and the support for any interpretation. Distinguish an owner's approved correction from an agent's proposal. |
 | Editability and dependencies | Native editability before/after, workbook formulas, animation states and other relevant dependencies. |
 
+For added schematics, record the source support for each meaningful component, label and connection, and distinguish conceptual illustration from observed evidence. For a split, map each source item to all relevant output slides, preserving reasoning order, essential qualifications, citations, notes and cross-references. Check the sequence as well as each individual slide so nothing is lost or detached from its claim.
+
 For translation, keep the target language, established terminology glossary and source-backed or user-confirmed interpretation decisions with this same private ledger. Link decisions to the affected source and destination objects so a confirmed choice can be applied consistently without adding fields to the intake helper or conservative plan schema.
 
 For [first-use abbreviation definitions and editorial changes](writing-style.md#research-slide-wording), record the verified full term, abbreviation and first audience-visible destination with the same ledger. Establish the definition from the source and research context; a material ambiguity needs clarification before that expansion is applied. An abbreviation inside a retained figure can be defined in an adjacent visible explanation without claiming its image text was edited. Review the actual reading order and relevant build stages so an earlier unexplained use is not hidden by a later definition.

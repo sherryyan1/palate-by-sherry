@@ -394,21 +394,22 @@
     },
     {
       "id": "R024",
-      "name": "Meaningful visual treatment for text-only slides",
+      "name": "Illustrations and diagrams for text-heavy explanations",
       "dimension": "visual_explanation",
       "status": "primary",
-      "trigger": "A slide communicates its substantive explanation only through text.",
-      "decision": "Inspect every text-only slide and apply a content-appropriate graphic treatment that makes its distinctions, grouping or relationships easier to understand.",
-      "execution": "Follow design-system.md#visual-treatment-for-text-only-slides. Use an editable table or aligned comparison for shared dimensions, a labeled flowchart for a verified sequence and meaningful outline icons or an infographic for concepts and categories. Preserve continuous reasoning in connected prose within a composed explanation using headings, aligned groups and a purposeful panel, rule or visual cue. Retain an existing successful treatment. Prefer native editable text, tables, shapes and connectors; use a coherent icon family where icons help. Record the chosen treatment or justified exception for each text-only source slide in the private design specification. Preserve scientific qualifications, references, stable top-anchored body text and explanations, the 10.5 pt minimum and the symmetric work area. R018 remains a contextual choice of enclosure, not a required panel preset.",
+      "trigger": "A slide is text-only, or substantial explanatory text remains difficult to follow even when figures are already present.",
+      "decision": "Actively add useful conceptual illustrations, schematics or other content-appropriate graphics to text-heavy explanations. Give each text-only slide a meaningful visual treatment, and assess splitting a complex page when its explanation and useful graphics cannot fit legibly together.",
+      "execution": "Follow design-system.md#visual-treatment-for-text-heavy-slides. Use an accurate conceptual illustration to identify a subject, a labeled schematic for a source-supported mechanism, a flowchart for a verified sequence, a table for shared comparison dimensions or an infographic for concepts and categories. Place visuals near the text they explain, retaining connected reasoning and essential qualifications. Prefer native editable objects; use coherent, adequately resolved illustration assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Keep a private source-to-output ledger, preserve claim and citation associations, and update affected notes, navigation and cross-references. Retain effective existing treatments, stable top-anchored text, the 10.5 pt minimum and the symmetric work area. R018 remains a contextual choice of enclosure, not a required panel preset.",
       "exceptions": [
-        "Title, exact quotation and reference pages may retain their conventional form when their purpose or protected wording requires it; record the slide-specific reason and preserve attribution.",
-        "Do not invent a causal, temporal, quantitative or categorical relationship to justify a graphic. If the relationship cannot be verified, use a nonrelational composition where possible and record any unresolved limit.",
-        "A mandatory template may constrain treatment; improve hierarchy within its requirements and record any necessary exception. Unavailable native authoring or review leaves the selected graphic work pending rather than completed."
+        "Titles, exact quotations and reference pages may retain their conventional form when their purpose or protected wording requires it; record the slide-specific reason and preserve attribution. Retain necessary prose when a visual transformation would distort the argument.",
+        "Conceptual imagery must be distinguishable from research evidence. Do not invent causal, temporal, quantitative or categorical relationships; use an accurate nonrelational illustration or composition where possible when a relationship is unverified.",
+        "Do not impose a graphic quota, fixed slide count or split solely for decoration. A mandatory template may constrain treatment; record any necessary exception. Unavailable native authoring or review leaves the selected work pending rather than completed."
       ],
       "validation": [
-        "Every text-only source slide has a meaningful visual treatment or an explicit, justified slide-specific exception; generic decorative icons alone do not satisfy the rule.",
-        "The treatment exposes only source-supported relationships and retains claims, qualifications, numerical meaning, source attribution and readable references.",
-        "Native editability and the final application render are reviewed separately; icons are legible and consistent, top-anchored text starts are stable, navigation follows R007, tables follow their alignment and color rules, and all content respects the work area and type-size floor."
+        "Text-heavy explanations, including pages with existing figures, have been reviewed for useful illustrations or diagrams. Every text-only source slide has a meaningful visual treatment or a justified slide-specific exception; generic decoration alone does not satisfy the rule.",
+        "Illustrations accurately represent their subject without implying unsupported evidence. Diagram labels and connections express only source-supported relationships; claims, qualifications, numerical meaning and attribution remain intact.",
+        "Any split preserves complete source-to-output coverage, reasoning order, essential qualifications beside their claims, and correct references, notes and navigation. The resulting slides have readable type and comfortable spacing rather than crowded graphics or smaller text.",
+        "Native editability and the final application render are reviewed separately. Visual assets have adequate resolution and consistent treatment, editing limits are disclosed, text starts remain stable, navigation follows R007, tables follow their rules, and content respects the work area and type-size floor."
       ]
     }
   ]
