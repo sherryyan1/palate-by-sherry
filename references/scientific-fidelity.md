@@ -57,6 +57,14 @@ Review displayed quantities across text, tables, chart labels and notes within t
 
 Changing a numeric string or a chart's display format follows the authoring path, because the bounded preservation helper keeps text and chart parts immutable. Compare source values and formulas separately from display strings, then inspect the actual output for units, rounding, missing values, interpretation and fit. Formatting consistency does not certify scientific equivalence.
 
+### Unit labels
+
+Use square brackets when a displayed quantity label explicitly carries a unit: `Capacity [MW]`, `Gain [%]` and `Temperature [°C]`. Apply this convention to table headers, chart axes and legends, and textual quantity labels within the editing scope. Ordinary inline values such as `25 MW` keep their natural form; do not invent brackets around every unit occurrence.
+
+This is a delimiter choice, not a unit conversion. Preserve the unit symbol, case, exponent, scale factor, currency basis and denominator, along with the associated value and quantity. For example, replacing `Capacity (MW)` with `Capacity [MW]` does not authorize converting MW to GW or changing a label's scientific meaning. Do not apply a global parenthesis replacement: mathematical grouping, uncertainty and confidence intervals, citations, years and navigation markers such as `(1/3)` retain their intended notation.
+
+Before changing a label, record its source identity, exact source and replacement strings, associated quantity and value, and unchanged unit meaning in the private content ledger. Compare the actual output with that record, then inspect fit and legibility in the delivery application. Label rewriting follows the native authoring path because the bounded preservation helper cannot rewrite text or chart interiors. Labels inside retained raster or complex figures require an available editable source or a reconstruction whose accuracy can be verified; otherwise retain the figure and report the remaining label-formatting limit. Never conceal that limit or infer that a structural check has reformatted the figure.
+
 ### Scientific translation
 
 Translation changes the expression of the research, so establish the following before rewriting any source text:

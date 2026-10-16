@@ -66,6 +66,12 @@ Typography and space work together: heading scale, explanatory text and the inte
 
 Check visible letterforms, edges and baselines in the rendered slide. Equal text-box coordinates can look uneven because internal margins and glyph shapes differ. The [spacing and hierarchy guide](spacing-and-hierarchy.md) explains how to combine geometric alignment with optical judgment while preserving scientific associations and comparison scales.
 
+### Recurring logos and watermarks
+
+Recurring logos and watermarks should follow the deck's intended slide roles and branding variants. Compare equivalent pages and inspect their actual master and layout inheritance before treating an absence as an omission. A cover, section divider, full-bleed image or deliberately unbranded layout can have a different treatment; its role alone does not establish whether a mark belongs there.
+
+Restore an isolated missing mark through the appropriate native master or layout, or by restoring the slide's intended inheritance. Reuse the correct existing asset and preserve its proportions and intended placement. Keep foreground marks inside the work area; an intentional full-canvas background watermark retains its background role and coverage. Avoid individual pasted copies, duplicate marks and blanket changes to master-graphics visibility. Keep an uncertain brand or intentional exception unresolved until its intended treatment is clear. Inspect every slide affected by a shared-layout change for visibility, contrast, overlap and unintended propagation. Follow the application-specific [PowerPoint](pptx-workflow.md) or [Keynote](keynote-workflow.md) workflow for the native repair and review.
+
 ### Text boxes and tables
 
 Default to vertical middle anchoring for text in every text box and table cell. This places the text block within its container; horizontal paragraph alignment is a separate choice. Set internal margins deliberately and inspect multiline text in the final render, because a middle anchor alone does not establish balanced visible spacing.

@@ -37,6 +37,14 @@ Apply the [text-box and table defaults](design-system.md#text-boxes-and-tables) 
 
 When tables are present, resolve the [two-color comparison](design-system.md#table-color-options) using the same representative content before applying final table colors. Use native authoring for table fills, borders or numeric-display changes beyond the helper's contract. Follow [numeric display](scientific-fidelity.md#numeric-display), preserving underlying values and formulas while reviewing grouped quantities, consistent comparable precision and necessary exceptions.
 
+### Restore consistent branding through masters and layouts
+
+Inspect the actual slide-to-layout-to-master relationships alongside the rendered deck before treating a missing logo or watermark as an omission. Compare slides with the same role and brand variant, including their inherited assets, slide-local copies, background graphics and display overrides. Covers, section dividers, blank or full-bleed slides, and co-branded pages may intentionally differ. Establish that pattern from the source rather than stamping every slide.
+
+When an isolated omission breaks an established pattern, use native PowerPoint authoring to restore the appropriate inheritance. Repair the shared master or layout when that is the cause; otherwise assign the correct existing layout or restore only the relevant display setting on the affected slide. Reuse the authorized source asset and its intended placement, proportions and contrast. Do not paste a new logo onto each page, reveal all master graphics indiscriminately, overwrite another brand variant or invent an asset when none is available. Foreground logos and watermarks remain inside the symmetric work area; the slide-number exception does not apply to them. Preserve the coverage and deliberate repetition of an existing full-canvas background watermark under the background exception.
+
+These changes are outside the conservative helper because it preserves masters, layouts and relationships. Use a new native output and record the affected layouts and slides privately. If suitable native editing is unavailable or the intended pattern remains ambiguous, keep the repair pending and explain the limitation. After editing, inspect every affected slide, including other slides that inherit a changed layout or master, for duplicate marks, clipping, content obscured by a mark, an obscured mark and unintended background changes. Confirm native inheritance and editability separately from the render, without disturbing protected research objects.
+
 ## Two implementation paths
 
 Choose the implementation from the change the slide needs:
@@ -45,6 +53,7 @@ Choose the implementation from the change the slide needs:
 | --- | --- | --- |
 | Placement, size, text styling, shape fill/line or background on existing native objects | Conservative helper | Use a source-hash-bound JSON plan with native shape IDs, reasons and rule IDs. Only explicitly selected parts change; the rest are preserved. Follow the [plan contract](transform-plan.md). |
 | Translated or rewritten text, different objects, slide decomposition, summaries, new native diagrams, recolored chart internals or a new deck | Available presentations workflow with JavaScript `@oai/artifact-tool`, or a verified native PowerPoint tool | Keep a content ledger and follow [scientific fidelity](scientific-fidelity.md), including its translation preflight when applicable. Use the creation tool's package/layout finalizer when supplied, then complete visual and semantic review. |
+| Missing inherited logos or watermarks, or changes to masters, layouts and their assignments | Suitable native PowerPoint authoring | Follow the [branding inspection and repair](#restore-consistent-branding-through-masters-and-layouts). Verify every slide affected by the shared change; do not add unsupported operations to the conservative plan. |
 
 A patcher rejection identifies a boundary that the chosen operation crosses; do not disable the guard to force it through. On the authoring path, retain source objects wherever the tool can preserve them reliably. Inspect unsupported objects during import/export and compare fidelity before accepting the result. Silent flattening and a lossy python-pptx fallback are not permitted.
 

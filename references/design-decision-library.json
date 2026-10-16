@@ -327,6 +327,44 @@
         "Comparable table values use a coherent display precision, with justified exceptions traceable to the source.",
         "Displayed signs, units, inequalities, uncertainty and interpretations match the preserved raw values and formulas."
       ]
+    },
+    {
+      "id": "R021",
+      "name": "Recurring branding through native master inheritance",
+      "dimension": "template_consistency",
+      "status": "primary",
+      "trigger": "Comparable slide roles contain recurring logos or watermarks, with a possible isolated omission.",
+      "decision": "Restore intended recurring branding through native masters and layouts while preserving intentional slide-role exceptions.",
+      "execution": "Follow design-system.md#recurring-logos-and-watermarks and the native application workflow. Inspect existing assets, master/layout relationships and slide visibility overrides. Reuse the correct mark and restore the appropriate layout or inheritance rather than pasting individual copies. Review every affected slide after a shared change; preserve proportions, work-area bounds and unrelated template content. Use native authoring because the bounded helpers cannot repair masters or layout relationships.",
+      "exceptions": [
+        "Covers, section dividers, full-bleed pages and deliberately unbranded layouts can differ; compare intended roles rather than assuming every absence is a defect.",
+        "Do not overwrite distinct brand variants, invent an asset, remove required confidentiality marks or enable all master graphics indiscriminately. Preserve intentional background watermark coverage and repetition under the background exception; foreground marks retain the work-area bounds.",
+        "If the intended treatment or native repair cannot be established, resolve the ambiguity or disclose the pending repair; do not claim inherited branding has been fixed."
+      ],
+      "validation": [
+        "The intended branding appears on each applicable slide through the correct native master or layout, without unintended duplicates.",
+        "Shared changes preserve intentional exceptions, unrelated objects, content visibility and editability.",
+        "Every affected rendered slide is checked for missing or duplicate marks, overlap, contrast and unintended propagation."
+      ]
+    },
+    {
+      "id": "R022",
+      "name": "Square brackets for unit labels",
+      "dimension": "unit_notation",
+      "status": "primary",
+      "trigger": "A displayed quantity label explicitly includes a unit in slide text, a table, chart or figure.",
+      "decision": "Use square brackets for unit labels, such as Capacity [MW], Gain [%] and Temperature [°C].",
+      "execution": "Follow scientific-fidelity.md#unit-labels. Change only unit delimiters, preserving quantity meaning, values, unit symbols, case, exponents, scale factors, currency basis and denominators. Trace rewritten labels in the private content ledger, use native authoring beyond the bounded helpers and review the actual output.",
+      "exceptions": [
+        "Ordinary inline values and units retain their natural form; do not wrap every unit occurrence.",
+        "Mathematical grouping, uncertainty, confidence intervals, citations, years and conceptual part markers such as (1/3) are not unit delimiters.",
+        "Labels in retained complex or raster figures need an available editable source or verified reconstruction; otherwise retain the figure and disclose the formatting limit."
+      ],
+      "validation": [
+        "Editable quantity labels use square-bracket unit notation consistently within the task scope.",
+        "Only intended delimiters change; scientific units, associated values and unrelated parentheses remain accurate.",
+        "The content ledger and native render confirm label meaning, fit and readability; inaccessible image labels are not falsely reported as reformatted."
+      ]
     }
   ]
 }
