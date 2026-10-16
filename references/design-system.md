@@ -74,15 +74,18 @@ Restore an isolated missing mark through the appropriate native master or layout
 
 ### Text boxes and tables
 
-Default to vertical middle anchoring for text in every text box and table cell. This places the text block within its container; horizontal paragraph alignment is a separate choice. Set internal margins deliberately and inspect multiline text in the final render, because a middle anchor alone does not establish balanced visible spacing.
+Default to vertical top anchoring for non-title text boxes. Corresponding body text, explanations, captions and other non-title text should begin at a stable position across comparable slides, even when one box contains one line and another contains two. Centering those blocks vertically can move their first lines despite matching box coordinates. Preserve the established slide-title anchoring; subheadings and panel headings still follow the non-title rule. Table cells retain their vertical middle default. Horizontal paragraph alignment remains a separate choice.
 
 | Content | Vertical alignment | Horizontal alignment |
 | :--- | :--- | :--- |
-| Text-box content | Middle | Keep the paragraph alignment appropriate to the explanation. |
+| Non-title text-box content | Top | Keep the paragraph alignment appropriate to the explanation. |
+| Title text-box content | Preserve the established title layout | Keep the established title paragraph alignment. |
 | Descriptive table text | Middle | Left |
 | Very short table entries, including numbers | Middle | Center |
 
-Apply the table choices consistently to comparable entries, including headers according to their content. Use right or decimal alignment only when explicitly instructed; a numerical data type does not supply that instruction. If centering exposes a fit problem, adjust the container, padding or composition while preserving the 10.5 pt minimum. An explicitly required layout can override the defaults, with its reason retained in the private design specification.
+For repeated non-title text roles, align the box's top edge and keep its top inset, paragraph space before and first-line typography consistent. Inspect automatic fitting and inherited styles as well as direct properties. Compare the visible first-line position across successive slides; a matching container boundary alone is insufficient. Text-box height may follow the content without moving that starting position. Do not move a shorter block downward to center it within a shared panel.
+
+Apply the table choices consistently to comparable entries, including headers according to their content. Use right or decimal alignment only when explicitly instructed; a numerical data type does not supply that instruction. If table-cell centering exposes a fit problem, adjust the container, padding or composition while preserving the 10.5 pt minimum. An explicitly required layout can override the defaults, with its reason retained in the private design specification.
 
 Substantial text needs a visible design treatment that gives the explanation a clear entry and internal hierarchy. Depending on its role, use a concise heading with an accent rule, a restrained background treatment or clearly labeled groups with deliberate spacing. Choose the treatment to reveal the argument and its relationship to nearby evidence. Keep continuous reasoning in connected prose, retain scientific qualifications, and reserve enough space for the text to remain readable. Short labels and captions can remain plain.
 
@@ -93,7 +96,7 @@ A light neutral fill can make a self-contained explanation easier to distinguish
 | Relationship to explain | Treatment to consider | Check |
 | :--- | :--- | :--- |
 | A self-contained rationale or interpretation beside evidence | Light gray fill with slight corner rounding; restrained outline if needed | The panel reads as one explanation and stays associated with its evidence. |
-| Several comparable explanations | Shared fill, corner treatment and insets, with aligned headings and gutters | Comparable roles are clear without forcing equal text lengths or reducing type size. |
+| Several comparable explanations | Shared fill, corner treatment and insets, with aligned headings and gutters | Corresponding non-title text starts align even when line counts differ, without forcing equal text lengths or reducing type size. |
 | A qualification or takeaway needs a distinct location | A shallow neutral or accent-tinted band, or a heading with an accent rule | Emphasis matches the statement's scientific role and strength. |
 | A label or caption belongs directly to a figure | No fill, or a fine separating rule where useful | The text remains visually attached to the figure. |
 

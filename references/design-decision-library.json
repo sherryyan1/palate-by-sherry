@@ -238,18 +238,19 @@
     },
     {
       "id": "R016",
-      "name": "Middle anchoring and content-aware table alignment",
+      "name": "Stable text starts and content-aware table alignment",
       "dimension": "text_alignment",
       "status": "primary",
       "trigger": "Formatting text boxes or native table cells.",
-      "decision": "Default to vertical middle anchoring; left-align descriptive table text and horizontally center very short entries, including numbers.",
-      "execution": "Follow design-system.md#text-boxes-and-tables. Treat vertical anchoring and horizontal paragraph alignment separately. Set internal margins deliberately, apply consistent alignment to comparable entries and use right or decimal alignment only when explicitly instructed. Use native authoring for alignment changes beyond the bounded helpers' operation sets.",
+      "decision": "Top-anchor non-title text boxes to keep corresponding text starts stable across slides with different line counts. Preserve established title-layout anchoring. Table cells retain vertical middle anchoring; left-align descriptive table text and horizontally center very short entries, including numbers.",
+      "execution": "Follow design-system.md#text-boxes-and-tables. Match the top edge, top inset, paragraph space before and first-line typography for corresponding non-title text roles. Compare their visible first-line positions on successive comparable slides and inspect automatic fitting; matching box coordinates alone are insufficient. Allow content-dependent box heights without moving the starting position. Treat vertical anchoring and horizontal paragraph alignment separately, apply consistent alignment to comparable table entries and use right or decimal alignment only when explicitly instructed. Use native authoring for alignment changes beyond the bounded helpers' operation sets.",
       "exceptions": [
         "An explicit required layout or alignment instruction takes precedence; retain its reason in the private design specification.",
         "Short table entries are judged by their content and role rather than an invented fixed character-count threshold."
       ],
       "validation": [
-        "Native text boxes and table cells use middle vertical anchoring unless an explicit requirement overrides it.",
+        "Non-title text boxes use top vertical anchoring unless an explicit requirement overrides it; title-layout anchoring is preserved and table cells retain the middle default.",
+        "Corresponding non-title text begins at the same visible position across comparable slides even when line counts differ; check top edges, top insets, paragraph spacing, first-line typography and fitting.",
         "Descriptive table text is left-aligned, short entries are centered and no right or decimal alignment was introduced without instruction.",
         "Multiline text, internal margins, wraps and fit are checked in the delivery application without reducing text below 10.5 pt."
       ]
@@ -287,7 +288,7 @@
       ],
       "validation": [
         "The treatment creates a meaningful group without crowding the text or competing with the evidence.",
-        "Internal clearance, vertical middle anchoring, the type-size floor and the symmetric work area remain intact."
+        "Internal clearance, top anchoring and stable first-line positions for non-title text, the type-size floor and the symmetric work area remain intact."
       ]
     },
     {
