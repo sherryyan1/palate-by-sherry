@@ -123,7 +123,7 @@ Codex 스킬의 설치 대상은 Codex가 실행되는 Windows, macOS, Linux 환
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 시각적 완성도 높이기
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 시각 요소 다듬기
 
 <sub><em>작은 요소도 전달하려는 내용에 맞춥니다.</em></sub>
 

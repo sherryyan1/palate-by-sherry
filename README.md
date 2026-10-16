@@ -117,7 +117,7 @@ Clarity comes from knowing what to keep, what to explain, and what can be said m
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | Polish with purpose
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | Refine the visuals
 
 <sub><em>Make every detail belong.</em></sub>
 

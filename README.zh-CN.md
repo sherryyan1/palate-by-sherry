@@ -89,7 +89,7 @@ $palate 帮我打磨这份汇报 PPT。
 
 研究证据不挑着讲，呈现方式却可以用心选。**palate** 从整体到细节，按以下四个阶段打磨 PPT。
 
-### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 先了解听众
+### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 知人察境
 
 <sub><em>从听众的理解出发。</em></sub>
 
@@ -99,7 +99,7 @@ $palate 帮我打磨这份汇报 PPT。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 理清叙事线索
+### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 理清脉络
 
 <sub><em>让听众跟得上论述。</em></sub>
 
@@ -109,7 +109,7 @@ $palate 帮我打磨这份汇报 PPT。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 提炼每页的表达
+### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 提炼要义
 
 <sub><em>把复杂的研究讲明白。</em></sub>
 
@@ -119,7 +119,7 @@ $palate 帮我打磨这份汇报 PPT。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 让细节服务内容
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 细琢形色
 
 <sub><em>每一处细节，都要有用意。</em></sub>
 

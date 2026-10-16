@@ -93,7 +93,7 @@ Codex のインストール先は、Codex が動作する Windows、macOS、Linu
 
 根拠そのものを選り分けるのではなく、その伝え方を工夫します。**palate** は、全体の方向性を定めてから細部を整えるまで、次の4つの考え方を軸にプレゼン資料を見直します。
 
-### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 聞き手と場に合わせる
+### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 聞き手と場を見極める
 
 <sub><em>まず、聞き手を知る。</em></sub>
 
@@ -123,7 +123,7 @@ Codex のインストール先は、Codex が動作する Windows、macOS、Linu
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 意図をもって細部を整える
+### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 見せ方を磨く
 
 <sub><em>細部まで、伝える目的に沿って。</em></sub>
 
