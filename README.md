@@ -22,9 +22,9 @@
 
 *A palate for ideas, a palette for slides.*
 
-**palate** is a skill that helps researchers turn complex slides into presentations their audience can follow.
+**palate** is a skill that helps researchers turn complex research into presentations their audience can follow.
 
-**Start with the slides you already have.** Upload your slides, even if they're crowded, inconsistent, or still a work in progress. You don't need to redesign them first. That's what **palate** is here for.
+**Start with what you have.** Share an existing deck, rough notes, an outline, or a paper. You don't need to prepare slides first. **palate** can refine a deck or develop a new one from your material.
 
 **palate** starts by understanding your audience, purpose, and time available. It then reorganizes your content into a clearer narrative, decides what deserves emphasis, and refines each slide so the evidence and reasoning are easier to follow. Whether you're preparing a conference talk, a research meeting, or a tutorial, the design adapts to your needs while preserving the scientific meaning of your work.
 
@@ -53,15 +53,23 @@ Codex checks repository access, dependencies and skill discovery. If **palate** 
 
 For ChatGPT Work, the web guide starts with Plugin Creator and a private plugin. Availability depends on the account and workspace. Setup remains pending until **palate** appears in the `@` picker and its runtime files are accessible; a local Codex installation does not transfer automatically.
 
-### 02 | Upload your slides
+### 02 | Share your material
 
-Attach the slides you already have. In Codex, ask:
+Attach a deck or paper, or paste your notes and main ideas. In Codex, choose the request that fits:
+
+| Starting material | Example request |
+| :--- | :--- |
+| Existing slides | `$palate Polish my slides.` |
+| Rough text, notes or an outline | `$palate Create slides from these notes.` |
+| A paper or manuscript | `$palate Create a research presentation from this paper.` |
+
+For example:
 
 ```text
 $palate Polish my slides.
 ```
 
-In ChatGPT Work, type `@` and select the installed **palate** plugin or skill, then ask `Polish my slides.`
+In ChatGPT Work, type `@` and select the installed **palate** plugin or skill, then send your material with the corresponding request.
 
 ### 03 | Tell **palate** about your presentation
 
@@ -69,16 +77,18 @@ After you send your request, **palate** asks about four things:
 
 - **Presentation setting:** Is this for a research meeting, a tutorial, or an external presentation?
 - **Duration:** How many minutes do you plan to present?
-- **Screen format:** Is the venue's screen closer to 4:3 or 16:9? If you're not sure, **palate** keeps the slides' current proportions.
+- **Screen format:** Is the venue's screen closer to 4:3 or 16:9? If you're not sure, **palate** preserves an existing deck's proportions or starts a new deck at 16:9, clearly marking that as a design assumption until the venue is confirmed.
 - **Technical depth:** How much technical detail would you like to keep? **palate** can decide if you prefer.
 
-You can select the suggested options or answer in your own words. **palate** won't ask again for details you've already shared.
+You can select the suggested options or answer in your own words. **palate** won't ask again for details you've already shared. If you're starting a new deck, it also confirms PowerPoint or Keynote when you haven't specified one.
+
+**palate** uses your material to establish what the talk can support. If an essential result, definition or source is missing, it asks for that information rather than inventing findings or citations.
 
 ## <img src="assets/icons/languages.svg" width="22" height="22" align="bottom" alt="">&nbsp; Languages
 
 This README is available in **English, 简体中文, 日本語, and 한국어**. You can switch languages using the links at the top of the page.
 
-**palate** keeps your slides in their original language unless you request a translation. When translating, it preserves numerical values, units and scientific meaning.
+**palate** keeps an existing deck in its original language unless you request a translation. For a new deck, it follows the requested language or the source material; if the intended language is unclear, it asks. When translating, it preserves numerical values, units and scientific meaning.
 
 If a technical term has plausible translations that could materially change its scientific meaning, **palate** asks you to clarify before applying one.
 
@@ -128,14 +138,17 @@ Graphics should communicate, not merely decorate. Consistent formatting brings t
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; Formats and requirements
 
-**palate** uses one design standard with separate native workflows for PowerPoint and Keynote. It keeps the source format unless a different delivery format is requested; a Keynote deck does not need to pass through PowerPoint.
+**palate** uses one design standard with separate native workflows for PowerPoint and Keynote. It keeps an existing deck's format unless a different delivery format is requested; a Keynote deck does not need to pass through PowerPoint.
 
 | Source | What **palate** provides |
 | :--- | :--- |
 | PowerPoint (`.pptx`) | A new editable `.pptx`, with final review in PowerPoint. |
 | Keynote (`.key`) | A new native `.key` candidate, using the supported operations in Keynote on Mac. |
+| Text, notes, an outline, a paper or a manuscript | A new deck in the agreed application, using available native authoring tools. |
 
-If the source cannot be opened, **palate** asks for a compatible editable copy. Keynote work needs the required Mac automation permission. If the delivery application is unavailable, **palate** leaves that application work pending and explains the handoff and remaining checks.
+Creating new slides needs an available authoring tool for the agreed application; the included preservation helpers do not create a deck from text or a paper on their own. If that tool is unavailable, **palate** can prepare the structure and slide content, but leaves file creation pending.
+
+If an existing deck cannot be opened, **palate** asks for a compatible editable copy. Keynote work needs the required Mac automation permission. If the delivery application is unavailable, **palate** leaves that application work pending and explains the handoff and remaining checks.
 
 The included native Keynote workflow is **experimental and has not been tested on a Mac**. It requires macOS, Keynote and permission for the execution process to control the application. Automated edits cover placement and text styling of existing text boxes and shapes. Other changes need an available native authoring method or remain pending. The [Keynote guide](references/keynote-workflow.md) describes the operations and review requirements. Conversion is a separate option when requested or explicitly chosen, with additional checks for conversion loss.
 

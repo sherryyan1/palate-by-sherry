@@ -1,4 +1,4 @@
-"""Inspect presentation containers and select the palate format workflow.
+"""Inspect supplied materials and select the palate presentation workflow.
 
 Read-only, standard-library helper: no conversion, application launch or upload.
 Keynote signatures recognize containers, not native validity or editable objects.
@@ -20,12 +20,16 @@ import zipfile
 MAX_PACKAGE_BYTES = 1024 * 1024 * 1024
 MAX_XML_BYTES = 8 * 1024 * 1024
 MAX_INDEX_BYTES = 32 * 1024 * 1024
+MAX_TEXT_BYTES = 8 * 1024 * 1024
 MAX_MEMBERS = 100000
 P = "http://schemas.openxmlformats.org/presentationml/2006/main"
 R = "http://schemas.openxmlformats.org/officeDocument/2006/relationships"
 REL = "http://schemas.openxmlformats.org/package/2006/relationships"
 CT = "http://schemas.openxmlformats.org/package/2006/content-types"
 PRESENTATION_TYPE = "application/vnd.openxmlformats-officedocument.presentationml.presentation.main+xml"
+W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+DOCUMENT_TYPE = "application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"
+TEXT_EXTENSIONS = {".txt", ".md", ".markdown"}
 CREDENTIAL = re.compile(
     rb"-----BEGIN (?:[A-Z0-9]+ )*(?:PRIVATE KEY|PUBLIC KEY|CERTIFICATE)-----|"
     rb"PuTTY-User-Key-File-|openssh-key-v1|(?:ssh-rsa|ssh-ed25519|ecdsa-sha2-\S+) ",
@@ -207,6 +211,141 @@ def inspect_presentation(path):
     return result
 
 
+def docx_signature(archive, names):
+    """Recognize a non-macro Word document without returning its content."""
+    required = {"[Content_Types].xml", "_rels/.rels", "word/document.xml"}
+    if not required <= names.keys():
+        return False
+    types = xml_metadata(archive, "[Content_Types].xml")
+    if types.tag != "{" + CT + "}Types" or not any(
+        node.tag == "{" + CT + "}Override" and node.get("PartName") == "/word/document.xml"
+        and node.get("ContentType") == DOCUMENT_TYPE for node in types
+    ):
+        return False
+    rels = xml_metadata(archive, "_rels/.rels")
+    if rels.tag != "{" + REL + "}Relationships" or not any(
+        node.get("Type") == R + "/officeDocument" and node.get("Target", "").lstrip("/") == "word/document.xml"
+        and node.get("TargetMode") != "External" for node in rels
+    ):
+        return False
+    document = xml_metadata(archive, "word/document.xml")
+    if document.tag != "{" + W + "}document" or document.find("{" + W + "}body") is None:
+        return False
+    if CREDENTIAL.search("".join(document.itertext()).encode("utf-8")):
+        raise ValueError("Credential signature; exclude this source from the presentation workflow")
+    return True
+
+
+def pdf_material_signature(source):
+    """Check PDF boundaries and an xref location, not page readability or validity."""
+    with source.open("rb") as stream:
+        if not re.match(rb"%PDF-(?:1\.[0-7]|2\.0)[\r\n]", stream.read(16)):
+            return False
+        size = source.stat().st_size
+        stream.seek(max(0, size - 4096))
+        trailer = re.search(rb"startxref\s+(\d+)\s+%%EOF\s*$", stream.read(4096))
+        if trailer is None:
+            return False
+        offset = int(trailer.group(1))
+        if offset <= 0 or offset >= size:
+            return False
+        stream.seek(offset)
+        cross_reference = stream.read(8192)
+    return bool(re.match(rb"xref(?:\s|$)", cross_reference) or (
+        re.match(rb"\d+\s+\d+\s+obj\s*<<", cross_reference)
+        and re.search(rb"/Type\s*/XRef\b", cross_reference.split(b"stream", 1)[0])
+    ))
+
+
+def inspect_material(path, source_kind):
+    """Check an explicitly selected text or paper source without returning its text."""
+    source = Path(path).absolute()
+    result = {"source_name": source.name, "kind": "unknown", "container": "unknown", "evidence": []}
+    try:
+        if source.is_symlink():
+            raise ValueError("Linked sources are unsupported; select the original file")
+        if not source.is_file():
+            raise ValueError("Select an existing regular source file")
+        if not 0 < source.stat().st_size <= MAX_PACKAGE_BYTES:
+            raise ValueError("Source is empty or exceeds inspection limits")
+        suffix = source.suffix.lower()
+        with source.open("rb") as stream:
+            head = stream.read(4096)
+        if CREDENTIAL.search(head.replace(b"\x00", b"")):
+            result.update(kind="credential-key", container="text", evidence=["Credential signature; excluded from presentation workflow"])
+            return result
+        if source_kind == "paper" and suffix == ".pdf":
+            if not pdf_material_signature(source):
+                raise ValueError("No recognized PDF header, cross-reference and end marker; obtain a readable source")
+            result.update(kind="pdf", container="file", evidence=["PDF container markers; paper purpose explicitly selected, content inspection pending"])
+        elif suffix == ".docx":
+            if not zipfile.is_zipfile(source):
+                raise ValueError("No recognized Word document package")
+            with zipfile.ZipFile(source) as archive:
+                if not docx_signature(archive, checked_members(archive)):
+                    raise ValueError("No recognized non-macro Word document structure")
+            result.update(kind="docx", container="zip", evidence=["Core transitional OOXML Word structure; content inspection pending"])
+        elif suffix in TEXT_EXTENSIONS:
+            if source.stat().st_size > MAX_TEXT_BYTES:
+                raise ValueError("Text source exceeds inspection limits")
+            data = source.read_bytes()
+            try:
+                text = data.decode("utf-16" if data.startswith((b"\xff\xfe", b"\xfe\xff")) else "utf-8-sig")
+            except UnicodeError:
+                raise ValueError("Use UTF-8 text or BOM-marked UTF-16 text") from None
+            if not text.strip() or any(ord(char) < 32 and char not in "\t\r\n" for char in text):
+                raise ValueError("Source does not contain recognized plain text")
+            if CREDENTIAL.search(text.encode("utf-8")):
+                result.update(kind="credential-key", container="text", evidence=["Credential signature; excluded from presentation workflow"])
+                return result
+            if text.lstrip().startswith(("%PDF-", "{\\rtf")):
+                raise ValueError("Container content does not match the selected text file type")
+            result.update(kind="text", container="text", evidence=["Nonempty Unicode text; content inspection pending"])
+        else:
+            raise ValueError("Use .txt, .md or .docx material; the paper route also accepts a recognizable .pdf")
+        result.update(source_sha256=file_hash(source), hash_kind="file-sha256")
+    except (OSError, ValueError, zipfile.BadZipFile, RuntimeError, NotImplementedError, EOFError, ET.ParseError) as error:
+        # Parser exceptions can refer to source content. Return only controlled messages.
+        detail = str(error) if type(error) is ValueError else "Source container could not be inspected safely"
+        result.update(kind="unknown", evidence=[detail])
+    return result
+
+
+def route_material(path, target, source_kind):
+    source = inspect_material(path, source_kind)
+    explicit = target not in {None, "auto"}
+    result = {"schema_version": 1, "skill": "palate", "source_kind": source_kind, "source": source,
+              "target": target if explicit else None, "target_origin": "explicit" if explicit else "pending",
+              "conversion_requested": False, "status": "unsupported", "can_transform_now": False,
+              "can_deliver_target_now": False, "adapter": None, "steps": [],
+              "source_policy": "Preserve the original material and hash. Create a new deck in the chosen delivery application; a paper or text file has no source presentation application.",
+              "native_keynote_adapter": "experimental-mac-unverified",
+              "validation": {"content": "pending", "appearance": "pending", "editability": "pending", "keynote_runtime": "not-run"},
+              "limitations": [
+                  "Material recognition is not content extraction, source verification or a completed slide deck.",
+                  "Reading text, figures, equations and captions requires suitable tools; do not infer unreadable scientific content.",
+                  "New slides require an available editable authoring workflow, followed by content, appearance and editability review in the delivery application.",
+                  "The bounded PowerPoint and Keynote adapters do not create slides from text or papers. Native Mac integration remains untested in this repository.",
+              ]}
+    if source["kind"] not in {"text", "docx", "pdf"}:
+        result["steps"] = ["Exclude credentials and unsupported sources. Select readable text or paper material without renaming another file to simulate its format."]
+        return result
+    result.update(status="requires-native-authoring" if explicit else "requires-delivery-target",
+                  adapter=("new-" + target + "-authoring") if explicit else "new-deck-authoring")
+    if target == "keynote":
+        result["keynote_environment"] = keynote_environment()
+    result["steps"] = [] if explicit else [
+        "Ask whether the new deck should be delivered in PowerPoint or Keynote; do not infer the application from this material or request a format conversion. Source inspection may proceed independently."
+    ]
+    result["steps"] += [
+        "Inspect the supplied material with suitable reading tools, resolve the missing presentation brief and keep a private source-to-output ledger using pages, sections, paragraphs and figure, table or equation identities.",
+        "Organize an audience-appropriate explanation around source-supported claims and evidence. Preserve qualifications and attribution; ask about material gaps instead of inventing findings, data or references.",
+        "Use an available authoring workflow to create a new editable deck in the selected application. The preservation helpers cannot build it from this source.",
+        "Review scientific content against the material, then inspect rendered appearance and native editability in the delivery application. Missing authoring or review access leaves the corresponding work pending; any unchecked output remains a candidate.",
+    ]
+    return result
+
+
 def keynote_environment():
     """Detect local prerequisites without launching Keynote or granting automation."""
     mac = sys.platform == "darwin"
@@ -218,10 +357,14 @@ def keynote_environment():
             "automation_access": "not-probed", "native_mac_validation": "not-run"}
 
 
-def route_presentation(path, target=None):
-    """Preserve the source application unless a different target was requested."""
+def route_presentation(path, target=None, source_kind="slides"):
+    """Preserve slide-source applications; route explicit material sources to authoring."""
     if target not in {None, "auto", "pptx", "keynote"}:
         raise ValueError("Target must be auto, pptx or keynote")
+    if source_kind not in {"slides", "text", "paper"}:
+        raise ValueError("Source kind must be slides, text or paper")
+    if source_kind != "slides":
+        return route_material(path, target, source_kind)
     source = inspect_presentation(path)
     kind = source["kind"]
     source_application = "pptx" if kind == "pptx" else "keynote" if kind in {"keynote-modern", "keynote-legacy"} else None
@@ -289,11 +432,13 @@ def route_presentation(path, target=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("source", help="Presentation file or .key directory bundle")
+    parser.add_argument("source", help="Presentation file, .key bundle or explicitly selected text/paper material")
+    parser.add_argument("--source-kind", choices=("slides", "text", "paper"), default="slides",
+                        help="Use existing slides by default; explicitly select text or paper to create a new deck")
     parser.add_argument("--target", choices=("auto", "pptx", "keynote"), default="auto",
-                        help="Preserve the detected source application by default; another target explicitly requests conversion")
+                        help="Preserve a slide source's application; text and paper need an explicit delivery target")
     args = parser.parse_args()
-    result = route_presentation(args.source, args.target)
+    result = route_presentation(args.source, args.target, args.source_kind)
     print(json.dumps(result, indent=2))
     return 2 if result["status"] == "unsupported" else 0
 

@@ -26,21 +26,24 @@ If Plugin Creator or the necessary permission is absent, ask the workspace admin
 
 ## Start a slide task
 
-In a new Work conversation, type `@` and **select palate from the menu**. Attach the slides and ask:
+In a new Work conversation, type `@` and **select palate from the menu**. Attach an existing deck or paper, or paste text, notes or an outline. For an existing deck, ask:
 
 ```text
 Polish my slides.
 ```
 
-**palate** asks for the missing presentation context, then checks the files and tools available to that conversation. The same audience, time, depth and scientific safeguards apply as in Codex. Question cards depend on the host's tools; ordinary choices in chat provide the fallback.
+For new slides, ask `Create slides from these notes.` or `Create a research presentation from this paper.` There is no requirement to upload a deck first.
+
+**palate** asks for missing presentation context, then checks the files and tools available to that conversation. The same audience, time, screen-format, depth and scientific safeguards apply as in Codex. For a new deck, it also confirms PowerPoint or Keynote when the delivery application has not been specified. If the venue ratio is unknown, existing slides retain their proportions; new slides start at a provisional 16:9, explicitly identified as a design assumption. Missing scientific evidence prompts a focused question, not invented results or citations. Question cards depend on the host's tools; ordinary choices in chat provide the fallback.
 
 | Available access | What can proceed |
 | :--- | :--- |
 | Uploaded deck, code execution and the required dependencies | Source inspection and supported file-level edits. New or rebuilt content also needs a suitable editable-slide authoring tool. |
-| Authoring and preview tools, without the delivery application | Candidate editing and available previews. The report identifies the native appearance, editability and playback checks still needed. |
+| Readable paper, manuscript or notes and a suitable native slide-authoring tool | Source analysis and a new editable candidate deck in the agreed application. The object-preservation helpers alone cannot create new slides. |
+| Authoring and preview tools, without the delivery application | Candidate creation or editing and available previews. The report identifies the native appearance, editability and playback checks still needed. |
 | Authorized access to PowerPoint | Native PowerPoint work and review, within the actual tools and permissions available. |
 | Authorized access to Keynote on a Mac | The experimental native Keynote route. Its Mac integration remains untested in this project. |
-| No suitable file-editing tool | Content analysis or a design proposal, with the editing limitation stated. No editable-file delivery is claimed. |
+| No suitable file-editing tool | Content analysis, a proposed narrative or slide content, with file creation or editing left pending. No editable-file delivery is claimed. |
 
 A web session does not automatically control applications on a computer. If the account offers local computer access, configure it through that product's supported flow and verify the connection before relying on it. Otherwise, continue native work in an environment that has the required application. The [host workflow](../references/host-workflows.md) defines the private handoff and review requirements.
 
@@ -82,7 +85,7 @@ These commands create files only. They do not install a plugin, replace an insta
 | :--- | :--- |
 | Installation and discovery | The revision installed, the workspace used, and palate selected from the `@` picker in a new Work conversation. |
 | Resource access | Every file in `package-manifest.json` is available at its relative path and matches the recorded hash. |
-| Brief and routing | A short request obtains only missing context; a supplied brief is reused; PowerPoint and Keynote keep their separate native routes. |
+| Brief and routing | Short requests from slides, notes or a paper obtain only missing context; a supplied brief is reused; new decks confirm the delivery application; PowerPoint and Keynote keep their separate native routes. |
 | Editing and delivery | A synthetic deck produces a new editable file with a clear report. Review scientific content, native editability and rendered appearance separately. |
 | Missing native access | Any output requiring unfinished application checks is labeled as a candidate, with a specific handoff. |
 

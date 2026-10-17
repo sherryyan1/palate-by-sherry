@@ -14,7 +14,7 @@
   "screen_aspect_ratios": [
     {"value": "16:9", "label": "16:9 widescreen", "description": "Adapt the slide canvas and layout to a wider venue screen."},
     {"value": "4:3", "label": "4:3 standard", "description": "Adapt the slide canvas and layout to a more square venue screen."},
-    {"value": "not_sure", "label": "Not sure; keep the current slide shape", "description": "Preserve the source canvas without assuming the venue screen has the same shape."}
+    {"value": "not_sure", "label": "Not sure", "description": "Retain an existing canvas, or use a disclosed provisional 16:9 canvas for a new deck; the venue ratio remains unconfirmed."}
   ],
   "depths": [
     {"value": "automatic", "label": "Let palate choose", "description": "Choose depth from the audience, time and source content."},

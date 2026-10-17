@@ -4,15 +4,23 @@ Choose the [Codex installation](installation.md#codex-setup) or the experimental
 
 ## Start with one sentence
 
-In Codex, attach your research slides and ask:
+In Codex, share the material you have and choose a request that fits:
+
+| Starting material | Example request |
+| :--- | :--- |
+| Existing slides | `$palate Polish my slides.` |
+| Rough text, an outline or notes | `$palate Create slides from these notes.` |
+| A paper or manuscript | `$palate Create a research presentation from this paper.` |
+
+You can attach a file or paste text directly. You do not need to prepare slides first. For an existing deck, the request can be as short as:
 
 ```text
 $palate Polish my slides.
 ```
 
-In ChatGPT Work, type `@`, select the installed **palate** plugin or skill, attach the slides and ask `Polish my slides.` A typed plugin name does not replace selection or confirm installation.
+In ChatGPT Work, type `@`, select the installed **palate** plugin or skill, share the material and send the corresponding request. A typed plugin name does not replace selection or confirm installation.
 
-A detailed brief is optional: **palate** uses the information already supplied and asks for missing context that could materially change the design. You do not need to choose fonts, palettes or layouts first. The [format workflow](#powerpoint-and-keynote) explains which native application handles the deck and when an optional conversion needs additional files.
+A detailed brief is optional: **palate** uses the information already supplied and asks for missing context that could materially change the design. You do not need to choose fonts, palettes or layouts first. The [format workflow](#powerpoint-and-keynote) explains which native application handles the deck and when an optional conversion needs additional files. When creating a new deck, **palate** asks whether to use PowerPoint or Keynote if you have not specified the delivery application.
 
 ## Shape the brief
 
@@ -27,32 +35,40 @@ The brief uses these choices to establish the setting and the level of explanati
 | Setting | Internal tutorial, internal research, external presentation | Establishes whether the deck should primarily teach, support research discussion or explain work to an outside audience. |
 | External audience | Experts, C-suite/executives, general audience | Guides terminology, conceptual support and the order in which evidence and implications are introduced. |
 | Duration | Suggested times or custom minutes | Sets the pace and the amount of explanation that can be developed during the talk. |
-| Venue screen | 4:3, 16:9 or not sure | Fits the layout to the chosen proportions. If the screen format is unknown, **palate** keeps the slides' current proportions. |
+| Venue screen | 4:3, 16:9 or not sure | Fits the layout to the chosen proportions. If unknown, **palate** preserves an existing deck's proportions. With no source canvas, it uses a provisional 16:9 layout and states that the venue ratio is unconfirmed. |
 | Depth | Let palate choose, key takeaways, full technical detail | Determines how much derivation and supporting detail should be visible, while preserving the evidence needed for interpretation. |
 
-You can write your own answer or provide all the presentation details in your first message. If you select "Let palate choose," **palate** reviews your slides and uses your audience and available time to decide how much detail to include. The [presentation contexts](../references/presentation-contexts.md) suggest starting points, including durations; your current instructions take precedence. Slide count and Q&A time are used only when supplied, and single-page monthly updates remain outside this workflow.
+You can write your own answer or provide all the presentation details in your first message. If you select "Let palate choose," **palate** reviews your material and uses your audience and available time to decide how much detail to include. The [presentation contexts](../references/presentation-contexts.md) suggest starting points, including durations; your current instructions take precedence. Slide count and Q&A time are used only when supplied, and single-page monthly updates remain outside this workflow.
 
-Your slides stay in their original language unless you request a translation; the language of this guide or the conversation does not change that choice. If you request translation without naming the target language, **palate** asks for it before rewriting. It also asks when a technical term has plausible translations that could materially change the scientific meaning, and reuses the terminology you confirm. See the [scientific translation safeguards](../references/scientific-fidelity.md#scientific-translation) for the content checks behind that process.
+An existing deck stays in its original language unless you request a translation; the language of this guide or the conversation does not change that choice. For a new deck, **palate** follows the requested language or the source material and asks if the intended language is unclear. If you request translation without naming the target language, **palate** asks for it before rewriting. It also asks when a technical term has plausible translations that could materially change the scientific meaning, and reuses the terminology you confirm. See the [scientific translation safeguards](../references/scientific-fidelity.md#scientific-translation) for the content checks behind that process.
 
 The [runtime intake guide](../references/guided-intake.md) explains question order, the host's question tools and answer handling for agents implementing the interview.
 
-## What happens after you attach a deck
+<a id="what-happens-after-you-attach-a-deck"></a>
+
+## How palate develops the presentation
 
 ### Review the source and the argument
 
-**palate** first establishes what each slide contributes to the argument and where its evidence needs clearer explanation or placement. It inspects the source structure and rendered slides together, so the redesign can account for labels, notes, charts and other content that a text-only inspection may miss. If a source cannot be opened or a required application is unavailable, **palate** explains what file or review is needed before it can complete the task.
+For an existing deck, **palate** establishes what each slide contributes to the argument and where its evidence needs clearer explanation or placement. It inspects the source structure and rendered slides together, so the redesign can account for labels, notes, charts and other content that a text-only inspection may miss.
+
+For a paper or manuscript, **palate** reads the argument alongside its methods, figures, tables, equations and qualifications, then selects and sequences material for the talk. It does not simply turn each paper section into a slide. For rough text, notes or an outline, it organizes the supplied ideas and separates established findings from questions and proposed work. In both cases, claims and visuals remain traceable to the material provided. If an essential result, definition or source is missing, **palate** asks only for information needed to proceed without inventing findings, citations or relationships.
+
+If a source cannot be read reliably or a required application is unavailable, **palate** explains what file, tool or review is needed before it can complete the task. An unreadable figure needs a usable source, not an inferred reconstruction.
 
 If your slides contain tables or **palate** proposes one, it shows two color treatments of the same representative table: Nature-inspired and deck-matched. The content, layout and numeric precision stay the same so you can compare the colors directly. Choose one, supply a preference or ask **palate** to decide; it reuses that decision for comparable tables while preserving meaningful scientific color mappings. No table-color choice is needed when no tables are present or planned.
 
 ### Make the changes the content needs
 
-Composition follows the scientific relationship and the brief. **palate** records changes against the source and chooses an editing route that can preserve the objects and meaning involved.
+Composition follows the scientific relationship and the brief. **palate** records how each slide uses the source material and chooses an authoring or editing route that can preserve the objects and meaning involved.
 
 When the chosen screen ratio differs from the original, **palate** uses native authoring to change the canvas and rearrange the content. It checks text fit, figure proportions and the new work area instead of stretching the existing layout. This requires access to the appropriate authoring tools; if that access is missing, **palate** explains that the ratio change remains pending.
 
 Text-only pages receive a visual treatment suited to their content. A comparison may become a table, a verified sequence a flowchart, or a set of concepts an illustrated grouping with labeled icons. Continuous explanations retain their reasoning within a designed composition. **palate** preserves the scientific qualifications and does not invent data or relationships for a graphic; an exact quotation or another page that needs to retain its form can be a documented exception.
 
-The editing route depends on the objects and changes involved:
+New decks start in the agreed application using an available tool that can create native, editable slides. The included object-preservation helpers work on existing decks; they do not create slides from a paper or notes by themselves. Without a suitable authoring tool, **palate** can develop the narrative and slide content, but leaves file creation pending.
+
+For existing decks, the editing route depends on the objects and changes involved:
 
 | Your slides need | How **palate** handles the change |
 | :--- | :--- |
@@ -68,13 +84,13 @@ The [design system](../references/design-system.md) explains why audience, evide
 
 ### Review the result and explain what remains
 
-**palate** checks scientific content, native editability and rendered appearance separately. It reviews every final slide in the delivery application and compares changed slides with the source. You receive a new editable deck in a supported format and a concise report of the changes, completed checks and material limits. If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate.
+**palate** checks scientific content, native editability and rendered appearance separately. It reviews every final slide in the delivery application and compares revised or newly authored slides with the source material. You receive a new editable deck in a supported format and a concise report of the changes, completed checks and material limits. If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate.
 
 The [validation guide](validation.md) explains the evidence behind each kind of check and the scope of the repository's existing tests. A report distinguishes completed review from remaining work so you can decide whether the candidate is ready for your intended use.
 
 ## PowerPoint and Keynote
 
-**palate** uses one design standard and separate native workflows. It preserves the source application unless a different delivery format is requested. A Keynote deck stays in Keynote; neither a PowerPoint export nor Windows PowerPoint is a prerequisite.
+**palate** uses one design standard and separate native workflows. It preserves an existing deck's application unless a different delivery format is requested. For a new deck, it confirms the delivery application when that choice has not been supplied. A Keynote deck stays in Keynote; neither a PowerPoint export nor Windows PowerPoint is a prerequisite.
 
 | Delivery application | Native workflow | Current limit |
 | :--- | :--- | :--- |

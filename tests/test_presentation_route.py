@@ -27,6 +27,32 @@ def pptx_parts():
     }
 
 
+def docx_parts():
+    return {
+        "[Content_Types].xml": f'<Types xmlns="{route.CT}"><Override PartName="/word/document.xml" ContentType="{route.DOCUMENT_TYPE}"/></Types>',
+        "_rels/.rels": f'<Relationships xmlns="{route.REL}"><Relationship Id="r1" Type="{route.R}/officeDocument" Target="word/document.xml"/></Relationships>',
+        "word/document.xml": f'<w:document xmlns:w="{route.W}"><w:body><w:p><w:r><w:t>Synthetic confidential finding</w:t></w:r></w:p></w:body></w:document>',
+    }
+
+
+def pdf_bytes():
+    """A small standards-shaped PDF; the routing test does not render or read pages."""
+    data = b"%PDF-1.4\n"
+    offsets = [0]
+    objects = [
+        b"<< /Type /Catalog /Pages 2 0 R >>",
+        b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 300 200] >>",
+    ]
+    for index, content in enumerate(objects, 1):
+        offsets.append(len(data))
+        data += f"{index} 0 obj\n".encode("ascii") + content + b"\nendobj\n"
+    startxref = len(data)
+    data += b"xref\n0 4\n0000000000 65535 f \n"
+    data += b"".join(f"{offset:010d} 00000 n \n".encode("ascii") for offset in offsets[1:])
+    return data + f"trailer\n<< /Size 4 /Root 1 0 R >>\nstartxref\n{startxref}\n%%EOF\n".encode("ascii")
+
+
 class PresentationRouteTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
@@ -262,6 +288,179 @@ class PresentationRouteTests(unittest.TestCase):
     def test_invalid_target_is_rejected(self):
         with self.assertRaises(ValueError):
             route.route_presentation(self.folder / "source.key", "pdf")
+
+    def test_paper_pdf_requires_a_delivery_choice_without_conversion_or_source_changes(self):
+        source = self.folder / "paper.pdf"
+        original = pdf_bytes()
+        source.write_bytes(original)
+        for target in (None, "auto"):
+            result = route.route_presentation(source, target, source_kind="paper")
+            self.assertEqual(result["source_kind"], "paper")
+            self.assertEqual(result["source"]["kind"], "pdf")
+            self.assertEqual(result["status"], "requires-delivery-target")
+            self.assertIsNone(result["target"])
+            self.assertEqual(result["target_origin"], "pending")
+            self.assertFalse(result["conversion_requested"])
+            self.assertFalse(result["can_transform_now"])
+            self.assertFalse(result["can_deliver_target_now"])
+            self.assertEqual(result["source"]["source_sha256"], route.file_hash(source))
+            self.assertEqual(set(result["validation"].values()), {"pending", "not-run"})
+            self.assertIn("Source inspection may proceed", result["steps"][0])
+        self.assertEqual(source.read_bytes(), original)
+        self.assertEqual(list(self.folder.iterdir()), [source])
+        self.assertEqual(route.route_presentation(source)["status"], "reference-only")
+
+    def test_paper_has_no_source_application_when_target_is_selected(self):
+        source = self.folder / "paper.pdf"
+        source.write_bytes(pdf_bytes())
+        for target in ("pptx", "keynote"):
+            with self.subTest(target=target):
+                result = route.route_presentation(source, target, "paper")
+                self.assertEqual(result["status"], "requires-native-authoring")
+                self.assertEqual(result["adapter"], "new-" + target + "-authoring")
+                self.assertEqual(result["target"], target)
+                self.assertEqual(result["target_origin"], "explicit")
+                self.assertFalse(result["conversion_requested"])
+                self.assertFalse(result["can_transform_now"])
+                self.assertFalse(result["can_deliver_target_now"])
+                self.assertNotIn("palate_pptx.py inspect", " ".join(result["steps"]))
+                if target == "keynote":
+                    self.assertEqual(result["keynote_environment"]["automation_access"], "not-probed")
+
+    def test_explicit_text_and_paper_accept_unicode_material_without_returning_it(self):
+        content = "Private draft: \u6c34\u5e93\u673a\u5236\u3002\nUncertain estimates must remain qualified."
+        for index, (extension, encoding) in enumerate(((".txt", "utf-8"), (".md", "utf-8-sig"), (".markdown", "utf-16"))):
+            source = self.folder / (str(index) + extension)
+            source.write_text(content, encoding=encoding)
+            original = source.read_bytes()
+            for source_kind in ("text", "paper"):
+                result = route.route_presentation(source, "pptx", source_kind)
+                self.assertEqual(result["source"]["kind"], "text")
+                self.assertEqual(result["status"], "requires-native-authoring")
+                self.assertFalse(result["can_transform_now"])
+                self.assertEqual(result["source"]["source_sha256"], route.file_hash(source))
+                self.assertNotIn("Private draft", json.dumps(result))
+            self.assertEqual(route.route_presentation(source)["status"], "unsupported")
+            self.assertEqual(source.read_bytes(), original)
+
+    def test_word_sources_are_inspected_as_material_and_not_as_slide_packages(self):
+        source = self.archive("manuscript.docx", docx_parts())
+        original = source.read_bytes()
+        for source_kind in ("text", "paper"):
+            result = route.route_presentation(source, "keynote", source_kind)
+            self.assertEqual(result["source"]["kind"], "docx")
+            self.assertEqual(result["source"]["container"], "zip")
+            self.assertEqual(result["status"], "requires-native-authoring")
+            self.assertFalse(result["conversion_requested"])
+            self.assertFalse(result["can_transform_now"])
+            self.assertNotIn("Synthetic confidential finding", json.dumps(result))
+        self.assertEqual(route.route_presentation(source)["status"], "unsupported")
+        self.assertEqual(source.read_bytes(), original)
+        self.assertEqual(list(self.folder.iterdir()), [source])
+
+    def test_missing_empty_binary_mislabelled_and_slide_materials_fail_closed(self):
+        sources = [self.folder / "missing.txt"]
+        for name, data in (("empty.md", b""), ("blank.txt", b" \n\t"), ("binary.txt", b"\x00\x01binary"),
+                           ("not-pdf.pdf", b"Just a brief"), ("renamed.txt", pdf_bytes()),
+                           ("fake.docx", b"Plain text is not a Word container"), ("legacy.doc", b"legacy")):
+            source = self.folder / name
+            source.write_bytes(data)
+            sources.append(source)
+        sources += [self.archive("slides.pptx", pptx_parts()), self.archive("slides.docx", pptx_parts()),
+                    self.archive("slides.key", self.modern_parts())]
+        directory = self.folder / "source.txt"
+        directory.mkdir()
+        sources.append(directory)
+        for source_kind in ("paper", "text"):
+            for source in sources:
+                with self.subTest(source_kind=source_kind, name=source.name):
+                    result = route.route_presentation(source, "pptx", source_kind)
+                    self.assertEqual(result["status"], "unsupported")
+                    self.assertFalse(result["can_transform_now"])
+                    self.assertNotIn("source_sha256", result["source"])
+
+    def test_paper_pdf_boundary_failures_are_not_treated_as_readable_papers(self):
+        original = pdf_bytes()
+        cases = [b"%PDF-1.7\nsynthetic reference", original.replace(b"%%EOF", b"missing"),
+                 original.replace(b"startxref", b"notxref"), original.replace(b"xref\n0 4", b"nope\n0 4")]
+        for index, data in enumerate(cases):
+            source = self.folder / f"invalid-{index}.pdf"
+            source.write_bytes(data)
+            self.assertEqual(route.route_presentation(source, source_kind="paper")["status"], "unsupported")
+
+    def test_word_malformed_macro_external_and_unsafe_containers_are_rejected(self):
+        cases = []
+        parts = docx_parts()
+        del parts["word/document.xml"]
+        cases.append(parts)
+        parts = docx_parts()
+        parts["word/document.xml"] = "<not-closed"
+        cases.append(parts)
+        parts = docx_parts()
+        parts["word/document.xml"] = '<!DOCTYPE foo [<!ENTITY bar "Private source text">]><foo/>'
+        cases.append(parts)
+        parts = docx_parts()
+        parts["[Content_Types].xml"] = parts["[Content_Types].xml"].replace(route.DOCUMENT_TYPE, "application/vnd.ms-word.document.macroEnabled.main+xml")
+        cases.append(parts)
+        parts = docx_parts()
+        parts["_rels/.rels"] = parts["_rels/.rels"].replace('Target="word/document.xml"', 'Target="https://example.invalid/word.xml" TargetMode="External"')
+        cases.append(parts)
+        cases.append({**docx_parts(), "../outside": b"synthetic"})
+        for index, parts in enumerate(cases):
+            result = route.route_presentation(self.archive(f"invalid-{index}.docx", parts), source_kind="paper")
+            self.assertEqual(result["status"], "unsupported")
+            self.assertNotIn("Private source text", json.dumps(result))
+
+    def test_material_credentials_are_rejected_in_head_or_later_text_without_hash_or_content(self):
+        marker = "-----BEGIN " + "PRIVATE KEY" + "-----\nsynthetic-private-payload"
+        for index, (prefix, encoding) in enumerate((("", "utf-8"), ("", "utf-16"), ("notes\n" * 1000, "utf-8"))):
+            source = self.folder / f"credential-{index}.txt"
+            source.write_text(prefix + marker, encoding=encoding)
+            for source_kind in ("text", "paper"):
+                result = route.route_presentation(source, "pptx", source_kind)
+                self.assertEqual(result["status"], "unsupported")
+                self.assertEqual(result["source"]["kind"], "credential-key")
+                self.assertNotIn("source_sha256", result["source"])
+                self.assertNotIn("synthetic-private-payload", json.dumps(result))
+        parts = docx_parts()
+        parts["word/document.xml"] = parts["word/document.xml"].replace("Synthetic confidential finding", marker)
+        result = route.route_presentation(self.archive("credential.docx", parts), source_kind="paper")
+        self.assertEqual(result["status"], "unsupported")
+        self.assertNotIn("source_sha256", result["source"])
+        self.assertNotIn("synthetic-private-payload", json.dumps(result))
+
+    def test_material_size_limits_fail_closed(self):
+        source = self.folder / "notes.txt"
+        source.write_text("Synthetic research notes", encoding="utf-8")
+        with patch.object(route, "MAX_TEXT_BYTES", 10):
+            self.assertEqual(route.route_presentation(source, source_kind="text")["status"], "unsupported")
+        with patch.object(route, "MAX_PACKAGE_BYTES", 10):
+            self.assertEqual(route.route_presentation(source, source_kind="paper")["status"], "unsupported")
+        source = self.archive("notes.docx", docx_parts())
+        with patch.object(route, "MAX_XML_BYTES", 10):
+            self.assertEqual(route.route_presentation(source, source_kind="paper")["status"], "unsupported")
+
+    def test_invalid_source_kind_is_rejected(self):
+        with self.assertRaises(ValueError):
+            route.route_presentation(self.folder / "source.md", source_kind="auto")
+
+    def test_cli_explicit_paper_and_text_routes_do_not_create_outputs(self):
+        source = self.folder / "notes.md"
+        source.write_text("Private proposed research explanation", encoding="utf-8")
+        for source_kind in ("paper", "text"):
+            completed = subprocess.run([sys.executable, str(ROOT / "scripts/presentation_route.py"), str(source),
+                                        "--source-kind", source_kind, "--target", "keynote"], capture_output=True, text=True)
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            result = json.loads(completed.stdout)
+            self.assertEqual(result["status"], "requires-native-authoring")
+            self.assertFalse(result["conversion_requested"])
+            self.assertFalse(result["can_transform_now"])
+            self.assertNotIn("Private proposed", completed.stdout)
+        missing = subprocess.run([sys.executable, str(ROOT / "scripts/presentation_route.py"), str(self.folder / "missing.pdf"),
+                                  "--source-kind", "paper"], capture_output=True, text=True)
+        self.assertEqual(missing.returncode, 2)
+        self.assertEqual(json.loads(missing.stdout)["status"], "unsupported")
+        self.assertEqual(list(self.folder.iterdir()), [source])
 
     def test_cli_emits_actionable_json_and_unsupported_exit_code(self):
         source = self.archive("source.key", self.modern_parts())

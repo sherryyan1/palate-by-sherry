@@ -2,7 +2,7 @@
 
 Scientific fidelity depends on preserving the relationship between a claim, its evidence and the conditions under which it holds. This reference defines what the agent must preserve and what evidence is needed before an output can be called reviewed. Follow the [preservation path](#preservation-path) for bounded styling and geometry changes, or the [content-changing path](#content-changingrebuilding-path) for rewriting, translation and reconstruction. Both lead to a separate [review record and delivery](#review-record-and-delivery).
 
-Before editing, inventory every source slide, including hidden slides, speaker notes, charts and workbooks, tables, equations, images, references and animation. This baseline allows a later review to distinguish a source contradiction from a defect introduced during transformation. Flag uncertain units, legends or claims for the owner; never guess a correction.
+Before editing an existing deck, inventory every source slide, including hidden slides, speaker notes, charts and workbooks, tables, equations, images, references and animation. When creating from text or a paper, inventory the supplied material and evidence through [source-to-slides](source-to-slides.md) instead; an original deck is not required. This baseline allows a later review to distinguish a source contradiction from a defect introduced during transformation. Flag uncertain units, legends or claims for the owner; never guess a correction.
 
 ## Preservation path
 
@@ -18,11 +18,11 @@ Summarizing text, splitting slides, reconstructing figures and recoloring chart 
 
 Translation also follows this path, even when the layout is retained. Complete the [scientific translation preflight](#scientific-translation) before rewriting and use its source-to-output checks during review. The preservation helper cannot rewrite or translate text.
 
-Before authoring, create a task-local ledger that traces each changed slide from its source to the proposed output:
+Before authoring, create a task-local ledger that traces each changed or new slide from its source material to the proposed output:
 
 | Ledger field | Required record |
 | --- | --- |
-| Source identity | Original file hash, one-based slide and shape ID or figure/table/equation identity. |
+| Source identity | File hash plus slide/shape identity for a deck, or page, section, paragraph, figure, table or equation identity for a document. Pasted text uses a private snapshot with stable paragraph identifiers. |
 | Scientific content | Source statement and protected content: numbers, units, axes, legends, equations, quantitative relationships, uncertainty, assumptions, limitations, caveats, claim strength, references, citations and identifiers. |
 | Destination | Output slide, object, notes or appendix, with the exact replacement statement. |
 | Reason and interpretation | Why the change is needed and the support for any interpretation. Distinguish an owner's approved correction from an agent's proposal. |
@@ -33,6 +33,8 @@ For added schematics, record the source support for each meaningful component, l
 For translation, keep the target language, established terminology glossary and source-backed or user-confirmed interpretation decisions with this same private ledger. Link decisions to the affected source and destination objects so a confirmed choice can be applied consistently without adding fields to the intake helper or conservative plan schema.
 
 For [first-use abbreviation definitions and editorial changes](writing-style.md#research-slide-wording), record the verified full term, abbreviation and first audience-visible destination with the same ledger. Establish the definition from the source and research context; a material ambiguity needs clarification before that expansion is applied. An abbreviation inside a retained figure can be defined in an adjacent visible explanation without claiming its image text was edited. Review the actual reading order and relevant build stages so an earlier unexplained use is not hidden by a later definition.
+
+For new slides from notes or a paper, map claims and graphics to the supplied evidence, preserve proposed versus completed work, and record the coverage of excerpts or missing material. Do not invent results, data or references, or infer exact values from a plotted curve.
 
 Preserve attribution and the link between each reference and its supported statement when paraphrasing or restructuring. Keep source figure, table, equation and panel identities traceable. When deck-local numbering is needed, check its sequence and cross-references separately from the original source numbering; do not relabel a published figure as if its identity had changed. Clearer prose is not evidence of originality or a completed plagiarism check.
 
@@ -79,7 +81,7 @@ Translation changes the expression of the research, so establish the following b
 2. **Resolve scientific meaning before choosing wording.** Inspect the source wording and research context, including relevant notes, captions, labels and equations, before choosing scientific terms. Use established terminology and the source's definitions to resolve clear cases without questioning ordinary terms.
 
    When multiple plausible interpretations remain and the choice could materially change scientific meaning, briefly explain the alternatives and their difference, ask the user to choose or clarify, and wait for the answer before applying that term. Record the confirmed choice in the ledger and reuse it throughout the output. Do not invent a specialist translation or silently select an unresolved interpretation. Independent source inventory and layout analysis may continue while the answer is pending.
-3. **Establish an editable authoring and review route.** Confirm that an available authoring path can produce and inspect the requested editable output. If the source cannot be read reliably or no supported authoring/application path is available, explain the limit and obtain a supported editable source or arrange the required application handoff. A translation draft or plan does not establish that a translated presentation has been authored and checked.
+3. **Establish an editable authoring and review route.** Confirm that an available authoring path can produce and inspect the requested editable output. If the source cannot be read reliably or no supported authoring/application path is available, explain the limit and obtain a supported readable source or arrange the required authoring/application handoff. A translation draft or plan does not establish that a translated presentation has been authored and checked.
 
 Before applying translated wording, record the source statements and protected content in the existing ledger. Preserve their scientific role as well as their surface form:
 

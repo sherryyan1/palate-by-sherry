@@ -91,9 +91,9 @@ class PackagePluginTests(unittest.TestCase):
         self.assertIn("Keynote", manifest["description"])
         self.assertEqual(manifest["extensions"], {"com.openai": {"interface": {
             "displayName": "palate by Sherry",
-            "shortDescription": "Polish research slides for PowerPoint and Keynote.",
+            "shortDescription": "Research presentations from slides, notes or papers.",
             "developerName": "Sherry",
-            "defaultPrompt": ["Use palate to polish my slides."],
+            "defaultPrompt": ["Use palate to prepare my research presentation."],
         }}})
         self.assertEqual({name.split("/")[1] for name in members if name.startswith("skills/")}, {"palate"})
         self.assertEqual({name for name in members if name.endswith("/SKILL.md")}, {SKILL_PREFIX + "SKILL.md"})

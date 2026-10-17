@@ -6,6 +6,10 @@ This reference guides the agent through native Keynote inspection, bounded chang
 
 Begin with [routing and access](#route-the-source-and-check-access), then [inspect the native source](#inspect-before-designing). Use the [adapter contract](#native-adapter-contract) only for changes it supports. Requested conversion follows a separate [optional path](#optional-cross-format-delivery).
 
+## Create a new deck from research material
+
+Text and papers can start a native Keynote presentation through [source-to-slides](source-to-slides.md); no existing deck or PowerPoint conversion is needed. Reuse an explicit Keynote delivery choice or resolve it before authoring. Read the material, establish the brief and private claim-to-source ledger, then use available native Keynote authoring on Mac to create the new deck. The bounded adapter below cannot create it. Review the actual output against its source material, rendered slides and native objects. Missing Mac authoring or review remains pending. This new-deck path has not been tested on Mac in this development environment.
+
 ## Route the source and check access
 
 Run the read-only container router before launching an application:
@@ -23,7 +27,8 @@ The default preserves the recognized source application. Pass `--target pptx` or
 | Recognized Keynote, native delivery, Mac prerequisites detected | `requires-keynote-preflight` | Probe and inspect an isolated copy in Keynote before planning native changes. Static detection does not establish automation access. |
 | Recognized Keynote, native delivery, required runtime unavailable | `requires-keynote-runtime` | Keep `.key` delivery pending. Arrange access to Keynote on Mac or ask whether the user wants an alternative format. |
 | Different delivery application explicitly requested | `requires-format-conversion` | Establish a conversion baseline in the applications concerned before design or delivery. |
-| PDF | `reference-only` | Inspect appearance; obtain a supported editable source before changing native objects. |
+| PDF supplied as a slide export or visual reference | `reference-only` | Inspect appearance; an editable source is needed to preserve original native objects. A requested reconstruction uses the authoring path. |
+| Text or a paper explicitly supplied for new slides | `requires-delivery-target` or `requires-native-authoring` | Follow [source-to-slides](source-to-slides.md). Resolve delivery, read the evidence and use native creation; this is not a conversion from a source presentation. |
 | Credential `.key`, unknown, malformed or unsupported container | `unsupported` | Exclude credentials and select the actual presentation. Do not simulate conversion by changing an extension. |
 
 The router's exit code reports whether it emitted a recognized route, not whether a deliverable exists. `can_deliver_target_now` remains false and review fields remain pending. A native Keynote route does not set `can_transform_now` true on the strength of an application path; live preflight and inventory are still required.
@@ -59,7 +64,7 @@ A native PDF export supplies visual evidence. Inspect its actual coverage: inclu
 
 ### Match the venue screen
 
-Use the shared intake answer `screen_aspect_ratio`: `4:3` or `16:9` sets the target canvas, while `not_sure` keeps the source dimensions. Record the source size, confirmed answer and target size privately. A matching ratio needs no change of physical size. Never infer the venue's screen from the source document.
+Use the shared intake answer `screen_aspect_ratio`: `4:3` or `16:9` sets the target canvas, while `not_sure` keeps an existing deck's dimensions. For a new deck without a source canvas, disclose a provisional 16:9 design choice and keep the venue ratio unconfirmed. Record the source size, confirmed answer and target size privately. A matching ratio needs no change of physical size. Never infer the venue's screen from the source document.
 
 When a different ratio is chosen, use controlled native Keynote authoring on a private copy to change the document's slide size and recompose the slides. Redefine the symmetric work area and appropriate slide-layout guides, then reflow text and reposition or proportionally resize figures, tables, diagrams and recurring elements. Preserve scientific content, labels, essential qualifiers and the 10.5 pt floor. Do not distort or crop evidence, flatten a slide or convert through PowerPoint to perform this change.
 

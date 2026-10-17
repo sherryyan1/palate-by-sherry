@@ -2,6 +2,10 @@
 
 Use this workflow to turn a compatible PPTX source into a separately reviewed editable output. It guides the agent from source inspection through implementation and delivery, keeping the design decision separate from the evidence that the resulting file is sound. The [implementation paths](#two-implementation-paths) distinguish bounded changes to existing objects from rewriting or rebuilding; the [review sequence](#review-and-deliver) applies to both.
 
+## Create a new deck from research material
+
+When the input is text or a paper, follow [source-to-slides](source-to-slides.md) rather than asking for a PPTX source. Read the supplied material, resolve the brief and PowerPoint delivery, then use available PowerPoint authoring to build a new editable deck. The preservation helper cannot create slides from these inputs. Use a private claim-to-source ledger, selected or disclosed provisional canvas and verified evidence; retain complex figures when accurate reconstruction is unavailable. Compare every output slide against the material it explains, then complete content, native editability and PowerPoint appearance checks. If authoring or essential native review is unavailable, identify the supported outline or candidate and the remaining work.
+
 ## Runtime and task workspace
 
 This adapter handles compatible PowerPoint `.pptx` sources. Begin with [presentation_route.py](../scripts/presentation_route.py) so the source format and requested delivery determine the file route. Keynote sources stay in the [native Keynote workflow](keynote-workflow.md) unless the user requests conversion. A user-selected PowerPoint export from Keynote may enter this workflow only after its conversion baseline has been reviewed. The preservation checks here apply to the PPTX itself; any application conversion needs its own comparison.
@@ -39,7 +43,7 @@ When tables are present, resolve the [two-color comparison](design-system.md#tab
 
 ### Match the venue screen
 
-Use the confirmed `screen_aspect_ratio` from intake: `4:3` or `16:9` sets the target canvas, while `not_sure` retains the source dimensions. Record the source dimensions, answer and target dimensions privately. Keep a matching source canvas at its existing physical size unless another size is requested; a ratio alone does not prescribe a particular width in inches.
+Use the confirmed `screen_aspect_ratio` from intake: `4:3` or `16:9` sets the target canvas, while `not_sure` retains an existing deck's dimensions. For a new deck without a source canvas, disclose a provisional 16:9 design choice and keep the venue ratio unconfirmed. Record the source dimensions, answer and target dimensions privately. Keep a matching source canvas at its existing physical size unless another size is requested; a ratio alone does not prescribe a particular width in inches.
 
 When the ratio differs, use available native PowerPoint authoring on a new output to set the slide size and recompose the content. Recalculate the symmetric work area, master/layout guides and recurring elements for that canvas before placing foreground objects. Reflow text and reposition or proportionally resize figures, tables and diagrams; do not stretch the slide as an image, distort a chart, crop scientific content or shrink text below 10.5 pt to make it fit. A resize dialog's automatic scaling is only a starting point, not a completed redesign.
 

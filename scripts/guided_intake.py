@@ -122,7 +122,7 @@ def route(answers):
     if answers.get("audience_expertise"):
         context["audience_expertise"] = answers["audience_expertise"]
     context.setdefault("audience", "research group")
-    context.setdefault("purpose", "Polish the supplied research presentation for clarity and delivery.")
+    context.setdefault("purpose", "Prepare a clear research presentation from the supplied material.")
     context["setting"] = "external" if scenario == "external" else "internal"
     priorities = list(persona["priorities"]) if persona else [
         "Explain the learning objective and mechanism step by step." if scenario == "internal-tutorial" else
@@ -130,7 +130,7 @@ def route(answers):
     return {"status": "ready", "can_inspect_source": True, "can_transform": True, "context": context,
             "design_priorities": priorities,
             "depth_delegated": context["detail_level"] == "automatic",
-            "design_instruction": "Inspect the source before choosing layout, pacing and visible technical detail. Use the selected screen aspect ratio for the target canvas; not_sure preserves the source canvas without inferring the venue screen. When the ratio changes, reflow a new output in its native application rather than stretching or cropping content. Retain scientific evidence; do not derive slide count from minutes."}
+            "design_instruction": "Inspect the source before choosing layout, pacing and visible technical detail. Use the selected screen aspect ratio for the target canvas; not_sure preserves an existing canvas, or uses a disclosed provisional 16:9 canvas for a new deck while leaving the venue ratio unconfirmed. When the ratio changes, reflow a new output in its native application rather than stretching or cropping content. Retain scientific evidence; do not derive slide count from minutes."}
 
 
 def record(answers, field, value):
