@@ -4,6 +4,14 @@ A useful graphic helps the audience see something they would otherwise have to a
 
 Use this guide when creating slides or reviewing explanations dominated by words, including pages that already contain a diagram or chart. The [design system](design-system.md) supplies typography, spacing and alignment requirements; [scientific fidelity](scientific-fidelity.md) governs what the visual may claim.
 
+## Review every slide as a complete composition
+
+Every slide within the requested creation or refinement scope deserves a finished composition in which text and visuals work together. Review the opening, context, question, method, results, transitions, ending and any supplementary pages that belong to the task. A strong cover or a consistent template does not excuse underdeveloped pages elsewhere. This requirement concerns the quality of each explanation, not an identical layout or a fixed number of pictures.
+
+Choose the visual treatment from the page's purpose: evidence with annotation, a substantive scientific schematic, an illustrated comparison, a well-designed table or another source-supported representation. Give the text enough hierarchy and space to explain that visual, retaining the method and qualifications the audience needs. A decorative icon attached to a heading or text cards alone do not complete an otherwise unresolved scientific explanation. Exact mathematics, protected quotations and reference material can justify a typography-led treatment when imagery would add no understanding; record that page-specific reason and still finish its hierarchy, alignment and spacing carefully. Never invent evidence or relationships to satisfy a visual quota.
+
+Review the sequence as well as individual pages. Reuse the same visual vocabulary without making every page the same, and keep [retained text fixed](spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes) when it appears on consecutive slides. Introduce new material around those stable elements rather than moving an existing explanation to create room. This continuity check is separate from whether each page looks balanced in isolation.
+
 ## Choose what the visual needs to explain
 
 Read the source before choosing an asset. Identify the research object, the distinction or action being explained, and the evidence supporting any relationship. Record that purpose briefly in the private slide specification alongside the source-to-output ledger. For example, a comparison of operating conditions may need the same physical system shown twice, with only the relevant condition changing. A generic symbol for the research field would contribute much less.
