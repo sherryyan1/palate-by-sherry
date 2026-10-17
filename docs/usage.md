@@ -68,6 +68,12 @@ For explanations dominated by words, **palate** looks for what would help listen
 
 The cover also follows the research. **palate** chooses a focal subject and composition from the material available, whether that means a specimen image, a field setting, a restrained system schematic or a carefully composed title. It keeps the title editable and uses spacing and scale to introduce the topic without competing detail. The [visual storytelling](../references/visual-storytelling.md) and [cover guide](../references/cover-art-direction.md) explain these design choices and their scientific limits.
 
+When a figure contains several panels, **palate** can separate them into rounded evidence regions or focused slides, with concise headings beside each result. It retains panel identities and the axes, legends and qualifications needed to interpret them. The surrounding layout and added labels remain editable; a retained image panel's interior remains an image. The [panel guide](../references/figure-panels.md) explains this distinction and the checks behind extraction.
+
+For country comparisons, **palate** considers small flags beside country names where they help recognition. It can also look for suitable Flaticon icons when permitted browsing or an authorized API is available. It checks the actual download license and required credit; no account or API integration comes with the skill. If access is missing, it explains the specific dependency and uses a suitable available alternative. See [asset sourcing](../references/asset-sourcing.md).
+
+A complete presentation closes its main argument with visual key takeaways. **palate** brings back meaningful objects, relationships or evidence from the talk and pairs them with concise, qualified messages. The ending helps listeners recall the research rather than presenting another block of closing bullets. Q&A and supplementary material can follow that summary.
+
 New decks start in the agreed application using an available tool that can create native, editable slides. The included object-preservation helpers work on existing decks; they do not create slides from a paper or notes by themselves. Without a suitable authoring tool, **palate** can develop the narrative and slide content, but leaves file creation pending.
 
 For existing decks, the editing route depends on the objects and changes involved:
@@ -118,6 +124,7 @@ Requirements apply where the agent executes the work, which may differ from the 
 | Identify source format and route the workflow | Python 3.11+ |
 | Inspect and preserve objects in `.pptx` files | Python 3.11+, lxml |
 | Raster-resolution diagnostics | Pillow |
+| Optional static figure-panel extraction | Pillow; a source-hashed crop plan and a fresh output directory. Panel selection, shared context and native slide placement still need review. |
 | Included Windows PowerPoint rendering option | Windows and Microsoft PowerPoint |
 | New or rebuilt native slides, including translated or rewritten text | Available native presentation authoring workflow |
 | Experimental native Keynote adapter | macOS, Keynote, `osascript`, Python 3.11+ and automation permission; no Node or PowerPoint dependency |

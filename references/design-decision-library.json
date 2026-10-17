@@ -430,6 +430,84 @@
         "Full-size and thumbnail review confirms intentional space, readable title and metadata, contrast and alignment within the foreground work area.",
         "Scientific imagery is accurate for its stated role; text remains editable and the delivery application render has been reviewed."
       ]
+    },
+    {
+      "id": "R026",
+      "name": "Purposeful and licensed icon sourcing",
+      "dimension": "visual_assets",
+      "status": "primary",
+      "trigger": "An explanatory graphic needs an additional icon or asset beyond the available local set.",
+      "decision": "Choose a semantically appropriate, coherent asset through an available permitted route, with its actual license and credit preserved.",
+      "execution": "Follow asset-sourcing.md. Flaticon is an optional source through available permitted browsing or an explicitly configured official API. Inspect the depicted object and family, actual download permission and account entitlement. Use generic nonconfidential searches and keep an asset/source/license record privately. Retain required visible credits and verify the imported render. Use bundled icons or native drawing where online acquisition is unavailable. Do not assume a built-in API integration or redistribute downloaded stock in the skill package.",
+      "exceptions": [
+        "Do not add an icon when it contributes no understanding or introduces an unsupported scientific detail.",
+        "A login, paid download or API dependency must be resolved through the available authorized workflow; it does not permit bypassing access or format restrictions.",
+        "Retained research figures keep their evidence role; an illustration is not a replacement for a result."
+      ],
+      "validation": [
+        "The chosen asset depicts the relevant subject and fits a coherent visual family, with adequate placed resolution.",
+        "Actual source, license, required credit and slide destination are traceable; no private research was uploaded merely to search for an icon.",
+        "Reports distinguish a found page, a licensed download and a tested import. No unsupported API, account or redistribution capability is claimed."
+      ]
+    },
+    {
+      "id": "R027",
+      "name": "Flags as labeled country identifiers",
+      "dimension": "geographic_identification",
+      "status": "contextual",
+      "trigger": "Several country-level results or comparisons would benefit from faster recognition.",
+      "decision": "Consider small verified flags paired with country names on selected slides, preserving readable quantitative comparisons.",
+      "execution": "Follow asset-sourcing.md#use-flags-to-aid-country-comparisons. Match the exact source geography and relevant time context, keep names or defined codes editable, and use consistent optical size with correct flag colors and proportions. Place each flag near its country and corresponding result. Use a licensed static asset rather than relying on platform-specific emoji.",
+      "exceptions": [
+        "Omit flags when they crowd the evidence or add little recognition value; retain all country results and text identifiers.",
+        "Do not assign a country flag to a region, aggregate, ambiguous code or unmatched geographic entity. Preserve the source label while resolving a material ambiguity.",
+        "Flags do not replace legends, data marks, scales, heatmap colors or source scientific color mappings."
+      ],
+      "validation": [
+        "Every flag-to-name-to-result association matches the source and is legible in the application render.",
+        "Country identity, source ordering, quantities, uncertainty and scientific color roles remain unchanged.",
+        "Flag source and reuse permission are recorded; proportions, colors, contrast and optical alignment remain coherent."
+      ]
+    },
+    {
+      "id": "R028",
+      "name": "Grouped and traceable figure panels",
+      "dimension": "multi_panel_evidence",
+      "status": "contextual",
+      "trigger": "A source composite figure or several related panels would be clearer as grouped evidence regions or a focused slide sequence.",
+      "decision": "Consider generous rounded color regions with native panel headings or badges, separating the evidence without separating it from its interpretation context.",
+      "execution": "Follow figure-panels.md. Inspect the whole figure and caption before extracting or cropping. Retain original panel identities, shared axes, legends, color bars, scale bars, uncertainty and citations. Keep any new deck-local A/B/C/D labels distinct and traceable; H identifiers require an established hypothesis identity or an explicitly confirmed presentation-group meaning that is visibly distinguished from a hypothesis. Use native framing and labels around retained panels, with complete source-to-output and crop-bound records. Prefer separate source objects or reversible crops; the optional pixel-crop helper does not detect panels or certify scientific completeness. Split at coherent boundaries when legibility needs more room.",
+      "exceptions": [
+        "A shared axis, legend or connected relationship may require retaining the original whole figure or visibly repeating verified context.",
+        "The number of regions follows the actual explanation; four panels, equal cards and fixed corner radii are not required.",
+        "Do not remove observations, uncertainty or required context, stretch plots to fit equal cards, or imply a common experiment between unrelated studies. Retained image interiors remain raster or vector assets, not native scientific objects.",
+        "When exact H labels are requested without a clear meaning, clarify their role before presenting them as hypotheses; a request for badge styling alone can use neutral panel letters."
+      ],
+      "validation": [
+        "Each destination panel maps to the original figure, panel label and exact crop or object; all dependencies needed for interpretation remain visible.",
+        "Reordering and color grouping introduce no unsupported scientific relation or comparison, and citations, notes and cross-references remain correct.",
+        "Native labels and framing remain editable; retained image limits are disclosed and every relevant application render is checked for fit and legible evidence."
+      ]
+    },
+    {
+      "id": "R029",
+      "name": "Visual key takeaways at the end of the talk",
+      "dimension": "closing_synthesis",
+      "status": "primary",
+      "trigger": "Creating or refining a complete multi-slide presentation.",
+      "decision": "Conclude the main narrative with key takeaways that synthesize supported messages through meaningful visuals and concise wording.",
+      "execution": "Follow visual-storytelling.md#close-with-visual-key-takeaways. Use a closing slide or short sequence that reuses established research objects, verified relationships or legible evidence. Select the message count and composition from the argument, keep essential qualifications visible and retain native editable wording. Place optional Q&A, contacts or supplementary pages after the final substantive summary. Trace condensed statements to source and earlier evidence.",
+      "exceptions": [
+        "A request limited to individual slides does not require an unrelated new ending.",
+        "Tutorials and proposed studies summarize learned concepts, supported questions or next steps without inventing completed findings.",
+        "Unavailable authoring or an unverifiable visual leaves the closing work pending; plain text is not reported as a completed visual synthesis."
+      ],
+      "validation": [
+        "The complete talk has a final substantive key-takeaways summary before any Q&A or supplementary material.",
+        "Established objects, relationships or evidence contribute to recall; plain bullets, generic checkmarks and decorated text cards alone do not satisfy the rule.",
+        "Messages preserve claim strength, assumptions, uncertainty, proposed/completed status and attribution without introducing new results or unsupported recommendations.",
+        "The closing composition has deliberate hierarchy and space, readable evidence and editable wording, with separate scientific, editability and native-render review."
+      ]
     }
   ]
 }

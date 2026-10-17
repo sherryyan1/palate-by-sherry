@@ -64,6 +64,8 @@ The skill entrypoint lives at the repository root, with its runtime references a
 
 The runtime package also includes a small optional set of licensed slide icons for offline use; README graphics and private research assets remain outside the package.
 
+Optional figure-panel extraction uses Pillow, already listed in the runtime requirements. Flaticon sourcing uses tools and permissions actually available in the host; installation does not configure an external account or API connection.
+
 Use the existing package builder and managed installer. A standard Codex Skill Installer pointed at this repository's root does not enforce that allowlist and can omit required runtime directories. The [installation validation record](validation.md#installation-and-discovery) describes the tested Windows paths, the observed root-install failure and the limits of those checks. macOS and Linux installation remain untested; Codex must verify the actual environment and discovery when installing there.
 
 ## Advanced manual setup

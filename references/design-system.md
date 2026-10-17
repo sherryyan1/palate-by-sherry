@@ -104,6 +104,16 @@ Review what the treatment helps the audience understand, rather than checking wh
 
 Choose a [cover direction](cover-art-direction.md) from the central research subject, the intended introduction and the material that can be represented accurately. Use a dominant focal point, deliberate quiet space and a clear title hierarchy. A subject image, a field setting, a source-supported mechanism or a restrained conceptual composition can each work; no discipline or brand reference determines one mandatory style. Keep titles and metadata editable, retain the established typography and evaluate the composition both at full slide size and as a thumbnail.
 
+### Grouped figure panels and country identifiers
+
+For a composite figure, consider [separate rounded evidence regions](figure-panels.md), each with a concise native heading or badge and its relevant panel. Generous corner rounding and color can distinguish the groups while the original axes, legends, panel identities and scientific colors remain intact. Use A, B, C and D only as many times as the actual panels require; retain source labels or explicitly map any deck-local labels. H1 and related markers ordinarily identify hypotheses, so verify that meaning and distinguish any explicitly confirmed alternative group convention. Split across slides when the grouped view would make its evidence too small.
+
+For comparisons across several countries, consider [flags beside country names](asset-sourcing.md#use-flags-to-aid-country-comparisons) on selected slides. Keep identifiers small, consistent and geographically accurate. They help recognition without replacing names, chart legends or quantitative encodings. Select additional icons through the same guide, using a coherent licensed family that serves the explanation.
+
+### A visual ending
+
+End a complete talk's main narrative with [visual key takeaways](visual-storytelling.md#close-with-visual-key-takeaways). Bring back the objects, relationships or evidence that make its supported messages memorable, with concise editable wording and deliberate space. Plain closing bullets or decorative text cards do not supply that synthesis. Preserve important qualifications and distinguish findings from proposed work; optional Q&A, contacts and appendices can follow.
+
 ### Choosing a text-box treatment
 
 A light neutral fill can make a self-contained explanation easier to distinguish from neighboring evidence. Consider a pale gray panel with gently rounded corners when the text needs that enclosure, giving it comfortable internal space and a clear heading. Treat fill, corner shape, inset spacing and type hierarchy as one composition; the enclosure should clarify a group without crowding its content or competing with the figure.

@@ -30,6 +30,8 @@ FILES = [
     "references/source-to-slides.md",
     "references/visual-storytelling.md",
     "references/cover-art-direction.md",
+    "references/asset-sourcing.md", "references/figure-panels.md",
+    "scripts/extract_figure_panels.py",
     "assets/slide-icons/LICENSE", "assets/slide-icons/NOTICE.md",
     "assets/slide-icons/sun.svg", "assets/slide-icons/solar-panel.svg",
     "assets/slide-icons/battery-charging.svg", "assets/slide-icons/house.svg",

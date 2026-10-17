@@ -43,6 +43,8 @@ The optional [slide icon set](../assets/slide-icons/NOTICE.md) provides a small,
 
 A suitable illustration tool can supply a more specific depiction when simple symbols are insufficient. Inspect its geometry and scientific details, use adequate resolution at the final placed size, and avoid embedded generated lettering. Do not imitate low-resolution composites, mix unrelated icon styles or reproduce a reference's incidental colors merely because its explanatory composition is useful. Follow the user's authorized environment and [host workflow](host-workflows.md) before sending research to any additional service.
 
+Use the [asset sourcing guide](asset-sourcing.md) for optional Flaticon search and licensed downloads, and for small labeled flags where they improve country comparisons. Use [figure panels](figure-panels.md) when a source composite needs to become separate evidence regions or a sequence of focused slides. Retain its scientific identities and shared interpretation context while making the surrounding composition editable.
+
 Do not turn descriptive statistics into a plausible-looking density curve, draw a geographic distribution without geographic evidence, or invent trajectories to make a conceptual page look quantitative. If the source supplies only components and an unresolved relationship, show the components without a directional link and retain the uncertainty in words. Unsupported content is not repaired by labeling an otherwise misleading figure "conceptual."
 
 ## Give the explanation enough space
@@ -50,6 +52,23 @@ Do not turn descriptive statistics into a plausible-looking density curve, draw 
 If useful objects, their relationships and readable text cannot share the work area comfortably, split at a conceptual boundary. An overview followed by a mechanism or module detail can preserve both orientation and depth. Give each resulting slide a clear explanatory purpose and map every claim, qualification, reference and note to its destination. Update navigation and cross-references after splitting.
 
 Do not shrink below the 10.5 pt minimum, crowd a diagram to preserve an arbitrary slide count or split solely to make room for decoration. Keep corresponding non-title text top-anchored, navigation labels vertically centered and table alignment consistent with the [design system](design-system.md#text-boxes-and-tables).
+
+## Close with visual key takeaways
+
+Every complete presentation needs a final substantive summary that helps the audience recall what the research establishes and why it matters within its stated scope. Place a key takeaways slide or a short summary sequence at the end of the main narrative, before optional Q&A, contact details or supplementary material. A title can follow the presentation language and context; the visual synthesis is the requirement, not an English heading.
+
+Build the summary from the messages already developed in the talk. Reuse recognizable research objects, a verified relationship or a concise piece of retained evidence, with short native explanations nearby. The visual continuity should help listeners recall the reasoning, while hierarchy and space make the closing message easy to grasp. Several lines of text, generic checkmarks or text cards with decorative icons are insufficient on their own.
+
+| Closing task | Visual synthesis to consider |
+| :--- | :--- |
+| Recall distinct findings | Pair each supported message with the relevant object or evidence motif established earlier, giving the most important message a clear entry. |
+| Explain the overall contribution | Reuse a verified mechanism or system overview, emphasizing what the presented evidence adds without turning presentation order into causality. |
+| Compare outcomes | Retain a small, legible comparison or chart with its essential scales and qualifications, then state the supported distinction beside it. |
+| Conclude a tutorial or proposed study | Summarize the concepts learned or the source-supported questions and next steps through an explanatory relationship or visual roadmap. Preserve proposed versus completed status. |
+
+Choose the number of messages and the arrangement from the actual argument. Do not force three takeaways, equal cards or an icon for every point. Keep limitations and uncertainty that materially affect interpretation visible with the relevant message. Cite evidence as needed for a standalone closing page, and map any condensed statement to its earlier source and destination in the private ledger.
+
+A closing summary must not introduce new results, a stronger causal claim, an unsupported recommendation or an invented future benefit. When a useful graphic cannot yet be authored or verified, keep that closing work pending rather than treating a text-only substitute as a completed visual summary. A request limited to individual slides does not require adding an unrelated ending, but a complete-deck task includes this review.
 
 ## Review the contribution, then the rendering
 
