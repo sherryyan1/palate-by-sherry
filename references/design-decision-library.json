@@ -41,14 +41,17 @@
       "name": "Comparable dimensions",
       "dimension": "layout_logic",
       "status": "contextual",
-      "trigger": "A slide compares alternatives, mechanisms or results.",
-      "decision": "Organize around shared dimensions and consistent visual encoding.",
-      "execution": "Align scales, label conventions and reading order; keep unequal baselines explicit.",
+      "trigger": "A slide compares alternatives, mechanisms, conditions, results or groups of considerations.",
+      "decision": "Make the actual comparison clear through shared criteria where valid, explicit group identities and consistent visual encoding.",
+      "execution": "Use comparison-patterns.md to consider branched considerations, shared-criterion pairs or parallel qualitative fields, then choose by the actual comparison and source evidence. Design a different composition when those patterns do not fit. Align criteria, scales, units, label conventions and reading order; keep unequal baselines explicit. Preserve the distinction between two alternatives and benefits/constraints of one alternative. Quantitative indicators require verified comparable values and an encoding that preserves precision and uncertainty. Retain source-supported explanations and qualifications rather than filling a fixed number of rows or visual slots.",
       "exceptions": [
-        "Alternatives may require different amounts of evidence or unmatched controls."
+        "Alternatives may require different amounts of evidence or unmatched controls.",
+        "Two sides, equal lists, a comparison badge, segmented bars and a fixed criterion count are optional; do not invent values, rankings, pairings or considerations to fit them."
       ],
       "validation": [
-        "The layout does not imply scientific equivalence that the source does not support."
+        "The layout does not imply scientific equivalence that the source does not support.",
+        "The composition makes the actual criteria and conditions inspectable, preserves all alternatives and source associations, and uses quantitative marks only when values, units, scales and precision support them.",
+        "An unsuitable pattern is replaced with a content-led design, with separately reviewed native editability, rendered appearance and retained-text continuity where relevant."
       ]
     },
     {

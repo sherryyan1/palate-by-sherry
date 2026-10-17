@@ -29,6 +29,7 @@ FILES = [
     "references/host-workflows.md",
     "references/source-to-slides.md",
     "references/visual-storytelling.md",
+    "references/comparison-patterns.md",
     "references/cover-art-direction.md",
     "references/asset-sourcing.md", "references/figure-panels.md",
     "scripts/extract_figure_panels.py",

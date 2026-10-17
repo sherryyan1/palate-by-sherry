@@ -33,7 +33,7 @@ Choose the composition from the relationship the slide explains. Comparisons nee
 | Content | Design choice | Scientific condition |
 | :--- | :--- | :--- |
 | Result | Keep evidence beside its interpretation. | Preserve the finding's scope and uncertainty. |
-| Comparison | Align scales, labels and reading order. | Make unequal baselines or unmatched controls explicit. |
+| Comparison | Select a [comparison composition](comparison-patterns.md), aligning criteria, scales, labels and reading order. | Make unequal baselines or unmatched controls explicit; design a different arrangement when the listed patterns do not fit. |
 | Method | Connect symbols, intuition and technical steps. | Retain the chain listeners need to verify. |
 | Mechanism | Use labeled objects and meaningful connections. | Reconstruct only relationships that can be checked. |
 | Reference | Give citations and supporting detail enough space. | Keep sources readable and traceable. |

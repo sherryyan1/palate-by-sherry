@@ -33,7 +33,7 @@ Choose the composition before filling the page with prose. Use recognizable rese
 | Explanatory task | Composition to consider | What makes it useful |
 | :--- | :--- | :--- |
 | Explain an intervention | Show the relevant object, the intervention and its supported consequence. | The audience can identify what changes and what remains the same. Do not add an unverified causal link. |
-| Compare conditions or mechanisms | Repeat a shared baseline with aligned views, changing only the relevant features. | The difference is visible without rereading two paragraphs; unequal baselines remain explicit. |
+| Compare conditions or mechanisms | Repeat a shared baseline with aligned views, changing only the relevant features, or use an appropriate [comparison composition](comparison-patterns.md). | The difference is visible without rereading two paragraphs; unequal baselines remain explicit. The available patterns do not constrain a new content-led design. |
 | Explain time or operating context | Pair source-supported states with a timeline, clock or environmental cue. | The cue locates the explanation without introducing invented temporal profiles. |
 | Introduce a complex method | Give an overview of inputs, modules and outputs, then develop the necessary detail on subsequent slides. | Objects and module identities remain recognizable as the explanation unfolds. |
 | Motivate an analytical method | Show the available observations and the question or limitation the method addresses. | The method responds to the actual evidence gap, rather than an invented idealized dataset. |
