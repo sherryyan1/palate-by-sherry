@@ -101,6 +101,10 @@ Where useful graphics and readable text cannot share the work area comfortably, 
 
 Review both what the graphic explains and whether the visible sequence retains enough method, evidence and reasoning for this audience. Neat panels, spare wording and a complete script in notes do not establish either judgment. Retain necessary prose, exact quotations or conventional references when their purpose justifies it, recording a slide-specific reason. An abstract diagram can depend on precise labels; it does not need a forced physical metaphor. Native editability, scientific meaning and the final application render remain separate checks. Unavailable authoring or native review leaves the relevant work pending.
 
+### Research Question page
+
+Use the [question-framing composition](visual-storytelling.md#frame-a-research-question) when a study benefits from showing its motivation, overarching question and related subquestions together. Start with a compact illustrated motivation at left, a dominant question callout at upper right and coordinated inquiry regions below. Give the main question the strongest emphasis and retain enough wording to distinguish the subquestions. Images and text follow the research; neither a three-step chain nor four cards are fixed requirements. Adapt the arrangement to the canvas, preserve source-supported relationships and keep the questions distinct from findings.
+
 ### Cover composition
 
 Choose a [cover direction](cover-art-direction.md) from the central research subject, the intended introduction and the material that can be represented accurately. Use a dominant focal point, deliberate quiet space and a clear title hierarchy. A subject image, a field setting, a source-supported mechanism or a restrained conceptual composition can each work; no discipline or brand reference determines one mandatory style. Keep titles and metadata editable, retain the established typography and evaluate the composition both at full slide size and as a thumbnail.

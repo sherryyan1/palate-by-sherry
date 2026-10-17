@@ -509,6 +509,27 @@
         "Messages preserve claim strength, assumptions, uncertainty, proposed/completed status and attribution without introducing new results or unsupported recommendations.",
         "The closing composition has deliberate hierarchy and space, readable evidence and editable wording, with separate scientific, editability and native-render review."
       ]
+    },
+    {
+      "id": "R030",
+      "name": "Motivation, main question and related inquiries",
+      "dimension": "research_question_framing",
+      "status": "contextual",
+      "trigger": "Creating or refining a Research Question page for a study with a central question and related inquiries.",
+      "decision": "Connect an illustrated research motivation with one dominant question and clearly differentiated subquestions.",
+      "execution": "Follow visual-storytelling.md#frame-a-research-question. Start with a narrow motivation strip at left, a prominent question callout at upper right and coordinated subquestion regions beneath it when that arrangement fits. Adapt research objects, wording, region count and placement to the actual source and canvas. Keep the main question visually dominant and enough explanation visible to distinguish each inquiry. Use source-supported relationships or a noncausal comparison/evidence gap; preserve hypotheses and findings as different roles. Keep text and framing native where feasible, retain the work area and text anchoring rules, and use the target palette and authorized master branding.",
+      "exceptions": [
+        "Three motivating stages, four cards, a question-mark motif, accent lines and the reference's topic or colors are not mandatory.",
+        "A study with one indivisible question, a tutorial or a narrow slide edit does not require invented subquestions or an unrelated framing page.",
+        "Reflow or split when the canvas and substantive questions need more room; do not shrink text to preserve the example grid.",
+        "An unsupported causal chain must not be copied from the reference or inferred merely from related topics."
+      ],
+      "validation": [
+        "The audience can identify why the study's question arises, state the main question and distinguish each source-supported subquestion.",
+        "The diagram's components and relationships match the source, with proposed pathways labeled and no invented objectives or implied results.",
+        "The actual render preserves a dominant question, readable supporting text, stable top-anchored starts, work-area bounds and any section navigation's separate 12 pt minimum.",
+        "Illustration editing limits and native text, framing and connector editability receive separate review; subquestion cues are not treated as research evidence."
+      ]
     }
   ]
 }
