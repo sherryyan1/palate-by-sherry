@@ -28,6 +28,16 @@ FILES = [
     "references/spacing-and-hierarchy.md",
     "references/host-workflows.md",
     "references/source-to-slides.md",
+    "references/visual-storytelling.md",
+    "references/cover-art-direction.md",
+    "assets/slide-icons/LICENSE", "assets/slide-icons/NOTICE.md",
+    "assets/slide-icons/sun.svg", "assets/slide-icons/solar-panel.svg",
+    "assets/slide-icons/battery-charging.svg", "assets/slide-icons/house.svg",
+    "assets/slide-icons/factory.svg", "assets/slide-icons/network.svg",
+    "assets/slide-icons/boxes.svg", "assets/slide-icons/cpu.svg",
+    "assets/slide-icons/cloud-rain.svg", "assets/slide-icons/wheat.svg",
+    "assets/slide-icons/coins.svg", "assets/slide-icons/sliders-horizontal.svg",
+    "assets/slide-icons/dna.svg", "assets/slide-icons/microscope.svg",
 ]
 NAME = "palate"
 LEGACY_NAME = "palate-by-sherry"

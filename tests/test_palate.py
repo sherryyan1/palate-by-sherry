@@ -286,7 +286,9 @@ class PackagingTests(unittest.TestCase):
             manifest = packager.build(package)
             self.assertEqual(manifest["name"], "palate")
             with zipfile.ZipFile(package) as z:
-                self.assertFalse(any("assets/" in p or "analysis/" in p or ".git/" in p for p in z.namelist()))
+                runtime_assets = {"palate/" + name for name in packager.FILES if name.startswith("assets/slide-icons/")}
+                self.assertTrue(all("assets/" not in name or name in runtime_assets for name in z.namelist()))
+                self.assertFalse(any("analysis/" in name or ".git/" in name for name in z.namelist()))
                 self.assertTrue(all(name.startswith("palate/") for name in z.namelist()))
             installed = root / "skills/palate"
             packager.install(package, installed)

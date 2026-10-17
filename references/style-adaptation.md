@@ -6,7 +6,9 @@ Use this guide when learning from supplied slides, reports or design feedback. T
 
 ## 01 | Identify the choice and its evidence
 
-Inspect appearance and structure together, then identify what the arrangement helps the reader understand. Record the source identity, hash and one-based slide or PDF page in private task notes so the observation remains traceable.
+Inspect appearance and structure together, then identify what the arrangement helps the reader understand. When a deck is supplied for thorough study, inspect every slide and relevant build state rather than selecting only attractive pages. Record the source identity, hash and one-based slide or PDF page in private task notes so the observation remains traceable.
+
+For illustrated explanations, trace how research objects, repeated symbols, spatial relationships and nearby labels develop the argument across pages. Distinguish those choices from the asset's surface style. A useful mechanism diagram can still have low-resolution images, inconsistent icons or embedded lettering that should not be reproduced. Learn its explanatory composition while using coherent assets and native editable labels in the new work. Keep the three [visual roles](visual-storytelling.md#choose-what-the-visual-needs-to-explain) distinct, and do not infer quantitative distributions or causal links from decorative shapes.
 
 Keep the basis for the observation explicit:
 
@@ -31,7 +33,7 @@ Use the same scientific content for alternatives so that the design difference c
 | Color mapping | Are categories distinguishable and consistent with the legend? |
 | Graphic emphasis | Does the emphasis direct attention to a supported point? |
 
-Ask a focused question about the actual alternatives and their tradeoff. Wait for a submitted answer before treating a preference as confirmed; silence does not establish a choice.
+Reuse preferences the user has already confirmed. When a consequential choice remains uncertain, ask a focused question about the actual alternatives and their tradeoff. Wait for a submitted answer before treating a new preference as confirmed; silence does not establish a choice. Routine implementation within an established preference does not require another interview.
 
 ## 03 | Apply feedback within its demonstrated scope
 

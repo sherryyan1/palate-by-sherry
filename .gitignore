@@ -95,6 +95,25 @@ id_ed25519*
 !/assets/icons/palette.svg
 !/assets/icons/square-terminal.svg
 !/assets/icons/users-round.svg
+# Track only reviewed offline slide icons, their notice and full license.
+!/assets/slide-icons/
+/assets/slide-icons/*
+!/assets/slide-icons/LICENSE
+!/assets/slide-icons/NOTICE.md
+!/assets/slide-icons/sun.svg
+!/assets/slide-icons/solar-panel.svg
+!/assets/slide-icons/battery-charging.svg
+!/assets/slide-icons/house.svg
+!/assets/slide-icons/factory.svg
+!/assets/slide-icons/network.svg
+!/assets/slide-icons/boxes.svg
+!/assets/slide-icons/cpu.svg
+!/assets/slide-icons/cloud-rain.svg
+!/assets/slide-icons/wheat.svg
+!/assets/slide-icons/coins.svg
+!/assets/slide-icons/sliders-horizontal.svg
+!/assets/slide-icons/dna.svg
+!/assets/slide-icons/microscope.svg
 *.mp4
 *.gif
 /output/

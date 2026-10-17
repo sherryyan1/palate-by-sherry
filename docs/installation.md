@@ -62,6 +62,8 @@ For current discovery and invocation guidance, see [OpenAI's skill documentation
 
 The skill entrypoint lives at the repository root, with its runtime references and scripts in sibling directories. Copying only `SKILL.md` leaves those references and tools behind; copying the whole repository includes files that do not belong in an installed skill. The package builder selects the explicit runtime allowlist and records each file's hash so the installation can be checked and later updated without discarding local work.
 
+The runtime package also includes a small optional set of licensed slide icons for offline use; README graphics and private research assets remain outside the package.
+
 Use the existing package builder and managed installer. A standard Codex Skill Installer pointed at this repository's root does not enforce that allowlist and can omit required runtime directories. The [installation validation record](validation.md#installation-and-discovery) describes the tested Windows paths, the observed root-install failure and the limits of those checks. macOS and Linux installation remain untested; Codex must verify the actual environment and discovery when installing there.
 
 ## Advanced manual setup

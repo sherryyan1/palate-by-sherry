@@ -178,13 +178,39 @@ class RepositoryAuditTests(unittest.TestCase):
             "assets/icons/research.pdf",
             "assets/icons/research.png",
             "assets/icons/deck.key/notes.svg",
+            "assets/slide-icons/unreviewed.svg",
+            "assets/slide-icons/sun.svg.bak",
+            "assets/slide-icons/SUN.svg",
+            "assets/slide-icons/nested/sun.svg",
+            "assets/slide-icons/research.pdf",
+            "assets/slide-icons/research.png",
+            "assets/slide-icons/deck.key/notes.svg",
             "docs/research.pdf",
             "docs/deck.key/notes.svg",
         )}
-        result, _ = self.fixture(files)
-        for name in files:
-            with self.subTest(path=name):
-                self.assertEqual(self.issues(result, name), {"private_or_generated_material"})
+        for staged in (False, True):
+            result, _ = self.fixture(files, staged=staged)
+            for name in files:
+                with self.subTest(path=name, staged=staged):
+                    self.assertEqual(self.issues(result, name), {"private_or_generated_material"})
+
+    def test_exact_reviewed_slide_icons_and_notices_are_allowed(self):
+        filenames = {
+            "LICENSE", "NOTICE.md", "sun.svg", "solar-panel.svg",
+            "battery-charging.svg", "house.svg", "factory.svg", "network.svg",
+            "boxes.svg", "cpu.svg", "cloud-rain.svg", "wheat.svg",
+            "coins.svg", "sliders-horizontal.svg", "dna.svg", "microscope.svg",
+        }
+        reviewed = frozenset("assets/slide-icons/" + name for name in filenames)
+        self.assertIsInstance(repository_audit.REVIEWED_SLIDE_ICON_ASSETS, frozenset)
+        self.assertEqual(repository_audit.REVIEWED_SLIDE_ICON_ASSETS, reviewed)
+        self.assertTrue(reviewed.isdisjoint(repository_audit.REVIEWED_README_ICON_ASSETS))
+        files = {name: "Synthetic English asset.\n" for name in reviewed}
+        for staged in (False, True):
+            with self.subTest(staged=staged):
+                result, _ = self.fixture(files, staged=staged)
+                self.assertEqual(result["status"], "passed", result)
+                self.assertEqual(result["files_checked"], 16)
 
     def test_reviewed_asset_exception_keeps_research_suffix_and_key_directory_checks(self):
         files = {
@@ -204,7 +230,7 @@ class RepositoryAuditTests(unittest.TestCase):
             (b"\xff\xfe\x00", "unexpected_binary"),
             ("<svg><title>\u4e2d\u6587</title></svg>\n", "non_English_script"),
         )
-        for name in sorted(repository_audit.REVIEWED_README_ICON_ASSETS):
+        for name in sorted(repository_audit.REVIEWED_README_ICON_ASSETS | repository_audit.REVIEWED_SLIDE_ICON_ASSETS):
             for content, issue in cases:
                 with self.subTest(path=name, issue=issue):
                     result, _ = self.fixture({name: content})

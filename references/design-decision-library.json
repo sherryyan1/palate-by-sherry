@@ -266,7 +266,7 @@
       "status": "primary",
       "trigger": "A slide contains a substantial text block or a dense explanation.",
       "decision": "Give the text a visible design treatment and a clear internal hierarchy that helps the audience follow the explanation.",
-      "execution": "Use a meaningful heading, restrained accent rule, background treatment or labeled grouping with deliberate spacing according to the content. Keep continuous reasoning in connected prose and retain essential scientific qualifications with their evidence. Judge the treatment, type hierarchy and available space together.",
+      "execution": "Use a meaningful heading, restrained accent rule, background treatment or labeled grouping with deliberate spacing according to the content. Keep continuous reasoning in connected prose and retain essential scientific qualifications with their evidence. Judge the treatment, type hierarchy and available space together. Grouping and enclosure do not by themselves satisfy R024; assess the explanation for a useful object depiction, relationship or comparison.",
       "exceptions": [
         "Short labels and captions can remain plain.",
         "A mandatory template can constrain the available treatment; improve hierarchy within its requirements."
@@ -284,7 +284,7 @@
       "status": "contextual",
       "trigger": "A self-contained explanation needs a visible boundary or separation from neighboring evidence.",
       "decision": "Consider a light gray fill with gentle corner rounding when it clarifies the explanation's grouping.",
-      "execution": "Evaluate fill, corner shape, insets, heading hierarchy and surrounding space together using design-system.md#choosing-a-text-box-treatment. Keep shared treatments coherent across comparable blocks, preserve evidence associations and use appropriate native authoring for changes outside a helper's operation set.",
+      "execution": "Evaluate fill, corner shape, insets, heading hierarchy and surrounding space together using design-system.md#choosing-a-text-box-treatment. Keep shared treatments coherent across comparable blocks, preserve evidence associations and use appropriate native authoring for changes outside a helper's operation set. A soft panel is a grouping choice, not a substitute for the semantic visual contribution required by R024.",
       "exceptions": [
         "Labels and captions may communicate their association more clearly without a filled enclosure.",
         "Dark backgrounds need an appropriate neutral tone and checked contrast.",
@@ -397,19 +397,38 @@
       "name": "Illustrations and diagrams for text-heavy explanations",
       "dimension": "visual_explanation",
       "status": "primary",
-      "trigger": "A slide is text-only, or substantial explanatory text remains difficult to follow even when figures are already present.",
-      "decision": "Actively add useful explanatory illustrations, schematics or other content-appropriate graphics to text-heavy explanations. Give each text-only slide a meaningful visual treatment, and assess splitting a complex page when its explanation and useful graphics cannot fit legibly together.",
-      "execution": "Follow design-system.md#visual-treatment-for-text-heavy-slides. An explanatory illustration should depict a research object, setting or intervention described in the source and clarify the accompanying text. Use a labeled schematic for a source-supported mechanism, a flowchart for a verified sequence, a table for shared comparison dimensions or an infographic for concepts and categories. Place visuals near the text they explain, retaining connected reasoning and essential qualifications. Prefer native editable objects; use coherent, adequately resolved illustration assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Keep a private source-to-output ledger, preserve claim and citation associations, and update affected notes, navigation and cross-references. Retain effective existing treatments, stable top-anchored text, the 10.5 pt minimum and the symmetric work area. R018 remains a contextual choice of enclosure, not a required panel preset.",
+      "trigger": "A slide is text-only or its explanation remains dominated by words, including an existing text-box diagram or a page with other figures.",
+      "decision": "Make the relevant research objects, distinctions or verified relationships visible. Assess splitting a complex explanation when useful graphics and readable text need more room.",
+      "execution": "Follow visual-storytelling.md and design-system.md#visual-treatment-for-text-heavy-slides. Before filling the slide with prose, record the visual's explanatory purpose, role and source support privately. Distinguish evidence, explanatory schematics and illustrative depictions. Use recognizable objects and source-supported spatial relationships when they clarify the explanation, with concise native labels and a stable visual vocabulary across related slides. A box-and-arrow layout is not automatically an adequate visual. Prefer editable text, shapes and connectors; use coherent, adequately resolved assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Preserve complete source-to-output coverage, connected reasoning, essential qualifications and attribution; update notes, navigation and cross-references. Retain effective existing treatments, stable top-anchored text, the 10.5 pt minimum and the symmetric work area. R017 and R018 establish grouping, not proof of an explanatory graphic.",
       "exceptions": [
-        "Titles, exact quotations and reference pages may retain their conventional form when their purpose or protected wording requires it; record the slide-specific reason and preserve attribution. Retain necessary prose when a visual transformation would distort the argument.",
+        "Exact quotations, references and necessary prose can retain their form when the purpose or scientific meaning requires it; record the slide-specific reason. Abstract methods and equations do not require a physical metaphor or a decorative icon.",
         "Explanatory imagery must be distinguishable from research evidence. Do not invent causal, temporal, quantitative or categorical relationships; use an accurate nonrelational illustration or composition where possible when a relationship is unverified.",
         "Do not impose a graphic quota, fixed slide count or split solely for decoration. A mandatory template may constrain treatment; record any necessary exception. Unavailable native authoring or review leaves the selected work pending rather than completed."
       ],
       "validation": [
-        "Text-heavy explanations, including pages with existing figures, have been reviewed for useful illustrations or diagrams. Every text-only source slide has a meaningful visual treatment or a justified slide-specific exception; generic decoration alone does not satisfy the rule.",
-        "Illustrations clarify the accompanying explanation, with the depicted subject and relevant features traceable to source content. A generic topic symbol alone does not satisfy that role, and illustrations must not imply unsupported evidence. Diagram labels and connections express only source-supported relationships; claims, qualifications, numerical meaning and attribution remain intact.",
+        "Review text-dominant explanations even when diagrams or figures are present. Identify the understanding contributed by each chosen visual or document a slide-specific exception; panels, number badges, generic topic icons and arrows between unchanged paragraphs do not by themselves satisfy the rule.",
+        "The audience can recognize the relevant subject, distinction, structure or source-supported relationship more readily. Precise scientific labels can remain necessary. Illustrations do not imply observations or results, and diagram connections, visual quantities, claims, qualifications and attribution remain source-supported.",
         "Any split preserves complete source-to-output coverage, reasoning order, essential qualifications beside their claims, and correct references, notes and navigation. The resulting slides have readable type and comfortable spacing rather than crowded graphics or smaller text.",
         "Native editability and the final application render are reviewed separately. Visual assets have adequate resolution and consistent treatment, editing limits are disclosed, text starts remain stable, navigation follows R007, tables follow their rules, and content respects the work area and type-size floor."
+      ]
+    },
+    {
+      "id": "R025",
+      "name": "Research-led cover composition",
+      "dimension": "cover_art_direction",
+      "status": "primary",
+      "trigger": "Creating or materially redesigning the cover of a research presentation.",
+      "decision": "Choose the focal subject and composition from the research identity and available trustworthy material, with deliberate quiet space and title hierarchy.",
+      "execution": "Follow cover-art-direction.md. Consider a subject in focus, place and scale, mechanism as identity or one idea expressed through a restrained form. Preserve the approved typography and scientific color meanings. Keep title and metadata editable, distinguish observed imagery from representative or conceptual imagery, and record the direction and source support privately. Compare another plausible composition internally when the initial result feels generic. Use Apple examples for compositional judgment rather than copying campaign assets, logos or visual effects.",
+      "exceptions": [
+        "A mandatory institutional cover can constrain the composition; improve hierarchy and spacing within it.",
+        "A deliberate typography-led cover can be appropriate when imagery would add no understanding. No image, color scheme or cover questionnaire is mandatory.",
+        "Keep unverified subject details unresolved rather than inventing scientific imagery; unavailable native review remains pending."
+      ],
+      "validation": [
+        "The cover establishes a recognizable research subject or idea through a clear focal hierarchy, rather than an interchangeable title frame.",
+        "Full-size and thumbnail review confirms intentional space, readable title and metadata, contrast and alignment within the foreground work area.",
+        "Scientific imagery is accurate for its stated role; text remains editable and the delivery application render has been reviewed."
       ]
     }
   ]

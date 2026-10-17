@@ -26,6 +26,24 @@ REVIEWED_README_ICON_ASSETS = frozenset({
     "assets/icons/square-terminal.svg",
     "assets/icons/users-round.svg",
 })
+REVIEWED_SLIDE_ICON_ASSETS = frozenset({
+    "assets/slide-icons/LICENSE",
+    "assets/slide-icons/NOTICE.md",
+    "assets/slide-icons/sun.svg",
+    "assets/slide-icons/solar-panel.svg",
+    "assets/slide-icons/battery-charging.svg",
+    "assets/slide-icons/house.svg",
+    "assets/slide-icons/factory.svg",
+    "assets/slide-icons/network.svg",
+    "assets/slide-icons/boxes.svg",
+    "assets/slide-icons/cpu.svg",
+    "assets/slide-icons/cloud-rain.svg",
+    "assets/slide-icons/wheat.svg",
+    "assets/slide-icons/coins.svg",
+    "assets/slide-icons/sliders-horizontal.svg",
+    "assets/slide-icons/dna.svg",
+    "assets/slide-icons/microscope.svg",
+})
 RESEARCH_SUFFIXES = {".pptx", ".ppt", ".key", ".pdf", ".xlsx", ".csv", ".tsv", ".parquet", ".png", ".zip"}
 PRIVATE_FIELDS = {"confirmation", "revision_history", "name_zh", "render_path"}
 LOCALIZED_READMES = frozenset({"README.zh-CN.md", "README.ja.md", "README.ko.md"})
@@ -66,7 +84,9 @@ def audit(staged=False):
     checked = 0
     for name in names:
         path = ROOT / name
-        if ((name.startswith(PRIVATE_PREFIXES) and name not in REVIEWED_README_ICON_ASSETS)
+        if ((name.startswith(PRIVATE_PREFIXES)
+                and name not in REVIEWED_README_ICON_ASSETS
+                and name not in REVIEWED_SLIDE_ICON_ASSETS)
                 or path.suffix.lower() in RESEARCH_SUFFIXES
                 or any(part.lower().endswith(".key") for part in Path(name).parts)):
             findings.append({"file": name, "issue": "private_or_generated_material"})
