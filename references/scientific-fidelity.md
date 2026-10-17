@@ -25,6 +25,7 @@ Before authoring, create a task-local ledger that traces each changed or new sli
 | Source identity | File hash plus slide/shape identity for a deck, or page, section, paragraph, figure, table or equation identity for a document. Pasted text uses a private snapshot with stable paragraph identifiers. |
 | Scientific content | Source statement and protected content: numbers, units, axes, legends, equations, quantitative relationships, uncertainty, assumptions, limitations, caveats, claim strength, references, citations and identifiers. |
 | Destination | Output slide, object, notes or appendix, with the exact replacement statement. |
+| Visible explanation | Which method, comparison, evidence and reasoning this audience needs on the main slides, where each appears and why other material is relocated or excluded. Notes-only retention does not establish sufficient visible explanation. |
 | Reason and interpretation | Why the change is needed and the support for any interpretation. Distinguish an owner's approved correction from an agent's proposal. |
 | Editability and dependencies | Native editability before/after, workbook formulas, animation states and other relevant dependencies. |
 

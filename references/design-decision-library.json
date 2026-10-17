@@ -27,13 +27,13 @@
       "status": "primary",
       "trigger": "A figure needs explanation in a research talk.",
       "decision": "Prefer concise interpretation to a full caption on the main slide.",
-      "execution": "Retain scientific qualifications and sources. Trace supplementary detail to notes or an appendix.",
+      "execution": "Retain the method, comparison, evidence and reasoning this audience needs on the main slides, together with scientific qualifications and sources. Organize substantial content through hierarchy and explanatory graphics; concise interpretation does not mean a headline without its support. Trace only supplementary detail to notes or an appendix. For a short talk, select a coherent scope before stripping detail from every topic.",
       "exceptions": [
         "Live technical verification can require a complete caption or derivation.",
         "Essential interpretation details stay visible."
       ],
       "validation": [
-        "Explanation, evidence and qualifications can be read together."
+        "Explanation, evidence and qualifications can be read together. The visible sequence provides enough reasoning for the selected depth; preserving the full source in notes does not by itself pass this check."
       ]
     },
     {
@@ -88,8 +88,8 @@
       "dimension": "navigation",
       "status": "primary",
       "trigger": "The listener needs orientation in a section sequence, or a slide already contains section navigation.",
-      "decision": "Use meaningful section arrows with restrained emphasis when orientation is needed. Keep navigation items compact and visually connected; arrow segments should join closely with only narrow, consistent separators. Whenever a section navigation bar is present, always place it above the slide title and vertically center its labels within the navigation shapes.",
-      "execution": "Retain existing navigation when useful and highlight the actual current section. Reserve a distinct row above the title. Keep adjacent arrow segments tightly joined and judge visible tip-to-notch seams in the render; a small overlap of shape frames may be needed. Fit the bar through segment widths and overall placement, without widening the gaps to fill the row or obscuring labels. Keep internal insets consistent across navigation shapes and comparable slides, and inspect rendered label alignment and fit. Navigation labels are an explicit exception to the non-title text-box top-anchor default in R016.",
+      "decision": "Use meaningful section arrows with restrained emphasis when orientation is needed. Keep navigation items compact and visually connected; arrow segments should join closely with only narrow, consistent separators. Whenever a section navigation bar is present, always place it above the slide title and vertically center its labels within the navigation shapes. Navigation labels must be at least 12 pt.",
+      "execution": "Retain existing navigation when useful and highlight the actual current section. Reserve a distinct row above the title. Keep adjacent arrow segments tightly joined and judge visible tip-to-notch seams in the render; a small overlap of shape frames may be needed. Fit the bar through concise label wording, segment widths, overall placement or coherent reflow, without widening the gaps to fill the row or obscuring labels. Keep labels at 12 pt or larger after inheritance, automatic fitting and group scaling; do not shrink them to resolve a fit problem. Keep internal insets consistent across navigation shapes and comparable slides, and inspect rendered label alignment and fit. Navigation labels are an explicit exception to the non-title text-box top-anchor default in R016.",
       "exceptions": [
         "Navigation is optional on covers and self-contained pages; the placement rule does not require adding a navigation bar.",
         "Do not invent an unrelated sequence."
@@ -98,7 +98,7 @@
         "Section names and emphasis match the talk structure.",
         "Every section navigation bar is above the slide title, with a visible separation between the two roles.",
         "Navigation items form a compact group. Arrow segments read as a continuous strip with narrow, consistent visible seams and legible labels.",
-        "Navigation labels use vertical middle anchoring with consistent internal insets and readable fit in the delivery application."
+        "Navigation labels use vertical middle anchoring with consistent internal insets and readable fit in the delivery application. Their effective size remains at least 12 pt after automatic fitting and group scaling."
       ]
     },
     {
@@ -207,8 +207,8 @@
       "dimension": "typography",
       "status": "primary",
       "trigger": "Applying Sherry's style to slide text or reviewing text legibility.",
-      "decision": "Use Fira Sans titles and a deliberate size hierarchy, with no displayed text below 10.5 pt.",
-      "execution": "Follow design-system.md: use a suitable Fira title variant, usually Extra Condensed Bold, and Fira Sans for Latin body text. Usually use 12 pt body text and 16 pt prominent subheadings, reserving 10.5 pt for minor information. Resolve actual fonts beyond theme defaults; check script coverage and effective sizes after fitting and scaling. Rearrange or split content rather than shrinking below the floor.",
+      "decision": "Use Fira Sans titles and a deliberate size hierarchy, with no displayed text below 10.5 pt and section navigation labels at least 12 pt.",
+      "execution": "Follow design-system.md: use a suitable Fira title variant, usually Extra Condensed Bold, and Fira Sans for Latin body text. Usually use 12 pt body text and 16 pt prominent subheadings, reserving 10.5 pt for minor information. Section navigation labels retain the separate 12 pt minimum in R007. Resolve actual fonts beyond theme defaults; check script coverage and effective sizes after fitting and scaling. Rearrange or split content rather than shrinking below the floor.",
       "exceptions": [
         "An explicit current typography requirement takes precedence over style defaults.",
         "Other scripts and mathematics need suitable fonts and preserved notation; do not force an unsupported Fira substitution.",
@@ -256,7 +256,7 @@
         "Non-title text boxes use top vertical anchoring except navigation labels or an explicit overriding requirement; navigation labels use middle anchoring, title-layout anchoring is preserved and table cells retain the middle default.",
         "Corresponding top-anchored text begins at the same visible position across comparable slides even when line counts differ; check top edges, top insets, paragraph spacing, first-line typography and fitting.",
         "Descriptive table text is left-aligned, short entries are centered and no right or decimal alignment was introduced without instruction.",
-        "Multiline text, internal margins, wraps and fit are checked in the delivery application without reducing text below 10.5 pt."
+        "Multiline text, internal margins, wraps and fit are checked in the delivery application without reducing text below 10.5 pt or navigation labels below the 12 pt minimum in R007."
       ]
     },
     {
@@ -399,7 +399,7 @@
       "status": "primary",
       "trigger": "A slide is text-only or its explanation remains dominated by words, including an existing text-box diagram or a page with other figures.",
       "decision": "Make the relevant research objects, distinctions or verified relationships visible. Assess splitting a complex explanation when useful graphics and readable text need more room.",
-      "execution": "Follow visual-storytelling.md and design-system.md#visual-treatment-for-text-heavy-slides. Before filling the slide with prose, record the visual's explanatory purpose, role and source support privately. Distinguish evidence, explanatory schematics and illustrative depictions. Use recognizable objects and source-supported spatial relationships when they clarify the explanation, with concise native labels and a stable visual vocabulary across related slides. A box-and-arrow layout is not automatically an adequate visual. Prefer editable text, shapes and connectors; use coherent, adequately resolved assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Preserve complete source-to-output coverage, connected reasoning, essential qualifications and attribution; update notes, navigation and cross-references. Retain effective existing treatments, stable top-anchored text, the 10.5 pt minimum and the symmetric work area. R017 and R018 establish grouping, not proof of an explanatory graphic.",
+      "execution": "Follow visual-storytelling.md and design-system.md#visual-treatment-for-text-heavy-slides. Before filling the slide with prose, record the visual's explanatory purpose, role and source support privately. Distinguish evidence, explanatory schematics and illustrative depictions. Compose interacting objects, operations, states, constraints or comparisons at the resolution the source and audience need, with explanatory native labels and a stable visual vocabulary. A recognizable icon, repeated object or box-and-arrow layout does not by itself explain a method or mechanism. Text-only sources can support substantive analytical schematics without supplying numerical data. Prefer editable text, shapes and connectors; use coherent, adequately resolved assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Preserve sufficient visible method, evidence and reasoning as well as complete source-to-output coverage, essential qualifications and attribution; update notes, navigation and cross-references. Retain effective existing treatments, stable top-anchored text, the type hierarchy including R007's 12 pt navigation minimum, and the symmetric work area. R017 and R018 establish grouping, not proof of an explanatory graphic.",
       "exceptions": [
         "Exact quotations, references and necessary prose can retain their form when the purpose or scientific meaning requires it; record the slide-specific reason. Abstract methods and equations do not require a physical metaphor or a decorative icon.",
         "Explanatory imagery must be distinguishable from research evidence. Do not invent causal, temporal, quantitative or categorical relationships; use an accurate nonrelational illustration or composition where possible when a relationship is unverified.",
@@ -407,7 +407,8 @@
       ],
       "validation": [
         "Review text-dominant explanations even when diagrams or figures are present. Identify the understanding contributed by each chosen visual or document a slide-specific exception; panels, number badges, generic topic icons and arrows between unchanged paragraphs do not by themselves satisfy the rule.",
-        "The audience can recognize the relevant subject, distinction, structure or source-supported relationship more readily. Precise scientific labels can remain necessary. Illustrations do not imply observations or results, and diagram connections, visual quantities, claims, qualifications and attribution remain source-supported.",
+        "The audience can follow the slide's required operation, changed condition, comparison or inference through the composition and its labels. Subject recognition alone is insufficient when a method or relationship needs explanation. Illustrations do not imply observations or results, and diagram connections, visual quantities, claims, qualifications and attribution remain source-supported.",
+        "Compare the visible narrative with the source for sufficient method, evidence and reasoning. Explain material relocation or scope exclusion privately. Reject sparse headlines supported only by notes, and reject rich-looking diagrams with unsupported details; neither icons nor word counts certify quality.",
         "Any split preserves complete source-to-output coverage, reasoning order, essential qualifications beside their claims, and correct references, notes and navigation. The resulting slides have readable type and comfortable spacing rather than crowded graphics or smaller text.",
         "Native editability and the final application render are reviewed separately. Visual assets have adequate resolution and consistent treatment, editing limits are disclosed, text starts remain stable, navigation follows R007, tables follow their rules, and content respects the work area and type-size floor."
       ]

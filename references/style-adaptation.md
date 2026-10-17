@@ -10,6 +10,8 @@ Inspect appearance and structure together, then identify what the arrangement he
 
 For illustrated explanations, trace how research objects, repeated symbols, spatial relationships and nearby labels develop the argument across pages. Distinguish those choices from the asset's surface style. A useful mechanism diagram can still have low-resolution images, inconsistent icons or embedded lettering that should not be reproduced. Learn its explanatory composition while using coherent assets and native editable labels in the new work. Keep the three [visual roles](visual-storytelling.md#choose-what-the-visual-needs-to-explain) distinct, and do not infer quantitative distributions or causal links from decorative shapes.
 
+Study the visible information as carefully as the imagery: which method details, comparison definitions, quantitative callouts and qualified explanations remain on the page, and how hierarchy lets them coexist. Record what each region explains and how its visual components do that work. Learning a rich reference means carrying its explanatory depth into the current material where needed; repeating its panel arrangement with one icon and a short phrase in each panel does not establish that adaptation. Separate illustrative curve shapes and pictorial cues from verified evidence before reusing any composition.
+
 Keep the basis for the observation explicit:
 
 | Basis | What the observation establishes |
