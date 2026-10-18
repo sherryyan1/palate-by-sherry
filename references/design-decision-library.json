@@ -424,17 +424,17 @@
       "dimension": "cover_art_direction",
       "status": "primary",
       "trigger": "Creating or materially redesigning the cover of a research presentation.",
-      "decision": "Design typography, imagery, color and space as one complete cover, with mature visual craft and meaningful variety suited to the research.",
-      "execution": "Follow cover-art-direction.md. For a new cover or substantial redesign, compare at least two different spatial ideas before selecting or generating assets. Consider typographic composition, immersive imagery, organic editorial illustration, chromatic fields and subject scale. Specify visual medium, silhouette or crop, title geometry and quiet space together; do not default to title plus rectangular schematic. Preserve scientific scope, editable title and metadata, required credits and the foreground work area. Keep production labels such as conceptual image off the cover, while retaining meaningful scientific qualifications or choosing imagery that does not need them. Render requested alternatives with identical content and inspect each at full size and as thumbnails. Compare composition and craft, not only palette or picture choice.",
+      "decision": "Compose typography, imagery and space around the research identity, preferring integrated organic editorial illustration and checking that the visual atmosphere supports the topic.",
+      "execution": "Follow cover-art-direction.md. Prefer a light ground, recognizable flat illustrated forms, restrained texture and an organic silhouette integrated with the title. Develop different spatial ideas within appropriate directions before asset selection. Do not offer glowing abstract fields or sparse text-only folios as standard alternatives merely to create variety. Photography remains conditional on subject relevance and atmosphere; a net-zero transition cover should not inadvertently suggest pollution or decline. Inspect the implied setting and mood without inventing achieved outcomes or altering scientific evidence. Preserve research scope, editable text, required credits and the foreground work area. Omit production labels such as conceptual image. Render requested alternatives with the same content and review craft, subject fit and meaningful variety at full size and as thumbnails.",
       "exceptions": [
         "A mandatory institutional cover can constrain the composition; improve hierarchy and spacing within it. A small correction to an approved cover does not require new alternatives.",
-        "A typography-led cover can be appropriate without an added picture. No specific family, color, image, Apple font or extra cover questionnaire is mandatory.",
+        "Explicit user direction, mandatory branding or lack of suitable imagery can justify a different treatment, including composed typography. The preferred illustration does not prescribe one subject, palette or layout for every discipline; dark imagery is evaluated in context rather than universally prohibited.",
         "Do not hide uncertainty or required attribution to improve appearance. Unavailable native application review remains pending."
       ],
       "validation": [
         "Requested alternatives differ materially in spatial structure, image treatment or typography, while preserving the same research title and metadata.",
         "Full-size and thumbnail review confirms readable title and scope, intentional line breaks, optical alignment, integrated silhouette or crop, comfortable spacing and no placeholder or production caption.",
-        "Imagery has a recorded origin and an accurate role. No invented data or site identity is implied. Text remains native and editable, and application rendering and edit-save-reopen behavior are reviewed separately."
+        "The image subject, lighting and implied atmosphere fit the research framing, without inventing results, site identity or achieved environmental benefits. Asset origin and role are recorded. Text remains native and editable; application rendering and edit-save-reopen behavior are reviewed separately."
       ]
     },
     {
