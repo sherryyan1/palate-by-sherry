@@ -1,6 +1,6 @@
 # Finding icons and country identifiers
 
-Choose an asset for the explanation it supports. A useful icon depicts a relevant object or action, while a flag can help listeners locate a country in a comparison. Neither supplies scientific evidence. Follow [visual storytelling](visual-storytelling.md) for the role of the graphic and the [host workflow](host-workflows.md) for the tools and authorized environment available to the task.
+Choose an asset for the explanation it supports. A useful icon depicts a relevant object or action, while a flag can help listeners locate a country in a comparison. Neither supplies scientific evidence. Plan the icon's [supporting role and scale](visual-storytelling.md#keep-icons-in-a-supporting-role) before sourcing it: normally a compact cue inside a flowchart or before a subheading or section label. A large main visual calls for an explanatory illustration or schematic, not an enlarged stock icon. Follow [visual storytelling](visual-storytelling.md) for the role of the graphic and the [host workflow](host-workflows.md) for the tools and authorized environment available to the task.
 
 ## Find a coherent set of icons
 

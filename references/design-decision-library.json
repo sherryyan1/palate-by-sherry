@@ -439,18 +439,19 @@
     },
     {
       "id": "R026",
-      "name": "Purposeful and licensed icon sourcing",
+      "name": "Supporting icon roles and licensed sourcing",
       "dimension": "visual_assets",
       "status": "primary",
-      "trigger": "An explanatory graphic needs an additional icon or asset beyond the available local set.",
-      "decision": "Choose a semantically appropriate, coherent asset through an available permitted route, with its actual license and credit preserved.",
-      "execution": "Follow asset-sourcing.md. Flaticon is an optional source through available permitted browsing or an explicitly configured official API. Inspect the depicted object and family, actual download permission and account entitlement. Use generic nonconfidential searches and keep an asset/source/license record privately. Retain required visible credits and verify the imported render. Use bundled icons or native drawing where online acquisition is unavailable. Do not assume a built-in API integration or redistribute downloaded stock in the skill package.",
+      "trigger": "Selecting, placing or sourcing icons for a slide.",
+      "decision": "Use icons as compact supporting cues within flowcharts or before subheadings and section labels, with a coherent visual family and the actual license and credit preserved. Do not enlarge a lone icon into the main illustration.",
+      "execution": "Follow visual-storytelling.md#keep-icons-in-a-supporting-role for placement and scale, and asset-sourcing.md when obtaining an asset. Judge optical size against nearby text and node structure, align equivalent roles consistently and retain substantive explanatory visuals. Flaticon is an optional source through available permitted browsing or an explicitly configured official API. Inspect the depicted object and family, actual download permission and account entitlement. Use generic nonconfidential searches and keep an asset/source/license record privately. Retain required visible credits and verify the imported render. Use bundled icons or native drawing where online acquisition is unavailable. Do not assume a built-in API integration or redistribute downloaded stock in the skill package.",
       "exceptions": [
         "Do not add an icon when it contributes no understanding or introduces an unsupported scientific detail.",
         "A login, paid download or API dependency must be resolved through the available authorized workflow; it does not permit bypassing access or format restrictions.",
         "Retained research figures keep their evidence role; an illustration is not a replacement for a result."
       ],
       "validation": [
+        "Icons support nearby labels or diagram components without displacing method detail or becoming oversized main images. Optical alignment, spacing and scale are coherent across equivalent roles; substantive scenes and scientific schematics retain the space their explanation needs.",
         "The chosen asset depicts the relevant subject and fits a coherent visual family, with adequate placed resolution.",
         "Actual source, license, required credit and slide destination are traceable; no private research was uploaded merely to search for an icon.",
         "Reports distinguish a found page, a licensed download and a tested import. No unsupported API, account or redistribution capability is claimed."

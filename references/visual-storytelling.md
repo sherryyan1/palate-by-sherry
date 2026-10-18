@@ -104,9 +104,21 @@ An icon supplies a recognizable noun. A scientific schematic explains what the r
 | A composed scene or system | Shows source-described objects acting within a relevant setting. | Identify the interaction, transfer, intervention or constraint with precise labels. Do not leave the scientific work entirely to a paragraph below the picture. |
 | An analytical diagram | Explains a model, experiment or comparison through its structure. | Make variables, processing steps, fixed versus varied factors or comparison pairings visible as appropriate. Generic boxes labeled input, model and output rarely provide sufficient methods detail. |
 
-Icons can be components of a richer diagram, and a concise icon-led strip can help orientation or recap. Neither is a substitute for the substantive explanation elsewhere in the sequence. Use object combinations, native relationships, annotated evidence and short explanations together when they help the audience follow the science. Do not require every slide to contain a physical scene or every panel to use the same arrangement.
+Icons can be components of a richer diagram, and a concise strip of small icons paired with labels can help orientation or recap. Keep those cues subordinate to the explanation; they do not substitute for its substance elsewhere in the sequence. Use object combinations, native relationships, annotated evidence and short explanations together when they help the audience follow the science. Do not require every slide to contain a physical scene or every panel to use the same arrangement.
 
 When the source is text only, use its described system, experiment and analytical logic to construct a substantive schematic. Numerical data are necessary for reproducing quantitative results, but their absence does not prevent a well-supported explanation of a method or comparison. Preserve unknowns explicitly and leave unsupported result shapes, mechanisms and parameter values out. If the needed relationship itself is missing, identify that specific gap instead of replacing it with a plausible picture.
+
+### Keep icons in a supporting role
+
+Use icons mainly as compact recognition cues within a flowchart or immediately before a subheading or section label. Their job is to help listeners locate a component or recognize its role while the labels, operations and relationships carry the explanation. Do not enlarge a single icon to serve as the main illustration or fill unused space. When the page needs a substantial visual, develop a source-specific scene, schematic or evidence graphic with the detail its purpose requires. A composed illustration can occupy more space because it explains more; increasing an icon's size does not turn it into that illustration.
+
+| Placement | Treatment |
+| :--- | :--- |
+| Inside a flowchart or method module | Place a small, relevant icon beside its input, operation or output label. Preserve room for the method detail and unambiguous connectors; the complete diagram remains the visual subject. |
+| Before a subheading or section label | Align the icon optically with the associated text line, use a consistent gap and keep the wording dominant. Match the visible weight of equivalent icons rather than merely giving their files equal bounding boxes. |
+| In a brief orientation or recap strip | Pair compact cues with labels and retain the substantive explanation or evidence they refer to. Do not turn the strip into a row of oversized topic symbols. |
+
+Judge scale in the actual slide against the neighboring type, node and visual hierarchy rather than applying one fixed icon size to every canvas. Keep comparable roles consistent across slides and preserve legibility at presentation scale. Conventional scientific symbols and components of a detailed schematic retain the size needed to explain their relationships; this distinction does not justify presenting a lone generic topic icon as the main image. If an icon adds no useful identification, omit it. This guidance governs slide graphics, not the README heading icon system.
 
 ## Frame a research question
 
