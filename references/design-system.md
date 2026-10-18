@@ -11,6 +11,8 @@
 
 palate establishes the brief, reviews the argument and title sequence, develops justified changes, then refines wording and visuals. The review returns to the scientific question: the finished presentation must retain its evidence and qualifications, not merely look more consistent. Existing choices remain when they serve the talk well.
 
+For consequential title choices, [editorial judgment](editorial-judgment.md) extends Find the thread with evidence-based angle selection and promise/payoff review. Its optional technique and source references explain when curiosity, contrast, rhythm or a plain scientific statement serves the argument. They are loaded when useful, without imposing publisher-style templates.
+
 The [decision library](design-decision-library.json) distinguishes **primary** rules, applied within their triggers and exceptions, from **contextual** composition options chosen for the content and brief. A recurring preference is not required on every page. Scientific meaning, explicit instructions and the actual delivery environment constrain design decisions throughout.
 
 The [scientific fidelity guide](scientific-fidelity.md) governs content preservation; the [PowerPoint](pptx-workflow.md) and [Keynote](keynote-workflow.md) workflows govern native authoring and review. [Communication design](communication-design.md) and [writing style](writing-style.md) explain the reasoning and prose used in documentation. The [operational entrypoint](../SKILL.md) coordinates these references for agents.

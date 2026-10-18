@@ -22,6 +22,8 @@ FILES = [
     "references/read-the-room.md", "references/find-the-thread.md",
     "references/distill-the-message.md", "references/refine-the-visuals.md",
     "references/storytelling-examples.md", "scripts/review_title_sequence.py",
+    "references/editorial-judgment.md", "references/editorial-techniques.md",
+    "references/editorial-source-notes.md",
     "references/presentation-contexts.json", "references/presentation-contexts.md",
     "references/redesign-intake.md", "references/transform-plan.md",
     "references/pptx-workflow.md", "references/scientific-fidelity.md",

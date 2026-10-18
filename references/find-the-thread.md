@@ -31,7 +31,7 @@ Complete this review before changing slide order, rewriting page content or choo
 5. **Explore, then select.** At important turns, consider genuinely different title strategies or orders. Retain a good sequence when alternatives bring no identifiable benefit. For a rewrite, move, split or merge, record the communication improvement and preserve the source-to-output mapping.
 6. **Re-read the revised sequence.** Check backward and forward connections, then compare each title with its slide again after writing and visual construction. A split, merged page or stronger visual emphasis can change the argument even when most words remain unchanged.
 
-Keep the working review private. It should contain original/proposed titles and IDs, narrative role, question/evidence references, the relationship to each neighbor, scientific qualifications, decision and reason. Record proposed order separately from the original; preserve lineage for split or merged slides. Repeated titles may be deliberate builds and should retain [text continuity](spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes). Stable wording can be a good editorial decision.
+Keep the working review private. It should contain original/proposed titles and IDs, narrative role, question/evidence references, the relationship to each neighbor, scientific qualifications, decision and reason. For consequential editorial choices, record the angle, audience assumption and where the title's promise is fulfilled or explicitly left unresolved, using the same map or reviewer notes. Check the sequence's rhythm and device repetition as well as its logic. Record proposed order separately from the original; preserve lineage for split or merged slides. Repeated titles may be deliberate builds and should retain [text continuity](spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes). Stable wording can be a good editorial decision.
 
 The success criterion is an explainable progression: a reader can locate the question, understand how the investigation addresses it and see why the findings matter. It is not a required number of questions, full-sentence headings, rhetorical devices or changed slides. Word overlap and title length cannot certify coherence.
 
@@ -112,20 +112,11 @@ End the complete main narrative with [visual key takeaways](visual-storytelling.
 
 First draft the plain, accurate message. Then consider whether another strategy would make its role easier to understand or remember. At important turning points, explore alternatives that differ in reasoning or emphasis rather than swapping adjectives. Choose selectively and check the complete sequence afterward. Technical definitions and equation walkthroughs can retain direct, precise headings.
 
-| Technique | Useful contribution | Check before choosing it |
-| :--- | :--- | :--- |
-| Framing or concrete observation | Identifies the consequential question or object | The frame fits the actual scope and does not hide contrary evidence. |
-| Contrast or antithesis | Makes a supported tension or trade-off visible | Compared cases have clear units, baselines and conditions; grammatical contrast does not manufacture a false binary. |
-| Open question | Creates a legitimate reason to follow the investigation | No unsupported presupposition; later slides answer it or explicitly retain the uncertainty. |
-| Claim or quantitative comparison | Directs attention to a supported result | Comparator, scientific status, magnitude and uncertainty can be verified. |
-| Parallelism and rhythm | Connects related cases and makes the sequence easier to follow | Verbal symmetry does not imply equivalent evidence or erase exceptions. |
-| Metaphor | Makes an unfamiliar relationship intelligible | Its mapped relationship is defensible and cannot be mistaken for a literal mechanism or agency. |
-| Alliteration, wordplay or a double meaning | Adds a memorable reading to an already clear message | The meaning is recoverable without obscure cultural knowledge; precision and tone survive the device. |
-| Curiosity followed by explanation | Motivates the next scientific step | The audience receives the promised explanation; essential context is not withheld for suspense. |
+For an opening, finding or synthesis where the editorial angle could materially improve understanding, load [editorial judgment](editorial-judgment.md). It selects among concrete relevance, questions, comparisons, genuine paradox and direct explanation using evidence, audience and narrative role. The optional technique index covers semantic, syntactic and sound devices, domain boundaries and multilingual transfer; the optional source notes distinguish observed BBC and Economist examples from palate's recommendations. Ordinary corrections do not need those specialist references or a historical corpus. Do not produce obligatory publisher-style pairs.
 
 Use familiar subjects or concepts to connect backward and place the new distinction where it receives emphasis. This is a diagnostic for information flow, not a mandatory word-order rule. Repeated technical terms can strengthen continuity; replacing them with decorative synonyms can obscure the science. A pun that requires explanation or a headline that overclaims is worse than the plain accurate version.
 
-When an attractive claim cannot be verified, record a specific private question for the researcher. Do not publish it as a finding, and do not use rhetorical wording to conceal the gap. Follow [scientific fidelity](scientific-fidelity.md) for discrepancies and content-changing work.
+When an attractive claim cannot be verified, record a specific private question for the researcher. Do not publish it as a finding, and do not use rhetorical wording to conceal the gap. Follow [scientific fidelity](scientific-fidelity.md) for discrepancies and content-changing work. A local wording change reopens its slide and neighbors; changes to claims, questions, comparisons or order reopen the affected dependencies in the map. Reuse valid analysis instead of restarting it after every edit.
 
 ## Review improvement and decision stability
 

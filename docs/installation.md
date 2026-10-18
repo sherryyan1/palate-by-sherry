@@ -93,3 +93,5 @@ python scripts/package_skill.py --output dist/palate-migration.zip --install "<a
 ```
 
 The same preservation checks apply to the legacy installation. Do not rename or delete a user-edited skill to get around a refusal. Repository updates, package builds and installed skills are synchronized explicitly; a Git pull alone does not update the installed copy.
+
+The runtime allowlist also includes the editorial decision guide, optional technique index and compact source notes linked from Find the thread. Historical research records and benchmark review outputs remain outside the package. Adding these references to repository source does not update an existing installation.

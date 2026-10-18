@@ -2,6 +2,8 @@
 
 This guide is for maintainers and reviewers assessing the behavior described in [Find the thread](../references/find-the-thread.md). Use the [synthetic storytelling examples](../references/storytelling-examples.md) for reproducible, public exercises and authorized task-local sources for real-deck evaluation. Keep original research, extracted titles and detailed review records private and untracked.
 
+For angle selection, rhetorical choices and cross-domain title sequences, use the [editorial evaluation supplement](editorial-evaluation.md). It includes four synthetic scientific briefs, actual candidate decisions, quantitative boundaries and ten review dimensions. It separates these exercises from a measured comparison of model versions or audience outcomes.
+
 The purpose is to establish whether the proposed narrative helps an audience understand and evaluate the research. A larger number of edits, more sentence headlines or a stronger claim is not evidence of improvement. Separate what a script can verify from what requires editorial, scientific or native-application review.
 
 ## Prepare an ordered title inventory
