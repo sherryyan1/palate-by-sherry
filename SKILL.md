@@ -11,7 +11,7 @@ Create or refine an editable research presentation from existing slides, rough t
 
 ## Coordinate Sherry's Picks
 
-Use the four capabilities as a connected design workflow. Read the relevant canonical guide before making its decisions; the [design system](references/design-system.md) is the human navigation hub, not a second set of rules.
+Use the four capabilities as a connected design workflow. Choose the applicable sections through the [task-aware loading matrix](references/execution-efficiency.md#choose-the-scope-before-loading-references), then read them before making their decisions. The [design system](references/design-system.md) is the human navigation hub, not an additional runtime prerequisite. Do not recursively open every linked reference. Reuse already-read rules while their version and task context remain valid.
 
 | Capability | Responsibility and when to load it | Working outcome |
 | :--- | :--- | :--- |
@@ -22,9 +22,11 @@ Use the four capabilities as a connected design workflow. Read the relevant cano
 
 For a narrow correction, inspect enough context to preserve the argument and limit edits to the authorized scope. Do not turn a font repair into an unsolicited story rewrite. For broader work, explore alternatives seriously but implement only those with an identifiable benefit. An effective existing title, order or composition can remain. Never use the number of edits as a quality measure.
 
-The capabilities interact: a new finding may change the narrative, and a visual split may require another title-sequence review. Keep the same source identities and rationale through these revisions. Primary [decision rules](references/design-decision-library.json) apply within their triggers and exceptions; contextual patterns remain choices, not compulsory templates. Scientific meaning and explicit user constraints govern every choice.
+The capabilities interact: a new finding may change the narrative, and a visual split may require another title-sequence review. Keep the same source identities and rationale through these revisions. Query the [decision-rule index](scripts/reference_query.py) first, then read complete applicable rules with their exceptions and validation requirements. Primary [decision rules](references/design-decision-library.json) apply within their triggers and exceptions; contextual patterns remain choices, not compulsory templates. Scientific meaning and explicit user constraints govern every choice.
 
 ## Execute the task
+
+Apply the steps relevant to the requested scope; a narrow repair does not initiate a new whole-deck narrative diagnosis. Reuse the private [shared task state](references/execution-efficiency.md#reuse-presentation-level-analysis) for the brief, source-linked reasoning and approved design. Refresh changed dependencies before reuse. During construction, batch compatible edits and review the affected pages and neighbors; retain complete final review. Follow the [handoff and stopping rules](references/execution-efficiency.md#hand-off-a-bounded-task) rather than sending whole project histories or repeatedly revising an accepted design.
 
 1. **Inspect the material and environment.** Follow [host workflows](references/host-workflows.md) and check actual tool availability. For files, use [presentation_route.py](scripts/presentation_route.py); supply `--source-kind text` or `--source-kind paper` when that is their actual role. Read pasted text directly. A PDF extension does not determine whether it is a paper or an exported deck. Inspect source structure, scientific content and rendered pages where applicable, including notes, hidden slides, figures, equations and build states.
 2. **Resolve the communication brief.** Follow [Read the room](references/read-the-room.md) and [guided intake](references/guided-intake.md): setting, external audience when applicable, then duration, venue screen and depth. Reuse answers and allow delegated design choices. Ask only consequential follow-ups. Preserve existing presentation language unless a change is requested; keep README, conversation and slide language independent. Single-page monthly updates remain outside this workflow.
@@ -55,6 +57,8 @@ Locate bundled runtimes with `load_workspace_dependencies` when available, other
 | Operation | Tool and requirements |
 | :--- | :--- |
 | Identify source role and native route | [presentation_route.py](scripts/presentation_route.py); standard library, read-only. |
+| Read rule indexes, complete rules or reference sections | [reference_query.py](scripts/reference_query.py); standard library, read-only. An index selects material; it does not replace the selected instructions. |
+| Select shared analysis and identify invalidated checks | [task_state.py](scripts/task_state.py); standard library, private structured state. It reports declared dependencies and stale reviews, not scientific or visual approval. |
 | Prepare an ordered title review | [review_title_sequence.py](scripts/review_title_sequence.py); Existing `lxml` dependency; accepts PPTX or an explicit ordered inventory for Keynote/new outlines. It does not validate or rewrite the narrative. |
 | Inspect, apply, validate or finalize preserved PPTX objects | [palate_pptx.py](scripts/palate_pptx.py); `lxml`, with Pillow for raster diagnostics. Follow the [plan contract](references/transform-plan.md). |
 | Extract checked raster figure regions | [extract_figure_panels.py](scripts/extract_figure_panels.py); Pillow, a source-hashed plan and fresh output directory. Follow [figure panels](references/figure-panels.md); extraction does not establish scientific completeness. |

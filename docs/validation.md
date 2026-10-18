@@ -43,6 +43,8 @@ Use the [evaluation procedure](storytelling-evaluation.md) and [synthetic exampl
 
 ## Repository validation record
 
+The [Phase 1 execution-efficiency record](efficiency-phase-1.md) separates controlled instruction comparisons, payload and call measurements, automated regressions and native renderer checks. Reduced intermediate work does not replace any final scientific, editability or visual review.
+
 The current record covers the following:
 
 | Check | Coverage |

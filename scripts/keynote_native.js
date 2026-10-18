@@ -56,7 +56,9 @@ function run(argv) {
             });
             owned.save({}, {timeout: 120});
         }
-        const after = inventory(owned);
+        // Inspection makes no edits; reuse its complete inventory. Apply still
+        // collects the saved result independently of the expected-before guard.
+        const after = request.command === "apply" ? inventory(owned) : before;
         if (request.pdf) {
             keynote.export(owned, {to: Path(request.pdf), as: "PDF", withProperties: {skippedSlides: true}}, {timeout: 120});
         }

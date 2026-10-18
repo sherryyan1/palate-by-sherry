@@ -2,15 +2,22 @@
 
 Use this contract after the [PPTX workflow](pptx-workflow.md#two-implementation-paths) has established that the requested changes fit the conservative helper. It applies a bounded set of changes to a known `.pptx` source, then checks that the result matches the plan. Native `.key` uses the separate [Keynote adapter contract](keynote-workflow.md#native-adapter-contract); its object identities and geometry units are different. Text rewriting, translation and reconstruction follow the appropriate authoring path instead.
 
-The sequence is inspect, plan, apply, independently validate, then review and finalize. A successful command establishes its own part of that sequence; it does not establish scientific interpretation, visual quality or editability on its own. The sections below define the [plan fields](#plan-json) and the separate [review record](#review-and-finalization).
+The sequence is inspect, plan, apply with validation, then review and finalize. `apply` runs the same validator as the standalone `validate` command against the saved candidate and writes its result to the receipt. A successful command establishes its own part of that sequence; it does not establish scientific interpretation, visual quality or editability on its own. The sections below define the [plan fields](#plan-json) and the separate [review record](#review-and-finalization).
 
 Run the commands with the verified Python interpreter for this session, reusing a bundled runtime when available; `python` below stands for that path. On Windows, quote absolute paths so file selection is unambiguous. Plans, inspections and receipts can contain research, so keep them in the private task build directory.
 
 ```text
 python scripts/palate_pptx.py inspect input.pptx --output build/inspection.json
 python scripts/palate_pptx.py apply input.pptx --plan build/plan.json --output build/candidate.pptx --receipt build/check.json
+```
+
+Read the apply receipt and require `status: "passed"` with no errors before review. Reuse that validation result while the source, candidate and plan are unchanged. Run standalone validation after a relevant file or plan change, when diagnosing a failure, or when an independent checkpoint is required; use a fresh receipt path:
+
+```text
 python scripts/palate_pptx.py validate input.pptx build/candidate.pptx --plan build/plan.json --receipt build/recheck.json
 ```
+
+A changed source still requires fresh inspection and a new plan. Standalone validation does not authorize changes outside this contract. Finalization always runs a fresh validation in addition to requiring the completed native review.
 
 Begin with `inspect` to identify the actual objects that a plan can address. It resolves slide order through relationships and reports stable native shape IDs, hidden and animated slides, chart/workbook parts, text, notes, direct styles and local bounds. Image resolution is included when Pillow is available. Read the rendered slides alongside this inventory: the helper neither resolves every inherited style nor interprets scientific meaning.
 

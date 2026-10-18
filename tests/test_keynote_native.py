@@ -10,6 +10,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -30,6 +31,112 @@ def inventory():
         {"slide": 1, "skipped": False, "notes": "n=6; 25 °C; DOI 10.0000/example", "counts": {"iwork_items": 4, "text_items": 1, "shapes": 1, "charts": 1, "images": 0, "tables": 1, "lines": 0, "movies": 0, "audio_clips": 0},
          "text_items": [item], "shapes": [dict(copy.deepcopy(item), text="", bounds_points=[10, 10, 20, 20])],
          "tables": [{"index": 1, "rows": 1, "columns": 1, "cells": [{"name": "A1", "value": "72.4", "formula": ""}]}]}]}
+
+
+# Execute the unchanged JXA run/inventory functions with controlled host objects.
+# This exercises JavaScript control flow, not Apple events or Mac compatibility.
+NODE_JXA_HARNESS = r"""
+const fs = require("node:fs");
+const path = require("node:path").posix;
+const vm = require("node:vm");
+const fixture = JSON.parse(fs.readFileSync(0, "utf8"));
+const events = [];
+function collection(items) {
+    const result = () => items;
+    items.forEach((item, index) => { result[index] = item; });
+    return result;
+}
+function textObject(item) {
+    const object = {locked: () => item.locked};
+    for (const [name, read, write] of [
+        ["position", () => item.bounds_points.slice(0, 2), value => item.bounds_points.splice(0, 2, ...value)],
+        ["width", () => item.bounds_points[2], value => { item.bounds_points[2] = value; }],
+        ["height", () => item.bounds_points[3], value => { item.bounds_points[3] = value; }]
+    ]) Object.defineProperty(object, name, {get: () => read, set: write});
+    object.objectText = () => item.text;
+    object.objectText.characters = {
+        size: () => [item.style.font_size_pt], font: () => [item.style.font_family],
+        color: () => [[0, 2, 4].map(offset => parseInt(item.style.color.slice(offset, offset + 2), 16) * 257)]
+    };
+    return object;
+}
+const slides = fixture.inventory.slides.map(slide => {
+    const mock = {skipped: () => slide.skipped, presenterNotes: () => slide.notes,
+        textItems: collection(slide.text_items.map(textObject)), shapes: collection(slide.shapes.map(textObject)),
+        tables: collection(slide.tables.map(table => ({rowCount: () => table.rows, columnCount: () => table.columns,
+            cells: collection(table.cells.map(cell => ({name: () => cell.name, value: () => cell.value, formula: () => cell.formula})))})))};
+    for (const [method, key] of Object.entries({iWorkItems: "iwork_items", images: "images", charts: "charts", lines: "lines", movies: "movies", audioClips: "audio_clips"})) {
+        mock[method] = collection(Array(slide.counts[key]).fill({}));
+    }
+    return mock;
+});
+const document = {file: () => fixture.opened_path || fixture.request.document,
+    width: () => fixture.inventory.width, height: () => fixture.inventory.height,
+    slides: Object.assign(() => { events.push("inventory"); return slides; }, slides),
+    save: () => events.push("save"), close: () => events.push("close")};
+const dollar = value => ({stringByDeletingLastPathComponent: path.dirname(value), lastPathComponent: path.basename(value)});
+dollar.NSString = {stringWithContentsOfFileEncodingError: () => JSON.stringify(fixture.request)};
+dollar.NSUTF8StringEncoding = 4;
+const context = {$: dollar, ObjC: {import: () => {}, unwrap: value => value}, Path: value => value,
+    Application: () => ({version: () => "controlled-jxa-mock", open: () => { events.push("open"); return document; },
+        export: () => events.push("export")})};
+vm.createContext(context);
+vm.runInContext(fixture.adapter_source || fs.readFileSync(process.argv[1], "utf8"), context);
+let result = null, error = null;
+try { result = JSON.parse(context.run(["/private/run/request.json"])); }
+catch (caught) { error = caught.message; }
+process.stdout.write(JSON.stringify({result, error, events}));
+"""
+
+
+@unittest.skipUnless(shutil.which("node"), "Controlled JavaScript adapter tests require Node; no Mac is simulated")
+class KeynoteJavaScriptControlFlowTests(unittest.TestCase):
+    def source_inventory(self):
+        data = inventory()
+        slide = data["slides"][0]
+        # Match the native collector's field order and empty-text style contract.
+        slide["counts"] = {key: slide["counts"][key] for key in (
+            "iwork_items", "text_items", "shapes", "images", "tables", "charts", "lines", "movies", "audio_clips")}
+        slide["shapes"][0]["style"] = {"font_size_pt": None, "font_family": None, "color": None}
+        return data
+
+    def run_adapter(self, request, **overrides):
+        fixture = {"request": request, "inventory": self.source_inventory(), **overrides}
+        result = subprocess.run([shutil.which("node"), "-e", NODE_JXA_HARNESS, str(native.SIDECAR)],
+                                input=json.dumps(fixture), text=True, encoding="utf-8", capture_output=True,
+                                check=True, timeout=15)
+        return json.loads(result.stdout)
+
+    def test_inspect_collects_one_complete_inventory_with_or_without_pdf(self):
+        for pdf in (None, "/private/run/preview.pdf"):
+            with self.subTest(pdf=pdf):
+                result = self.run_adapter({"command": "inspect", "document": "/private/run/inspection.key", "pdf": pdf})
+                self.assertIsNone(result["error"])
+                self.assertEqual(result["result"]["inventory"], self.source_inventory())
+                self.assertEqual(result["events"], ["open", "inventory"] + (["export"] if pdf else []) + ["close"])
+
+    def test_apply_checks_before_and_collects_fresh_inventory_after_save(self):
+        bounds = [40, 50, 300, 50]
+        result = self.run_adapter({"command": "apply", "document": "/private/run/candidate.key",
+                                   "expected_inventory": self.source_inventory(), "operations": [{"slide": 1,
+                                   "object_kind": "text_item", "object_index": 1, "action": "geometry", "bounds_points": bounds}]})
+        expected = self.source_inventory()
+        expected["slides"][0]["text_items"][0]["bounds_points"] = bounds
+        self.assertIsNone(result["error"])
+        self.assertEqual(result["result"]["inventory"], expected)
+        self.assertEqual(result["events"], ["open", "inventory", "save", "inventory", "close"])
+
+    def test_apply_mismatch_fails_before_edits_and_closes_only_owned_copy(self):
+        stale = self.source_inventory()
+        stale["slides"][0]["notes"] = "Changed source note"
+        result = self.run_adapter({"command": "apply", "document": "/private/run/candidate.key",
+                                   "expected_inventory": stale, "operations": []})
+        self.assertEqual(result["error"], "Source inventory changed")
+        self.assertEqual(result["events"], ["open", "inventory", "close"])
+        unrelated = self.run_adapter({"command": "inspect", "document": "/private/run/inspection.key"},
+                                     opened_path="/private/unrelated.key")
+        self.assertEqual(unrelated["error"], "Keynote returned a different document")
+        self.assertEqual(unrelated["events"], ["open"])
 
 
 class KeynoteNativeTests(unittest.TestCase):

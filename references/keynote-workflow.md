@@ -127,12 +127,19 @@ Build the plan from the actual inspection, not from example indices. Use the ret
 
 Do not reuse a plan after native editing has changed the source or its inventory. A `passed` source review must describe actual Keynote inspection, not a status copied from this example.
 
-Apply and independently check a fresh candidate:
+Apply the plan to a fresh candidate:
 
 ```text
 python scripts/keynote_native.py apply input.key --plan build/keynote-plan.json --output build/candidate.key --receipt build/keynote-apply.json --pdf build/keynote-candidate.pdf
+```
+
+`apply` checks the expected source inventory before editing, compares the saved result with the plan and independently reopens the saved native file for another inventory comparison. Read the completed receipt and require `exposed_inventory_status: "passed"` with no errors before review. Reuse that result while the source, candidate and plan are unchanged. Run standalone validation after a relevant file or plan change, when diagnosing a failure, or when an independent checkpoint is required; it opens fresh private copies of both source and candidate:
+
+```text
 python scripts/keynote_native.py validate input.key build/candidate.key --plan build/keynote-plan.json --receipt build/keynote-recheck.json
 ```
+
+A changed source still requires fresh inspection and a new plan. Standalone validation does not authorize unsupported edits. Finalization always runs fresh native validation as well as checking the completed review records.
 
 The candidate is saved natively as `.key`. Exposed text, notes, slide/object inventories and planned changes are compared, but a native save may re-encode the package. There is no byte-identical preservation guarantee and no claim that all chart data, formulas, equation semantics, fonts, build settings or media behavior are exposed by the scripting interface. Resolve these obligations through actual Keynote inspection. A successful command leaves the scientific, visual, editability and playback judgments to the reviewer.
 

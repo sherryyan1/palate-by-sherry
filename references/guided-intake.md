@@ -57,8 +57,9 @@ A suggested or preselected option becomes an answer only when the user submits i
 ```text
 python scripts/guided_intake.py start --output build/intake-01.json
 python scripts/guided_intake.py answer build/intake-01.json --field scenario --value external --output build/intake-02.json
-python scripts/guided_intake.py next build/intake-02.json
 ```
+
+Both `start` and `answer` return the next question payload or the ready context. Use that response directly. When resuming from an existing state without submitting an answer, run `python scripts/guided_intake.py next build/intake-02.json` to recover the current payload.
 
 | Input | Handling |
 | :--- | :--- |
