@@ -147,13 +147,10 @@ PPT 不是论文的缩印本。满页的文字看似周全，听众若忙着低�
 
 已有 PPT 无法打开时，**palate** 会请求兼容的可编辑副本。Keynote 处理需要允许所需的 Mac 自动化访问。如果交付使用的应用不可用，**palate** 会将该应用内的工作保留为待完成状态，并说明交接方式和尚需完成的检查。
 
-附带的 Keynote 原生流程目前为**实验性功能，尚未在 Mac 上实测**，需要 macOS、Keynote，以及允许实际执行任务的进程控制该应用的权限。自动编辑仅覆盖现有文本框和形状的位置、文字样式；其他修改需要可用的原生编辑方式，否则保持待完成状态。[Keynote 指南（英文）](references/keynote-workflow.md)列出了操作范围和检查要求。只有明确选择转换方案或要求其他交付格式时，才会采用格式转换，并单独核对转换损失。
-
 Python 工具需要 Python 3.11+；`.pptx` 检查使用 `lxml`，图片分辨率诊断使用 Pillow。有可用的捆绑运行时时，会优先使用。附带的 Windows PowerPoint 渲染器只是特定平台的一种预览方式，Keynote 和其他 PowerPoint 环境无需强制使用。**palate** 会在实际交付使用的应用中检查结果，并说明缺少的工具或尚未完成的检查。安装 Skill 不会同时安装 PowerPoint 或 Keynote，也不代表已获得应用访问权限。
 
 安装针对实际处理文件的运行环境，这可能不是聊天时使用的设备。网页版不会自动获得本地 PowerPoint 或 Keynote 的访问权限；缺少必需的原生检查时，修改后的文件仍会标为候选稿。[安装指南（英文）](docs/installation.md)和[ChatGPT Work 指南（英文）](docs/chatgpt-work.md)分别说明了设置方法与验证步骤。
 
-文件保存和处理的位置由所选运行环境决定，上传到 ChatGPT 的文件会在所选工作区中处理。**palate** 保留原稿，将修改结果另存为新文件；向其他服务发送研究文件前会先询问。此 Skill 面向多页汇报 PPT，单页月度进展汇报不在适用范围内。
 
 ## <img src="assets/icons/book-open.svg" width="22" height="22" align="bottom" alt="">&nbsp; 文档与参考
 
