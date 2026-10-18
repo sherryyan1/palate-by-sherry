@@ -63,11 +63,6 @@ Attach a deck or paper, or paste your notes and main ideas. In Codex, choose the
 | Rough text, notes or an outline | `$palate Create slides from these notes.` |
 | A paper or manuscript | `$palate Create a research presentation from this paper.` |
 
-For example:
-
-```text
-$palate Polish my slides.
-```
 
 In ChatGPT Work, type `@` and select the installed **palate** plugin or skill, then send your material with the corresponding request.
 
