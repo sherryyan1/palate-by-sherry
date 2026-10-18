@@ -589,6 +589,26 @@
         "Reference text is italic and readable, with no routine source-extraction page-list footer.",
         "Scientific source mappings, required credits and consequential uncertainty remain preserved."
       ]
+    },
+    {
+      "id": "R034",
+      "name": "Editorial and infographic illustration languages",
+      "dimension": "illustration_direction",
+      "status": "primary",
+      "trigger": "Choosing or creating illustrations for Introduction or Methodology slides.",
+      "decision": "Prefer freeform editorial cutout scenes for conceptual framing and clean infographic mini-scenes for methodological explanation, selecting by communicative purpose rather than the section name alone.",
+      "execution": "Follow visual-storytelling.md#choose-the-illustration-language. Style 1 uses refined flat forms, organic silhouettes and restrained color, integrated without a rectangular picture block. Style 2 uses coherent modular components and explanatory mini-scenes that reveal actual operations, comparisons and relationships, with optional slight isometric depth. Blue with warm accents is suitable when compatible with the deck and scientific encodings. Specify silhouette, viewpoint, palette and essential detail in the storyboard. Avoid glossy synthetic art, heavy 3D, fantasy detail, noisy texture and generic decorative scenes. Keep labels and meaningful connections native, preserve scientific depth, and split complex explanations when needed. Learn drawing properties from style references without copying decorative chart values or stock subject matter. Vector appearance does not establish vector format or editable image interiors.",
+      "exceptions": [
+        "An introduction mechanism may use the infographic language, and a methodology setting or divider may use the editorial language. Mixed pages choose a dominant coherent treatment.",
+        "Keep necessary analytical boundaries, chart axes, verified figures and exact equations. Abstract methods do not require a physical metaphor or added illustration when it would not improve understanding.",
+        "Preserve existing scientific color meanings and branding. No compulsory blue/yellow palette, fixed number of scenes or icon quota applies."
+      ],
+      "validation": [
+        "The selected language serves the actual slide purpose. Introductory art retains necessary reasoning and methods graphics expose source-supported operations rather than only identifying topics.",
+        "The application render shows clean silhouettes, coherent line treatment, restrained detail, intentional integration and readable scientific content; native grouping does not become an arbitrary picture frame.",
+        "No decorative chart marks, data, mechanisms or achieved outcomes are invented. Palette meanings, labels, qualifications and content coverage remain intact.",
+        "Actual asset format, placed resolution, transparency and native editability are checked separately. A flat-style PNG is recorded as raster, and image interiors are not claimed editable."
+      ]
     }
   ]
 }

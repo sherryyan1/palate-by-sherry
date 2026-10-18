@@ -12,6 +12,8 @@ For illustrated explanations, trace how research objects, repeated symbols, spat
 
 Study the visible information as carefully as the imagery: which method details, comparison definitions, quantitative callouts and qualified explanations remain on the page, and how hierarchy lets them coexist. Record what each region explains and how its visual components do that work. Learning a rich reference means carrying its explanatory depth into the current material where needed; repeating its panel arrangement with one icon and a short phrase in each panel does not establish that adaptation. Separate illustrative curve shapes and pictorial cues from verified evidence before reusing any composition.
 
+For the [preferred Introduction and Methodology illustration languages](visual-storytelling.md#choose-the-illustration-language), extract the contour, flat-fill treatment, viewpoint, stroke consistency and level of detail from the style reference. Transfer those visual properties to the current research objects and explanation. A person beside a display board demonstrates an illustration treatment; the person, board, decorative charts and their apparent quantities are not mandatory content or research evidence. A clean vector appearance also does not establish the reference file's format or native editability.
+
 Keep the basis for the observation explicit:
 
 | Basis | What the observation establishes |
