@@ -65,26 +65,19 @@ Codex 会根据当前环境安装 **palate**，并检查是否可以正常使用
 | 文字、笔记或提纲 | `$palate 根据这些笔记制作汇报 PPT。` |
 | 论文或手稿 | `$palate 根据这篇论文制作科研汇报 PPT。` |
 
-例如：
 
-```text
-$palate 帮我打磨这份汇报 PPT。
-```
-
-使用网页版 ChatGPT Work 时，输入 `@` 并从菜单中选中已安装的 **palate**，再附上材料并发送相应请求。
+如使用网页版 ChatGPT Work，输入 `@` 并从菜单中选中已安装的 **palate**，再附上材料并发送相应请求即可。
 
 ### 03 | 让 **palate** 了解你的汇报需求
 
 提出请求后，**palate** 会了解以下四方面信息：
 
-- **汇报场景：** 是组会、教学分享，还是对外汇报？
+- **汇报场景：** 是组会、教学分享(tutorial)，还是对外汇报？
 - **时长：** 预计讲多少分钟？
-- **屏幕比例：** 汇报现场的屏幕更接近 4:3 还是 16:9？不确定时，已有 PPT 会保留原比例；新建 PPT 暂按 16:9 设计，并注明这是尚待核实的设计假定，不代表已确认现场比例。
-- **技术细节：** 希望保留多少技术细节？也可以交给 **palate** 判断。
+- **屏幕比例：** 汇报现场的屏幕更接近 4:3 还是 16:9？如不确定，palate会保留PPT原比例，或默认按 16:9 设计新PPT。
+- **技术细节：** 希望保留多少技术细节？拿不准时，可以交给 **palate** 判断。
 
-可以选择建议选项，也可以用自己的话回答。已经说明的信息，**palate** 不会重复询问。新建 PPT 时，若尚未指定使用 PowerPoint 还是 Keynote，也会一并确认。
-
-**palate** 会根据材料组织讲解；缺少关键结果、定义或出处时，只补问影响内容的必要信息，不会编造研究发现或引用。
+以上信息既可以单选，也可以用自己的话直接回答。新建 PPT 时，若尚未指定输出 PowerPoint 还是 Keynote，**palate** 也会一并确认。
 
 ## <img src="assets/icons/languages.svg" width="22" height="22" align="bottom" alt="">&nbsp; 语言
 
@@ -102,17 +95,19 @@ $palate 帮我打磨这份汇报 PPT。
 
 ### <img src="assets/icons/users-round.svg" width="22" height="22" align="top" alt="">&nbsp; 01 | 知人察境
 
-<sub><em>从听众的理解出发。</em></sub>
+<sub><em>先辨听众，再定讲法。</em></sub>
 
-设计先从汇报场合开始。听众是谁？对研究已有多少了解？这场汇报最希望他们记住什么？
+做汇报和说话一样，先要看看对面坐着谁。同行听得懂的三言两语，换个场合，也许就得从头讲起。若只顾把自己知道的都摆出来，难免成了自说自话。
+
+听众是谁？对研究已有多少了解？这场汇报最希望他们记住什么？
 
 **palate** 会结合听众、目的和场合，确定整体的表达方式与视觉方向。学术会议、组会和公众讲座各有侧重，设计也应随之调整。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 理清脉络
+### <img src="assets/icons/git-branch.svg" width="22" height="22" align="top" alt="">&nbsp; 02 | 顺理成章
 
-<sub><em>让听众跟得上论述。</em></sub>
+<sub><em>让论述有起承，让结论有来处。</em></sub>
 
 几页各自精彩的幻灯片，未必能构成一场好汇报。观点之间需要联系，推理也需要有自然的展开顺序。
 
@@ -120,21 +115,21 @@ $palate 帮我打磨这份汇报 PPT。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
-### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 提炼要义
+### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | 凝练文字
 
 <sub><em>把复杂的研究讲明白。</em></sub>
 
-清楚的表达，来自对内容的判断：哪些信息必须留下，哪些需要解释，哪些可以说得更直接。
+PPT 不是论文的缩印本。满页的文字看似周全，听众若忙着低头细读，便无暇抬头听讲。
 
-**palate** 会逐页梳理文字，删去重复，调整信息密度，让每页要传达的重点更清楚。精简是为了让复杂研究更容易理解，同时保留必要的科学细节、限定条件和不确定性。
+**palate** 会逐页梳理**文字**，删去重复的表述，调整信息密度，让每页要传达的重点更清楚。
 
 <img src="assets/icons/arrow-down.svg" width="22" height="22" alt="">
 
 ### <img src="assets/icons/palette.svg" width="22" height="22" align="top" alt="">&nbsp; 04 | 细琢形色
 
-<sub><em>每一处细节，都要有用意。</em></sub>
+<sub><em>形式有章法，美感有分寸。</em></sub>
 
-最后，**palate** 会细看图表、字体、对齐、留白与配色。
+最后，**palate** 会细看**图表、字体、对齐、留白与配色**。
 
 图形用来传达信息，统一的格式则让整套 PPT 保持连贯。在此基础上，再按每页的内容调整布局与呈现，让整体协调、细节妥帖，而不显得千篇一律。
 
