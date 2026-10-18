@@ -115,7 +115,7 @@ A good presentation is more than a collection of good slides. The ideas need to 
 
 ### <img src="assets/icons/align-left.svg" width="22" height="22" align="top" alt="">&nbsp; 03 | Distill the message
 
-<sub><em>Seek simplicity in complexity.</em></sub>
+<sub><em>Seek simplicity from complexity.</em></sub>
 
 Clarity comes from knowing what to keep, what to explain, and what can be said more simply.
 
