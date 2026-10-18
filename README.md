@@ -129,6 +129,8 @@ Clarity comes from knowing what to keep, what to explain, and what can be said m
 
 Finally, **palate** turns to the visual details: figures, typography, alignment, spacing, and colour.
 
+For new colour choices, **palate** draws on curated reference palettes, adapting them to the content and the distinctions each figure needs to communicate while preserving existing scientific colour mappings. See the [colour guidance](references/refine-the-visuals.md#give-color-a-consistent-purpose).
+
 Graphics should communicate, not merely decorate. Consistent formatting brings the slides together, while thoughtful variation keeps each page suited to its content. The result is a presentation that feels coherent, polished, and professional, without looking as though it came from a fixed template.
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; Formats and requirements

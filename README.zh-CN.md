@@ -131,6 +131,8 @@ PPT 不是论文的缩印本。满页的文字看似周全，听众若忙着低�
 
 最后，**palate** 会细看**图表、字体、对齐、留白与配色**。
 
+需要重新配色时，**palate** 会参考精选配色库，根据内容和图表需要表达的区别选择颜色，同时保留原有科研图中的颜色含义。详见[配色指南（英文）](references/refine-the-visuals.md#give-color-a-consistent-purpose)。
+
 图形用来传达信息，统一的格式则让整套 PPT 保持连贯。在此基础上，再按每页的内容调整布局与呈现，让整体协调、细节妥帖，而不显得千篇一律。
 
 ## <img src="assets/icons/files.svg" width="22" height="22" align="bottom" alt="">&nbsp; 文件格式与运行要求
