@@ -77,7 +77,7 @@
       "status": "contextual",
       "trigger": "Content has a scientific relationship to explain.",
       "decision": "Let comparison, mechanism, hierarchy or time determine the composition.",
-      "execution": "Choose a reading order and native objects that expose the relationship.",
+      "execution": "Choose a reading order and native objects that expose the relationship. For integrated explanations, consult only the relevant pattern in visual-storytelling.md#scientific-editorial-diagrams, reusing the established narrative and evidence.",
       "exceptions": [
         "A mandatory template can constrain arrangement."
       ],
@@ -543,7 +543,7 @@
       "dimension": "scientific_storytelling",
       "status": "primary",
       "trigger": "Creating or substantially rebuilding a research presentation.",
-      "decision": "Develop the narrative, design each page's visual explanation, then reproduce it as actual slides. Substantive introduction pages use rich illustrated explanations with sufficient scientific detail.",
+      "decision": "Develop the narrative, design each page's composition, then reproduce it as actual slides. Prefer rich illustrated explanations where they clarify the introduction's scientific content; retain sufficient detail in whichever form best serves the page.",
       "execution": "Complete find-the-thread.md and its title-sequence review, then follow visual-storytelling.md#outline-then-storyboard-then-build. Carry each slide's role, source-supported objects, operations, evidence and required explanation into the actual native slides.",
       "exceptions": [
         "A narrow edit does not require rebuilding the whole deck.",

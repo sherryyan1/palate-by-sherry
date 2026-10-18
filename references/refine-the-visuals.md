@@ -73,6 +73,7 @@ Follow [every-slide composition](visual-storytelling.md#review-every-slide-as-a-
 | Visual decision | Detailed reference and purpose |
 | :--- | :--- |
 | Source-specific schematics | [Objects and relationships](visual-storytelling.md#build-around-objects-and-relationships): expose the relevant operation, comparison or changed condition with native labels and relationships where feasible. |
+| Integrated scientific relationships | [Scientific Editorial Diagrams](visual-storytelling.md#scientific-editorial-diagrams): consult the relevant pattern when a mechanism, actor matrix, temporal-spatial system, analytical comparison or delivery roadmap needs several relationships shown together. |
 | Illustration language | [Editorial and infographic illustration](visual-storytelling.md#choose-the-illustration-language): normally freeform editorial cutout scenes for conceptual Introduction pages and clean infographic mini-scenes for Methodology; choose by communicative purpose. |
 | Supporting icons | [Icon role and scale](visual-storytelling.md#keep-icons-in-a-supporting-role): compact cues in flowcharts or before subheadings and section labels; do not enlarge a lone icon into the main illustration. |
 | Research Question page | [Question framing](visual-storytelling.md#frame-a-research-question): adapt illustrated motivation, dominant question and related subquestions to the actual research, without inventing a causal chain or fixed number of cards. |
