@@ -141,17 +141,9 @@ Graphics should communicate, not merely decorate. Consistent formatting brings t
 | Keynote (`.key`) | A new native `.key` candidate, using the supported operations in Keynote on Mac. |
 | Text, notes, an outline, a paper or a manuscript | A new deck in the agreed application, using available native authoring tools. |
 
-Creating new slides needs an available authoring tool for the agreed application; the included preservation helpers do not create a deck from text or a paper on their own. If that tool is unavailable, **palate** can prepare the structure and slide content, but leaves file creation pending.
-
-If an existing deck cannot be opened, **palate** asks for a compatible editable copy. Keynote work needs the required Mac automation permission. If the delivery application is unavailable, **palate** leaves that application work pending and explains the handoff and remaining checks.
-
-The included native Keynote workflow is **experimental and has not been tested on a Mac**. It requires macOS, Keynote and permission for the execution process to control the application. Automated edits cover placement and text styling of existing text boxes and shapes. Other changes need an available native authoring method or remain pending. The [Keynote guide](references/keynote-workflow.md) describes the operations and review requirements. Conversion is a separate option when requested or explicitly chosen, with additional checks for conversion loss.
-
 Python tools require Python 3.11+; `.pptx` inspection uses `lxml`, and raster-resolution diagnostics use Pillow. The agent reuses an available bundled runtime. The included Windows PowerPoint renderer is one platform-specific preview option, not a requirement for Keynote or every PowerPoint environment. **palate** reviews the result in the actual delivery application and identifies any missing tool or unfinished check. Installing the skill does not install PowerPoint or Keynote or grant application access.
 
 Setup applies to the environment that processes the files, which may differ from the device used to chat. A web session does not automatically have access to local PowerPoint or Keynote. Without the required native review, any edited output remains a candidate. See the [installation guide](docs/installation.md) and [ChatGPT Work guide](docs/chatgpt-work.md) for their separate setup and verification steps.
-
-The selected execution environment determines where files are stored and processed. ChatGPT uploads are processed in the selected workspace. **palate** preserves the original, saves revisions separately and asks before sending research files to another service. It covers multi-slide presentations; single-page monthly updates are outside its scope.
 
 ## <img src="assets/icons/book-open.svg" width="22" height="22" align="bottom" alt="">&nbsp; Documentation
 
