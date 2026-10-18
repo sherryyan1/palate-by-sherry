@@ -2,8 +2,7 @@
 
 This scanner handles this repository's ATX headings, inline/reference Markdown
 links, HTML ids and asset attributes. It does not claim general Markdown parsing
-or browser rendering. Explicit README navigation exceptions are pre-existing
-approved-copy issues; they remain visible here until their correction is approved.
+or browser rendering.
 """
 
 import html
@@ -68,13 +67,6 @@ LEGACY_ANCHORS = {
         "select-and-construct-assets-deliberately",
         "visual-storytelling"
     ]
-}
-# Only these existing approved README links await a separate wording/link approval.
-PENDING_README_FRAGMENTS = {
-    ('README.md', '#get-started'),
-    ('README.zh-CN.md', '#\u5f00\u59cb\u4f7f\u7528'),
-    ('README.ja.md', '#\u4f7f\u3063\u3066\u307f\u308b'),
-    ('README.ko.md', '#\uc124\uce58\ud558\uace0-\uc0ac\uc6a9\ud558\uae30'),
 }
 
 
@@ -264,13 +256,9 @@ class DocumentationLinkTests(unittest.TestCase):
                 issues.extend(inspect_links(path))
         self.assertEqual(issues, [], '\n'.join(map(str, issues)))
 
-    def test_readme_paths_and_fragments_have_no_new_failures(self):
+    def test_readme_paths_and_fragments_resolve(self):
         issues = [issue for name in READMES for issue in inspect_links(ROOT / name)]
-        pending = {(name, target, 'missing_fragment') for name, target in PENDING_README_FRAGMENTS}
-        unexpected = set(issues) - pending
-        self.assertEqual(unexpected, set(), '\n'.join(map(str, sorted(unexpected))))
-        # Keep every known failure explicit; remove an exception when its fix is approved.
-        self.assertEqual(set(issues) & pending, pending)
+        self.assertEqual(issues, [], '\n'.join(map(str, issues)))
 
     def test_legacy_design_entry_anchors_remain_available(self):
         for name, expected in LEGACY_ANCHORS.items():

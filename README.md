@@ -15,7 +15,7 @@
 <!-- /language-navigation -->
 
 <p align="center">
-  <a href="#get-started">Get started</a> &nbsp;·&nbsp;
+  <a href="#-get-started">Get started</a> &nbsp;·&nbsp;
   <a href="#-sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">Documentation</a>
 </p>

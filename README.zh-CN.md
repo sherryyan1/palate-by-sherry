@@ -15,7 +15,7 @@
 <!-- /language-navigation -->
 
 <p align="center">
-  <a href="#开始使用">开始使用</a> &nbsp;·&nbsp;
+  <a href="#-开始使用">开始使用</a> &nbsp;·&nbsp;
   <a href="#-sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">使用指南（英文）</a>
 </p>

@@ -15,7 +15,7 @@
 <!-- /language-navigation -->
 
 <p align="center">
-  <a href="#설치하고-사용하기">설치하고 사용하기</a> &nbsp;·&nbsp;
+  <a href="#-설치하고-사용하기">설치하고 사용하기</a> &nbsp;·&nbsp;
   <a href="#-sherrys-picks">Sherry's Picks</a> &nbsp;·&nbsp;
   <a href="docs/usage.md">사용 안내(영문)</a>
 </p>
