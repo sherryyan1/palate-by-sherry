@@ -21,7 +21,7 @@ Keep the basis for the observation explicit:
 | Template convention | A repeated treatment that may come from the template rather than the owner's judgment. |
 | Owner's stated preference | A confirmed preference within the context and scope of the feedback. |
 
-These sources of evidence are not interchangeable. Editing remnants, overlapping animation states and rejected visuals must not become design goals simply because they appear in a reference.
+These sources of evidence are not interchangeable. Editing remnants, overlapping animation states and rejected visuals must not become design goals simply because they appear in a reference. When a reference folder mixes research talks, teaching examples, draft/final pairs and templates, record those roles before extracting patterns. A deliberately poor example in a design tutorial is evidence of a contrast, not a style to reproduce. Exclude single-page monthly updates from this multi-slide workflow and keep other presenters' work distinct from the owner's designs.
 
 ## 02 | Compare alternatives without changing the research
 

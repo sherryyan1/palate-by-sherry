@@ -53,6 +53,23 @@ Review wording across the deck rather than checking body paragraphs alone:
 
 These are slide-writing decisions. Manuscript requirements such as line numbering, fixed line spacing, submission filenames, mandatory acknowledgements or publishing data and code do not become presentation requirements. Likewise, do not number every new slide figure merely because a manuscript numbers its figures. Retain the source's references, attribution and required acknowledgements, and use figure numbers when the audience needs them to locate or discuss evidence. Rewriting follows the [content-changing workflow](scientific-fidelity.md#content-changingrebuilding-path), including a source-to-output meaning check; better prose alone does not establish scientific fidelity.
 
+## Slide citations and references
+
+Use APA seventh-edition author-date citation structure and bibliographic information. Place a concise source beside the evidence it supports and supply the corresponding full entry in the reference section. For three or more authors, use the first surname and `et al.` with the verified year, subject to APA disambiguation rules. Preserve organization authors, publication status and missing-date conventions where applicable; never infer a publication year or journal from a filename.
+
+Set visible citation and reference text in italics as palate's slide treatment, with readable contrast and at least 10.5 pt. This full-line italic treatment is a house-style adaptation, not a claim that APA requires every word of a reference to be italicized. Use APA 7 for author order, date, title, publication details and DOI or URL, selecting the correct source type and using only verified metadata. The conventional APA emphasis still applies to bibliographic text supplied outside this slide treatment.
+
+| Location | What to show |
+| :--- | :--- |
+| Claim or figure attribution | A concise italic author-year citation, adding an original figure or panel identifier when useful for discussion. Avoid long lists of PDF pages. |
+| Reference section | Full, readable APA 7 entries corresponding to cited works. Retain publication page ranges or article numbers where bibliographically required; these differ from extraction-page locators. Split reference pages rather than shrinking type. |
+| Private source ledger or speaker notes | Exact source pages, sections, figure identities, crop records and claim mappings used to verify the presentation. These do not become a routine visible footer. |
+| Direct quotation or required credit | Preserve a necessary quotation locator and licensing or permission credit. The preference against routine page lists does not authorize removing required attribution. |
+
+Keep citations attached to the claims they actually support, especially when one slide combines several studies. Do not label routine scholarly attribution as an AI audit, or use source labels as a substitute for explicitly explaining a material scientific uncertainty. A missing or contradictory source detail remains a verification issue; do not invent bibliographic metadata to complete a neat reference.
+
+Consult the official APA guidance on the [author-date system](https://apastyle.apa.org/style-grammar-guidelines/citations/basic-principles/author-date), [paraphrases](https://apastyle.apa.org/style-grammar-guidelines/citations/paraphrasing) and [reference examples](https://apastyle.apa.org/style-grammar-guidelines/references/examples) for source-specific cases.
+
 ## Localized entry points
 
 The four README versions share one set of capabilities, requirements and scientific safeguards. Write each for researchers who use that language: choose familiar terminology, develop the explanation in a natural order and adapt examples where useful. Sentence-by-sentence matching is unnecessary, but a change of language must not introduce a different promise or omit a material limit.

@@ -53,7 +53,7 @@ The operation is bounded to 64 panels, a 256 MiB source, a 1 MiB plan and 64 mil
 
 ## Compose the explanation and review it
 
-Keep badges, headings, colored regions, connectors and added labels native and editable. Place each concise interpretation close to its supporting panel, using a consistent reading order and clear internal spacing. Rounded containers should explain grouping rather than force every plot into an identical crop or reduce its usable area. Preserve the top-anchored text starts, 10.5 pt minimum and symmetric work area.
+Keep badges, headings, colored regions, connectors and added labels native and editable. Place each concise interpretation close to its supporting panel, using a consistent reading order and clear internal spacing. Rounded containers should explain grouping rather than force every plot into an identical crop or reduce its usable area. Follow role-based anchoring: center text vertically in filled badges and text regions, and top-anchor unfilled explanations. Preserve retained-text continuity, the 10.5 pt minimum and the symmetric work area.
 
 When several panels need more room, show an overview and then focused details. Reuse the same panel identity and visual grouping across that sequence, with the relevant shared context repeated where necessary. Update every panel reference, note and navigation state affected by reordering or splitting. Keep a whole-figure reference in the appendix when useful for inspection; it does not replace essential context on the main slides.
 

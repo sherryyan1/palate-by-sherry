@@ -12,6 +12,35 @@ Choose the visual treatment from the page's purpose: evidence with annotation, a
 
 Review the sequence as well as individual pages. Reuse the same visual vocabulary without making every page the same, and keep [retained text fixed](spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes) when it appears on consecutive slides. Introduce new material around those stable elements rather than moving an existing explanation to create room. This continuity check is separate from whether each page looks balanced in isolation.
 
+## Outline, then storyboard, then build
+
+For a new or substantially rebuilt research talk, develop the argument first, then design the visual explanation for each slide, and only then construct the native slides. A polished box layout chosen before the scientific explanation tends to reduce different ideas to the same diagram. The intermediate storyboard must specify a composition that can actually be built, rather than simply promise an infographic.
+
+1. **Outline the argument.** Establish the question, the necessary concepts, the source-supported method and findings, and the qualified contribution. Preserve enough detail for the selected audience and duration. Choose slide boundaries around explanatory purposes, not a fixed number of bullets or panels.
+2. **Design each page's explanation.** Sketch or specify its research objects, their relevant states or differences, the relationship to show, the evidence to retain, the supporting wording and their spatial arrangement. Identify what the audience learns by looking at the graphic. Select or construct assets at this stage; an icon filename is not a diagram specification. Plan repeated objects and text positions across adjacent slides.
+3. **Construct and compare.** Reproduce that storyboard as actual slides with native labels, framing and connections wherever feasible. Review the finished page against both its source and storyboard. Repair missing visual detail, lost scientific substance and inaccurate connections before proceeding to final delivery.
+
+For substantive introduction pages, use richly illustrated explanations throughout: recognizable research objects combined with meaningful relationships, comparisons, evidence and enough nearby text to follow the reasoning. The introduction should let the audience see the phenomenon, gap, question and significance. Plain text containers connected by arrows, even with a small topic icon in each, are not an adequate default. Covers, contents and section dividers have different jobs; exact quotations or mathematics may retain a justified typography-led treatment.
+
+The following compositions describe explanatory roles rather than fixed templates. Change their orientation, counts, proportions and assets to fit the study. Several can be combined on one page when the reading order remains clear, or developed across a sequence when the detail needs space.
+
+| Explanatory purpose | Composition and useful detail |
+| :--- | :--- |
+| Introduce a concept | Pair an illustrated phenomenon or mechanism with a precise definition and source-backed scale or example. Show what changes in the research object, rather than only naming successive topics. |
+| Frame the research question | Connect the illustrated motivation to a dominant question and meaningful analytical dimensions. Keep the motivation visible while the question becomes more specific. |
+| Explain why an assumption matters | Align the conventional account and the added mechanism, keeping their shared starting point recognizable. Pair the contrast with relevant magnitude, operating conditions or consequences supported by the source. |
+| Develop the wider significance | Use an illustrated system relationship above coordinated implications, each with its own explanatory detail; an optional synthesis band can connect those implications to the audience's research. |
+| Explain the contribution | Compose distinct regions for what enters the method, what comparison changes, what is quantified and why the result matters. A region may combine a scene, a small evidence plot, short method statements and a qualified interpretation. Do not force equal content or four identical cards. |
+| Connect background with evidence | Pair a mechanism or conceptual account with measured or projected evidence, distinguishing their status and keeping relevant scales and qualifications visible. |
+| Explain interacting timescales or system layers | Align corresponding states across layers and mark the supported transfers, delays or constraints. Distinguish conceptual trajectories from data; never invent numerical profiles. |
+| Explain an analytical procedure | Show the actual selection, matching, transformation or comparison with source-supported sample units, variables and intermediate states. Keep the operation visible rather than reducing it to an input-model-output chain. |
+
+Richness comes from complementary explanatory work: a scene identifies the system, a comparison reveals a difference, an annotation explains the operation, and evidence establishes the result. It does not come from increasing icon count or repeating captions as pictures. Use composed scientific illustrations, retained source figures and native analytical graphics as needed; the small bundled icon collection is a starting resource, not a limit on visual design. Preserve readability and scientific qualifications, and split coherent subtopics when the composition needs more room. Retain a private record of each page's visual purpose and essential visible detail so a minimal implementation cannot silently replace the storyboard.
+
+For a dense method diagram, reconstruct its explanatory hierarchy before styling its boxes. Separate inputs, transformations, interacting modules and outputs when these are real distinctions in the method. Group related modules, make the important feedback paths visible and give secondary links less emphasis without hiding their meaning. Merge redundant routes only when their sources, destinations and semantics remain explicit. Choose a layered, branching, cyclic or spatial arrangement from the actual system rather than forcing everything into a linear chain. Short labels and icons can simplify small components while precise operations, equations, constraints and supporting explanations remain available at the appropriate level.
+
+A rich overview can be followed by focused detail pages. Keep the shared system, labels and meaningful positions stable while highlighting or developing the current part. Progressive revelation should help listeners understand the full explanation, not remove its substance or make unchanged text jump. When an illustration communicates a broad pathway, retain the technical mechanism, evidence and qualifications elsewhere in the visible sequence at the depth the brief requires.
+
 ## Choose what the visual needs to explain
 
 Read the source before choosing an asset. Identify the research object, the distinction or action being explained, and the evidence supporting any relationship. Record that purpose briefly in the private slide specification alongside the source-to-output ledger. For example, a comparison of operating conditions may need the same physical system shown twice, with only the relevant condition changing. A generic symbol for the research field would contribute much less.
@@ -28,7 +57,7 @@ An illustration may support a measured chart, but it does not replace that evide
 
 ## Build around objects and relationships
 
-Choose the composition before filling the page with prose. Use recognizable research objects where they clarify the subject, then arrange them to express the verified comparison, transformation or system structure. Keep concise labels and necessary qualifications nearby. A small number of informative objects is often more effective than a symbol attached to every sentence.
+Choose the composition before filling the page with prose. Use recognizable research objects where they clarify the subject, then arrange them to express the verified comparison, transformation or system structure. Keep concise labels and necessary qualifications nearby. Choose as many informative components as the explanation needs, organizing them into a clear hierarchy rather than attaching a symbol to every sentence.
 
 | Explanatory task | Composition to consider | What makes it useful |
 | :--- | :--- | :--- |
@@ -73,7 +102,7 @@ The preferred starting arrangement has a narrow illustrated column at left and a
 
 The left schematic should do explanatory work beyond identifying the topic. Its components and labels must reveal the source-supported motivation or contrast. The subquestion visuals can help identify inquiry domains; those cards establish scope and do not replace evidence, methods or result explanations later in the talk. Do not invent an outcome, direction of change, causal link or additional research objective to fill a visual slot. Preserve distinctions between the study's questions, its hypotheses, completed findings and future work.
 
-Use the target deck's palette, illustration treatment and authorized branding. The reference's subject, geography, exact asset family, yellow accents, three stages and four cards are examples, not template requirements. Build callouts, cards, labels and connectors as native objects where feasible, keeping imported illustration interiors distinct from editable scientific content. Use readable text contrast rather than copying faint supporting text. Keep question text, stage labels, card headings and explanations top-anchored; match corresponding insets and first-line positions. Preserve title anchoring and the symmetric work area. If section navigation is useful, place it above the page title with centered labels at least 12 pt; the motivation strip itself is not section navigation. Use the target master or layout for recurring logos instead of copying a reference logo.
+Use the target deck's palette, illustration treatment and authorized branding. The reference's subject, geography, exact asset family, yellow accents, three stages and four cards are examples, not template requirements. Build callouts, cards, labels and connectors as native objects where feasible, keeping imported illustration interiors distinct from editable scientific content. Use readable text contrast rather than copying faint supporting text. Follow role-based anchoring: vertically center question callouts, filled heading bands and diagram-node text within their intended text regions; top-anchor unfilled explanations and free-standing labels. Match corresponding insets and preserve retained text positions across slide changes. Preserve title anchoring and the symmetric work area. If section navigation is useful, place it above the page title with centered labels at least 12 pt; the motivation strip itself is not section navigation. Use the target master or layout for recurring logos instead of copying a reference logo.
 
 When a narrow canvas or substantial subquestions need more room, wrap the lower regions, move the motivation above the question or split the framing across a short sequence. Preserve the main-question-to-subquestion relationship and essential context without shrinking the text to keep a fixed grid. Review whether the audience can see why the question arises, identify the main question and distinguish what each subquestion investigates. Compare the actual wording and all visual relationships with the source before accepting the composition.
 
@@ -110,11 +139,11 @@ Do not turn descriptive statistics into a plausible-looking density curve, draw 
 
 If useful objects, their relationships and readable text cannot share the work area comfortably, split at a conceptual boundary. An overview followed by a mechanism or module detail can preserve both orientation and depth. Give each resulting slide a clear explanatory purpose and map every claim, qualification, reference and note to its destination. Update navigation and cross-references after splitting.
 
-Do not shrink below the 10.5 pt minimum, reduce section navigation labels below 12 pt, crowd a diagram to preserve an arbitrary slide count or split solely to make room for decoration. Keep corresponding non-title text top-anchored, navigation labels vertically centered and table alignment consistent with the [design system](design-system.md#text-boxes-and-tables).
+Do not shrink below the 10.5 pt minimum, reduce section navigation labels below 12 pt, crowd a diagram to preserve an arbitrary slide count or split solely to make room for decoration. Keep unfilled body text top-anchored, flowchart nodes and filled text boxes vertically centered, retained text fixed and table alignment consistent with the [design system](design-system.md#text-boxes-and-tables).
 
 ## Close with visual key takeaways
 
-Every complete presentation needs a final substantive summary that helps the audience recall what the research establishes and why it matters within its stated scope. Place a key takeaways slide or a short summary sequence at the end of the main narrative, before optional Q&A, contact details or supplementary material. A title can follow the presentation language and context; the visual synthesis is the requirement, not an English heading.
+Every complete presentation needs a final substantive summary that helps the audience recall what the research establishes and why it matters within its stated scope. Place a key takeaways slide or a short summary sequence at the end of the main narrative, before optional Q&A, contact details or supplementary material. A title can follow the presentation language and context; the visual synthesis is the requirement, not an English heading. Key takeaways need no dedicated navigation item. Use a truthful existing concluding group or omit the ribbon on the summary; keep any remaining ribbon within five items.
 
 Build the summary from the messages already developed in the talk. Reuse recognizable research objects, a verified relationship or a concise piece of retained evidence, with short native explanations nearby. The visual continuity should help listeners recall the reasoning, while hierarchy and space make the closing message easy to grasp. Several lines of text, generic checkmarks or text cards with decorative icons are insufficient on their own.
 
@@ -128,6 +157,22 @@ Build the summary from the messages already developed in the talk. Reuse recogni
 Choose the number of messages and the arrangement from the actual argument. Do not force three takeaways, equal cards or an icon for every point. Keep limitations and uncertainty that materially affect interpretation visible with the relevant message. Cite evidence as needed for a standalone closing page, and map any condensed statement to its earlier source and destination in the private ledger.
 
 A closing summary must not introduce new results, a stronger causal claim, an unsupported recommendation or an invented future benefit. When a useful graphic cannot yet be authored or verified, keep that closing work pending rather than treating a text-only substitute as a completed visual summary. A request limited to individual slides does not require adding an unrelated ending, but a complete-deck task includes this review.
+
+## Connect the intended objects
+
+Every diagram arrow asserts a relationship. Record its source object, target object, direction and meaning before drawing it, distinguishing a causal pathway, sequence, transfer, association and proposed relationship. An attractive route does not justify an unsupported connection.
+
+Build or reroute connectors after the nodes and labels have their final bounds. Prefer native object connections when available. Choose attachment sides and ports that match the reading direction, and place the arrow tip at the intended target's visible boundary with a small consistent clearance. Do not aim at a bounding-box center, stop in an unrelated gap, penetrate text or attach to transparent image padding. For irregular illustrations, use a deliberate visible anchor or explanatory callout. Account for group transforms, rotations, crops and scaling in the final slide coordinates.
+
+| Check | Required outcome |
+| :--- | :--- |
+| Direction | The arrowhead is at the semantic destination. Verify the authoring API's endpoint convention; for Artifact Tool, `head` decorates `from` and `tail` decorates `to`, so a source-to-target arrow uses `tail`. |
+| Attachment | Source and destination are unambiguous in the actual render. Inspect the visible object contour, not only the stored rectangle. |
+| Routing | Lines avoid labels and unrelated nodes. Branches have deliberate junctions; crossings do not look like junctions. Feedback paths remain distinguishable from forward paths. |
+| Filled nodes | Text is vertically centered within its intended region, with balanced clearance and readable wrapping. Horizontal alignment follows the text's role. |
+| Final placement | Recheck every edge after moving, resizing, regrouping or splitting nodes and after native export. Recompute endpoints when the authoring tool does not maintain attachments. |
+
+Inspect each diagram at full slide size and zoom into questionable endpoints in the delivery application's render. Fix wrong targets, reversed arrowheads, ambiguous crossings and gaps before acceptance. Generic overlap checks and successful file export do not certify connections. Record any unavailable native check as pending; the bounded preservation helpers do not perform automatic semantic routing or endpoint repair.
 
 ## Review the contribution, then the rendering
 

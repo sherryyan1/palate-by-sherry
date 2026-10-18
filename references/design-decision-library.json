@@ -92,7 +92,7 @@
       "status": "primary",
       "trigger": "The listener needs orientation in a section sequence, or a slide already contains section navigation.",
       "decision": "Use meaningful section arrows with restrained emphasis when orientation is needed, with no more than five items in a section navigation ribbon. Group studies with more sections under at most five truthful higher-level labels while preserving every scientific section and its topic content. Keep navigation items compact and visually connected; arrow segments should join closely with only narrow, consistent separators. Whenever a section navigation bar is present, always place it above the slide title and vertically center its native editable labels within the navigation shapes. Navigation labels must have an effective font size of at least 12 pt.",
-      "execution": "Retain useful existing navigation within the five-item limit. When the study has more sections, choose truthful higher-level groups and map every subsection to its appropriate group in the private design specification; highlight the group containing the actual current section. Do not drop scientific sections, truncate arbitrarily to the first five items, hide additional sections behind an ellipsis or add a second concurrent ribbon to bypass the limit. Reserve a distinct row above the title. Keep adjacent arrow segments tightly joined and judge visible tip-to-notch seams in the render; a small overlap of shape frames may be needed. Fit the bar through concise label wording, segment widths, overall placement or coherent reflow within the five-item limit, without widening the gaps to fill the row or obscuring labels. Keep native editable labels at 12 pt or larger after inheritance, automatic fitting and group scaling; do not shrink them to resolve a fit problem. Keep repeated label frames, positions, insets, font family, size and weight fixed across slides; use color or fill for active emphasis so the words do not move as the section changes. Inspect rendered label alignment and fit. Navigation labels are an explicit exception to the non-title text-box top-anchor default in R016.",
+      "execution": "Retain useful existing navigation within the five-item limit. When the study has more sections, choose truthful higher-level groups and map every subsection to its appropriate group in the private design specification; highlight the group containing the actual current section. Do not drop scientific sections, truncate arbitrarily to the first five items, hide additional sections behind an ellipsis or add a second concurrent ribbon to bypass the limit. Reserve a distinct row above the title. Keep adjacent arrow segments tightly joined and judge visible tip-to-notch seams in the render; a small overlap of shape frames may be needed. Fit the bar through concise label wording, segment widths, overall placement or coherent reflow within the five-item limit, without widening the gaps to fill the row or obscuring labels. Keep native editable labels at 12 pt or larger after inheritance, automatic fitting and group scaling; do not shrink them to resolve a fit problem. Keep repeated label frames, positions, insets, font family, size and weight fixed across slides; use color or fill for active emphasis so the words do not move as the section changes. Inspect rendered label alignment and fit. Navigation labels use the role-based middle anchoring in R016. Key takeaways do not need a dedicated ribbon item; use a truthful concluding group or omit navigation on that summary.",
       "exceptions": [
         "Navigation is optional on covers and self-contained pages; the placement rule does not require adding a navigation bar.",
         "Do not invent an unrelated sequence."
@@ -250,19 +250,16 @@
       "dimension": "text_alignment",
       "status": "primary",
       "trigger": "Formatting text boxes or native table cells.",
-      "decision": "Top-anchor non-title text boxes other than section navigation labels to keep corresponding text starts stable across slides with different line counts. Navigation labels use vertical middle anchoring within their shapes, and their bar always sits above the slide title. Preserve established title-layout anchoring. Table cells retain vertical middle anchoring; left-align descriptive table text and horizontally center very short entries, including numbers.",
-      "execution": "Follow design-system.md#text-boxes-and-tables. Match the top edge, top inset, paragraph space before and first-line typography for corresponding top-anchored text roles. For navigation, follow R007 and keep internal insets consistent across shapes and comparable slides. Compare the visible first-line positions of top-anchored text on successive comparable slides and inspect automatic fitting; matching box coordinates alone are insufficient. For logical text retained across consecutive slides, follow spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes and lock exact target frame geometry, insets, anchoring, paragraph layout, font metrics and fitting; do not independently recenter or refit it. Corresponding roles with different content may use content-dependent box heights without moving the starting position. Treat vertical anchoring and horizontal paragraph alignment separately, apply consistent alignment to comparable table entries and use right or decimal alignment only when explicitly instructed. Use native authoring for alignment changes beyond the bounded helpers' operation sets.",
+      "decision": "Top-anchor unfilled body text, captions and free-standing headings. Vertically center flowchart-node text, filled text boxes, navigation labels and table cells within their intended text regions. Preserve established title anchoring and keep retained logical text fixed across consecutive slides. Left-align descriptive table text and center short entries, including numbers.",
+      "execution": "Follow design-system.md#text-boxes-and-tables. A text box over a separate bounded background shape counts as filled for this rule; a whole-slide background does not. Center its designated text region with balanced vertical insets, rather than centering every element in a multi-object panel as one block. Top-anchored roles retain matched top edges, insets and first-line metrics. For retained text of either anchor type, lock frame geometry including height, font metrics, wrapping and insets across consecutive slides. Changing a centered container height must not move unchanged text. Treat horizontal alignment separately, and use native authoring for properties beyond the bounded helpers. Inspect final native properties and adjacent renders.",
       "exceptions": [
-        "Section navigation labels use the vertical middle anchoring required by R007; body text, explanations, captions, subheadings and panel headings retain top anchoring.",
-        "An explicit required layout or alignment instruction takes precedence; retain its reason in the private design specification.",
-        "Short table entries are judged by their content and role rather than an invented fixed character-count threshold."
+        "An explicit user-specified layout can override the role-based default; preserve scientific readability and retained-text continuity.",
+        "Title layout remains established; a large colored panel does not make its figures and independent text regions one centered text box."
       ],
       "validation": [
-        "Non-title text boxes use top vertical anchoring except navigation labels or an explicit overriding requirement; navigation labels use middle anchoring, title-layout anchoring is preserved and table cells retain the middle default.",
-        "Corresponding top-anchored text begins at the same visible position across comparable slides even when line counts differ; check top edges, top insets, paragraph spacing, first-line typography and fitting.",
-        "Logical text retained across consecutive slides keeps the exact target geometry and typography required by spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes, with no visible jump when the surrounding content or active navigation emphasis changes.",
-        "Descriptive table text is left-aligned, short entries are centered and no right or decimal alignment was introduced without instruction.",
-        "Multiline text, internal margins, wraps and fit are checked in the delivery application without reducing text below 10.5 pt or navigation labels below the 12 pt minimum in R007."
+        "Unfilled body text is top-anchored; flowchart nodes and filled text regions, navigation and table cells are middle-anchored with readable fit.",
+        "Retained text does not move across adjacent renders, including within middle-anchored nodes.",
+        "Table horizontal alignment follows content: descriptive text left, short entries centered, right alignment only on explicit instruction."
       ]
     },
     {
@@ -298,7 +295,7 @@
       ],
       "validation": [
         "The treatment creates a meaningful group without crowding the text or competing with the evidence.",
-        "Internal clearance, top anchoring and stable first-line positions for body text and explanations, the type-size floor and the symmetric work area remain intact."
+        "Internal clearance, role-based anchoring and stable retained-text positions, the type-size floor and the symmetric work area remain intact."
       ]
     },
     {
@@ -405,7 +402,7 @@
       "status": "primary",
       "trigger": "Creating, editing or reviewing any slide in the requested work scope, including pages that already contain figures or diagrams.",
       "decision": "Give every in-scope slide an intentional, polished text and visual composition and an individual page review. Make the relevant research objects, distinctions, evidence or verified relationships visible. Assess splitting a complex explanation when useful graphics and readable text need more room.",
-      "execution": "Follow visual-storytelling.md and design-system.md#visual-treatment-for-every-slide. Review every in-scope page for the explanatory contribution, hierarchy, spacing and balance of its text and visual material, including method, result, comparison, question, cover and closing slides. Before filling a slide with prose, record the visual's explanatory purpose, role and source support privately. Distinguish evidence, explanatory schematics and illustrative depictions. Compose interacting objects, operations, states, constraints or comparisons at the resolution the source and audience need, with explanatory native labels and a stable visual vocabulary. A recognizable icon, repeated object or box-and-arrow layout does not by itself explain a method or mechanism. Text-only sources can support substantive analytical schematics without supplying numerical data. Prefer editable text, shapes and connectors; use coherent, adequately resolved assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Preserve sufficient visible method, evidence and reasoning as well as complete source-to-output coverage, essential qualifications and attribution; update notes, navigation and cross-references. Retain effective existing treatments, stable top-anchored text, the type hierarchy including R007's five-item ribbon limit and 12 pt navigation minimum, and the symmetric work area. R017 and R018 establish grouping, not proof of an explanatory graphic.",
+      "execution": "Follow visual-storytelling.md and design-system.md#visual-treatment-for-every-slide. Review every in-scope page for the explanatory contribution, hierarchy, spacing and balance of its text and visual material, including method, result, comparison, question, cover and closing slides. Before filling a slide with prose, record the visual's explanatory purpose, role and source support privately. Distinguish evidence, explanatory schematics and illustrative depictions. Compose interacting objects, operations, states, constraints or comparisons at the resolution the source and audience need, with explanatory native labels and a stable visual vocabulary. A recognizable icon, repeated object or box-and-arrow layout does not by itself explain a method or mechanism. Text-only sources can support substantive analytical schematics without supplying numerical data. Prefer editable text, shapes and connectors; use coherent, adequately resolved assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Preserve sufficient visible method, evidence and reasoning as well as complete source-to-output coverage, essential qualifications and attribution; update notes, navigation and cross-references. Retain effective existing treatments, role-based anchoring and stable retained text, the type hierarchy including R007's five-item ribbon limit and 12 pt navigation minimum, and the symmetric work area. R017 and R018 establish grouping, not proof of an explanatory graphic.",
       "exceptions": [
         "Exact proofs, quotations, references and necessary prose can retain their form when the purpose or scientific meaning requires it; record the slide-specific reason and still review typography and composition. Abstract methods and equations do not require a physical metaphor or a decorative icon.",
         "Explanatory imagery must be distinguishable from research evidence. Do not invent causal, temporal, quantitative or categorical relationships; use an accurate nonrelational illustration or composition where possible when a relationship is unverified.",
@@ -503,7 +500,7 @@
       "status": "primary",
       "trigger": "Creating or refining a complete multi-slide presentation.",
       "decision": "Conclude the main narrative with key takeaways that synthesize supported messages through meaningful visuals and concise wording.",
-      "execution": "Follow visual-storytelling.md#close-with-visual-key-takeaways. Use a closing slide or short sequence that reuses established research objects, verified relationships or legible evidence. Select the message count and composition from the argument, keep essential qualifications visible and retain native editable wording. Place optional Q&A, contacts or supplementary pages after the final substantive summary. Trace condensed statements to source and earlier evidence.",
+      "execution": "Follow visual-storytelling.md#close-with-visual-key-takeaways. Use a closing slide or short sequence that reuses established research objects, verified relationships or legible evidence. Select the message count and composition from the argument, keep essential qualifications visible and retain native editable wording. Place optional Q&A, contacts or supplementary pages after the final substantive summary. Trace condensed statements to source and earlier evidence. The summary does not require a dedicated ribbon item; use an appropriate existing group or omit its navigation.",
       "exceptions": [
         "A request limited to individual slides does not require an unrelated new ending.",
         "Tutorials and proposed studies summarize learned concepts, supported questions or next steps without inventing completed findings.",
@@ -533,8 +530,62 @@
       "validation": [
         "The audience can identify why the study's question arises, state the main question and distinguish each source-supported subquestion.",
         "The diagram's components and relationships match the source, with proposed pathways labeled and no invented objectives or implied results.",
-        "The actual render preserves a dominant question, readable supporting text, stable top-anchored starts, work-area bounds and any section navigation's separate 12 pt minimum.",
+        "The actual render preserves a dominant question, readable supporting text, role-based anchoring and stable retained-text positions, work-area bounds and any section navigation's separate 12 pt minimum.",
         "Illustration editing limits and native text, framing and connector editability receive separate review; subquestion cues are not treated as research evidence."
+      ]
+    },
+    {
+      "id": "R031",
+      "name": "Outline, visual storyboard and native construction",
+      "dimension": "scientific_storytelling",
+      "status": "primary",
+      "trigger": "Creating or substantially rebuilding a research presentation.",
+      "decision": "Develop the narrative, design each page's visual explanation, then reproduce it as actual slides. Substantive introduction pages use rich illustrated explanations with sufficient scientific detail.",
+      "execution": "Follow visual-storytelling.md#outline-then-storyboard-then-build. Specify source-supported objects, states, operations or comparisons, evidence, labels, supporting text and composition before authoring. Adapt concept, question, significance and contribution compositions to the study. Use detailed scientific illustrations and analytical graphics beyond the bundled icon vocabulary. Preserve the storyboard's explanatory substance in the finished slides.",
+      "exceptions": [
+        "A narrow edit does not require rebuilding the whole deck.",
+        "Covers, contents, dividers and justified exact-text or mathematics pages have distinct purposes. Never invent data or relationships to fill a visual design."
+      ],
+      "validation": [
+        "Each introduction page lets the audience see the relevant phenomenon, contrast, question or significance with sufficient supporting detail.",
+        "The native slides realize the storyboard rather than substituting sparse headlines, generic text flowcharts or decorative icons.",
+        "Actual science determines layout, counts and detail; reference compositions do not force identical cards or fixed chains."
+      ]
+    },
+    {
+      "id": "R032",
+      "name": "Accurate diagram connections",
+      "dimension": "diagram_geometry",
+      "status": "primary",
+      "trigger": "Creating or changing a diagram with connectors.",
+      "decision": "Connect the intended source and target with the correct semantic direction and a clear visible attachment.",
+      "execution": "Follow visual-storytelling.md#connect-the-intended-objects. Record edge meaning and endpoint objects, choose suitable ports, reroute after final node placement and check native renders. Respect authoring endpoint conventions, group transforms, visible contours and image padding. Vertically center node text under R016.",
+      "exceptions": [
+        "Association or unresolved relationships may use nondirectional links or explicitly proposed connections when supported.",
+        "The bounded preservation helpers do not implement automatic semantic routing; use native authoring and report unavailable application checks as pending."
+      ],
+      "validation": [
+        "Every arrow tip reaches the intended visible boundary with deliberate clearance and no label penetration.",
+        "Direction, branch junctions, crossings and feedback paths are unambiguous after native export.",
+        "Moved or resized nodes trigger endpoint and routing rechecks."
+      ]
+    },
+    {
+      "id": "R033",
+      "name": "Scholarly slide attribution",
+      "dimension": "citation_style",
+      "status": "primary",
+      "trigger": "Displaying research citations or reference entries on slides.",
+      "decision": "Use APA 7 author-year citations and bibliographic structure with italic slide reference text, keeping routine extraction-page lists out of the visible composition.",
+      "execution": "Follow writing-style.md#slide-citations-and-references. Place concise attribution by its evidence and complete verified entries in the reference section. Use the private ledger or notes for detailed source locators. Entire-line italics are palate's slide style, not a universal APA typography requirement.",
+      "exceptions": [
+        "Retain necessary direct-quotation locators, required credits and bibliographic publication page ranges or article numbers.",
+        "Unknown date, publication status or metadata must not be invented to complete a reference."
+      ],
+      "validation": [
+        "Visible citations identify the correct work and correspond to complete reference entries.",
+        "Reference text is italic and readable, with no routine source-extraction page-list footer.",
+        "Scientific source mappings, required credits and consequential uncertainty remain preserved."
       ]
     }
   ]
