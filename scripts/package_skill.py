@@ -19,6 +19,7 @@ FILES = [
     "scripts/presentation_route.py", "references/keynote-workflow.md",
     "scripts/keynote_native.py", "scripts/keynote_native.js",
     "references/design-system.md", "references/design-decision-library.json",
+    "references/curated-palettes.json", "scripts/select_palette.py",
     "references/read-the-room.md", "references/find-the-thread.md",
     "references/distill-the-message.md", "references/refine-the-visuals.md",
     "references/storytelling-examples.md", "scripts/review_title_sequence.py",

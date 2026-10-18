@@ -108,18 +108,19 @@
     },
     {
       "id": "R008",
-      "name": "Teal and scientific color roles",
+      "name": "Task-aware color and scientific roles",
       "dimension": "visual_encoding",
       "status": "primary",
       "trigger": "A palette or emphasis color is needed.",
-      "decision": "Use teal or a requested scientific palette with deliberate semantic roles.",
-      "execution": "Preserve category mappings; pair color with labels and markers; check contrast.",
+      "decision": "Choose clean, distinguishable colors from the evidence, brief and reference treatments, with clear foreground/background hierarchy and deliberate semantic roles.",
+      "execution": "Follow refine-the-visuals.md#give-color-a-consistent-purpose. For new palette choices, query scripts/select_palette.py for a matching curated recipe, assign its HEX values to semantic roles and reuse that source-linked mapping. Preserve existing category meanings, pair color with labels or markers and inspect the colors actually rendered.",
       "exceptions": [
         "Scientific figure colors and existing legends take priority.",
-        "Operational hex values are adjustable, not a prescribed journal palette."
+        "There is no default hue, fixed color count or universal topic palette; explicit task choices govern contextual preferences."
       ],
       "validation": [
-        "The palette is legible and every changed mapping has a consistent legend."
+        "The background suits the evidence, emphasis and comparison context remain distinguishable, and every changed mapping has a consistent legend.",
+        "A selected recipe matches nominal, ordered or diverging semantics; actual vector/native HEX and source qualifications are checked. Approximate raster generation is not reported as exact HEX compliance."
       ]
     },
     {

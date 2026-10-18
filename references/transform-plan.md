@@ -42,9 +42,9 @@ Create the plan from the inspected objects and resolved user context. The IDs be
       "slide": 1,
       "shape_id": 2,
       "action": "text_style",
-      "style": {"font_size_pt": 28, "bold": true, "color": "217A80"},
+      "style": {"font_size_pt": 28, "bold": true, "color": "1A1A1A"},
       "rule_ids": ["R008"],
-      "reason": "Give the existing title clear hierarchy with a provisional teal accent."
+      "reason": "Give the existing title clear hierarchy using the resolved deck text color; this example does not prescribe a palette."
     },
     {
       "slide": 1,

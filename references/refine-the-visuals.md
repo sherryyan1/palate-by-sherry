@@ -123,24 +123,45 @@ For an image-only table, first establish whether an editable reconstruction can 
 
 ## Give color a consistent purpose
 
-Use teal for emphasis or a requested scientific palette for the distinctions the audience needs to follow. A restrained palette can make categories and relationships easier to track when each color has a consistent role across related slides. Support that role with labels, markers or line styles rather than relying on color alone.
+Choose colors from the slide's question, scientific encodings, supplied references and resolved brief. Sherry prefers clean, identifiable hues and clear foreground/background separation. Restraint comes from purposeful emphasis and a readable hierarchy, not from making every color grayish. Both a focused highlight and a larger categorical palette can work. There is no default teal, universal palette, fixed color count or topic-to-hue assignment.
+
+When a new palette is needed, retrieve a coordinated recipe from the single [curated library](curated-palettes.json) with [select_palette.py](../scripts/select_palette.py). Run `python <skill-root>/scripts/select_palette.py --task <task>` using the task below; `--id <palette-id>` retrieves one known recipe, and `--source economist_pdf --page 41` limits retrieval to a physical, 1-indexed source page. `--list` returns a compact ID/task index. Read only the matching result, then reuse its ID, HEX-to-role mapping and source in the private design specification. Do not repeatedly load the whole library or PDFs. The helper retrieves candidates; the agent chooses and applies the roles through the actual authoring route. It does not automatically recolor a deck.
+
+Preserve a recipe's coordinated combination and distinguish its data colors from background, text and supporting roles. A documented subset can fit fewer categories; do not mix unrelated swatches or invent extra steps to satisfy a category count. Use the recipe's source-qualified verification and limits: vector values, printed color labels and approximate screenshot samples establish different things. Keep chart style separate from palette semantics. For example, an ordinal bubble scale does not identify unordered groups, while redundant size/color encoding of the same quantity can be valid when the key says so. Source pages inform grouping and emphasis without prescribing a dense print layout. Keep source PDFs, screenshots and derived task artifacts private; the curated page index and recipes are runtime references. Inspect other supplied IEA, IRENA or MUJI material only when relevant; a brand name alone does not specify a palette.
+
+Give each color a role before applying it: category identity, quantitative magnitude, sign, comparison context or narrative emphasis. Keep the same identity across related slides and support it with labels, markers or line styles. Prefer very light but distinguishable grays for neutral backgrounds, grids and supporting structure; keep text clearly readable. A gray or taupe data series may be stronger when its legend gives it a specific comparison role. Avoid making gray-blue, gray-purple or muted text the whole slide's visual treatment. User-positive curated recipes qualify the earlier broad dislike of newly chosen red/green treatments within their stated tasks, including justified red, green or teal roles. Entries marked as previously discussed references remain contextual options. Neither status makes a hue a default. Preserve source scientific mappings and follow the current brief.
+
+### Choose the background with the evidence
+
+Apply these preferences when designing or restyling pages, subject to explicit instructions in the current brief. Existing scientific encodings remain binding.
+
+| Page condition | Background treatment |
+| :--- | :--- |
+| Contains a research-figure screenshot or a figure copied from a paper | Use a pure white (`FFFFFF`) slide background. Preserve the figure's pixels, labels and scientific mappings; recoloring its interior or placing its white rectangle on a colored slide is not a substitute. |
+| Figure-free page with a light background | Use the approved clean beige (`F8F4EC`) with readable dark text and distinct accents. |
+| Dark page without a copied research figure | Use the approved presentation's flat deep blue-gray treatment, such as `203040`, warm off-white headings, clear white body text and concentrated accents. Adapt the composition to the content. |
+
+Native charts and conceptual diagrams can be evaluated on light or dark grounds when their scientific mappings, labels and contrast remain sound. Do not flatten or redraw evidence merely to qualify for another background.
+
+### Match the visual encoding to the question
+
+These are contextual choices, not a compulsory chart menu. Use an available native editable representation where it can preserve the evidence.
+
+| Explanatory task | Useful treatment and its boundary | Recipe task |
+| :--- | :--- | :--- |
+| Emphasize a meaningful group | Give that group a clear color and retain other observations in a lighter comparison treatment. Reinforce membership in labels when useful. The highlighted group need not be the largest value. | `single-highlight` |
+| Distinguish many categories | Choose visibly distinct hues at the actual mark size; keep identities stable and use direct or line-end labels. Separate panels when the audience cannot track the categories reliably. | `multiseries` or `categorical` |
+| Compare two states or scenarios | Use paired endpoints, connectors and optional direction arrows on a common scale. Any variable connector width requires a separately defined quantity and key. Keep historical/future uncertainty bands tied to their series. | `paired-contrast` or `scenario-bands` |
+| Show a relationship with an additional quantity | Consider a bubble plot with explicit axes and a size key. Encode magnitude through circle area, define any color mapping and annotate selected cases. Association or a nearby event marker does not establish causality. | `categorical-bubbles` or `ordered-bubbles` |
+| Show additive contributions over time | Consider stacked area with stable category identities, direct labels and a clear distinction between observations and projections. Stronger selected layers and pale remaining layers can preserve both focus and total context. Define any overlaid aggregate separately; stacked values must be meaningfully additive. | `many-category-stack` or `stacked-area` |
+| Show percentage levels or changes on a map | Use an ordered sequential scale for levels. For signed change, evaluate a diverging scale around a meaningful neutral value. Keep no-data distinct and distinguish percentage levels, relative percentage change and percentage-point differences. | `ordered-percent-map` or `diverging` |
+| Compose a calm editorial illustration | Match the subject and illustration language to the explanation, then preserve the chosen combination's structural and accent roles. Coastal Clear Blues and Editorial Blue & Terracotta remain distinct positive examples, not universal coastal or blue themes. | `calm-illustration` |
 
 For newly designed or deliberately recolored graphics, choose color-vision-friendly palettes and avoid introducing rainbow gradients. Keep concise axis and legend labels unambiguous, using stable symbols and the [unit-label convention](scientific-fidelity.md#unit-labels). Remove redundant decoration rather than data, uncertainty or essential context. These choices do not authorize recoloring or simplifying retained evidence whose scientific mappings cannot be verified.
 
-Before changing a figure, inspect its legend and category mappings. Those mappings carry scientific meaning and take priority over the preferred palette. The values below are adjustable working defaults; they do not prescribe a journal's palette or authorize recoloring scientific figures without checking the result.
+Before changing a figure, inspect its legend and category mappings. Those mappings carry scientific meaning and take priority over the preferred palette. Reuse a concise, resolved set of color roles in the private design specification. When a consequential choice is unresolved, compare a small number of representative native renders with wording, data, layout and typography held constant. A rejected treatment calls for revisiting its use, pairing and distribution of color, rather than repeatedly substituting isolated hex codes. User approval of a reference page does not approve every hue on it.
 
-| Role | Hex |
-| :--- | :--- |
-| Text | `172B30` |
-| Teal emphasis | `217A80` |
-| Light teal | `7CBEC1` |
-| Background | `FFFFFF` |
-| Supporting text | `58686C` |
-| Comparison blue | `3B6F9B` |
-| Comparison ochre | `B77932` |
-| Comparison purple | `80669D` |
-
-Check contrast, label legibility and legend consistency in the final render. A diagram also needs enough resolution for its relationships and labels to remain readable. Prefer native editable relationships when reconstruction can be verified, and retain a complex source figure otherwise. Upscaling cannot recover missing detail. Topic-specific illustrations, such as a lightbulb for energy, are optional choices rather than brand requirements.
+Check contrast, label legibility and legend consistency in the final render. Inspect the HEX actually used by native/vector objects; a retrieved recipe alone does not prove application or accessibility. If a raster image model is used, condition it with the chosen combination and roles, inspect the result and disclose that exact HEX compliance is not guaranteed. Prefer editable vectors or native charts when exact values matter. A diagram also needs enough resolution for its relationships and labels to remain readable. Retain a complex source figure when reconstruction cannot be verified; upscaling cannot recover missing detail. Topic-specific illustrations, such as a lightbulb for energy, are optional choices rather than brand requirements.
 
 ## Review the design against the research
 
