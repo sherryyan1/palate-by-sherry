@@ -20,7 +20,7 @@ Define the work area before placing content. It is a rectangle centered on the s
 
 Keep titles, section navigation, figures, labels, explanations, citations and footnotes inside this area. The slide number is the only foreground-content exception: place it outside the work area at the bottom right, using black on a light background and white on a dark one. A slide background may fill the canvas. Check the visible extent of grouped and rotated objects, connectors and text overflow, rather than only their unrotated frames.
 
-Within that boundary, group the scientific content before choosing gaps. A figure and its interpretation need enough proximity to read together, while a separate argument needs a clearer interval. Space should give the evidence room without detaching its labels, units, legend or qualifications. Keep the rhythm coherent across related pages, adapting the composition when the scientific relationship changes.
+Within that boundary, apply the [scientific grouping and spacing sequence](spacing-and-hierarchy.md#from-scientific-groups-to-a-checked-layout), adapting the composition when the scientific relationship changes.
 
 Use the following type hierarchy when applying Sherry's style. The minimum is a requirement; the usual sizes are starting points that can increase for the content and viewing conditions.
 
@@ -37,7 +37,7 @@ Read actual text formatting as well as theme defaults: a deck can declare Arial 
 
 Typography and space work together: heading scale, explanatory text and the interval between them should show their roles at a glance. Check effective sizes after inheritance, group scaling and automatic text fitting. When text overflows, rearrange, enlarge its space or split the explanation with a content ledger instead of shrinking it below the minimum. Text inside a retained image needs a separate legibility review at its final placed size; a native font-size check cannot certify it. Enlarge or reconstruct that evidence only when scientific fidelity can be verified, and keep an unresolved limitation explicit.
 
-Check visible letterforms, edges and baselines in the rendered slide. Equal text-box coordinates can look uneven because internal margins and glyph shapes differ. The [spacing and hierarchy guide](spacing-and-hierarchy.md) explains how to combine geometric alignment with optical judgment while preserving scientific associations and comparison scales.
+Apply the [spacing and hierarchy guide](spacing-and-hierarchy.md#from-scientific-groups-to-a-checked-layout) to combine geometric alignment with optical judgment while preserving scientific associations and comparison scales.
 
 ## Recurring logos and watermarks
 
@@ -60,7 +60,7 @@ Choose vertical anchoring by the role of the container. Unfilled body text, capt
 
 For repeated top-anchored text roles, align the box's top edge and keep its top inset, paragraph space before and first-line typography consistent. Inspect automatic fitting and inherited styles as well as direct properties. Compare the visible first-line position across successive slides; a matching container boundary alone is insufficient. Text-box height may follow the content without moving that starting position. This first-line rule applies to top-anchored roles. For a flowchart node or filled text box, honor middle anchoring and keep the intended text region explicit.
 
-For the same logical text retained across consecutive slides, follow [the retained-text continuity rule](spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes). Lock its exact target geometry and typography, including the height of any middle-anchored container, rather than independently refitting it on each page; the more flexible height rule above concerns corresponding roles with different content.
+For the same logical text retained across consecutive slides, follow [the retained-text continuity rule](spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes). The more flexible height rule above concerns corresponding roles with different content.
 
 Apply the table choices consistently to comparable entries, including headers according to their content. Use right or decimal alignment only when explicitly instructed; a numerical data type does not supply that instruction. If table-cell centering exposes a fit problem, adjust the container, padding or composition while preserving the 10.5 pt minimum. An explicitly required layout can override the defaults, with its reason retained in the private design specification.
 

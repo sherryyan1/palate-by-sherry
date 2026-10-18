@@ -107,6 +107,6 @@ For bounded-helper output, use the hash-bound review record specified in that ad
 
 ### Deliver the result and explain its limits
 
-Deliver a new editable deck with a concise account of the audience, time, screen choice, target canvas and depth, the source/output mapping, meaningful changes and their design basis, preserved evidence, checks performed and material limitations. Certify a requested native Keynote deliverable only after saving and reviewing it in Keynote; otherwise describe the remaining handoff.
+Deliver a new editable deck with a concise account of the audience, time, screen choice, target canvas and depth, the source/output mapping, meaningful changes and their design basis, preserved evidence, checks performed and material limitations.
 
 Keep detailed extracted content and validation artifacts private within the authorized execution environment. That environment may process files locally or in an authorized cloud workspace; do not imply that every task runs on the user's own computer. Invoking the Skill does not authorize publishing research or sending it to additional third-party services.
