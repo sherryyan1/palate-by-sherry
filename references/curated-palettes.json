@@ -1,76 +1,12 @@
 {
-  "schema_version": 1,
-  "version": 2,
-  "revision": "source-checked-2026-10-18",
-  "title": "Palate by Sherry | Curated Color Palette Library",
-  "provenance_notes": {
-    "vector_conversion": "Nearest 8-bit HEX from decimal PDF RGB/three-component ICC operands, not literal HEX tokens. Region and semantic checks are separate from page occurrence.",
-    "curation": "Task recipes can be selected or cross-page subsets, not official publisher standards or complete original legends.",
-    "screenshot_samples": "Both supplied coastal combinations remain approximate and independently unverified.",
-    "page_numbering": "Physical 1-indexed PDF pages; Workshop entries refer to slide numbers.",
-    "masthead": "Recurring Economist masthead red is not a compulsory data color."
-  },
-  "sources": {
-    "economist_pdf": {
-      "filename": "AYearInGraphicDetail.pdf",
-      "title": "A year in Graphic detail",
-      "preferred_pdf_pages": [
-        2,
-        4,
-        8,
-        9,
-        11,
-        14,
-        15,
-        16,
-        18,
-        19,
-        20,
-        33,
-        37,
-        38,
-        39,
-        41,
-        43,
-        44,
-        48
-      ]
-    },
-    "pbl_pdf": {
-      "filename": "pbl-2023-geography-of-future-waterchallenges-bending-trend-4376.pdf",
-      "title": "The Geography of Future Water Challenges: Bending the Trend",
-      "preferred_pdf_pages": [
-        12,
-        13,
-        16,
-        20,
-        24,
-        25,
-        30,
-        36
-      ]
-    },
-    "workshop": {
-      "filename": "PPT Workshop - Shuyue's Colour Palette.pptx",
-      "referenced_slides": [
-        1,
-        3,
-        9,
-        18
-      ]
-    },
-    "coastal_screenshots": {
-      "title": "Two user-preferred Mediterranean illustration thumbnails",
-      "date": "2026-10-18"
-    }
-  },
+  "schema_version": 2,
   "palettes": [
     {
       "id": "coastal_clear_blues",
       "name": "Coastal Clear Blues",
-      "source": "user-provided two-thumbnail screenshot, upper example (2026-10-18)",
-      "status": "user-positive color reference",
-      "extraction": "approximate RGB estimates supplied in the imported library; retain as approximate and independently unverified",
+      "tasks": [
+        "calm-illustration"
+      ],
       "colors": [
         {
           "hex": "#28A3CF",
@@ -97,27 +33,14 @@
           "role": "optional_cyan_variant"
         }
       ],
-      "judgment": "Airy clarity from a coherent blue family and luminous whites; navy anchors shape and depth.",
-      "category": "user visual and workshop references",
-      "source_pages": {
-        "coastal_screenshots": []
-      },
-      "provenance": "supplied approximate raster sampling; original two-thumbnail screenshot not located for independent verification",
-      "best_for": "bright coastal vector illustration; blue monochrome with navy anchoring",
-      "tasks": [
-        "calm-illustration"
-      ],
-      "verification": {
-        "status": "approximate_unverified",
-        "scope": "Supplied screenshot recipe retained unchanged; original screenshot unavailable for independent color verification."
-      }
+      "best_for": "Bright blue illustrations with navy structure."
     },
     {
       "id": "editorial_blue_terracotta",
       "name": "Editorial Blue & Terracotta",
-      "source": "user-provided two-thumbnail screenshot, lower example (2026-10-18)",
-      "status": "strongly preferred color reference",
-      "extraction": "approximate RGB estimates supplied in the imported library; retain as approximate and independently unverified",
+      "tasks": [
+        "calm-illustration"
+      ],
       "colors": [
         {
           "hex": "#5399D4",
@@ -140,27 +63,16 @@
           "role": "quiet_warm_stone"
         }
       ],
-      "judgment": "Blue provides structure, navy provides depth, cream breathing space, terracotta contrast, stone quiet grounding. Use warm accents selectively; do not flood the image with orange.",
-      "category": "user visual and workshop references",
-      "source_pages": {
-        "coastal_screenshots": []
-      },
-      "provenance": "supplied approximate raster sampling; original two-thumbnail screenshot not located for independent verification",
-      "best_for": "editorial illustrations, product scenes, blue-orange contrast without orange wash",
-      "tasks": [
-        "calm-illustration"
-      ],
-      "verification": {
-        "status": "approximate_unverified",
-        "scope": "Supplied screenshot recipe retained unchanged; original screenshot unavailable for independent color verification."
-      }
+      "best_for": "Editorial illustrations with blue structure and selective warm accents.",
+      "avoid": "Avoid an overall orange wash."
     },
     {
-      "id": "workshop_01_warm_sun_cool_slate",
-      "name": "Workshop 01 / Warm Sun & Cool Slate",
-      "source": "PPT Workshop - Shuyue's Colour Palette.pptx, slide 1",
-      "status": "previously discussed reference; not a mandatory preference",
-      "extraction": "HEX labels visually transcribed from the embedded source-slide raster image; labels take precedence over raster pixel estimates",
+      "id": "warm_sun_cool_slate",
+      "name": "Warm Sun & Cool Slate",
+      "tasks": [
+        "calm-illustration",
+        "paired-contrast"
+      ],
       "colors": [
         {
           "hex": "#FDB137",
@@ -183,30 +95,15 @@
           "role": "deep_slated_green"
         }
       ],
-      "judgment": "Warm sun hues balanced by cool pale/charcoal neutrals; not permission to default to teal.",
-      "category": "user visual and workshop references",
-      "source_pages": {
-        "workshop": [
-          1
-        ]
-      },
-      "provenance": "printed source HEX labels, visually verified in the original Workshop PPTX; swatch pixels may differ from labels",
-      "best_for": "warm-cool editorial design, illustration and infographics",
-      "tasks": [
-        "calm-illustration",
-        "paired-contrast"
-      ],
-      "verification": {
-        "status": "printed_labels_checked",
-        "scope": "Printed HEX or RGB labels visually checked in original embedded Workshop slide images; raster swatch pixels may differ."
-      }
+      "best_for": "Warm-cool contrast in illustrations and paired comparisons."
     },
     {
-      "id": "workshop_03_sky_and_earth",
-      "name": "Workshop 03 / Sky & Earth",
-      "source": "PPT Workshop - Shuyue's Colour Palette.pptx, slide 3",
-      "status": "previously discussed reference; not a mandatory preference",
-      "extraction": "HEX labels visually transcribed from the embedded source-slide raster image; labels take precedence over raster pixel estimates",
+      "id": "sky_and_earth",
+      "name": "Sky & Earth",
+      "tasks": [
+        "calm-illustration",
+        "categorical"
+      ],
       "colors": [
         {
           "hex": "#83B6C4",
@@ -229,31 +126,16 @@
           "role": "putty"
         }
       ],
-      "judgment": "Temperature contrast through paired blues and earthy browns; maintain role hierarchy.",
-      "category": "user visual and workshop references",
-      "source_pages": {
-        "workshop": [
-          3
-        ]
-      },
-      "provenance": "printed source HEX labels, visually verified in the original Workshop PPTX; swatch pixels may differ from labels",
-      "best_for": "nature and place narratives where earthy tones and blue balance",
-      "tasks": [
-        "calm-illustration",
-        "categorical"
-      ],
-      "verification": {
-        "status": "printed_labels_checked",
-        "scope": "Printed HEX or RGB labels visually checked in original embedded Workshop slide images; raster swatch pixels may differ."
-      },
-      "avoid": "Sky, ice and putty are pale on white; do not assume that source swatches remain legible as thin data lines. Review actual marks and choose a stronger recipe or non-color cues when needed."
+      "best_for": "Blue and earth-tone illustrations or categorical comparisons.",
+      "avoid": "Pale colors need stronger marks or non-color cues on white."
     },
     {
-      "id": "workshop_09_blue_ochre_ink",
-      "name": "Workshop 09 / Blue, Ochre & Ink",
-      "source": "PPT Workshop - Shuyue's Colour Palette.pptx, slide 9",
-      "status": "previously discussed reference; not a mandatory preference",
-      "extraction": "HEX labels visually transcribed from the embedded source-slide raster image; labels take precedence over raster pixel estimates",
+      "id": "blue_ochre_ink",
+      "name": "Blue, Ochre & Ink",
+      "tasks": [
+        "calm-illustration",
+        "paired-contrast"
+      ],
       "colors": [
         {
           "hex": "#0674B3",
@@ -276,30 +158,14 @@
           "role": "dark_ink"
         }
       ],
-      "judgment": "Highly usable bright editorial contrast balanced by pale cool/warm neutrals and ink.",
-      "category": "user visual and workshop references",
-      "source_pages": {
-        "workshop": [
-          9
-        ]
-      },
-      "provenance": "printed source HEX labels, visually verified in the original Workshop PPTX; swatch pixels may differ from labels",
-      "best_for": "two-family comparison, restrained editorial presentations",
-      "tasks": [
-        "calm-illustration",
-        "paired-contrast"
-      ],
-      "verification": {
-        "status": "printed_labels_checked",
-        "scope": "Printed HEX or RGB labels visually checked in original embedded Workshop slide images; raster swatch pixels may differ."
-      }
+      "best_for": "Two-family comparisons and editorial illustrations."
     },
     {
-      "id": "workshop_18_diverging_heatmap",
-      "name": "Workshop 18 / Red-Blue Diverging Heatmap",
-      "source": "PPT Workshop - Shuyue's Colour Palette.pptx, slide 18",
-      "status": "reference for scientific diverging color maps, not a general slide palette",
-      "extraction": "explicit printed RGB values on source slide; converted to HEX",
+      "id": "red_blue_diverging",
+      "name": "Red-Blue Diverging",
+      "tasks": [
+        "diverging"
+      ],
       "colors": [
         {
           "hex": "#561319",
@@ -326,34 +192,15 @@
           "role": "deep_blue"
         }
       ],
-      "judgment": "Use only where divergent signed values, endpoints or meaningful scientific categories justify a bipolar red-blue scale. Validate legend and meaning.",
-      "category": "user visual and workshop references",
-      "source_pages": {
-        "workshop": [
-          18
-        ]
-      },
-      "provenance": "specified RGB, converted to HEX",
-      "best_for": "scientific diverging scale with meaningful bipolar numeric zero/center",
-      "tasks": [
-        "diverging"
-      ],
-      "verification": {
-        "status": "printed_labels_checked",
-        "scope": "Printed HEX or RGB labels visually checked in original embedded Workshop slide images; raster swatch pixels may differ."
-      }
+      "best_for": "Signed quantities around a meaningful center.",
+      "avoid": "Define the center and both directions in the legend."
     },
     {
-      "id": "econ_coral_and_ink",
-      "name": "Coral Focus / Cool Neutral",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          4
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "highlight / analytical comparison",
+      "id": "coral_and_ink",
+      "name": "Coral Focus & Cool Neutrals",
+      "tasks": [
+        "single-highlight"
+      ],
       "colors": [
         {
           "role": "focus_coral",
@@ -376,29 +223,15 @@
           "hex": "#51593E"
         }
       ],
-      "best_for": "one standout country or scenario against restrained comparators",
-      "design_reason": "Orange-red focuses attention; related desaturated neutrals allow a complex page to stay calm.",
-      "avoid": "Do not use publication masthead red as a chart color by default.",
-      "notes": "",
+      "best_for": "A focal group against lighter comparison marks.",
+      "avoid": "Do not assign positive or negative meaning without a defined key."
+    },
+    {
+      "id": "aqua_gradient",
+      "name": "Aqua Gradient",
       "tasks": [
         "single-highlight"
       ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
-    },
-    {
-      "id": "econ_bubble_aqua",
-      "name": "Aqua Bubble Gradient",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          8
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "bubble chart / analytical scatter",
       "colors": [
         {
           "role": "saturated_aqua",
@@ -425,29 +258,16 @@
           "hex": "#004A69"
         }
       ],
-      "best_for": "bubble plots and dense point clouds in a coherent cyan family",
-      "design_reason": "Saturation concentrates in important bubbles; pale points remain visible without shouting.",
-      "avoid": "Not appropriate for categorical variables requiring independently distinguishable hues.",
-      "notes": "",
-      "tasks": [
-        "single-highlight"
-      ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
+      "best_for": "Highlighting within dense point clouds using a coherent cyan family.",
+      "avoid": "Not an unordered categorical palette."
     },
     {
-      "id": "econ_coral_olive_comparison",
-      "name": "Coral + Olive Categorical",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          9
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "categorical scatter / contrasting groups",
+      "id": "coral_olive_comparison",
+      "name": "Coral & Olive Comparison",
+      "tasks": [
+        "paired-contrast",
+        "single-highlight"
+      ],
       "colors": [
         {
           "role": "foreground_coral",
@@ -466,31 +286,16 @@
           "hex": "#E6E8E1"
         }
       ],
-      "best_for": "contrasting focal group vs subdued comparison group",
-      "design_reason": "Vivid coral stands out against layered muted olive and warm neutrals.",
-      "avoid": "Avoid giving coral a positive/negative connotation without semantics.",
-      "notes": "The four retained colors occur on page 9. Supplied #51593E belongs to page 4 and is excluded from this recipe.",
-      "tasks": [
-        "paired-contrast",
-        "single-highlight"
-      ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
+      "best_for": "A focal group contrasted with a subdued comparison group.",
+      "avoid": "Define category meanings; hue alone does not imply direction."
     },
     {
-      "id": "econ_coral_ice_forecast",
-      "name": "Coral + Icy Blue Forecast",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          11,
-          14
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "forecast fan / historical trend / two-series scatter",
+      "id": "coral_ice_bands",
+      "name": "Coral & Icy Blue Bands",
+      "tasks": [
+        "scenario-bands",
+        "paired-contrast"
+      ],
       "colors": [
         {
           "role": "strong_coral",
@@ -517,30 +322,16 @@
           "hex": "#848F95"
         }
       ],
-      "best_for": "uncertainty ribbons, distributions and historical-vs-future curves",
-      "design_reason": "Warm colored focus and cool supporting traces combine without a rainbow.",
-      "avoid": "Distinguish uncertainty with opacity or value while keeping the same hue family.",
-      "notes": "Cross-page curated combination, not all colors in one source chart. Preserve the new chart legend and assign support colors separately from category identities.",
-      "tasks": [
-        "scenario-bands",
-        "paired-contrast"
-      ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
+      "best_for": "Paired trends, distributions and uncertainty bands.",
+      "avoid": "Keep uncertainty shades tied to their series and support colors separate from category identities."
     },
     {
-      "id": "econ_navy_honey",
-      "name": "Deep Blue + Honey Gold",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          15
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "comparing roles / discrete categories",
+      "id": "navy_honey",
+      "name": "Deep Blue & Honey Gold",
+      "tasks": [
+        "paired-contrast",
+        "categorical-bubbles"
+      ],
       "colors": [
         {
           "role": "dark_blue",
@@ -567,30 +358,16 @@
           "hex": "#F6E0BE"
         }
       ],
-      "best_for": "small number of meaningful groups in charts and diagrams",
-      "design_reason": "Rich blue grounds the composition; honey gold highlights a contrasting category.",
-      "avoid": "Not intended as default heatmap scale.",
-      "notes": "",
+      "best_for": "A few meaningful groups in comparisons or bubble plots.",
+      "avoid": "Not a quantitative heatmap scale."
+    },
+    {
+      "id": "coral_blue_families",
+      "name": "Coral & Blue Families",
       "tasks": [
         "paired-contrast",
         "categorical-bubbles"
       ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
-    },
-    {
-      "id": "econ_scholarly_coral_blue",
-      "name": "Scholarly Coral / Blue",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          16
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "multipanel bars / paired scatter",
       "colors": [
         {
           "role": "dark_blue",
@@ -617,31 +394,15 @@
           "hex": "#E1EEF4"
         }
       ],
-      "best_for": "academic comparisons with two families and low-contrast support",
-      "design_reason": "Each family has its own saturation steps; discrete focal items use coral.",
-      "avoid": "Avoid equal emphasis across all categories.",
-      "notes": "",
-      "tasks": [
-        "paired-contrast",
-        "categorical-bubbles"
-      ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
+      "best_for": "Two-family comparisons with lighter supporting marks.",
+      "avoid": "Avoid equal emphasis across every mark."
     },
     {
-      "id": "econ_compressed_trend",
-      "name": "Event / Extremes Contrast",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          18,
-          19
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "two-series trend / time series and insets",
+      "id": "event_contrast",
+      "name": "Event Contrast",
+      "tasks": [
+        "paired-contrast"
+      ],
       "colors": [
         {
           "role": "main_blue",
@@ -668,29 +429,15 @@
           "hex": "#D7DFE3"
         }
       ],
-      "best_for": "events, spikes and measured-versus-estimated charts",
-      "design_reason": "Strong blue/coral trace contrast; muted gold and gray-blue are secondary.",
-      "avoid": "Do not rely on warm/cool encoding without direct labels.",
-      "notes": "Cross-page curated combination, not all colors in one source chart. Preserve the new chart legend and assign support colors separately from category identities.",
+      "best_for": "Events, spikes and measured-versus-estimated comparisons.",
+      "avoid": "Use direct labels for warm/cool distinctions."
+    },
+    {
+      "id": "aqua_mulberry",
+      "name": "Aqua & Mulberry",
       "tasks": [
         "paired-contrast"
       ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
-    },
-    {
-      "id": "econ_dual_choice",
-      "name": "Aqua / Mulberry Divergence",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          20
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "two-way split / scenario contrast",
       "colors": [
         {
           "role": "aqua",
@@ -717,29 +464,16 @@
           "hex": "#CDCCCD"
         }
       ],
-      "best_for": "two clearly opposing categories and flows",
-      "design_reason": "Unusual maroon/aqua opposition is unmistakable even with many parallel traces.",
-      "avoid": "For signed variables, validate conceptual direction and direct labels.",
-      "notes": "Source page 20 uses structural gray #CDCCCD; supplied #989898 is absent. Aqua/mulberry are category endpoints; this is not a complete calibrated signed numeric scale.",
-      "tasks": [
-        "paired-contrast"
-      ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
+      "best_for": "Two opposing categories or flows.",
+      "avoid": "Signed quantities require an explicit direction and key."
     },
     {
-      "id": "econ_emissions_layers",
-      "name": "Four-Tone Climate Composition",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          33
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "country/region trajectories; reusable categorical composition colors",
+      "id": "mixed_categorical",
+      "name": "Mixed Categorical Contrast",
+      "tasks": [
+        "categorical",
+        "stacked-area"
+      ],
       "colors": [
         {
           "role": "coral",
@@ -766,86 +500,50 @@
           "hex": "#F04E33"
         }
       ],
-      "best_for": "4\u20136 distinct groups with selective highlighting",
-      "design_reason": "Balances warm coral, clean cyan and dusty mauve with a quiet pale layer.",
-      "avoid": "If there are many series, assess discrimination at small chart sizes.",
-      "notes": "The source page contains emission/economic trajectories and bubble encodings, not the proposed stacked display. A stacked-area use transfers the curated color combination only and requires additive data and its own legend.",
-      "tasks": [
-        "categorical",
-        "stacked-area"
-      ],
-      "verification": {
-        "status": "page_presence_checked",
-        "scope": "Normalized vector color occurrence checked on cited physical pages; see notes for cross-page or region-specific limits."
-      }
+      "best_for": "Several distinct groups or additive components with selective emphasis.",
+      "avoid": "Check discrimination at actual mark size."
     },
     {
-      "id": "econ_multicategory_stacked",
-      "name": "Regional Population Stack",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          37
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "five-region stacked population area",
-      "colors": [
-        {
-          "role": "asia_and_oceania",
-          "hex": "#31C0D0"
-        },
-        {
-          "role": "europe",
-          "hex": "#006CA2"
-        },
-        {
-          "role": "united_states_and_canada",
-          "hex": "#B4E1DC"
-        },
-        {
-          "role": "latin_america_and_caribbean",
-          "hex": "#9B3A4A"
-        },
-        {
-          "role": "africa",
-          "hex": "#F89475"
-        }
-      ],
-      "best_for": "five distinct regional contributions, or a documented subset with stable identities",
-      "design_reason": "Related blue layers carry structural mass; warm and plum segments provide recognition.",
-      "avoid": "Not ideal for precise adjacent-layer comparisons without direct annotations.",
-      "notes": "Source upper-right plot uses five region colors, not the supplied mixed eight-color set. For eight independent categories, query a larger categorical recipe rather than adding colors from the separate mortality map.",
+      "id": "five_category_stack",
+      "name": "Five-Category Stack",
       "tasks": [
         "many-category-stack",
         "stacked-area"
       ],
-      "verification": {
-        "status": "selected_region_checked",
-        "region": {
-          "page": 37,
-          "bbox": [
-            250,
-            80,
-            530,
-            264
-          ],
-          "units": "PDF points; origin top-left"
+      "colors": [
+        {
+          "role": "category_1",
+          "hex": "#31C0D0"
         },
-        "scope": "Corrected source-region combination and role notes; not an official publisher palette or accessibility certification."
-      }
+        {
+          "role": "category_2",
+          "hex": "#006CA2"
+        },
+        {
+          "role": "category_3",
+          "hex": "#B4E1DC"
+        },
+        {
+          "role": "category_4",
+          "hex": "#9B3A4A"
+        },
+        {
+          "role": "category_5",
+          "hex": "#F89475"
+        }
+      ],
+      "best_for": "Five additive components with stable category identities.",
+      "avoid": "Use annotations when comparing nonadjacent layers; define new category labels."
     },
     {
-      "id": "econ_multiseries_lines",
+      "id": "multiseries_lines",
       "name": "Rich Multiseries Lines",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          38
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "many-line chart / multi-country trajectories",
+      "tasks": [
+        "multiseries",
+        "categorical",
+        "categorical-bubbles",
+        "many-category-stack"
+      ],
       "colors": [
         {
           "role": "blue_primary",
@@ -884,42 +582,15 @@
           "hex": "#5F9EB6"
         }
       ],
-      "best_for": "7\u20139 simultaneously shown trajectories requiring distinguishable lines",
-      "design_reason": "Color diversity is intentional: line separation with similar visual prominence, then direct labels.",
-      "avoid": "Do not apply this many colors to a 2-series chart.",
-      "notes": "Source has ten country trajectories using nine core hues, with France and Germany sharing steel blue. Direct labels carry identity. This is not a nine-series ceiling; assess markers, line styles and actual-size discrimination.",
-      "tasks": [
-        "multiseries",
-        "categorical",
-        "categorical-bubbles",
-        "many-category-stack"
-      ],
-      "verification": {
-        "status": "selected_region_checked",
-        "region": {
-          "page": 38,
-          "bbox": [
-            35,
-            90,
-            535,
-            410
-          ],
-          "units": "PDF points; origin top-left"
-        },
-        "scope": "verified multi-line combination"
-      }
+      "best_for": "Several trajectories requiring distinguishable colors.",
+      "avoid": "Use fewer colors for fewer series and check thin-line legibility."
     },
     {
-      "id": "econ_binary_categorical",
-      "name": "Red + Cyan Binary Contrast",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          39
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "binary comparison / slope chart / opposing probability effects",
+      "id": "red_cyan_contrast",
+      "name": "Red & Cyan Contrast",
+      "tasks": [
+        "paired-contrast"
+      ],
       "colors": [
         {
           "role": "red",
@@ -946,39 +617,15 @@
           "hex": "#989898"
         }
       ],
-      "best_for": "opposing groups, before/after, two alternative policy outcomes",
-      "design_reason": "Crisp binary contrast; pale supports prevent long comparisons becoming visually harsh.",
-      "avoid": "Use red for strong categorical distinction only where semantics are consistent.",
-      "notes": "Red is verified inside chart marks, not just the masthead. Pale coral belongs to bottom demographic bars. Electoral-vote inset uses #31C0D0 for its cyan fill; do not claim the six-color subset exhausts all chart colors.",
-      "tasks": [
-        "paired-contrast"
-      ],
-      "verification": {
-        "status": "selected_region_checked",
-        "region": {
-          "page": 39,
-          "bbox": [
-            200,
-            100,
-            535,
-            570
-          ],
-          "units": "PDF points; origin top-left"
-        },
-        "scope": "Corrected source-region combination and role notes; not an official publisher palette or accessibility certification."
-      }
+      "best_for": "Two groups, states or alternatives.",
+      "avoid": "Keep categorical meaning consistent; distinguish support tints from data identities."
     },
     {
-      "id": "econ_highlight_one",
-      "name": "Selected Entities Among Peers",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          41
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "ranked bar / single-series focus",
+      "id": "blue_highlight",
+      "name": "Blue Highlight",
+      "tasks": [
+        "single-highlight"
+      ],
       "colors": [
         {
           "role": "focus_blue",
@@ -993,39 +640,15 @@
           "hex": "#CDCCCD"
         }
       ],
-      "best_for": "one selected entity or a meaningful selected subset against comparable peers",
-      "design_reason": "One strong blue mark; others intentionally step back into softer blues.",
-      "avoid": "Do not recolor every peer a different hue just to add visual interest.",
-      "notes": "The lower-right source chart highlights four Facebook-owned services against six others. A one-item highlight is a reusable adaptation, not the source selection. Forecast colors from other panels are excluded.",
-      "tasks": [
-        "single-highlight"
-      ],
-      "verification": {
-        "status": "selected_region_checked",
-        "region": {
-          "page": 41,
-          "bbox": [
-            323,
-            323,
-            535,
-            455
-          ],
-          "units": "PDF points; origin top-left"
-        },
-        "scope": "Corrected source-region combination and role notes; not an official publisher palette or accessibility certification."
-      }
+      "best_for": "A selected entity or subset against comparable peers.",
+      "avoid": "Keep comparison marks subdued rather than assigning every peer a new hue."
     },
     {
-      "id": "econ_bubble_spectrum",
-      "name": "Cashless Bubble Spectrum",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          43
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "bubble scatter / continuous or ordinal classes",
+      "id": "ordered_bubble_spectrum",
+      "name": "Ordered Bubble Spectrum",
+      "tasks": [
+        "ordered-bubbles"
+      ],
       "colors": [
         {
           "role": "low_gold",
@@ -1048,39 +671,16 @@
           "hex": "#005074"
         }
       ],
-      "best_for": "bubble charts with size plus orderly color classes",
-      "design_reason": "Gold to mint to blue progression supports reading small and large bubbles while staying refined.",
-      "avoid": "Do not use this ordered progression for unordered identities. Define both the area and color keys; redundant encoding of one quantity is allowed when stated.",
-      "notes": "Source circle area and five ordered color classes both encode GDP per person. Reusing color for ordered income and area for a different quantity is an adaptation that needs separate keys. The pale fill in adjacent time series is excluded.",
-      "tasks": [
-        "ordered-bubbles"
-      ],
-      "verification": {
-        "status": "selected_region_checked",
-        "region": {
-          "page": 43,
-          "bbox": [
-            35,
-            115,
-            335,
-            416
-          ],
-          "units": "PDF points; origin top-left"
-        },
-        "scope": "Corrected source-region combination and role notes; not an official publisher palette or accessibility certification."
-      }
+      "best_for": "Bubble plots with ordered color classes and an area key.",
+      "avoid": "Not for unordered categories. Define both color and area keys, including any redundant encoding."
     },
     {
-      "id": "econ_tech_stacked_area",
-      "name": "Technology Stacked Area",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          44
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "stacked area / composition with a long tail",
+      "id": "accented_stack",
+      "name": "Accented Stack",
+      "tasks": [
+        "many-category-stack",
+        "stacked-area"
+      ],
       "colors": [
         {
           "role": "main_blue",
@@ -1115,40 +715,15 @@
           "hex": "#E4F0F5"
         }
       ],
-      "best_for": "five prominent component identities plus pale residual bands; fewer categories may use a documented subset",
-      "design_reason": "Five prominent distinct hues; long tail grouped into three pale blue increments.",
-      "avoid": "Reserve pale shades for background / minor series, not central claims.",
-      "notes": "Source shows five named firms plus many residual firms; the three pale shades repeat across residual bands and do not denote three uniquely colored categories. The separately defined top-five-at-each-month aggregate line is not part of this recipe.",
-      "tasks": [
-        "many-category-stack",
-        "stacked-area"
-      ],
-      "verification": {
-        "status": "selected_region_checked",
-        "region": {
-          "page": 44,
-          "bbox": [
-            35,
-            70,
-            530,
-            295
-          ],
-          "units": "PDF points; origin top-left"
-        },
-        "scope": "Corrected source-region combination and role notes; not an official publisher palette or accessibility certification."
-      }
+      "best_for": "Prominent component colors with pale residual bands.",
+      "avoid": "Pale shades may repeat for residual bands; do not imply unique category identities. Define any aggregate separately."
     },
     {
-      "id": "econ_percent_choropleth",
-      "name": "Orange Percentage Choropleth",
-      "category": "The Economist / A year in Graphic detail",
-      "source_pages": {
-        "economist_pdf": [
-          48
-        ]
-      },
-      "provenance": "PDF vector RGB or three-component ICC colors converted to 8-bit HEX by round(channel * 255); curated subset, not an official publisher palette",
-      "chart_type": "ordered percentage map / choropleth",
+      "id": "orange_percent_scale",
+      "name": "Orange Percentage Scale",
+      "tasks": [
+        "ordered-percent-map"
+      ],
       "colors": [
         {
           "role": "very_low",
@@ -1175,41 +750,16 @@
           "hex": "#E74B22"
         }
       ],
-      "best_for": "ordered percentages across regions or countries",
-      "design_reason": "A visibly ordered warm ramp; increasing orange intensity follows increasing values.",
-      "avoid": "Do not use same warm ramp for divergent signed changes; if 0 is meaningful use divergence.",
-      "notes": "Six map-legend swatches verified separately from right-hand lines. Source percentage boundaries are 20,25,30,35,40; adapt thresholds to new data and retain a distinct no-data class. Exact vector values refer to legend swatches, not every shaded-relief raster map pixel.",
-      "tasks": [
-        "ordered-percent-map"
-      ],
-      "verification": {
-        "status": "selected_region_checked",
-        "region": {
-          "page": 48,
-          "bbox": [
-            200,
-            95,
-            302,
-            105
-          ],
-          "units": "PDF points; origin top-left"
-        },
-        "scope": "Corrected source-region combination and role notes; not an official publisher palette or accessibility certification."
-      }
+      "best_for": "Ordered percentage levels across regions.",
+      "avoid": "Adapt thresholds to the data, keep no-data distinct and use a diverging scale for signed changes around a meaningful center."
     },
     {
-      "id": "pbl_science_blue_fuchsia",
-      "name": "PBL Blue + Fuchsia Science",
-      "category": "PBL / The Geography of Future Water Challenges",
-      "source_pages": {
-        "pbl_pdf": [
-          12,
-          16,
-          25
-        ]
-      },
-      "provenance": "PDF vector RGB operands converted to 8-bit HEX by round(channel * 255), visually checked; selectively curated subset, not an official source palette or complete data legend",
-      "chart_type": "scientific chart system / categorical variation",
+      "id": "blue_fuchsia",
+      "name": "Blue & Fuchsia",
+      "tasks": [
+        "paired-contrast",
+        "categorical"
+      ],
       "colors": [
         {
           "role": "deep_blue",
@@ -1236,31 +786,16 @@
           "hex": "#806B66"
         }
       ],
-      "best_for": "scientific diagrams, scenario comparisons and sparse vivid accent",
-      "design_reason": "The dominant blue family is interrupted by precise fuchsia and neutral-brown accents.",
-      "avoid": "Do not treat fuchsia as a decorative brand color everywhere.",
-      "notes": "Curated cross-page scientific-chart subset. Page 12 uses fuchsia for SSP2, warm taupe for SSP1 bars and brown for SSP1 lines; page 16 uses pink for the high-ambition pathway. These are source-specific meanings, not universal assignments. Not every listed color occurs on every cited page.",
-      "tasks": [
-        "paired-contrast",
-        "categorical"
-      ],
-      "verification": {
-        "status": "cross_page_subset_checked",
-        "scope": "Colors checked against vector RGB and rendered pages; a cross-page subset is not a complete source data legend."
-      }
+      "best_for": "Paired comparisons or categories with a sparse vivid accent.",
+      "avoid": "Assign meanings for the new data; this combination is not a complete quantitative map scale."
     },
     {
-      "id": "pbl_climate_pathway",
-      "name": "PBL Climate + Earth Neutrals",
-      "category": "PBL / The Geography of Future Water Challenges",
-      "source_pages": {
-        "pbl_pdf": [
-          13,
-          16
-        ]
-      },
-      "provenance": "PDF vector RGB operands converted to 8-bit HEX by round(channel * 255), visually checked; selectively curated subset, not an official source palette or complete data legend",
-      "chart_type": "overlaid distributions / ecological scenario paths",
+      "id": "blue_earth_neutrals",
+      "name": "Blue & Earth Neutrals",
+      "tasks": [
+        "scenario-bands",
+        "paired-contrast"
+      ],
       "colors": [
         {
           "role": "blue",
@@ -1291,42 +826,27 @@
           "hex": "#FF4AB0"
         }
       ],
-      "best_for": "climate risk comparisons with contextual spatial/background neutrals",
-      "design_reason": "Blue distribution curves and pink hot-tail regions are distinct from the quantitative warm-gray temperature map and blue/taupe precipitation map. Taupes carry data in the maps; they are not merely quiet context.",
-      "avoid": "Avoid interpreting neutral taupe as lack of data unless legend says so.",
-      "notes": "Curated cross-page subset, not a complete quantitative map scale. Page-13 temperature legend: #E9E4E3 (<1 C), #D4CAC8 (1-1.5 C), #BFB1AC (1.5-2 C), #95817B (2-2.5 C), #806B66 (>2.5 C). Precipitation legend: #AA9893 (<-0.5 mm/day), #D4CAC8 (-0.5 to -0.1), #E9E4E3 (-0.1 to 0.1), #92D2F4 (0.1 to 0.5), #009FE3 (>0.5). Do not reuse this recipe as either full scale or as a single categorical legend.",
-      "tasks": [
-        "scenario-bands",
-        "paired-contrast"
-      ],
-      "verification": {
-        "status": "cross_page_subset_checked",
-        "scope": "Colors checked against vector RGB and rendered pages; a cross-page subset is not a complete source data legend."
-      }
+      "best_for": "Paired curves or distributions with blue, taupe and pink roles.",
+      "avoid": "Taupe can encode data, not just context or missing values. This combination is not a calibrated quantitative scale."
     },
     {
-      "id": "pbl_topright_scenario",
-      "name": "PBL Muted Blue / Taupe Curves",
-      "category": "PBL / The Geography of Future Water Challenges",
-      "source_pages": {
-        "pbl_pdf": [
-          20
-        ]
-      },
-      "provenance": "PDF vector RGB operands converted to 8-bit HEX by round(channel * 255), visually checked; selectively curated subset, not an official source palette or complete data legend",
-      "chart_type": "historical/future monthly Rhine discharge ribbons and chart structure",
+      "id": "blue_taupe_bands",
+      "name": "Blue & Taupe Bands",
+      "tasks": [
+        "scenario-bands"
+      ],
       "colors": [
         {
           "hex": "#92D2F4",
-          "role": "future_discharge_ribbon"
+          "role": "blue_band"
         },
         {
           "hex": "#D4CAC8",
-          "role": "historical_discharge_ribbon"
+          "role": "taupe_band"
         },
         {
           "hex": "#AA9893",
-          "role": "historical_legend_key"
+          "role": "taupe_legend_key"
         },
         {
           "hex": "#0069B3",
@@ -1338,44 +858,18 @@
         },
         {
           "hex": "#FFFFFF",
-          "role": "white_page_and_plot_background"
+          "role": "white_background"
         }
       ],
-      "best_for": "two-period discharge ribbons or envelopes, with a legend faithful to the new data",
-      "design_reason": "The Lobith and Basel plots pair light-blue future discharge ribbons (2071-2100) with warm-gray historical ribbons (1981-2010) on white. Blue axes and fine pale-blue grids provide structure. The historical legend key is darker than the plotted ribbon.",
-      "avoid": "Respect the chart legend rather than always mapping blue to projections.",
-      "notes": "Region verified separately from the lower page-20 maps. The source has two time-period ribbons, not six scenario series. #009FE3, #BFB1AC and #ECF7FE occur elsewhere on page 20 and are excluded from this region. White is the visible page/plot background, not a ribbon data color. Overlap appearance depends on source compositing and must not be treated as an additional category.",
-      "tasks": [
-        "scenario-bands"
-      ],
-      "verification": {
-        "status": "vector_and_region_checked",
-        "scope": "Colors checked against vector RGB and rendered pages; a cross-page subset is not a complete source data legend.",
-        "region": {
-          "page": 20,
-          "bbox": [
-            675,
-            490,
-            1195,
-            705
-          ],
-          "units": "PDF points; origin bottom-left"
-        }
-      }
+      "best_for": "Two ribbon or envelope series on white, with separate axes and grid colors.",
+      "avoid": "The darker taupe can serve as a legend key. Define both series explicitly; overlap is not an extra category."
     },
     {
-      "id": "pbl_world_maps",
-      "name": "PBL Global Map / Accent Overlays",
-      "category": "PBL / The Geography of Future Water Challenges",
-      "source_pages": {
-        "pbl_pdf": [
-          20,
-          24,
-          36
-        ]
-      },
-      "provenance": "PDF vector RGB operands converted to 8-bit HEX by round(channel * 255), visually checked; selectively curated subset, not an official source palette or complete data legend",
-      "chart_type": "world maps / regional indicators with inset charts",
+      "id": "map_accent_overlays",
+      "name": "Map Accent Overlays",
+      "tasks": [
+        "map-overlays"
+      ],
       "colors": [
         {
           "role": "dark_blue",
@@ -1402,35 +896,20 @@
           "hex": "#E5DFDD"
         },
         {
-          "role": "future_business_as_usual_reservoir_component",
+          "role": "taupe_data_accent",
           "hex": "#B4A59F"
         }
       ],
-      "best_for": "maps with a single highlighted phenomenon plus inset plots",
-      "design_reason": "Pale basemap separates cartography from bright analytical overlays.",
-      "avoid": "Do not use the pinks as continuous positive/negative heatmap without defined semantics.",
-      "notes": "Curated cross-page subset, not a complete map or stack legend. On physical page 24, #B4A59F is the reservoir component in the 2070 Business-as-usual water-withdrawal stacks; it is not basemap taupe. The full page-24 stacks also require #4E403E, #8A7670 and #FF76BC, which this subset omits.",
-      "tasks": [
-        "map-overlays"
-      ],
-      "verification": {
-        "status": "cross_page_subset_checked",
-        "scope": "Colors checked against vector RGB and rendered pages; a cross-page subset is not a complete source data legend."
-      }
+      "best_for": "A pale basemap with analytical overlays and inset plots.",
+      "avoid": "Distinguish basemap and data colors. This combination is not a complete stack legend or signed quantitative scale."
     },
     {
-      "id": "pbl_stacked_pathway",
-      "name": "PBL Paired Pathway Stacks",
-      "category": "PBL / The Geography of Future Water Challenges",
-      "source_pages": {
-        "pbl_pdf": [
-          25,
-          30,
-          36
-        ]
-      },
-      "provenance": "PDF vector RGB operands converted to 8-bit HEX by round(channel * 255), visually checked; selectively curated subset, not an official source palette or complete data legend",
-      "chart_type": "stacked bar / scenario family comparison",
+      "id": "paired_stack_families",
+      "name": "Paired Stack Families",
+      "tasks": [
+        "stacked-area",
+        "many-category-stack"
+      ],
       "colors": [
         {
           "role": "deep_blue",
@@ -1461,123 +940,8 @@
           "hex": "#EAF6FE"
         }
       ],
-      "best_for": "paired scenario and multi-component stacked bars",
-      "design_reason": "Two color families carry data categories; warm taupe gives different material/class semantics.",
-      "avoid": "Do not let pink signify impact direction if not in data semantics.",
-      "notes": "Curated cross-page subset rather than one complete seven-category stack palette. Page 25 stacks irrigation versus households/industry using #0069B3/#009FE3; #EAF6FE is a local shaded-band fill in the adjacent line charts. Page 30 stacks households/nature/agriculture using #0069B3/#92D2F4/#AA9893. Page 36 uses paired low-risk versus moderate/high-risk colors within current and future scenario families; its complete native pairs are not reproduced by this subset. Preserve each new chart legend and the number of categories required by its data.",
-      "tasks": [
-        "stacked-area",
-        "many-category-stack"
-      ],
-      "verification": {
-        "status": "cross_page_subset_checked",
-        "scope": "Colors checked against vector RGB and rendered pages; a cross-page subset is not a complete source data legend."
-      }
+      "best_for": "Paired comparisons and additive components using blue, pink and taupe families.",
+      "avoid": "Keep pale interval fill separate from component identities. Define a complete legend for the new data; pink does not imply impact direction."
     }
-  ],
-  "reference_page_index": {
-    "economist_pdf": {
-      "2": [
-        "reference montage only; multiple miniature visuals, not one unified palette"
-      ],
-      "4": [
-        "econ_coral_and_ink"
-      ],
-      "8": [
-        "econ_bubble_aqua"
-      ],
-      "9": [
-        "econ_coral_olive_comparison"
-      ],
-      "11": [
-        "econ_coral_ice_forecast"
-      ],
-      "14": [
-        "econ_coral_ice_forecast"
-      ],
-      "15": [
-        "econ_navy_honey"
-      ],
-      "16": [
-        "econ_scholarly_coral_blue"
-      ],
-      "18": [
-        "econ_compressed_trend"
-      ],
-      "19": [
-        "econ_compressed_trend"
-      ],
-      "20": [
-        "econ_dual_choice"
-      ],
-      "33": [
-        "econ_emissions_layers"
-      ],
-      "37": [
-        "econ_multicategory_stacked"
-      ],
-      "38": [
-        "econ_multiseries_lines"
-      ],
-      "39": [
-        "econ_binary_categorical"
-      ],
-      "41": [
-        "econ_highlight_one"
-      ],
-      "43": [
-        "econ_bubble_spectrum"
-      ],
-      "44": [
-        "econ_tech_stacked_area"
-      ],
-      "48": [
-        "econ_percent_choropleth"
-      ]
-    },
-    "pbl_pdf": {
-      "12": [
-        "pbl_science_blue_fuchsia"
-      ],
-      "13": [
-        "pbl_climate_pathway"
-      ],
-      "16": [
-        "pbl_science_blue_fuchsia",
-        "pbl_climate_pathway"
-      ],
-      "20": [
-        "pbl_topright_scenario",
-        "pbl_world_maps"
-      ],
-      "24": [
-        "pbl_world_maps"
-      ],
-      "25": [
-        "pbl_science_blue_fuchsia",
-        "pbl_stacked_pathway"
-      ],
-      "30": [
-        "pbl_stacked_pathway"
-      ],
-      "36": [
-        "pbl_world_maps",
-        "pbl_stacked_pathway"
-      ]
-    },
-    "workshop": {
-      "1": [
-        "workshop_01_warm_sun_cool_slate"
-      ],
-      "3": [
-        "workshop_03_sky_and_earth"
-      ],
-      "9": [
-        "workshop_09_blue_ochre_ink"
-      ],
-      "18": [
-        "workshop_18_diverging_heatmap"
-      ]
-    }
-  }
+  ]
 }
