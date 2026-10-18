@@ -48,7 +48,11 @@ The [runtime intake guide](../references/guided-intake.md) explains question ord
 
 ## How palate develops the presentation
 
+[How palate works](../references/design-system.md) connects the four Sherry's Picks capabilities: audience, scientific story, slide-level writing and visual design. The detailed guides explain the choices behind the work below.
+
 ### Review the source and the argument
+
+Before editing pages, **palate** reads the slide titles as a sequence, then checks their promises against the slides and sources. It identifies what each page adds, why it follows the previous one and which question the next page should answer. It retains an effective sequence and changes titles or order when there is a clear benefit. Missing scientific support becomes a specific question rather than a more confident headline.
 
 For an existing deck, **palate** establishes what each slide contributes to the argument and where its evidence needs clearer explanation or placement. It inspects the source structure and rendered slides together, so the redesign can account for labels, notes, charts and other content that a text-only inspection may miss.
 
@@ -66,7 +70,7 @@ When the chosen screen ratio differs from the original, **palate** uses native a
 
 For explanations dominated by words, **palate** looks for what would help listeners see the idea: a recognizable research object, a change between conditions or the structure of a verified process. It reviews existing text-box diagrams as well as plain prose. A graphic needs to contribute to that understanding; adding icons beside unchanged paragraphs is not enough. Complex explanations can become an overview followed by focused slides, with their qualifications and references preserved. Equations, exact quotations and other content can retain their form when that is the clearest, most accurate explanation.
 
-The cover also follows the research. **palate** chooses a focal subject and composition from the material available, whether that means a specimen image, a field setting, a restrained system schematic or a carefully composed title. It keeps the title editable and uses spacing and scale to introduce the topic without competing detail. The [visual storytelling](../references/visual-storytelling.md) and [cover guide](../references/cover-art-direction.md) explain these design choices and their scientific limits.
+The cover also follows the research. **palate** normally develops a light, organic editorial composition with a research-relevant visual and editable title. Photography or another treatment can suit the material or branding constraints. The [cover guide](../references/cover-art-direction.md) explains those choices; the [visual storytelling guide](../references/visual-storytelling.md) covers the distinct work of illustrated explanations.
 
 When a figure contains several panels, **palate** can separate them into rounded evidence regions or focused slides, with concise headings beside each result. It retains panel identities and the axes, legends and qualifications needed to interpret them. The surrounding layout and added labels remain editable; a retained image panel's interior remains an image. The [panel guide](../references/figure-panels.md) explains this distinction and the checks behind extraction.
 
@@ -92,7 +96,7 @@ The [design system](../references/design-system.md) explains why audience, evide
 
 ### Review the result and explain what remains
 
-**palate** checks scientific content, native editability and rendered appearance separately. It reviews every final slide in the delivery application and compares revised or newly authored slides with the source material. You receive a new editable deck in a supported format and a concise report of the changes, completed checks and material limits. If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate.
+**palate** rechecks the final title sequence and whether each major finding answers a research question with visible support. It checks scientific content, native editability and rendered appearance separately. It reviews every final slide in the delivery application and compares revised or newly authored slides with the source material. You receive a new editable deck in a supported format and a concise report of the changes, completed checks and material limits. If an essential check cannot be completed, **palate** identifies the remaining work and labels the output as a candidate.
 
 The [validation guide](validation.md) explains the evidence behind each kind of check and the scope of the repository's existing tests. A report distinguishes completed review from remaining work so you can decide whether the candidate is ready for your intended use.
 
@@ -124,6 +128,7 @@ Requirements apply where the agent executes the work, which may differ from the 
 | Identify source format and route the workflow | Python 3.11+ |
 | Inspect and preserve objects in `.pptx` files | Python 3.11+, lxml |
 | Raster-resolution diagnostics | Pillow |
+| Ordered slide-title review records | Python 3.11+ and lxml; compatible PPTX or a confirmed ordered inventory. Extraction does not assess narrative quality. |
 | Optional static figure-panel extraction | Pillow; a source-hashed crop plan and a fresh output directory. Panel selection, shared context and native slide placement still need review. |
 | Included Windows PowerPoint rendering option | Windows and Microsoft PowerPoint |
 | New or rebuilt native slides, including translated or rewritten text | Available native presentation authoring workflow |

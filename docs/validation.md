@@ -11,6 +11,8 @@ The transformation report explains what changed, what was checked and what still
 | Starting material | Slides, pasted text and papers use the appropriate source path. New slides trace claims and figures to supplied material; excerpts, missing evidence and material assumptions are identified. A file-route result does not establish that the content has been read or a deck created. |
 | Scientific content | The revised explanation preserves the source's claims, data, units, equations, uncertainty, assumptions, caveats and references. Matching stored values is only part of this review. |
 | Visible depth | The main narrative retains the method, comparison, evidence and reasoning needed for the audience and selected scope. Shortening, relocation and material exclusions are traceable. A complete source script in notes cannot compensate for slides that show only headlines. |
+| Narrative and title sequence | Original or provisional titles are reviewed before page editing, with stable identities, slide roles, neighbor relationships and question-to-evidence mappings. The final sequence is checked against its bodies and sources. Retained choices and structural changes have reasons; extraction is not a quality score. |
+| Method and finding logic | Methods explain purpose, assumptions and limits of inference. Major results identify their question, comparator, support and uncertainty. The ending synthesizes those findings without manufacturing novelty, causal claims or recommendations. |
 | Research question framing | When the question composition is used, the motivation, main question and related inquiries form a clear hierarchy. Wording and visual connections preserve the source's scope, uncertainty and proposed/completed status. A fixed number of stages or cards does not introduce extra objectives, causal claims or assumed findings. |
 | Comparison composition | The selected pattern or new arrangement makes the actual alternatives, criteria and conditions clear. Shared scales, units, baselines, uncertainty and source associations remain correct. Quantitative marks have verified values; unequal evidence does not acquire invented symmetry or rankings, and unknown values are not filled with guesses. |
 | Introduction storyboard | The argument is outlined before each page's visual explanation is designed and constructed. Substantive introduction pages combine research-specific illustrations, relationships or evidence with enough supporting detail; generic text flowcharts or decorative icons do not pass this review. |
@@ -35,6 +37,10 @@ If an essential check cannot be completed, **palate** identifies the remaining w
 
 The checks below describe the repository's tested behavior. They do not replace review of your own deck or certify its underlying science. For the task sequence and deliverables, see the [usage guide](usage.md#what-happens-after-you-attach-a-deck).
 
+## Scientific storytelling evaluation
+
+Use the [evaluation procedure](storytelling-evaluation.md) and [synthetic examples](../references/storytelling-examples.md) to inspect narrative coherence, introduction engagement, method reasoning, result traceability, insight, integrity, visual contribution and decision stability. The [title-review helper](../scripts/review_title_sequence.py) prepares ordered candidates and blank review fields. Automated extraction, independent design judgments and native presentation validation establish different things. No extraction pass certifies a compelling or scientifically sound story.
+
 ## Repository validation record
 
 The current record covers the following:
@@ -55,6 +61,12 @@ The current record covers the following:
 | Content conservation | Values, units, categories, qualifiers, media, notes and workbooks |
 | Native Keynote implementation | Experimental Python/JXA adapter; script-level and mocked boundary checks only. No Mac application execution or end-to-end Keynote result has been tested. |
 | ChatGPT Work distribution | Plugin packaging and runtime-source parity can be checked locally. Browser installation, activation, file-tool access, question cards and end-to-end editing have not been tested. |
+
+### Scientific storytelling and title extraction
+
+The four-capability workflow is implemented in the canonical references linked from [How palate works](../references/design-system.md). Synthetic title-extraction tests cover actual presentation order, native identities, multiline wording, hidden slides and objects, ambiguous candidates, bounded malformed inputs and fresh-output guards. Link checks cover packaged reference closure and section anchors; these checks do not evaluate rhetorical quality.
+
+An independent design-only review applied the instructions to a synthetic replacement-generation comparison and a proposed experiment under a fixed brief. It produced explicit neighbor and evidence links, kept calculated replacement emissions distinct from unestablished whole-grid changes, and retained a sound proposal sequence after correcting one title that implied guaranteed realized balance. This is bounded instruction-level evidence. No new real research deck, audience-comprehension study, native render or editability test was performed for the storytelling revision. Use the [evaluation procedure](storytelling-evaluation.md) for subsequent deck-level validation.
 
 ### ChatGPT Work distribution
 

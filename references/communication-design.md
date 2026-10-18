@@ -6,7 +6,7 @@ Treat writing and presentation design as decisions about the reader's attention 
 
 Keep complexity that supports interpretation, verification or action. Resolve avoidable complexity created by unclear actors, mixed information roles, unexplained shorthand or misplaced detail. Completeness, brevity and visual restraint are useful only when they help the audience do that work.
 
-This guide explains the judgment behind those choices. [Writing style](writing-style.md) covers prose and document forms; the [design system](design-system.md) and [spacing guide](spacing-and-hierarchy.md) cover slide composition. [Scientific fidelity](scientific-fidelity.md) remains the authority for content preservation and review. A README's entry sequence, icons or heading syntax do not prescribe the structure of a slide deck.
+This guide explains the judgment behind those choices. [Writing style](writing-style.md) covers prose and document forms; the [four-capability hub](design-system.md) connects the design workflow, and [Refine the visuals](refine-the-visuals.md) and the [spacing guide](spacing-and-hierarchy.md) cover slide composition. [Scientific fidelity](scientific-fidelity.md) remains the authority for content preservation and review. A README's entry sequence, icons or heading syntax do not prescribe the structure of a slide deck.
 
 ## Identify the reader before choosing the form
 
@@ -37,7 +37,7 @@ A mixed-purpose reference can serve both readers with an explanation followed by
 | Before | After |
 | :--- | :--- |
 | An introduction explains adaptable design before explaining how to start. | "Start with the slides you already have." Then explain audience, purpose and time, the design work, and the deliverable. |
-| The design system introduces hierarchy and composition before audience and depth. | "01 \| Establish what the audience needs" comes before evidence structure, spacing and color, so visual choices follow the purpose of the explanation. |
+| The design system introduces hierarchy and composition before audience and depth. | "Read the room" establishes the brief before narrative, wording and visual decisions, so each choice follows the purpose of the explanation. |
 
 **Boundary:** This product-entry sequence is not a fixed template. An expert methods discussion may need the model's assumptions first; a tutorial may need a concept before its result. Choose the order that supports the audience's actual task.
 

@@ -12,7 +12,7 @@
       "status": "contextual",
       "trigger": "A result slide supports an interpretable finding.",
       "decision": "Make the supported finding easy to locate beside readable evidence.",
-      "execution": "Use a title, subtitle or adjacent explanation according to the content. Preserve uncertainty, scope and units.",
+      "execution": "Follow find-the-thread.md#results-turn-evidence-into-findings to connect the question, evidence, comparison and qualified finding; use distill-the-message.md for visible wording and annotation.",
       "exceptions": [
         "Setup and methods slides may need a topic title instead of a finding."
       ],
@@ -27,7 +27,7 @@
       "status": "primary",
       "trigger": "A figure needs explanation in a research talk.",
       "decision": "Prefer concise interpretation to a full caption on the main slide.",
-      "execution": "Retain the method, comparison, evidence and reasoning this audience needs on the main slides, together with scientific qualifications and sources. Organize substantial content through hierarchy and explanatory graphics; concise interpretation does not mean a headline without its support. Trace only supplementary detail to notes or an appendix. For a short talk, select a coherent scope before stripping detail from every topic.",
+      "execution": "Follow distill-the-message.md#retain-sufficient-visible-explanation. Select coherent scope, retain necessary visible reasoning and map any supporting material moved to notes or an appendix.",
       "exceptions": [
         "Live technical verification can require a complete caption or derivation.",
         "Essential interpretation details stay visible."
@@ -43,7 +43,7 @@
       "status": "contextual",
       "trigger": "A slide compares alternatives, mechanisms, conditions, results or groups of considerations.",
       "decision": "Make the actual comparison clear through shared criteria where valid, explicit group identities and consistent visual encoding.",
-      "execution": "Use comparison-patterns.md to consider branched considerations, shared-criterion pairs or parallel qualitative fields, then choose by the actual comparison and source evidence. Design a different composition when those patterns do not fit. Align criteria, scales, units, label conventions and reading order; keep unequal baselines explicit. Preserve the distinction between two alternatives and benefits/constraints of one alternative. Quantitative indicators require verified comparable values and an encoding that preserves precision and uncertainty. Retain source-supported explanations and qualifications rather than filling a fixed number of rows or visual slots.",
+      "execution": "Follow comparison-patterns.md to select or design the comparison from shared criteria and the actual evidence. Preserve unequal baselines, missing evidence and scientific qualifications.",
       "exceptions": [
         "Alternatives may require different amounts of evidence or unmatched controls.",
         "Two sides, equal lists, a comparison badge, segmented bars and a fixed criterion count are optional; do not invent values, rankings, pairings or considerations to fit them."
@@ -92,7 +92,7 @@
       "status": "primary",
       "trigger": "The listener needs orientation in a section sequence, or a slide already contains section navigation.",
       "decision": "Use meaningful section arrows with restrained emphasis when orientation is needed, with no more than five items in a section navigation ribbon. Group studies with more sections under at most five truthful higher-level labels while preserving every scientific section and its topic content. Keep navigation items compact and visually connected; arrow segments should join closely with only narrow, consistent separators. Whenever a section navigation bar is present, always place it above the slide title and vertically center its native editable labels within the navigation shapes. Navigation labels must have an effective font size of at least 12 pt.",
-      "execution": "Retain useful existing navigation within the five-item limit. When the study has more sections, choose truthful higher-level groups and map every subsection to its appropriate group in the private design specification; highlight the group containing the actual current section. Do not drop scientific sections, truncate arbitrarily to the first five items, hide additional sections behind an ellipsis or add a second concurrent ribbon to bypass the limit. Reserve a distinct row above the title. Keep adjacent arrow segments tightly joined and judge visible tip-to-notch seams in the render; a small overlap of shape frames may be needed. Fit the bar through concise label wording, segment widths, overall placement or coherent reflow within the five-item limit, without widening the gaps to fill the row or obscuring labels. Keep native editable labels at 12 pt or larger after inheritance, automatic fitting and group scaling; do not shrink them to resolve a fit problem. Keep repeated label frames, positions, insets, font family, size and weight fixed across slides; use color or fill for active emphasis so the words do not move as the section changes. Inspect rendered label alignment and fit. Navigation labels use the role-based middle anchoring in R016. Key takeaways do not need a dedicated ribbon item; use a truthful concluding group or omit navigation on that summary.",
+      "execution": "Follow refine-the-visuals.md#section-navigation-and-conceptual-parts for truthful grouping, compact joining, placement, label size and centering, repeated geometry and closing-summary treatment.",
       "exceptions": [
         "Navigation is optional on covers and self-contained pages; the placement rule does not require adding a navigation bar.",
         "Do not invent an unrelated sequence."
@@ -176,7 +176,7 @@
       "status": "primary",
       "trigger": "Drafting or reviewing documentation, transformation reports or presentation wording.",
       "decision": "Develop continuous reasoning in natural paragraphs; use tables for discrete information that benefits from shared comparison criteria.",
-      "execution": "Explain the design choice, its reason and any limiting condition. Follow writing-style.md; preserve sufficient context and exact scientific or technical qualifications. For slide wording, follow writing-style.md#research-slide-wording: lead with the actual topic or source-backed finding, proofread labels and terminology, and keep qualifications, attribution and cross-references accurate.",
+      "execution": "Explain the design choice, its reason and any limiting condition. Follow writing-style.md; preserve sufficient context and exact scientific or technical qualifications. For slide wording, follow distill-the-message.md#research-slide-wording: lead with the actual topic or source-backed finding, proofread labels and terminology, and keep qualifications, attribution and cross-references accurate.",
       "exceptions": [
         "Ordered procedures retain their sequence; commands and schemas retain literal syntax.",
         "Labels, equations and slide text use the form and length appropriate to their purpose."
@@ -213,7 +213,7 @@
       "status": "primary",
       "trigger": "Applying Sherry's style to slide text or reviewing text legibility.",
       "decision": "Use Fira Sans titles and a deliberate size hierarchy, with no displayed text below 10.5 pt and section navigation labels at least 12 pt.",
-      "execution": "Follow design-system.md: use a suitable Fira title variant, usually Extra Condensed Bold, and Fira Sans for Latin body text. Usually use 12 pt body text and 16 pt prominent subheadings, reserving 10.5 pt for minor information. Section navigation labels retain the separate 12 pt minimum in R007. Resolve actual fonts beyond theme defaults; check script coverage and effective sizes after fitting and scaling. Rearrange or split content rather than shrinking below the floor.",
+      "execution": "Follow refine-the-visuals.md#work-area-and-typography for the Fira hierarchy, effective text sizes, readable minima, script coverage and font-availability review.",
       "exceptions": [
         "An explicit current typography requirement takes precedence over style defaults.",
         "Other scripts and mathematics need suitable fonts and preserved notation; do not force an unsupported Fira substitution.",
@@ -232,7 +232,7 @@
       "status": "primary",
       "trigger": "Defining a slide master, laying out slide content or checking content boundaries.",
       "decision": "Establish a centered rectangular work area before placement and keep all foreground content inside it except the slide number.",
-      "execution": "Record bounds and units for the actual canvas, with equal left/right and equal top/bottom margins. Include titles, navigation, figures, labels, explanations, citations and footnotes. Place the slide number outside the work area at the bottom right, black on light backgrounds and white on dark backgrounds. Use matching master or layout guides through a suitable native workflow.",
+      "execution": "Define and record the symmetric work area for the actual canvas under refine-the-visuals.md#work-area-and-typography. Inspect visible object extents and preserve the slide-number exception.",
       "exceptions": [
         "Slide backgrounds may fill the canvas; they are not foreground content.",
         "An explicit current mandatory template or requested layout takes precedence; explain a conflict rather than silently changing its boundaries.",
@@ -251,7 +251,7 @@
       "status": "primary",
       "trigger": "Formatting text boxes or native table cells.",
       "decision": "Top-anchor unfilled body text, captions and free-standing headings. Vertically center flowchart-node text, filled text boxes, navigation labels and table cells within their intended text regions. Preserve established title anchoring and keep retained logical text fixed across consecutive slides. Left-align descriptive table text and center short entries, including numbers.",
-      "execution": "Follow design-system.md#text-boxes-and-tables. A text box over a separate bounded background shape counts as filled for this rule; a whole-slide background does not. Center its designated text region with balanced vertical insets, rather than centering every element in a multi-object panel as one block. Top-anchored roles retain matched top edges, insets and first-line metrics. For retained text of either anchor type, lock frame geometry including height, font metrics, wrapping and insets across consecutive slides. Changing a centered container height must not move unchanged text. Treat horizontal alignment separately, and use native authoring for properties beyond the bounded helpers. Inspect final native properties and adjacent renders.",
+      "execution": "Follow refine-the-visuals.md#text-boxes-and-tables for role-specific anchoring, insets and horizontal alignment. Apply spacing-and-hierarchy.md#keep-retained-text-fixed-across-slide-changes to repeated logical text; a matching frame alone does not establish continuity.",
       "exceptions": [
         "An explicit user-specified layout can override the role-based default; preserve scientific readability and retained-text continuity.",
         "Title layout remains established; a large colored panel does not make its figures and independent text regions one centered text box.",
@@ -270,7 +270,7 @@
       "status": "primary",
       "trigger": "A slide contains a substantial text block or a dense explanation.",
       "decision": "Give the text a visible design treatment and a clear internal hierarchy that helps the audience follow the explanation.",
-      "execution": "Use a meaningful heading, restrained accent rule, background treatment or labeled grouping with deliberate spacing according to the content. Keep continuous reasoning in connected prose and retain essential scientific qualifications with their evidence. Judge the treatment, type hierarchy and available space together. Grouping and enclosure do not by themselves satisfy R024; assess the explanation for a useful object depiction, relationship or comparison.",
+      "execution": "Follow refine-the-visuals.md#text-boxes-and-tables and #choosing-a-text-box-treatment to make the explanation legible through hierarchy and considered grouping without fragmenting its reasoning.",
       "exceptions": [
         "Short labels and captions can remain plain.",
         "A mandatory template can constrain the available treatment; improve hierarchy within its requirements."
@@ -288,7 +288,7 @@
       "status": "contextual",
       "trigger": "A self-contained explanation needs a visible boundary or separation from neighboring evidence.",
       "decision": "Consider a light gray fill with gentle corner rounding when it clarifies the explanation's grouping.",
-      "execution": "Evaluate fill, corner shape, insets, heading hierarchy and surrounding space together using design-system.md#choosing-a-text-box-treatment. Keep shared treatments coherent across comparable blocks, preserve evidence associations and use appropriate native authoring for changes outside a helper's operation set. A soft panel is a grouping choice, not a substitute for the semantic visual contribution required by R024.",
+      "execution": "Evaluate the contextual panel treatment under refine-the-visuals.md#choosing-a-text-box-treatment, including fill, corners, internal space and the reason a contained region helps this explanation.",
       "exceptions": [
         "Labels and captions may communicate their association more clearly without a filled enclosure.",
         "Dark backgrounds need an appropriate neutral tone and checked contrast.",
@@ -306,7 +306,7 @@
       "status": "primary",
       "trigger": "The deck contains tables and the current table-palette decision is unresolved.",
       "decision": "Offer Nature-inspired and deck-matched color treatments of the same representative table for the user to choose.",
-      "execution": "Follow design-system.md#table-color-options and guided-intake.md. Use the reference-defined Nature-inspired preset with warm stone headers, white body cells, black text and horizontal rules without a vertical grid. Keep content, layout, fonts, numeric precision and emphasis targets identical in both previews. Present exactly two preset choices through the available tool and wait for a submitted choice or explicit delegation before final table coloring. Record and reuse the resolved choice privately for comparable tables.",
+      "execution": "Follow refine-the-visuals.md#table-color-options and guided-intake.md. Compare the same representative table in the two defined treatments, resolve or reuse the choice and preserve scientific color meanings.",
       "exceptions": [
         "Reuse an explicit current choice or delegation; do not ask for a deck without tables.",
         "Existing scientific category, heatmap, sign and significance mappings remain protected in both options.",
@@ -345,7 +345,7 @@
       "status": "primary",
       "trigger": "Comparable slide roles contain recurring logos or watermarks, with a possible isolated omission.",
       "decision": "Restore intended recurring branding through native masters and layouts while preserving intentional slide-role exceptions.",
-      "execution": "Follow design-system.md#recurring-logos-and-watermarks and the native application workflow. Inspect existing assets, master/layout relationships and slide visibility overrides. Reuse the correct mark and restore the appropriate layout or inheritance rather than pasting individual copies. Review every affected slide after a shared change; preserve proportions, work-area bounds and unrelated template content. Use native authoring because the bounded helpers cannot repair masters or layout relationships.",
+      "execution": "Follow refine-the-visuals.md#recurring-logos-and-watermarks and the native application workflow. Repair an established omission through master/layout inheritance, preserving deliberate variants and reviewing all affected slides.",
       "exceptions": [
         "Covers, section dividers, full-bleed pages and deliberately unbranded layouts can differ; compare intended roles rather than assuming every absence is a defect.",
         "Do not overwrite distinct brand variants, invent an asset, remove required confidentiality marks or enable all master graphics indiscriminately. Preserve intentional background watermark coverage and repetition under the background exception; foreground marks retain the work-area bounds.",
@@ -383,7 +383,7 @@
       "status": "primary",
       "trigger": "A research abbreviation or acronym first appears in the audience-visible presentation sequence.",
       "decision": "Give the verified full term at the first visible occurrence, then use the abbreviation consistently.",
-      "execution": "Follow writing-style.md#research-slide-wording and scientific-fidelity.md. Inspect titles, body text, tables, figures, legends and build stages in actual presentation order. Put the full term with the abbreviation or in an immediately associated visible explanation; a later glossary, appendix or speaker note alone is insufficient. Record the definition and first-use destination in the private content ledger and use native authoring for text changes beyond the bounded helpers.",
+      "execution": "Follow distill-the-message.md#research-slide-wording for first audience-visible use, verified expansion, contextual term identity and material ambiguity handling.",
       "exceptions": [
         "Use the source and research context to establish clear terms without unnecessary questions; unresolved definitions or material ambiguities need an actual answer before expansion.",
         "SI unit symbols, chemical formulas, mathematical symbols, identifiers, codes and proper names are not automatically acronyms to expand.",
@@ -403,7 +403,7 @@
       "status": "primary",
       "trigger": "Creating, editing or reviewing any slide in the requested work scope, including pages that already contain figures or diagrams.",
       "decision": "Give every in-scope slide an intentional, polished text and visual composition and an individual page review. Make the relevant research objects, distinctions, evidence or verified relationships visible. Assess splitting a complex explanation when useful graphics and readable text need more room.",
-      "execution": "Follow visual-storytelling.md and design-system.md#visual-treatment-for-every-slide. Review every in-scope page for the explanatory contribution, hierarchy, spacing and balance of its text and visual material, including method, result, comparison, question, cover and closing slides. Before filling a slide with prose, record the visual's explanatory purpose, role and source support privately. Distinguish evidence, explanatory schematics and illustrative depictions. Compose interacting objects, operations, states, constraints or comparisons at the resolution the source and audience need, with explanatory native labels and a stable visual vocabulary. A recognizable icon, repeated object or box-and-arrow layout does not by itself explain a method or mechanism. Text-only sources can support substantive analytical schematics without supplying numerical data. Prefer editable text, shapes and connectors; use coherent, adequately resolved assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Preserve sufficient visible method, evidence and reasoning as well as complete source-to-output coverage, essential qualifications and attribution; update notes, navigation and cross-references. Retain effective existing treatments, role-based anchoring and stable retained text, the type hierarchy including R007's five-item ribbon limit and 12 pt navigation minimum, and the symmetric work area. R017 and R018 establish grouping, not proof of an explanatory graphic.",
+      "execution": "Follow visual-storytelling.md#review-every-slide-as-a-complete-composition and refine-the-visuals.md#visual-treatment-for-every-slide. Use the narrative role and required detail to judge each page's visual contribution. An icon count, neat panel or complete script in notes does not establish a sufficient explanation.",
       "exceptions": [
         "Covers follow R025: typography, color, material and space can provide their complete visual contribution. Body-page mechanism diagrams and explanatory density are not mandatory on covers.",
         "Exact proofs, quotations, references and necessary prose can retain their form when the purpose or scientific meaning requires it; record the slide-specific reason and still review typography and composition. Abstract methods and equations do not require a physical metaphor or a decorative icon.",
@@ -425,7 +425,7 @@
       "status": "primary",
       "trigger": "Creating or materially redesigning the cover of a research presentation.",
       "decision": "Compose typography, imagery and space around the research identity, preferring integrated organic editorial illustration and checking that the visual atmosphere supports the topic.",
-      "execution": "Follow cover-art-direction.md. Prefer a light ground, recognizable flat illustrated forms, restrained texture and an organic silhouette integrated with the title. Develop different spatial ideas within appropriate directions before asset selection. Do not offer glowing abstract fields or sparse text-only folios as standard alternatives merely to create variety. Photography remains conditional on subject relevance and atmosphere; a net-zero transition cover should not inadvertently suggest pollution or decline. Inspect the implied setting and mood without inventing achieved outcomes or altering scientific evidence. Preserve research scope, editable text, required credits and the foreground work area. Omit production labels such as conceptual image. Render requested alternatives with the same content and review craft, subject fit and meaningful variety at full size and as thumbnails.",
+      "execution": "Follow cover-art-direction.md for the preferred organic editorial composition, research-specific variety, conditional photography, mood, native text and separate thumbnail/full-size review. Preserve its scientific, branding and asset exceptions.",
       "exceptions": [
         "A mandatory institutional cover can constrain the composition; improve hierarchy and spacing within it. A small correction to an approved cover does not require new alternatives.",
         "Explicit user direction, mandatory branding or lack of suitable imagery can justify a different treatment, including composed typography. The preferred illustration does not prescribe one subject, palette or layout for every discipline; dark imagery is evaluated in context rather than universally prohibited.",
@@ -444,7 +444,7 @@
       "status": "primary",
       "trigger": "Selecting, placing or sourcing icons for a slide.",
       "decision": "Use icons as compact supporting cues within flowcharts or before subheadings and section labels, with a coherent visual family and the actual license and credit preserved. Do not enlarge a lone icon into the main illustration.",
-      "execution": "Follow visual-storytelling.md#keep-icons-in-a-supporting-role for placement and scale, and asset-sourcing.md when obtaining an asset. Judge optical size against nearby text and node structure, align equivalent roles consistently and retain substantive explanatory visuals. Flaticon is an optional source through available permitted browsing or an explicitly configured official API. Inspect the depicted object and family, actual download permission and account entitlement. Use generic nonconfidential searches and keep an asset/source/license record privately. Retain required visible credits and verify the imported render. Use bundled icons or native drawing where online acquisition is unavailable. Do not assume a built-in API integration or redistribute downloaded stock in the skill package.",
+      "execution": "Follow visual-storytelling.md#keep-icons-in-a-supporting-role for compact placement and optical scale, and asset-sourcing.md for actual access, family coherence, licensing, credits and private asset records. Do not enlarge a lone topic icon into the main image.",
       "exceptions": [
         "Do not add an icon when it contributes no understanding or introduces an unsupported scientific detail.",
         "A login, paid download or API dependency must be resolved through the available authorized workflow; it does not permit bypassing access or format restrictions.",
@@ -483,7 +483,7 @@
       "status": "contextual",
       "trigger": "A source composite figure or several related panels would be clearer as grouped evidence regions or a focused slide sequence.",
       "decision": "Consider generous rounded color regions with native panel headings or badges, separating the evidence without separating it from its interpretation context.",
-      "execution": "Follow figure-panels.md. Inspect the whole figure and caption before extracting or cropping. Retain original panel identities, shared axes, legends, color bars, scale bars, uncertainty and citations. Keep any new deck-local A/B/C/D labels distinct and traceable; H identifiers require an established hypothesis identity or an explicitly confirmed presentation-group meaning that is visibly distinguished from a hypothesis. Use native framing and labels around retained panels, with complete source-to-output and crop-bound records. Prefer separate source objects or reversible crops; the optional pixel-crop helper does not detect panels or certify scientific completeness. Split at coherent boundaries when legibility needs more room.",
+      "execution": "Follow figure-panels.md for source inspection, original identities, H-label ambiguity, safe extraction, shared scientific context, native recomposition and per-panel attribution. Use a source-hashed plan and new outputs where the bounded extractor applies.",
       "exceptions": [
         "A shared axis, legend or connected relationship may require retaining the original whole figure or visibly repeating verified context.",
         "The number of regions follows the actual explanation; four panels, equal cards and fixed corner radii are not required.",
@@ -503,7 +503,7 @@
       "status": "primary",
       "trigger": "Creating or refining a complete multi-slide presentation.",
       "decision": "Conclude the main narrative with key takeaways that synthesize supported messages through meaningful visuals and concise wording.",
-      "execution": "Follow visual-storytelling.md#close-with-visual-key-takeaways. Use a closing slide or short sequence that reuses established research objects, verified relationships or legible evidence. Select the message count and composition from the argument, keep essential qualifications visible and retain native editable wording. Place optional Q&A, contacts or supplementary pages after the final substantive summary. Trace condensed statements to source and earlier evidence. The summary does not require a dedicated ribbon item; use an appropriate existing group or omit its navigation.",
+      "execution": "Develop the synthesis in find-the-thread.md#discussion-and-ending-synthesize-what-has-become-clearer, then apply visual-storytelling.md#close-with-visual-key-takeaways. Reuse meaningful evidence or relationships from the talk with visible qualifications.",
       "exceptions": [
         "A request limited to individual slides does not require an unrelated new ending.",
         "Tutorials and proposed studies summarize learned concepts, supported questions or next steps without inventing completed findings.",
@@ -523,7 +523,7 @@
       "status": "contextual",
       "trigger": "Creating or refining a Research Question page for a study with a central question and related inquiries.",
       "decision": "Connect an illustrated research motivation with one dominant question and clearly differentiated subquestions.",
-      "execution": "Follow visual-storytelling.md#frame-a-research-question. Start with a narrow motivation strip at left, a prominent question callout at upper right and coordinated subquestion regions beneath it when that arrangement fits. Adapt research objects, wording, region count and placement to the actual source and canvas. Keep the main question visually dominant and enough explanation visible to distinguish each inquiry. Use source-supported relationships or a noncausal comparison/evidence gap; preserve hypotheses and findings as different roles. Keep text and framing native where feasible, retain the work area and text anchoring rules, and use the target palette and authorized master branding.",
+      "execution": "Follow visual-storytelling.md#frame-a-research-question for the illustrated motivation, dominant question and related inquiries. Adapt counts and arrangement to the source; preserve question status rather than implying findings.",
       "exceptions": [
         "Three motivating stages, four cards, a question-mark motif, accent lines and the reference's topic or colors are not mandatory.",
         "A study with one indivisible question, a tutorial or a narrow slide edit does not require invented subquestions or an unrelated framing page.",
@@ -544,7 +544,7 @@
       "status": "primary",
       "trigger": "Creating or substantially rebuilding a research presentation.",
       "decision": "Develop the narrative, design each page's visual explanation, then reproduce it as actual slides. Substantive introduction pages use rich illustrated explanations with sufficient scientific detail.",
-      "execution": "Follow visual-storytelling.md#outline-then-storyboard-then-build. Specify source-supported objects, states, operations or comparisons, evidence, labels, supporting text and composition before authoring. Adapt concept, question, significance and contribution compositions to the study. Use detailed scientific illustrations and analytical graphics beyond the bundled icon vocabulary. Preserve the storyboard's explanatory substance in the finished slides.",
+      "execution": "Complete find-the-thread.md and its title-sequence review, then follow visual-storytelling.md#outline-then-storyboard-then-build. Carry each slide's role, source-supported objects, operations, evidence and required explanation into the actual native slides.",
       "exceptions": [
         "A narrow edit does not require rebuilding the whole deck.",
         "Covers, contents, dividers and justified exact-text or mathematics pages have distinct purposes. Never invent data or relationships to fill a visual design."
@@ -580,7 +580,7 @@
       "status": "primary",
       "trigger": "Displaying research citations or reference entries on slides.",
       "decision": "Use APA 7 author-year citations and bibliographic structure with italic slide reference text, keeping routine extraction-page lists out of the visible composition.",
-      "execution": "Follow writing-style.md#slide-citations-and-references. Place concise attribution by its evidence and complete verified entries in the reference section. Use the private ledger or notes for detailed source locators. Entire-line italics are palate's slide style, not a universal APA typography requirement.",
+      "execution": "Follow distill-the-message.md#slide-citations-and-references. Place concise attribution by its evidence and complete verified entries in the reference section. Use the private ledger or notes for detailed source locators. Entire-line italics are palate's slide style, not a universal APA typography requirement.",
       "exceptions": [
         "Retain necessary direct-quotation locators, required credits and bibliographic publication page ranges or article numbers.",
         "Unknown date, publication status or metadata must not be invented to complete a reference."
@@ -598,7 +598,7 @@
       "status": "primary",
       "trigger": "Choosing or creating illustrations for Introduction or Methodology slides.",
       "decision": "Prefer freeform editorial cutout scenes for conceptual framing and clean infographic mini-scenes for methodological explanation, selecting by communicative purpose rather than the section name alone.",
-      "execution": "Follow visual-storytelling.md#choose-the-illustration-language. Style 1 uses refined flat forms, organic silhouettes and restrained color, integrated without a rectangular picture block. Style 2 uses coherent modular components and explanatory mini-scenes that reveal actual operations, comparisons and relationships, with optional slight isometric depth. Blue with warm accents is suitable when compatible with the deck and scientific encodings. Specify silhouette, viewpoint, palette and essential detail in the storyboard. Avoid glossy synthetic art, heavy 3D, fantasy detail, noisy texture and generic decorative scenes. Keep labels and meaningful connections native, preserve scientific depth, and split complex explanations when needed. Learn drawing properties from style references without copying decorative chart values or stock subject matter. Vector appearance does not establish vector format or editable image interiors.",
+      "execution": "Follow visual-storytelling.md#choose-the-illustration-language for purpose-based editorial/infographic selection, flat forms, silhouettes, coherent palette and optional isometric depth. Preserve scientific detail and verify actual asset format and editability separately from vector-like appearance.",
       "exceptions": [
         "An introduction mechanism may use the infographic language, and a methodology setting or divider may use the editorial language. Mixed pages choose a dominant coherent treatment.",
         "Keep necessary analytical boundaries, chart axes, verified figures and exact equations. Abstract methods do not require a physical metaphor or added illustration when it would not improve understanding.",
@@ -609,6 +609,44 @@
         "The application render shows clean silhouettes, coherent line treatment, restrained detail, intentional integration and readable scientific content; native grouping does not become an arbitrary picture frame.",
         "No decorative chart marks, data, mechanisms or achieved outcomes are invented. Palette meanings, labels, qualifications and content coverage remain intact.",
         "Actual asset format, placed resolution, transparency and native editability are checked separately. A flat-style PNG is recorded as raster, and image interiors are not claimed editable."
+      ]
+    },
+    {
+      "id": "R035",
+      "name": "Narrative diagnosis and title sequence review",
+      "dimension": "scientific_storytelling",
+      "status": "primary",
+      "trigger": "Creating a research talk or substantially refining its order, titles, explanations or layouts.",
+      "decision": "Establish a source-grounded narrative map and review titles as a connected sequence before editing pages, then recheck the completed argument.",
+      "execution": "Follow find-the-thread.md#slide-title-sequence-review. Preserve original identities and titles; assign roles, source support and explicit neighbor relationships. Explore alternatives at consequential turns and implement only changes with an identifiable benefit. Use review_title_sequence.py for bounded extraction, not narrative certification.",
+      "exceptions": [
+        "A narrow correction remains limited to its authorized scope; inspect relevant neighboring context without imposing a whole-deck rewrite.",
+        "Dividers, definitions, equation walkthroughs and deliberate builds can retain direct or repeated titles. No quota of questions, witty phrases, changed titles or slide count applies.",
+        "Under an unchanged brief and evidence base, retain sound decisions unless a new defect or justified improvement is identified."
+      ],
+      "validation": [
+        "The question, investigation, evidence and qualified synthesis form an explainable progression; each substantive slide has a reason to follow its predecessor and prepare its successor.",
+        "Title claims match slide content and sources. Questions do not introduce unsupported presuppositions, and contradictory evidence is retained.",
+        "Original/proposed sequences and retain/change reasons are traceable. Mechanical extraction and qualitative review are reported separately."
+      ]
+    },
+    {
+      "id": "R036",
+      "name": "Question-to-result and insight traceability",
+      "dimension": "scientific_reasoning",
+      "status": "primary",
+      "trigger": "Explaining methods, interpreting results or developing a concluding implication.",
+      "decision": "Make the inference chain explicit and connect each major finding to its research question, comparator, evidence and qualifications.",
+      "execution": "Follow find-the-thread.md for methodological purpose, inference status, result mapping and synthesis; use distill-the-message.md for verified numerical insights and visible qualifications. Keep model assumptions, observed evidence and proposed work distinct.",
+      "exceptions": [
+        "Exploratory findings can be identified as such without pretending the question was specified beforehand.",
+        "Null findings, unresolved comparisons and proposals need no invented answer or forced policy recommendation.",
+        "Technical headings may remain descriptive when no stronger supported claim is available."
+      ],
+      "validation": [
+        "Each methodological step explains why it is needed, what it permits and what it assumes. No unperformed validation or control is invented.",
+        "Each major result has traceable support, comparison and scientific status; quantitative insights use verified values and correct units and denominators.",
+        "The ending synthesizes what has become clearer while retaining limitations and unresolved questions."
       ]
     }
   ]

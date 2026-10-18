@@ -2,7 +2,7 @@
 
 A useful graphic helps the audience see something they would otherwise have to assemble from sentences: the objects involved, what changes between conditions, how a system is organized or where a method takes its inputs. A row of labeled boxes can organize that explanation without making it visual. **palate** therefore judges a graphic by the understanding it contributes, rather than by the presence of shapes, arrows or icons.
 
-Use this guide when creating slides or reviewing explanations dominated by words, including pages that already contain a diagram or chart. The [design system](design-system.md) supplies typography, spacing and alignment requirements; [scientific fidelity](scientific-fidelity.md) governs what the visual may claim.
+Use this guide when creating slides or reviewing explanations dominated by words, including pages that already contain a diagram or chart. The [visual guide](refine-the-visuals.md) supplies typography, spacing and alignment requirements; [scientific fidelity](scientific-fidelity.md) governs what the visual may claim.
 
 ## Review every slide as a complete composition
 
@@ -16,7 +16,7 @@ Review the sequence as well as individual pages. Reuse the same visual vocabular
 
 For a new or substantially rebuilt research talk, develop the argument first, then design the visual explanation for each slide, and only then construct the native slides. A polished box layout chosen before the scientific explanation tends to reduce different ideas to the same diagram. The intermediate storyboard must specify a composition that can actually be built, rather than simply promise an infographic.
 
-1. **Outline the argument.** Establish the question, the necessary concepts, the source-supported method and findings, and the qualified contribution. Preserve enough detail for the selected audience and duration. Choose slide boundaries around explanatory purposes, not a fixed number of bullets or panels.
+1. **Use the narrative map.** Complete [Find the thread](find-the-thread.md) and its title-sequence review before choosing the per-page explanation. Carry forward each slide's role, question, evidence, neighbor relationships and qualifications. Choose slide boundaries around those purposes, not a fixed number of bullets or panels.
 2. **Design each page's explanation.** Sketch or specify its research objects, their relevant states or differences, the relationship to show, the evidence to retain, the supporting wording and their spatial arrangement. Identify what the audience learns by looking at the graphic. Choose the [illustration language](#choose-the-illustration-language) from that purpose and specify its silhouette, palette, viewpoint and level of detail. Select or construct assets at this stage; an icon filename is not a diagram specification. Plan repeated objects and text positions across adjacent slides.
 3. **Construct and compare.** Reproduce that storyboard as actual slides with native labels, framing and connections wherever feasible. Review the finished page against both its source and storyboard. Repair missing visual detail, lost scientific substance and inaccurate connections before proceeding to final delivery.
 
@@ -141,20 +141,7 @@ When a narrow canvas or substantial subquestions need more room, wrap the lower 
 
 ## Retain the substance of the explanation
 
-Sherry's style uses visual structure to make substantial research content manageable. A slide can contain a composed illustration, several short method statements, a comparison and an interpretation when they serve one coherent question. The amount and kind of information in each region should follow its explanatory job. Equal panels do not require identical contents, and large empty areas are not a reason to remove information that makes a finding intelligible.
-
-Before condensing a research explanation, identify what the audience needs to examine on the slide. Choose from the source material rather than completing a generic checklist with invented detail:
-
-| Explanation | Content to keep visible when material to this talk |
-| :--- | :--- |
-| Method or model | Relevant inputs, key operation or relationship, outputs, study scope and the assumption needed to interpret that operation. |
-| Experiment or comparison | What is held fixed, what varies, which cases are compared and how the comparison supports the stated inference. |
-| Finding | Evidence, comparison baseline, direction and available magnitude, units, uncertainty and conditions that affect interpretation. A directional summary must not displace necessary source numbers or figures. |
-| Contribution or implication | What was added or learned, the source-supported reason it matters and the scope or limitation of that implication. |
-
-Keep these elements in a readable hierarchy: an entry statement, a useful diagram or evidence region, supporting explanation and a distinct interpretation where needed. Use aligned comparisons, nested groups, annotated diagrams or multiple coordinated panels before removing substance for a sparse layout. Preserve connected reasoning where short fragments would force the listener to reconstruct a missing step. A topic illustration and a broad conclusion alone do not establish sufficient detail.
-
-For a short presentation, select a narrower coherent argument and explain its selected methods and findings adequately. Do not retain every section heading while reducing each section to a slogan. Track excluded branches and relocated material in the private ledger, and make a consequential scope change clear to the user. A supplied script may be retained in notes, but notes-only conservation does not prove that the visible explanation is complete. Move supporting derivations, secondary examples or the full original wording there only when the main narrative remains intelligible at the requested depth. Essential evidence and qualifications remain beside the claim.
+[Distill the message](distill-the-message.md#retain-sufficient-visible-explanation) owns visible-detail and notes/appendix decisions, including the [content needed for each explanatory role](distill-the-message.md#match-visible-detail-to-the-explanation). Construct the visual around that required content; do not replace an adequate explanation with a topic illustration or move essential reasoning into notes to make the page look simpler.
 
 ## Select and construct assets deliberately
 
@@ -172,7 +159,7 @@ Do not turn descriptive statistics into a plausible-looking density curve, draw 
 
 If useful objects, their relationships and readable text cannot share the work area comfortably, split at a conceptual boundary. An overview followed by a mechanism or module detail can preserve both orientation and depth. Give each resulting slide a clear explanatory purpose and map every claim, qualification, reference and note to its destination. Update navigation and cross-references after splitting.
 
-Do not shrink below the 10.5 pt minimum, reduce section navigation labels below 12 pt, crowd a diagram to preserve an arbitrary slide count or split solely to make room for decoration. Keep unfilled body text top-anchored, flowchart nodes and filled text boxes vertically centered, retained text fixed and table alignment consistent with the [design system](design-system.md#text-boxes-and-tables).
+Do not shrink below the 10.5 pt minimum, reduce section navigation labels below 12 pt, crowd a diagram to preserve an arbitrary slide count or split solely to make room for decoration. Keep unfilled body text top-anchored, flowchart nodes and filled text boxes vertically centered, retained text fixed and table alignment consistent with the [design system](refine-the-visuals.md#text-boxes-and-tables).
 
 ## Close with visual key takeaways
 
