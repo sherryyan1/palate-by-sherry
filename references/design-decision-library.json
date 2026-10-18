@@ -254,7 +254,8 @@
       "execution": "Follow design-system.md#text-boxes-and-tables. A text box over a separate bounded background shape counts as filled for this rule; a whole-slide background does not. Center its designated text region with balanced vertical insets, rather than centering every element in a multi-object panel as one block. Top-anchored roles retain matched top edges, insets and first-line metrics. For retained text of either anchor type, lock frame geometry including height, font metrics, wrapping and insets across consecutive slides. Changing a centered container height must not move unchanged text. Treat horizontal alignment separately, and use native authoring for properties beyond the bounded helpers. Inspect final native properties and adjacent renders.",
       "exceptions": [
         "An explicit user-specified layout can override the role-based default; preserve scientific readability and retained-text continuity.",
-        "Title layout remains established; a large colored panel does not make its figures and independent text regions one centered text box."
+        "Title layout remains established; a large colored panel does not make its figures and independent text regions one centered text box.",
+        "Independent cover alternatives for design comparison may reposition repeated titles. Consecutive builds of the selected cover retain the text lock."
       ],
       "validation": [
         "Unfilled body text is top-anchored; flowchart nodes and filled text regions, navigation and table cells are middle-anchored with readable fit.",
@@ -404,6 +405,7 @@
       "decision": "Give every in-scope slide an intentional, polished text and visual composition and an individual page review. Make the relevant research objects, distinctions, evidence or verified relationships visible. Assess splitting a complex explanation when useful graphics and readable text need more room.",
       "execution": "Follow visual-storytelling.md and design-system.md#visual-treatment-for-every-slide. Review every in-scope page for the explanatory contribution, hierarchy, spacing and balance of its text and visual material, including method, result, comparison, question, cover and closing slides. Before filling a slide with prose, record the visual's explanatory purpose, role and source support privately. Distinguish evidence, explanatory schematics and illustrative depictions. Compose interacting objects, operations, states, constraints or comparisons at the resolution the source and audience need, with explanatory native labels and a stable visual vocabulary. A recognizable icon, repeated object or box-and-arrow layout does not by itself explain a method or mechanism. Text-only sources can support substantive analytical schematics without supplying numerical data. Prefer editable text, shapes and connectors; use coherent, adequately resolved assets when useful and disclose image-interior editing limits. Split at coherent conceptual boundaries when readability, spacing or distinct explanatory purposes justify it. Preserve sufficient visible method, evidence and reasoning as well as complete source-to-output coverage, essential qualifications and attribution; update notes, navigation and cross-references. Retain effective existing treatments, role-based anchoring and stable retained text, the type hierarchy including R007's five-item ribbon limit and 12 pt navigation minimum, and the symmetric work area. R017 and R018 establish grouping, not proof of an explanatory graphic.",
       "exceptions": [
+        "Covers follow R025: typography, color, material and space can provide their complete visual contribution. Body-page mechanism diagrams and explanatory density are not mandatory on covers.",
         "Exact proofs, quotations, references and necessary prose can retain their form when the purpose or scientific meaning requires it; record the slide-specific reason and still review typography and composition. Abstract methods and equations do not require a physical metaphor or a decorative icon.",
         "Explanatory imagery must be distinguishable from research evidence. Do not invent causal, temporal, quantitative or categorical relationships; use an accurate nonrelational illustration or composition where possible when a relationship is unverified.",
         "Do not impose a graphic quota, fixed slide count or split solely for decoration. A mandatory template may constrain treatment; record any necessary exception. Unavailable native authoring or review leaves the selected work pending rather than completed."
@@ -418,21 +420,21 @@
     },
     {
       "id": "R025",
-      "name": "Research-led cover composition",
+      "name": "Cover composition and art direction",
       "dimension": "cover_art_direction",
       "status": "primary",
       "trigger": "Creating or materially redesigning the cover of a research presentation.",
-      "decision": "Choose the focal subject and composition from the research identity and available trustworthy material, with deliberate quiet space and title hierarchy.",
-      "execution": "Follow cover-art-direction.md. Consider a subject in focus, place and scale, mechanism as identity or one idea expressed through a restrained form. Preserve the approved typography and scientific color meanings. Keep title and metadata editable, distinguish observed imagery from representative or conceptual imagery, and record the direction and source support privately. Compare another plausible composition internally when the initial result feels generic. Use Apple examples for compositional judgment rather than copying campaign assets, logos or visual effects.",
+      "decision": "Design typography, imagery, color and space as one complete cover, with mature visual craft and meaningful variety suited to the research.",
+      "execution": "Follow cover-art-direction.md. For a new cover or substantial redesign, compare at least two different spatial ideas before selecting or generating assets. Consider typographic composition, immersive imagery, organic editorial illustration, chromatic fields and subject scale. Specify visual medium, silhouette or crop, title geometry and quiet space together; do not default to title plus rectangular schematic. Preserve scientific scope, editable title and metadata, required credits and the foreground work area. Keep production labels such as conceptual image off the cover, while retaining meaningful scientific qualifications or choosing imagery that does not need them. Render requested alternatives with identical content and inspect each at full size and as thumbnails. Compare composition and craft, not only palette or picture choice.",
       "exceptions": [
-        "A mandatory institutional cover can constrain the composition; improve hierarchy and spacing within it.",
-        "A deliberate typography-led cover can be appropriate when imagery would add no understanding. No image, color scheme or cover questionnaire is mandatory.",
-        "Keep unverified subject details unresolved rather than inventing scientific imagery; unavailable native review remains pending."
+        "A mandatory institutional cover can constrain the composition; improve hierarchy and spacing within it. A small correction to an approved cover does not require new alternatives.",
+        "A typography-led cover can be appropriate without an added picture. No specific family, color, image, Apple font or extra cover questionnaire is mandatory.",
+        "Do not hide uncertainty or required attribution to improve appearance. Unavailable native application review remains pending."
       ],
       "validation": [
-        "The cover establishes a recognizable research subject or idea through a clear focal hierarchy, rather than an interchangeable title frame.",
-        "Full-size and thumbnail review confirms intentional space, readable title and metadata, contrast and alignment within the foreground work area.",
-        "Scientific imagery is accurate for its stated role; text remains editable and the delivery application render has been reviewed."
+        "Requested alternatives differ materially in spatial structure, image treatment or typography, while preserving the same research title and metadata.",
+        "Full-size and thumbnail review confirms readable title and scope, intentional line breaks, optical alignment, integrated silhouette or crop, comfortable spacing and no placeholder or production caption.",
+        "Imagery has a recorded origin and an accurate role. No invented data or site identity is implied. Text remains native and editable, and application rendering and edit-save-reopen behavior are reviewed separately."
       ]
     },
     {

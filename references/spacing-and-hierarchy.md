@@ -19,6 +19,8 @@ Inspect space inside containers as well as between them. Top-anchor unfilled bod
 
 Text should not run when a slide changes. If the same logical text element remains on consecutive slides, its words must remain in the same visible position while the new material changes around it. This applies to a repeated paragraph, heading, caption, diagram label or navigation label. Match elements by their role and source identity, not merely identical strings that happen to appear in different parts of the research.
 
+Independent cover alternatives shown for design comparison deliberately explore different title positions and typography. They are not narrative builds and do not require the same text geometry. Once a cover is selected, any consecutive builds of that design follow the retained-text rule.
+
 Establish a shared target position and typography for the output sequence, then reuse that object or a copy with its layout properties intact. The lock applies between output slides; it does not prevent a consistent redesign of the entire sequence. Record the retained element and its locked properties in the private slide specification:
 
 | Property | What must remain stable |
