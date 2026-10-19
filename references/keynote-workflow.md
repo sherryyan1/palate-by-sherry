@@ -2,13 +2,13 @@
 
 PowerPoint and Keynote need the same design judgment: the audience must be able to follow the argument and read the evidence without losing its qualifications. **palate** shares intake, design decisions and scientific fidelity across both applications, then uses the chosen application's native workflow. A Keynote source remains `.key` by default. Windows PowerPoint and a `.pptx` export are not prerequisites.
 
-This reference guides the agent through native Keynote inspection, bounded changes and delivery on Mac. The bundled adapter is implemented but experimental: its probe, inspect, bounded title position/font-size edits, native save, PDF export and independent reopen checks passed on a synthetic single-slide fixture on macOS 27.0.1 with Keynote 13.1 (2026-10-19). This does not validate complex research decks or the separate native-authoring paths. Routing, Python guard tests and simulated application responses do not establish native compatibility. Complete the actual application's preflight and reviews before making any claim about a particular deck.
+This reference guides native Keynote inspection, bounded changes and delivery on Mac. The preservation and authoring paths have passed bounded synthetic fixtures on macOS 27.0.1 / Keynote 13.1. See [capability status](native-capabilities.json) and [validation](https://github.com/sherryyan1/palate-by-sherry/blob/main/docs/validation.md) for the operations actually tested and remaining gaps. Mocked tests do not establish native compatibility, and fixture results do not certify an arbitrary research deck. Complete the actual application's preflight and reviews for each delivery.
 
 Begin with [routing and access](#route-the-source-and-check-access), then [inspect the native source](#inspect-before-designing). Use the [adapter contract](#native-adapter-contract) only for changes it supports. Requested conversion follows a separate [optional path](#optional-cross-format-delivery).
 
 ## Create a new deck from research material
 
-Text and papers can start a native Keynote presentation through [source-to-slides](source-to-slides.md); no existing deck or PowerPoint conversion is needed. Reuse an explicit Keynote delivery choice or resolve it before authoring. Read the material, establish the brief and private claim-to-source ledger, then use available native Keynote authoring on Mac to create the new deck. The bounded adapter below cannot create it. Review the actual output against its source material, rendered slides and native objects. Missing Mac authoring or review remains pending. This new-deck path has not been tested on Mac in this development environment.
+Text and papers can start a native Keynote presentation through [source-to-slides](source-to-slides.md); no existing deck or PowerPoint conversion is needed. Reuse an explicit Keynote delivery choice or resolve it before authoring. Read the material, establish the brief and private claim-to-source ledger, then use available native Keynote authoring on Mac to create the new deck. The bounded adapter below cannot create it. Use the separate [declarative authoring path](keynote-authoring.md) for creation and content-changing edits, subject to its recorded live-validation status; use controlled Keynote editing for scripting gaps. Review the actual output against its source material, rendered slides and native objects. Missing Mac authoring or review remains pending. This new-deck path has not been tested on Mac in this development environment.
 
 ## Route the source and check access
 
@@ -140,6 +140,9 @@ For translation, slide decomposition or reconstruction, use available controlled
 
 ## Review and deliver in Keynote
 
+Use the [shared review contract](native-delivery.md), including hash-bound evidence and the ending gate. The preservation finalizer checks its supported unchanged-content plan; content-changing decks use the authoring finalizer. Both require the same native review evidence.
+
+
 The shared quality gates remain independent of application and implementation:
 
 | Review | Evidence required in Keynote |
@@ -149,9 +152,9 @@ The shared quality gates remain independent of application and implementation:
 | Editability and protected objects | Select native text, tables, charts, diagrams and equations in Keynote and test a separate editable copy where needed. Review dependencies and retained image regions explicitly. An unchanged image or PDF cannot prove native editability or chart data preservation. |
 | Playback | Inspect transitions, builds, audio and video where present, including ordering, timing and staged evidence. If none are present, record that actual check. Static PDFs and inventory comparisons cannot prove playback. |
 
-Apply the shared [ending and scope checks](scientific-fidelity.md#deliver-the-result-and-explain-its-limits) to the actual Keynote sequence, including skipped backup slides. Inspect the chosen ending before the appendix boundary and report its purpose, any deliberate omission or an out-of-scope missing ending. The bounded adapter cannot create a missing closing slide; use authorized native authoring or report the pending work.
+Apply the shared [ending and scope checks](scientific-fidelity.md#deliver-the-result-and-explain-its-limits) to the actual Keynote sequence, including skipped backup slides. Verify that the summary and ending have distinct native slide identities, the ending is not skipped, and it precedes the first appendix. Play from the summary to the ending and check that normal advancement does not enter skipped backup slides. Record observations against the final saved `.key` file; a PDF or successful save alone cannot pass this gate. Inspect the chosen ending before the appendix boundary and report its purpose, any deliberate omission or an out-of-scope missing ending. The bounded adapter cannot create a missing closing slide; use authorized native authoring or report the pending work.
 
-After the actual review, create a private record with `source_sha256`, `candidate_sha256`, `reviewed_slides`, `native_application: "Keynote"`, `reviewer`, nonempty `evidence` and an empty `remaining_issues` list. Coverage must include every source slide. The native finalizer requires `visual_status`, `scientific_status`, `editability_status`, `playback_status` and `protected_content_status` each to equal `"passed"`. Never manufacture these statuses from an adapter receipt or a successful PDF export.
+After the actual review, create a private record with `source_sha256`, `candidate_sha256`, `reviewed_slides`, `native_application: "Keynote"`, `reviewer`, nonempty `evidence` and an empty `remaining_issues` list. Coverage must include every source slide. The shared gate also requires `ending_review` under the [native delivery contract](native-delivery.md), with observed summary, closing and appendix positions or a user-grounded scope exception. The native finalizer requires `visual_status`, `scientific_status`, `editability_status`, `playback_status` and `protected_content_status` each to equal `"passed"`. Never manufacture these statuses from an adapter receipt or a successful PDF export.
 
 ```text
 python scripts/keynote_native.py finalize input.key build/candidate.key --plan build/keynote-plan.json --review build/keynote-review.json --output outputs/refined.key --report outputs/transformation-report.md
@@ -178,7 +181,7 @@ PDF is a visual reference, not an editable Keynote import adapter. Renaming a fi
 | Component | Established here | Not established here |
 | :--- | :--- | :--- |
 | Container router | Bounded recognition, source-preserving routing and unavailable-runtime handling can be tested without a presentation application. | Native file validity, object fidelity, appearance or playback. |
-| Python native adapter | Plan/output guards and simulated application-boundary tests exercise Python behavior. | General compatibility beyond the documented single-slide Mac smoke test. |
-| Native Keynote workflow | Application-specific implementation and review requirements are provided. | Complex object fidelity, finalization, playback and comprehensive native editing have not been established by the single-slide smoke test. |
+| Python native adapter | Plan/output guards and simulated application-boundary tests exercise Python behavior. | General compatibility beyond the documented native fixtures. |
+| Native Keynote workflow | Multi-slide native authoring, chart-data edit/save/reopen and static closing playback tested within the documented fixture scope. | General complex-object fidelity, animation/media playback and cross-version compatibility. |
 
 Identify source, candidate and delivery files in the final report, with meaningful design changes and separate content, appearance, editability and playback results. Record the application/version and checks actually performed. Mark unperformed native checks `not-run`, keep requested `.key` delivery pending where necessary, and distinguish conversion loss from redesign. Keep research-bearing files and detailed evidence outside version control.

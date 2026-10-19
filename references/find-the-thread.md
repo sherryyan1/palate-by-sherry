@@ -23,6 +23,8 @@ When the source supports only a proposal, conceptual explanation or partial resu
 
 ## Slide Title Sequence Review
 
+For complete decks, assign distinct summary and dedicated-closing roles in the provisional outline, with the closing slide after the summary and before the first appendix/backup. Check this order again against the delivered native file, including hidden/skipped slides.
+
 Complete this review before changing slide order, rewriting page content or choosing new layouts. For a new deck, review provisional outline titles before construction. A narrowly scoped typography or single-object correction does not authorize a wholesale story rewrite; inspect the relevant context and preserve the requested scope.
 
 1. **Capture the original sequence.** Extract titles in actual presentation order with stable slide IDs, hidden status and original wording. Inspect ambiguous or missing title candidates in the rendered source. Review the intended visible sequence separately from hidden or appendix material, while retaining the complete inventory.

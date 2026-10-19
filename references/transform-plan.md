@@ -106,15 +106,24 @@ Only after reviewing the actual candidate, create the task-local review JSON. It
 ```json
 {
   "candidate_sha256": "HASH_OF_REVIEWED_CANDIDATE",
+  "native_application": "PowerPoint",
   "reviewed_slides": [1, 2],
   "visual_status": "passed",
   "scientific_status": "passed",
   "editability_status": "passed",
+  "protected_content_status": "passed",
+  "playback_status": "passed",
+  "ending_review": {
+    "policy": "out_of_scope",
+    "reason": "This example is a user-requested selected-object edit, not a complete-deck task"
+  },
   "reviewer": "Codex (or actual reviewer name)",
   "remaining_issues": [],
   "evidence": ["actual before/after render paths and checks"]
 }
 ```
+
+For complete-deck work, replace the example scope exception with the required ending record in the [shared delivery contract](native-delivery.md). Record actual native playback even when no animations are present.
 
 Replace the example slide numbers and evidence with the slides and checks actually reviewed. Never copy a pass status into an unreviewed candidate. Resolve a source contradiction or failed visual check before certification; otherwise label the output as a candidate with unresolved issues. Once review is complete, `finalize` checks the plan again, binds the review to the candidate hash and requires coverage of every slide. It emits a separate final deck, a concise mapping report and a validation receipt:
 

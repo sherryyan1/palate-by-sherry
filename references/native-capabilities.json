@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "delivery_policy": "Both formats require the same native content, appearance, editability, protected-content, playback and ending review. Missing review means candidate for either format.",
+  "PowerPoint": {
+    "adapter_status": "bounded-native-fixture-tested",
+    "preservation": "geometry, uniform text styling, fill, line and background within the preservation contract",
+    "authoring": "Artifact Tool for new PPTX; native PowerPoint editing for unsupported authoring operations",
+    "verified_scope": "Synthetic two-slide text/table/chart preservation and reversible in-memory editing; separate cover and ending fixtures",
+    "unverified_scope": "General complex-object fidelity, comprehensive animation/media playback and cross-version compatibility"
+  },
+  "Keynote": {
+    "adapter_status": "bounded-native-fixture-tested",
+    "preservation": "geometry and uniform text size/family/color within the preservation contract",
+    "authoring": "keynote_author.py declarative native create/edit path; controlled Keynote UI for capabilities absent from the scripting dictionary",
+    "authoring_validation": "Seven synthetic multi-slide cases passed on macOS 27.0.1 / Keynote 13.1; native chart-data save/reopen and summary/closing/skipped-appendix playback reviewed separately.",
+    "verified_scope": "Synthetic four-slide creation; text and table edits; duplicate, move, delete; notes and skipped state; RGB decoding, position, bounded fit-height; native save, PDF export and independent reopen. Native chart-data edit/save/reopen and static closing playback verified.",
+    "unverified_scope": "General complex-object fidelity; image authoring and alternate chart types; layout/master inheritance, groups, equations, mixed-font edge cases, animation/media and cross-version compatibility"
+  }
+}

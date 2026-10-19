@@ -30,4 +30,4 @@ Local computer access, when offered and enabled by the account or workspace, sti
 
 ## Report evidence accurately
 
-The ChatGPT Work distribution is experimental. Package generation and source-parity tests are not evidence of installation, skill activation, question-card behavior or end-to-end slide editing in the browser. Report only checks actually performed in the current host. The native Keynote adapter also remains Mac-unverified until tested there; a successful web installation would not change that status.
+The ChatGPT Work distribution is experimental. Package generation and source-parity tests are not evidence of installation, skill activation, question-card behavior or end-to-end slide editing in the browser. Report only checks actually performed in the current host. Native application evidence is separate from web distribution testing. Use [capability status](native-capabilities.json) for the bounded Keynote Mac native tests and remaining complex-object coverage; a web installation does not change that evidence.
