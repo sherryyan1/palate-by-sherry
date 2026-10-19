@@ -59,7 +59,7 @@ The current record covers the following:
 | Render review | Before/after PowerPoint exports, individually inspected |
 | Editability | Reversible text, table-cell and chart-series edits in PowerPoint |
 | Content conservation | Values, units, categories, qualifiers, media, notes and workbooks |
-| Native Keynote implementation | Experimental Python/JXA adapter; script-level and mocked boundary checks only. No Mac application execution or end-to-end Keynote result has been tested. |
+| Native Keynote implementation | Python/JXA preservation adapter with a bounded single-slide macOS 27.0.1 / Keynote 13.1 inspect/edit/save/PDF/reopen smoke test. Multi-slide authoring and native UI checks are recorded below; broader coverage remains separately tracked. |
 | ChatGPT Work distribution | Plugin packaging and runtime-source parity can be checked locally. Browser installation, activation, file-tool access, question cards and end-to-end editing have not been tested. |
 
 ### Scientific storytelling and title extraction
@@ -128,9 +128,11 @@ The two-slide integration fixture uses synthetic data only. Its authoring packag
 
 ### Native Keynote validation status
 
-The native Keynote adapter is an implemented experimental path for inspecting a private copy and making bounded placement or text-style changes to existing text boxes and shapes. It uses Python, macOS `osascript` and a fixed JXA script to control Keynote; it does not require Node or PowerPoint. Automated rewriting, slide creation and chart-internal editing are outside this helper's operation set.
+The native Keynote adapter is a bounded native path for inspecting a private copy and making bounded placement or text-style changes to existing text boxes and shapes. It uses Python, macOS `osascript` and a fixed JXA script to control Keynote; it does not require Node or PowerPoint. Automated rewriting, slide creation and chart-internal editing are outside this preservation helper's operation set. The separate [native authoring path](../references/keynote-authoring.md) adds declarative creation and structure/content edits; controlled native editing covers scripting gaps. Implementation and live-validation status remain distinct.
 
-The current development environment is Windows. Tests can check routing decisions, plan validation, platform refusal, subprocess boundaries, mocked application responses and JXA syntax. They cannot establish that Keynote accepts the automation calls or that a native document opens, saves, exports or retains its objects. Native Keynote installation, automation permission, import, export, rendering, editability and playback have not been tested on a Mac. Those checks must be performed in the actual Mac environment before claiming a verified native result.
+Native tests on macOS 27.0.1 / Keynote 13.1 (2026-10-19) passed seven synthetic cases: four-slide creation with native text, shape, table and column chart; text edit; table value edit; slide duplication; slide movement; deletion; and notes/skipped-state changes. Each operation saved, exported PDF and compared inventory after independent reopening. The fixture also checks explicit fit-height bounds, exact position/width, font size, RGB decoding and absence of inherited empty subtitle objects. Fixed-height mismatches and fit-height overflow are rejected by the adapter; deterministic regressions cover those failure boundaries.
+
+Separate native UI review changed one chart value from 12 to 14 and confirmed it after save, close and reopen, with the other values and labels intact. Playback from the summary advanced to the separate closing page and ended without entering the skipped appendix. This is bounded fixture evidence, not comprehensive animation/media or arbitrary-object validation. Earlier tests exposed slide replacement during movement, normalized RGB decoding, inherited subtitle placeholders and text reflow; regressions and explicit layout contracts now address those failures. See [capability status](../references/native-capabilities.json) and the [shared delivery contract](../references/native-delivery.md).
 
 A runtime probe or a matching snapshot does not complete the scientific, visual or native-editability review. Unsupported and uninspected objects need appropriate application review, and animations need playback review. An unavailable Keynote runtime leaves native work pending; tests must not treat it as permission to switch automatically to PowerPoint or a cloud service.
 
@@ -178,3 +180,7 @@ A structural pass establishes package and content conservation under the tested 
 Content rewriting, table resizing, chart-internal styling, grouped geometry and animation changes require the native authoring path with its content ledger. Their review must follow the objects and meanings actually changed, rather than relying on a preservation pass that enforces a different contract. Every deliverable receives the checks appropriate to its own changes.
 
 The [Keynote workflow](../references/keynote-workflow.md) keeps native `.key` work in Keynote. If a different format is explicitly requested or conversion is chosen, it adds comparisons at export and import so conversion losses can be distinguished from design changes. A reviewed `.pptx` does not establish a reviewed `.key`; native Keynote work and its required checks remain pending until actually performed on a Mac.
+
+## Shared acceptance and authoring regression
+
+Both preservation finalizers use the same native application, content, visual, protected-content, editability, playback and ending gate. `test_delivery_review.py` rejects stale hashes, wrong application identity, incomplete coverage, hidden/misplaced/missing endings and pending checks. These tests establish rejection behavior, not actual native review. `test_keynote_author.py` and `test_keynote_author_jxa.js` exercise declarative request guards and scripting boundaries. Use `tests/run_keynote_authoring.py --output PRIVATE_DIRECTORY` on an authorized Mac for native multi-slide creation, text/table edits and slide operations. No research files belong in the test fixture or repository.

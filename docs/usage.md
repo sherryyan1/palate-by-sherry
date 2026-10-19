@@ -85,7 +85,7 @@ For existing decks, the editing route depends on the objects and changes involve
 | Your slides need | How **palate** handles the change |
 | :--- | :--- |
 | Placement or supported styling of existing PowerPoint objects | Uses the `.pptx` preservation helper for supported placement, chart frames, text styling, shapes, lines and backgrounds while retaining source content and embedded workbooks. It rejects unsafe geometry and animation edits. |
-| Placement or text styling of existing Keynote text boxes and shapes | Uses the experimental native Keynote adapter on Mac within its limited operation set. It does not automatically rewrite text, create slides or edit chart internals. The adapter has not yet been exercised in Keynote on Mac. |
+| Placement or text styling of existing Keynote text boxes and shapes | Uses the native Keynote preservation adapter on Mac within its limited operation set. It does not automatically rewrite text, create slides or edit chart internals. Its bounded Mac fixtures passed; authoring and complex-object coverage remain separately tracked in [capability status](../references/native-capabilities.json). |
 | New diagrams, summaries, slide splits, changes inside charts or table resizing | Uses an available presentation authoring tool that supports native, editable objects and records how the revised content represents the source. |
 
 Grouped objects and animation states receive their own review. Translation and rewritten text also use the authoring path, with the [scientific translation safeguards](../references/scientific-fidelity.md#scientific-translation).
@@ -107,7 +107,7 @@ The [validation guide](validation.md) explains the evidence behind each kind of 
 | Delivery application | Native workflow | Current limit |
 | :--- | :--- | :--- |
 | PowerPoint | Edit a new `.pptx` and review it in PowerPoint. Use an available PowerPoint rendering method; the included Windows renderer is one option. | Native editing and review require actual application access. The supplied Windows script is not a renderer for macOS or Linux. |
-| Keynote | Edit and save a new `.key` in Keynote on Mac, then review it there. The included adapter supports bounded placement and text styling of existing text boxes and shapes. | Experimental implementation; no Mac application execution has been tested. It requires macOS, Keynote, `osascript` and permission to control Keynote. |
+| Keynote | Edit and save a new `.key` in Keynote on Mac, then review it there. The included adapter supports bounded placement and text styling of existing text boxes and shapes. | Bounded multi-slide Mac fixtures passed; broader coverage remains pending. Both formats follow the [same native delivery contract](../references/native-delivery.md). It requires macOS, Keynote, `osascript` and permission to control Keynote. |
 
 The native Keynote route keeps the source and the candidate separate:
 
