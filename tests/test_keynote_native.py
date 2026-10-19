@@ -86,7 +86,7 @@ class KeynoteNativeTests(unittest.TestCase):
         with patch.object(native.platform, "system", return_value="Windows"), patch.object(native.subprocess, "run") as run, patch.object(native, "copy_new") as copied:
             result = native.probe()
             self.assertFalse(result["available"])
-            self.assertEqual(result["adapter_status"], "experimental-mac-unverified")
+            self.assertEqual(result["adapter_status"], "experimental-mac-smoke-tested")
             with self.assertRaisesRegex(ValueError, "macOS"):
                 native.inspect_native(self.source)
             run.assert_not_called(); copied.assert_not_called()
@@ -292,6 +292,21 @@ class KeynoteNativeTests(unittest.TestCase):
         self.assertEqual(arguments[0], [str(Path("/usr/bin/osascript")), "-l", "JavaScript", str(native.SIDECAR), str(workspace / "request.json")])
         self.assertNotIn("shell", keywords)
         self.assertEqual(json.loads((workspace / "request.json").read_text()), request)
+
+    def test_native_diagnostics_are_staged_and_never_expose_document_text(self):
+        for stage, code, expected in [("document-access", -1743, "Automation permission"),
+                                      ("inventory", -1701, "execution environment"),
+                                      ("private document text", "private text", "unknown")]:
+            workspace = self.folder / ("diagnostic-" + str(code).replace(" ", "-"))
+            workspace.mkdir()
+            response = {"schema_version": 1, "status": "error",
+                        "error": {"stage": stage, "code": code, "message": "PRIVATE CONTENT"}}
+            completed = subprocess.CompletedProcess([], 0, json.dumps(response), "PRIVATE STDERR")
+            with patch.object(native.platform, "system", return_value="Darwin"), patch.object(native.subprocess, "run", return_value=completed):
+                with self.assertRaisesRegex(ValueError, expected) as raised:
+                    native.invoke_native({"command": "probe"}, workspace)
+            self.assertNotIn("PRIVATE", str(raised.exception))
+            self.assertNotIn("private document text", str(raised.exception))
 
     def test_missing_osascript_and_native_error_json_timeout_are_safe(self):
         with patch.object(native.platform, "system", return_value="Darwin"), patch.object(Path, "is_file", return_value=False):
