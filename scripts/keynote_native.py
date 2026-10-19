@@ -1,4 +1,4 @@
-"""Bounded native Keynote automation. Experimental: not live-tested on macOS.
+"""Bounded native Keynote automation. Experimental: single-slide smoke-tested on macOS 27.0.1 / Keynote 13.1.
 
 Only the fixed JXA companion is executed. Source containers are inspected and copied
 before Keynote opens them. Native content/style inventory is deliberately incomplete:
@@ -30,11 +30,11 @@ except ImportError:
     inspect_presentation = _route.inspect_presentation
 
 SIDECAR = Path(__file__).with_suffix(".js")
-STATUS = "experimental-mac-unverified"
+STATUS = "experimental-mac-smoke-tested"
 MAX_JSON_BYTES = 32 * 1024 * 1024
 MAX_OPERATIONS = 1000
 LIMITATIONS = [
-    "The macOS Keynote adapter has not been live-tested in the development environment.",
+    "Only a synthetic single-slide inspect/edit/save/export/reopen smoke test has passed on macOS 27.0.1 with Keynote 13.1.",
     "Exposed inventory comparisons do not prove chart data, equation semantics, builds, fonts or native editability.",
     "Native content, appearance, editability and playback review remain required; no PowerPoint conversion is performed.",
 ]
@@ -161,8 +161,30 @@ def invoke_native(request, workspace, timeout=180):
         response = json.loads(completed.stdout)
     except json.JSONDecodeError as error:
         raise ValueError("Keynote did not return the expected JSON contract") from error
+    if isinstance(response, dict) and response.get("schema_version") == 1 and response.get("status") == "error":
+        detail = response.get("error", {})
+        stages = {"request", "application-resolution", "application-access", "document-access", "open",
+                  "document-identity", "inventory", "modify", "save", "inventory-after", "export", "close"}
+        stages.update("inventory-" + field for field in (
+            "position", "text", "character-sizes", "character-fonts", "character-colors", "locked",
+            "object-width", "object-height", "slides", "canvas-width", "canvas-height", "skipped", "notes",
+            "textitems", "shapes", "tables", "iworkitems", "groups", "images", "charts", "lines", "movies", "audioclips"))
+        stage = detail.get("stage") if isinstance(detail, dict) else None
+        code = detail.get("code") if isinstance(detail, dict) else None
+        safe_stage = stage if isinstance(stage, str) and stage in stages else "unknown"
+        safe_code = code if type(code) is int else 0
+        if safe_code == -1743:
+            hint = " Check macOS Automation permission for this execution process."
+        elif safe_code == -1700:
+            hint = " Keynote rejected a scripting value or object specifier; inspect the adapter call at this stage."
+        else:
+            hint = " Check this execution environment's application access; Terminal and a sandboxed host can differ."
+        raise ValueError(f"Keynote automation failed at {safe_stage} (Apple event {safe_code})." + hint)
     if not isinstance(response, dict) or type(response.get("schema_version")) is not int or response.get("schema_version") != 1 or response.get("status") != "ok":
         raise ValueError("Keynote refused the native operation; no requested delivery was created")
+    # Retained only inside the owned scratch directory; successful callers remove it.
+    # A failed inventory check must remain diagnosable without printing document text.
+    save_json(Path(workspace) / "native-response.json", response)
     return response
 
 
@@ -194,7 +216,7 @@ def probe():
         response = scratch_call({"command": "probe"})
         result.update(available=True, native_automation="responded", keynote_version=response["keynote_version"])
     except (ValueError, OSError, KeyError) as error:
-        result["reason"] = str(error)
+        result.update(native_automation="failed", reason=str(error))
     return result
 
 
@@ -465,7 +487,7 @@ def finalize(source, candidate, plan, review, output, report):
         basis = ", ".join(operation["rule_ids"]) or "task-specific"
         lines.append(f"| {operation['slide']} | {operation['object_kind']} {operation['object_index']} | {operation['action']} | {basis} | {reason} |")
     lines += ["", f"Native Keynote review recorded by {review['reviewer']}; all {result['slide_count']} slides covered.", "",
-              "The finalizer checks hash-bound review records. It does not independently prove the reviewer's scientific, visual, playback or editability judgments.", "", "Adapter validation status: experimental, not live-tested on macOS in the development environment.", ""]
+              "The finalizer checks hash-bound review records. It does not independently prove the reviewer's scientific, visual, playback or editability judgments.", "", "Adapter validation status: experimental; bounded single-slide smoke test passed on macOS 27.0.1 / Keynote 13.1.", ""]
     created = []
     try:
         copy_new(candidate, output, created)
