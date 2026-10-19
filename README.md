@@ -139,8 +139,8 @@ Graphics should communicate, not merely decorate. Consistent formatting brings t
 
 | Source | What **palate** provides |
 | :--- | :--- |
-| PowerPoint (`.pptx`) | A new editable `.pptx`, with final review in PowerPoint. |
-| Keynote (`.key`) | A new native `.key` candidate, using the supported operations in Keynote on Mac. |
+| PowerPoint (`.pptx`) | A new editable `.pptx`, finalized after the required native review in PowerPoint. |
+| Keynote (`.key`) | A new editable `.key`, finalized after the same required native review in Keynote on Mac. |
 | Text, notes, an outline, a paper or a manuscript | A new deck in the agreed application, using available native authoring tools. |
 
 Python tools require Python 3.11+; `.pptx` inspection uses `lxml`, and raster-resolution diagnostics use Pillow. The agent reuses an available bundled runtime. The included Windows PowerPoint renderer is one platform-specific preview option, not a requirement for Keynote or every PowerPoint environment. **palate** reviews the result in the actual delivery application and identifies any missing tool or unfinished check. Installing the skill does not install PowerPoint or Keynote or grant application access.
