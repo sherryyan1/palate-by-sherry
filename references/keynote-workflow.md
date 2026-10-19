@@ -2,7 +2,7 @@
 
 PowerPoint and Keynote need the same design judgment: the audience must be able to follow the argument and read the evidence without losing its qualifications. **palate** shares intake, design decisions and scientific fidelity across both applications, then uses the chosen application's native workflow. A Keynote source remains `.key` by default. Windows PowerPoint and a `.pptx` export are not prerequisites.
 
-This reference guides the agent through native Keynote inspection, bounded changes and delivery on Mac. The bundled adapter is implemented but experimental: its JXA application calls have not been executed on Mac in this development environment. Routing, Python guard tests and simulated application responses do not establish native compatibility. Complete the actual application's preflight and reviews before making any claim about a particular deck.
+This reference guides the agent through native Keynote inspection, bounded changes and delivery on Mac. The bundled adapter is implemented but experimental: its probe, inspect, bounded title position/font-size edits, native save, PDF export and independent reopen checks passed on a synthetic single-slide fixture on macOS 27.0.1 with Keynote 13.1 (2026-10-19). This does not validate complex research decks or the separate native-authoring paths. Routing, Python guard tests and simulated application responses do not establish native compatibility. Complete the actual application's preflight and reviews before making any claim about a particular deck.
 
 Begin with [routing and access](#route-the-source-and-check-access), then [inspect the native source](#inspect-before-designing). Use the [adapter contract](#native-adapter-contract) only for changes it supports. Requested conversion follows a separate [optional path](#optional-cross-format-delivery).
 
@@ -41,7 +41,7 @@ For native work, run:
 python scripts/keynote_native.py probe
 ```
 
-The adapter requires macOS, Keynote, `/usr/bin/osascript` and permission for the execution process to automate Keynote. Follow the actual permission prompt rather than changing unrelated system settings. A missing application, denied permission or failed preflight leaves native work pending; do not fall back to PowerPoint or iCloud without the user's choice. A PDF supplied by the owner can support design discussion while application access is arranged, but cannot establish a finished editable `.key`.
+The adapter requires macOS, Keynote, `/usr/bin/osascript` and permission for the execution process to automate Keynote. The probe must enumerate the application's documents, not merely read its version: version metadata can be available even when Apple events cannot reach the application. Failures report a bounded stage and numeric Apple-event code without copying document-bearing error messages. A successful Terminal probe does not grant a sandboxed Codex process the same access. If the Terminal probe succeeds but the host probe fails, keep that host's adapter work pending; do not disable its sandbox or substitute UI results for JXA validation. Follow the actual permission prompt rather than changing unrelated system settings. A missing application, denied permission or failed preflight leaves native work pending; do not fall back to PowerPoint or iCloud without the user's choice. A PDF supplied by the owner can support design discussion while application access is arranged, but cannot establish a finished editable `.key`.
 
 ## Inspect before designing
 
@@ -52,7 +52,7 @@ The adapter requires macOS, Keynote, `/usr/bin/osascript` and permission for the
    python scripts/keynote_native.py inspect input.key --output build/keynote-inspection.json --pdf build/keynote-source.pdf
    ```
 
-   The resulting inventory contains only what the application interface exposes. Read the source PDF and inspect the actual presentation, including skipped slides, notes, charts, equations, native tables, media and builds. Neither an object count nor a successful export establishes complete scientific or editability review.
+   The resulting inventory contains only what the application interface exposes. The total item count uses the native `count` command on `iworkItems`; JXA normalizes the dictionary's `iWork item` name with a lowercase `w`. The capital-W `iWorkItems` spelling is not a valid collection specifier. Concrete scripting collections may overlap, so their lengths must not be summed to infer this total. Read the source PDF and inspect the actual presentation, including skipped slides, notes, charts, equations, native tables, media and builds. Neither an object count nor a successful export establishes complete scientific or editability review.
 3. Resolve the brief through [guided intake](guided-intake.md) and choose design changes from the scientific relationship and reading order. Preserve the source language unless translation is requested. Complete the [scientific translation preflight](scientific-fidelity.md#scientific-translation) before rewriting; the native bounded adapter cannot translate text.
 4. Review the safety of each proposed target in Keynote before applying a plan. Check builds, grouping, equations, mixed emphasis and meaningful color encoding that the inventory may not expose. Use the native application for unsupported changes rather than widening the adapter's contract.
 
@@ -178,7 +178,7 @@ PDF is a visual reference, not an editable Keynote import adapter. Renaming a fi
 | Component | Established here | Not established here |
 | :--- | :--- | :--- |
 | Container router | Bounded recognition, source-preserving routing and unavailable-runtime handling can be tested without a presentation application. | Native file validity, object fidelity, appearance or playback. |
-| Python native adapter | Plan/output guards and simulated application-boundary tests exercise Python behavior. | JXA compilation/execution against a real Mac Keynote installation. |
-| Native Keynote workflow | Application-specific implementation and review requirements are provided. | Live native inspection, edits, PDF export, native saving, finalization, editability or playback have not been tested on Mac in this environment. |
+| Python native adapter | Plan/output guards and simulated application-boundary tests exercise Python behavior. | General compatibility beyond the documented single-slide Mac smoke test. |
+| Native Keynote workflow | Application-specific implementation and review requirements are provided. | Complex object fidelity, finalization, playback and comprehensive native editing have not been established by the single-slide smoke test. |
 
 Identify source, candidate and delivery files in the final report, with meaningful design changes and separate content, appearance, editability and playback results. Record the application/version and checks actually performed. Mark unperformed native checks `not-run`, keep requested `.key` delivery pending where necessary, and distinguish conversion loss from redesign. Keep research-bearing files and detailed evidence outside version control.
