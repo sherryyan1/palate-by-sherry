@@ -1,10 +1,18 @@
 # Closing compositions and backgrounds
 
-Use this small collection when designing the dedicated closing slide required by [visual storytelling](visual-storytelling.md#plan-the-final-audience-facing-slide). Select one or two relevant options from the table, then inspect only the selected background. These are composition recipes and three reusable background images, not finished editable slide templates or a fixed house style. Build the closing words, supporting line and any verified contact details as native objects in the current deck.
+Use this collection when designing the dedicated closing slide required by [visual storytelling](visual-storytelling.md#plan-the-final-audience-facing-slide). Select one or two relevant options, then inspect only the selected slide or background. The public runtime contains composition recipes and three reusable background images, not finished editable slide templates or a fixed house style. User-supplied local slide assets can extend that collection as described below. Keep the closing words, supporting line and any verified contact details native and editable in the current deck.
+
+## Use supplied slide assets
+
+When a user supplies a deck as reusable material, treat every authorized page as an actual slide asset, not merely a visual observation. Inspect the relevant page in the original deck and reuse its native layout, groups, illustrations and text frames on a new output copy where the intended reuse is permitted. If a private material catalog accompanies the deck, use its source identity and slide index to load only the selected page. Do not assume private assets exist in another installation or cloud workspace; report their absence rather than claiming they are bundled.
+
+Replace sample names, email addresses, phone numbers, websites and social links with supplied or verified details, or omit those elements. Retain required attribution and check any restrictions for the intended output. A user-supplied asset's availability for local work does not establish permission to redistribute its source in a public skill package. Keep that distribution decision separate from using the supplied material; do not automatically reduce an entire supplied deck to generic recipes because only some backgrounds are publicly packaged.
+
+For backgrounds that originated as covers, distinguish the reusable artwork from cover metadata and compose a separate closing slide. Preserve editable source objects when reusing a complete slide; do not flatten it to a screenshot. Adapt the selected asset to the deck's purpose and visual system and perform the same native review as for a newly authored ending.
 
 ## Choose a composition
 
-The recipes distill approved visual observations. They do not reproduce or redistribute the reference templates, their illustrations, social icons or sample contacts. Choose the deck's typography and resolved palette; approval of a composition does not require its incidental green, red or teal colors.
+The recipes are fallbacks and adaptation guidance when a supplied reusable slide is unavailable or unsuitable. They distill approved visual observations without redistributing the private reference templates, their illustrations, social icons or sample contacts. Choose the deck's typography and resolved palette; approval of a composition does not require its incidental green, red or teal colors.
 
 | Option | Composition and hierarchy | Suitable use and limits |
 | :--- | :--- | :--- |
