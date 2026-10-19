@@ -302,7 +302,7 @@ class KeynoteNativeTests(unittest.TestCase):
             response = {"schema_version": 1, "status": "error",
                         "error": {"stage": stage, "code": code, "message": "PRIVATE CONTENT"}}
             completed = subprocess.CompletedProcess([], 0, json.dumps(response), "PRIVATE STDERR")
-            with patch.object(native.platform, "system", return_value="Darwin"), patch.object(native.subprocess, "run", return_value=completed):
+            with patch.object(native.platform, "system", return_value="Darwin"), patch.object(Path, "is_file", return_value=True), patch.object(native.subprocess, "run", return_value=completed):
                 with self.assertRaisesRegex(ValueError, expected) as raised:
                     native.invoke_native({"command": "probe"}, workspace)
             self.assertNotIn("PRIVATE", str(raised.exception))
