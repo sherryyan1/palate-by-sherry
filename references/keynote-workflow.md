@@ -149,6 +149,8 @@ The shared quality gates remain independent of application and implementation:
 | Editability and protected objects | Select native text, tables, charts, diagrams and equations in Keynote and test a separate editable copy where needed. Review dependencies and retained image regions explicitly. An unchanged image or PDF cannot prove native editability or chart data preservation. |
 | Playback | Inspect transitions, builds, audio and video where present, including ordering, timing and staged evidence. If none are present, record that actual check. Static PDFs and inventory comparisons cannot prove playback. |
 
+Apply the shared [ending and scope checks](scientific-fidelity.md#deliver-the-result-and-explain-its-limits) to the actual Keynote sequence, including skipped backup slides. Inspect the chosen ending before the appendix boundary and report its purpose, any deliberate omission or an out-of-scope missing ending. The bounded adapter cannot create a missing closing slide; use authorized native authoring or report the pending work.
+
 After the actual review, create a private record with `source_sha256`, `candidate_sha256`, `reviewed_slides`, `native_application: "Keynote"`, `reviewer`, nonempty `evidence` and an empty `remaining_issues` list. Coverage must include every source slide. The native finalizer requires `visual_status`, `scientific_status`, `editability_status`, `playback_status` and `protected_content_status` each to equal `"passed"`. Never manufacture these statuses from an adapter receipt or a successful PDF export.
 
 ```text

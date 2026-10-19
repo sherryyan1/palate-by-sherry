@@ -17,6 +17,7 @@ Create a private narrative map linking motivation, question, approach, evidence,
 | Question → approach → evidence → finding | How an answer is obtained and supported, including comparator and scientific status |
 | Assumptions, uncertainty and contrary evidence | What constrains the inference or prevents a tidy resolution |
 | Implication and final synthesis | What has become clearer, what remains unresolved and why that matters for this audience |
+| Final audience-facing slide | The [ending purpose and scope decision](visual-storytelling.md#plan-the-final-audience-facing-slide), chosen slide, position before appendices and reason to retain, add, revise or omit it |
 
 When the source supports only a proposal, conceptual explanation or partial result, build the appropriate talk and keep that status explicit. Do not invent findings to complete an arc. A useful contribution may be a null result, a boundary condition or a better-defined uncertainty.
 

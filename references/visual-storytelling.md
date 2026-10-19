@@ -161,9 +161,29 @@ If useful objects, their relationships and readable text cannot share the work a
 
 Do not shrink below the 10.5 pt minimum, reduce section navigation labels below 12 pt, crowd a diagram to preserve an arbitrary slide count or split solely to make room for decoration. Keep unfilled body text top-anchored, flowchart nodes and filled text boxes vertically centered, retained text fixed and table alignment consistent with the [design system](refine-the-visuals.md#text-boxes-and-tables).
 
+## Plan the final audience-facing slide
+
+For a new complete presentation or a comprehensive deck refinement, explicitly plan the final audience-facing slide in the existing narrative map and storyboard. Record the requested scope, audience, setting, duration, closing purpose, chosen slide identity, its position before the first appendix or backup slide, and the reason to add, improve or retain it. Inspect the intended main sequence rather than assuming the last physical slide is the ending. A deliberate conclusion can already do this job; usually one closing slide is enough.
+
+When using `review_title_sequence.py`, complete its `ending_review` record from the brief and actual deck inspection. Extraction leaves the record unreviewed, with no inferred scope, ending purpose or appendix boundary; it is not an automatic ending detector or delivery pass.
+
+| Situation | Ending decision |
+| :--- | :--- |
+| Complete deck without an intentional ending | Add or design one that fits the brief and the content already presented. |
+| Effective existing ending | Preserve it unless a specific content, purpose or design problem justifies a change; do not add a duplicate. |
+| Appendix or backup material follows | End the main presentation before that boundary, including when backup slides are hidden. Plan the return to the ending during discussion. |
+| Selected-slide edit | Stay within the requested slides. If inspection reveals a missing ending, mention it in the change report without adding a slide outside scope. |
+| Explicit request to omit an ending | Respect the request, retain the intended final content slide and record the exception. Do not insert a disguised closing slide. |
+
+Choose one purpose from the actual occasion: thanks with optional verified contact details; Q&A with a concise supported takeaway that remains visible; a final research takeaway; a focused seminar discussion question; next steps or a specific project-meeting request; or appropriate acknowledgments. These are alternatives, not a required sequence. A research synthesis may itself be the ending, or it may lead into a brief discussion or thanks slide. Preserve the distinction between supported conclusions, unresolved questions and proposed actions.
+
+Design the ending within the deck's typography, resolved colors, margins, aspect ratio and visual language. Reuse a meaningful opening motif when it reinforces the message. Choose composition from the purpose and available content; neither a centered "Thank you", teal nor any fixed color count is required. Keep the projected discussion view readable, with native editable text and layout elements. Use only supplied or verified contacts, links, QR destinations, logos and acknowledgments; omit unavailable details instead of inventing or leaving placeholders. Preserve scientific qualifications, evidence attribution and required credits. A thank-you slide can be deliberately typographic; it is not required to act as a scientific visual synthesis.
+
+When a reference would resolve a design choice, inspect only the relevant few examples and follow [reference records and reusable assets](style-adaptation.md#record-ending-references-separately-from-reusable-assets). Do not load a reference collection by default. Before delivery, follow the shared [ending review](scientific-fidelity.md#review-record-and-delivery); a title such as "Conclusion" does not establish a purposeful or visually finished ending.
+
 ## Close with visual key takeaways
 
-Every complete presentation needs a final substantive summary that helps the audience recall what the research establishes and why it matters within its stated scope. Place a key takeaways slide or a short summary sequence at the end of the main narrative, before optional Q&A, contact details or supplementary material. A title can follow the presentation language and context; the visual synthesis is the requirement, not an English heading. Key takeaways need no dedicated navigation item. Use a truthful existing concluding group or omit the ribbon on the summary; keep any remaining ribbon within five items.
+Unless the brief explicitly omits an ending or closing synthesis, resolve the complete research narrative with a substantive visual summary of what the research establishes and why it matters within its stated scope. An effective existing conclusion can supply this synthesis and also be the planned ending; do not append a redundant summary. Place any separate Q&A or thanks ending after the synthesis and before supplementary material. A title can follow the presentation language and context; the visual synthesis is the requirement for the research summary, not for every closing purpose. Key takeaways need no dedicated navigation item. Use a truthful existing concluding group or omit the ribbon on the summary; keep any remaining ribbon within five items.
 
 Build the summary from the messages already developed in the talk. Reuse recognizable research objects, a verified relationship or a concise piece of retained evidence, with short native explanations nearby. The visual continuity should help listeners recall the reasoning, while hierarchy and space make the closing message easy to grasp. Several lines of text, generic checkmarks or text cards with decorative icons are insufficient on their own.
 

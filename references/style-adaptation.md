@@ -39,6 +39,12 @@ Use the same scientific content for alternatives so that the design difference c
 
 Reuse preferences the user has already confirmed. When a consequential choice remains uncertain, ask a focused question about the actual alternatives and their tradeoff. Wait for a submitted answer before treating a new preference as confirmed; silence does not establish a choice. Routine implementation within an established preference does not require another interview.
 
+## Record ending references separately from reusable assets
+
+For each inspected closing reference, keep a private observation record with the source URL, actual closing-slide number and total slide count (or inspected range when the total is unknown), closing purpose, composition, visual hierarchy and useful design property. Identify the appendix or credits boundary where present. A gallery cover or uninspected template is a discovery link, not a verified ending. Record uncertain positions or incomplete inspection honestly. Inspect only the few references relevant to the current deck.
+
+Third-party links and observations are reference material, not reusable assets or permission to copy a template. Material supplied for personal/Codex study, including Slidesgo examples, stays in the private task workspace. Include third-party assets in the repository or runtime package only when an explicit license permits that redistribution, retaining required attribution. Keep original editable constructions separate and label them as original layouts informed by stated observations; do not describe generated layouts as collected examples or attribute them to a publisher. Preserve scientific evidence and apply the [asset-sourcing rules](asset-sourcing.md) when actual assets are used.
+
 ## 03 | Apply feedback within its demonstrated scope
 
 Keep feedback and source-specific evidence private. Apply the preference within the context demonstrated by that evidence, retaining exceptions for a different audience, purpose or scientific relationship. A rejected example can identify a problem in that example without establishing a blanket ban on the technique.

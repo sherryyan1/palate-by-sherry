@@ -107,6 +107,10 @@ For bounded-helper output, use the hash-bound review record specified in that ad
 
 ### Deliver the result and explain its limits
 
+Before delivering a complete deck, verify the [planned ending](visual-storytelling.md#plan-the-final-audience-facing-slide) against the actual main sequence and appendix boundary. Inspect its native render at projected size for fit, readability and continuity with the deck's visual system; check editable text and layout separately. Check for duplicate closing pages, unfinished placeholders, fabricated claims or contact/credit details, and unintended movement or replacement of an effective existing ending. Review both the ending and its transition into any appendix or backup material. For selected-slide work, preserve scope and report a missing ending; for an explicit omission, verify that no closing page was added. Record the actual slide identity and position, purpose, retain/add/revise/omit/out-of-scope decision, reason and any uncompleted review in the existing private narrative/review record. Title extraction alone cannot verify a closing purpose or appendix boundary.
+
 Deliver a new editable deck with a concise account of the audience, time, screen choice, target canvas and depth, the source/output mapping, meaningful changes and their design basis, preserved evidence, checks performed and material limitations.
+
+Briefly identify the selected ending and why it fits, or explain the explicit omission or scope-limited missing ending. Include unresolved ending work in the delivery limitations rather than silently stopping at the last content slide.
 
 Keep detailed extracted content and validation artifacts private within the authorized execution environment. That environment may process files locally or in an authorized cloud workspace; do not imply that every task runs on the user's own computer. Invoking the Skill does not authorize publishing research or sending it to additional third-party services.

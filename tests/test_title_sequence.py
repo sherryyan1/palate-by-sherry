@@ -96,6 +96,14 @@ class TitleSequenceTests(unittest.TestCase):
         self.assertEqual(review["source_evidence"], [])
         self.assertTrue(all(value is None for key, value in review.items() if key != "source_evidence"))
 
+    def test_ending_review_does_not_infer_scope_or_final_main_slide(self):
+        # A last title reading "Closing implication" is insufficient evidence.
+        report = self.review()
+        ending = report["ending_review"]
+        self.assertEqual(ending["status"], "unreviewed")
+        self.assertTrue(all(value is None for key, value in ending.items() if key != "status"))
+        self.assertIs(report["narrative_validated"], False)
+
     def test_custom_text_is_candidate_not_an_asserted_title(self):
         self.parts["ppt/slides/slide2.xml"] = slide(shape(2, "Large heading", None) + shape(3, "Body detail", None))
         item = self.review()["slides"][0]

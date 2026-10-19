@@ -84,6 +84,8 @@ Animation makes reading order depend on time as well as position. The conservati
 4. Repair visual or scientific defects and render the changed slides again. Keep source contradictions explicit, and never change scientific data to make an automated layout diagnostic disappear.
 5. Finalize a new PPTX with a concise report of source/output mapping, meaningful design reasons, completed checks and limitations, including translation uncertainty or unrun checks when applicable. On the preservation path, the hash-bound `finalize` command copies the reviewed file and generates the report; the review itself must already have been performed.
 
+Verify the shared [ending and scope checks](scientific-fidelity.md#deliver-the-result-and-explain-its-limits) during steps 2 and 5, including the visible closing page before appendices, preservation of an effective ending, and any explicit omission. Adding a slide requires the content-changing/native-authoring path; the bounded preservation helper does not gain that capability.
+
 ## Deliverables and updates
 
 Return the editable deck and concise transformation report with the checks actually performed and any material limits. Keep source-specific evidence and detailed review artifacts private within the authorized execution environment; follow the file-handling limits in [scientific fidelity](scientific-fidelity.md#review-record-and-delivery).
