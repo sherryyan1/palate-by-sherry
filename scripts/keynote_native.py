@@ -1,4 +1,4 @@
-"""Bounded native Keynote automation. Experimental: single-slide smoke-tested on macOS 27.0.1 / Keynote 13.1.
+"""Bounded native Keynote automation. Bounded synthetic fixtures tested on macOS 27.0.1 / Keynote 13.1.
 
 Only the fixed JXA companion is executed. Source containers are inspected and copied
 before Keynote opens them. Native content/style inventory is deliberately incomplete:
@@ -29,12 +29,21 @@ except ImportError:
     _spec.loader.exec_module(_route)
     inspect_presentation = _route.inspect_presentation
 
+try:
+    from delivery_review import validate_review
+except ImportError:
+    import importlib.util
+    _review_spec = importlib.util.spec_from_file_location("delivery_review", Path(__file__).with_name("delivery_review.py"))
+    _review_module = importlib.util.module_from_spec(_review_spec)
+    _review_spec.loader.exec_module(_review_module)
+    validate_review = _review_module.validate_review
+
 SIDECAR = Path(__file__).with_suffix(".js")
-STATUS = "experimental-mac-smoke-tested"
+STATUS = json.loads((Path(__file__).resolve().parents[1] / "references/native-capabilities.json").read_text())["Keynote"]["adapter_status"]
 MAX_JSON_BYTES = 32 * 1024 * 1024
 MAX_OPERATIONS = 1000
 LIMITATIONS = [
-    "Only a synthetic single-slide inspect/edit/save/export/reopen smoke test has passed on macOS 27.0.1 with Keynote 13.1.",
+    "Bounded synthetic multi-slide tests passed on macOS 27.0.1 / Keynote 13.1; see native-capabilities.json for the exact scope.",
     "Exposed inventory comparisons do not prove chart data, equation semantics, builds, fonts or native editability.",
     "Native content, appearance, editability and playback review remain required; no PowerPoint conversion is performed.",
 ]
@@ -453,6 +462,7 @@ def validate(source, candidate, plan):
         errors.append("Source or candidate changed during validation")
     return {"schema_version": 1, "status": "candidate" if not errors else "failed", "adapter_status": STATUS,
             "source_sha256": digest, "candidate_sha256": candidate_digest, "plan_sha256": canonical_hash(plan),
+            "hidden_slides": [s["skipped"] for s in actual["slides"]],
             "slide_count": len(source_inventory["slides"]), "exposed_inventory_status": "passed" if not errors else "failed",
             "errors": errors, "limitations": LIMITATIONS,
             "visual_review": "pending", "scientific_review": "pending", "editability_review": "pending", "playback_review": "pending"}
@@ -464,6 +474,7 @@ def finalize(source, candidate, plan, review, output, report):
     result = validate(source, candidate, plan)
     if result["errors"]:
         raise ValueError("Cannot finalize a failed exposed-inventory check")
+    validate_review(review, result["candidate_sha256"], "Keynote", result["hidden_slides"])
     review_coverage(review, result["source_sha256"], result["slide_count"])
     if review.get("candidate_sha256") != result["candidate_sha256"] or review.get("native_application") != "Keynote":
         raise ValueError("Review must identify this candidate and actual native Keynote inspection")
@@ -487,7 +498,7 @@ def finalize(source, candidate, plan, review, output, report):
         basis = ", ".join(operation["rule_ids"]) or "task-specific"
         lines.append(f"| {operation['slide']} | {operation['object_kind']} {operation['object_index']} | {operation['action']} | {basis} | {reason} |")
     lines += ["", f"Native Keynote review recorded by {review['reviewer']}; all {result['slide_count']} slides covered.", "",
-              "The finalizer checks hash-bound review records. It does not independently prove the reviewer's scientific, visual, playback or editability judgments.", "", "Adapter validation status: experimental; bounded single-slide smoke test passed on macOS 27.0.1 / Keynote 13.1.", ""]
+              "The finalizer checks hash-bound review records. It does not independently prove the reviewer's scientific, visual, playback or editability judgments.", "", "Adapter validation status: bounded native fixture tested; see native-capabilities.json for the exact scope.", ""]
     created = []
     try:
         copy_new(candidate, output, created)

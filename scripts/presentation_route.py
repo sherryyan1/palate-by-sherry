@@ -319,7 +319,7 @@ def route_material(path, target, source_kind):
               "conversion_requested": False, "status": "unsupported", "can_transform_now": False,
               "can_deliver_target_now": False, "adapter": None, "steps": [],
               "source_policy": "Preserve the original material and hash. Create a new deck in the chosen delivery application; a paper or text file has no source presentation application.",
-              "native_keynote_adapter": "experimental-mac-unverified",
+              "native_keynote_adapter": json.loads((Path(__file__).resolve().parents[1] / "references/native-capabilities.json").read_text())["Keynote"]["adapter_status"],
               "validation": {"content": "pending", "appearance": "pending", "editability": "pending", "keynote_runtime": "not-run"},
               "limitations": [
                   "Material recognition is not content extraction, source verification or a completed slide deck.",
@@ -376,7 +376,7 @@ def route_presentation(path, target=None, source_kind="slides"):
               "conversion_requested": conversion, "status": "unsupported", "can_transform_now": False,
               "can_deliver_target_now": False, "adapter": None, "steps": [],
               "source_policy": "Preserve the source application and original hash; work on new native copies. Convert formats only for an explicit target request.",
-              "native_keynote_adapter": "experimental-mac-unverified",
+              "native_keynote_adapter": json.loads((Path(__file__).resolve().parents[1] / "references/native-capabilities.json").read_text())["Keynote"]["adapter_status"],
               "validation": {"content": "pending", "appearance": "pending", "editability": "pending", "keynote_runtime": "not-run"}}
     if source_application == "keynote" or resolved_target == "keynote":
         result["keynote_environment"] = keynote_environment()

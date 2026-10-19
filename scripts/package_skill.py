@@ -14,7 +14,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parent.parent
 FILES = [
     "SKILL.md", "agents/openai.yaml", "requirements.txt",
-    "scripts/palate_pptx.py", "scripts/render_pptx.ps1",
+    "references/native-capabilities.json", "references/native-delivery.md", "references/keynote-authoring.md", "scripts/keynote_author.py", "scripts/delivery_review.py", "scripts/palate_pptx.py", "scripts/render_pptx.ps1",
     "scripts/guided_intake.py", "references/guided-intake.md", "references/guided-intake.json",
     "scripts/presentation_route.py", "references/keynote-workflow.md",
     "scripts/keynote_native.py", "scripts/keynote_native.js",

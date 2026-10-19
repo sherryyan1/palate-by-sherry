@@ -1,4 +1,4 @@
-/* Fixed JXA adapter. Experimental: bounded single-slide smoke test passed on macOS 27.0.1 / Keynote 13.1.
+/* Fixed JXA adapter. Bounded multi-slide fixtures passed on macOS 27.0.1 / Keynote 13.1.
  * Never evaluate request text as code. Open and close only the private copy named
  * by the Python orchestrator; do not save, close, activate or quit other documents.
  */
@@ -55,11 +55,17 @@ function executeRequest(argv) {
             return JSON.stringify({schema_version: 1, status: "ok", keynote_version: version,
                 document_count: documentCount});
         }
-        if (!["inspect", "apply"].includes(request.command)) throw new Error("Unknown native operation");
+        if (!["inspect", "apply", "author"].includes(request.command)) throw new Error("Unknown native operation");
         // JXA Apple event modifiers are a final argument, not an application method.
         // This path is a freshly created private copy, never the user's source.
         nativeStage = "open";
-        let opened = keynote.open(Path(request.document), {timeout: 120});
+        let opened;
+        if (request.command === "author" && request.mode === "create") {
+            nativeStage = "create-document";
+            opened = keynote.Document().make();
+            owned = opened; // This handle was created by this request, not selected globally.
+            opened.save({in: Path(request.document)}, {timeout: 120});
+        } else opened = keynote.open(Path(request.document), {timeout: 120});
         if (Array.isArray(opened)) opened = opened[0];
         if (!opened) throw new Error("Keynote did not open the copy");
         // Do not assume the app returned the requested document. Claim ownership
@@ -68,6 +74,12 @@ function executeRequest(argv) {
         nativeStage = "document-identity";
         if (opened.file().toString() !== request.document) throw new Error("Keynote returned a different document");
         owned = opened;
+        if (request.command === "author") {
+            nativeStage = "author";
+            authorOperations(owned, keynote, request.operations, request.mode);
+            nativeStage = "save-author";
+            owned.save({}, {timeout: 120});
+        }
         nativeStage = "inventory";
         const before = inventory(owned, keynote);
         if (request.command === "apply") {
@@ -124,8 +136,12 @@ function colorToNative(hex) {
 
 function colorFromNative(value) {
     if (!Array.isArray(value) || value.length !== 3) throw new Error("Unsupported text color");
+    if (value.some(function(part) { return typeof part !== "number" || !Number.isFinite(part) || part < 0 || part > 65535; })) throw new Error("Invalid text color component");
+    // Keynote 13.1 JXA reads normalized floats although its dictionary and
+    // write interface use 16-bit RGB. Retain compatibility with integer reads.
+    const scale = value.every(function(part) { return part <= 1; }) ? 255 : 1 / 257;
     return value.map(function (part) {
-        const hex = Math.round(part / 257).toString(16).toUpperCase();
+        const hex = Math.round(part * scale).toString(16).toUpperCase();
         return hex.length === 1 ? "0" + hex : hex;
     }).join("");
 }
@@ -204,4 +220,111 @@ function inventory(document, keynote) {
             shapes: shapes.map(function (object, offset) { return textObject(object, offset + 1); }),
             tables: tables.map(function (table, offset) { return tableInventory(table, offset + 1); })};
     })};
+}
+
+// Declarative content-changing path. Python validates the complete spec before dispatch.
+function authorOperations(doc, app, operations, mode) {
+    if (mode === "create") {
+        // Keep a temporary initial slide until the first requested slide exists.
+        const initial = doc.slides();
+        const firstAdd = operations.findIndex(function(o) { return o.action === "add_slide"; });
+        if (firstAdd < 0) throw new Error("A new deck needs a slide");
+        // Remove defaults only after creation to avoid deleting the final slide.
+        addAuthorSlide(doc, app, operations[firstAdd]);
+        initial.forEach(function(s) { app.delete(s); });
+        operations = operations.slice(); operations.splice(firstAdd, 1);
+    }
+    operations.forEach(function(op, index) {
+        nativeStage = "author-" + op.action + "-" + index;
+        let slide = op.slide ? doc.slides[op.slide - 1] : null;
+        if (op.slide && (op.slide > doc.slides().length)) throw new Error("Slide selector out of range");
+        if (op.action === "set_canvas") { doc.width = op.width; doc.height = op.height; return; }
+        if (op.action === "add_slide") { addAuthorSlide(doc, app, op); return; }
+        if (op.action === "delete_slide") {
+            if (doc.slides().length <= 1) throw new Error("Cannot delete the last slide");
+            app.delete(slide); return;
+        }
+        if (op.action === "duplicate_slide") { app.duplicate(slide); return; }
+        if (op.action === "move_slide") {
+            if (op.before > doc.slides().length || op.before === op.slide) throw new Error("Invalid move target");
+            const previous = inventory(doc, app).slides;
+            moveAuthorSlide(doc, op.slide, op.before);
+            const current = inventory(doc, app).slides;
+            const expected = previous.slice();
+            const moved = expected.splice(op.slide - 1, 1)[0];
+            expected.splice(op.before - 1 - (op.slide < op.before ? 1 : 0), 0, moved);
+            function content(s) { const copy = Object.assign({}, s); delete copy.slide; return JSON.stringify(copy); }
+            if (current.length !== previous.length || current.some(function(s, i) { return content(s) !== content(expected[i]); })) throw new Error("Move changed slide content or order");
+            return;
+        }
+        if (op.action === "set_slide") { setAuthorSlide(doc, slide, op); return; }
+        let object;
+        if (op.action === "set_text") {
+            const items = op.kind === "shape" ? slide.shapes : slide.textItems;
+            if (op.index > items().length) throw new Error("Text selector out of range");
+            object = items[op.index - 1]; object.objectText = op.text;
+        } else if (op.action === "add_text" || op.action === "add_shape") {
+            object = op.action === "add_text" ? app.TextItem({objectText: op.text}) : app.Shape({objectText: op.text});
+            if (op.action === "add_text") slide.textItems.push(object); else slide.shapes.push(object);
+        } else if (op.action === "add_table") {
+            object = app.Table({rowCount: op.cells.length, columnCount: op.cells[0].length, headerRowCount: 0, headerColumnCount: 0});
+            slide.tables.push(object);
+            op.cells.forEach(function(row, ri) { row.forEach(function(v, ci) { object.rows[ri].cells[ci].value = v; }); });
+        } else if (op.action === "set_cell") {
+            if (op.index > slide.tables().length) throw new Error("Table selector out of range");
+            object = slide.tables[op.index-1];
+            if (op.row > object.rowCount() || op.column > object.columnCount()) throw new Error("Cell selector out of range");
+            object.rows[op.row-1].cells[op.column-1].value = op.value; return;
+        } else if (op.action === "add_chart") {
+            app.addChart(slide, {rowNames: op.rows, columnNames: op.columns, data: op.data, type: op.chart_type, groupBy: "chart row"});
+            object = slide.charts[slide.charts().length - 1];
+        } else if (op.action === "add_image") {
+            object = app.Image({file: Path(op.path)}); slide.images.push(object);
+        } else throw new Error("Unsupported authoring operation");
+        // Text styling and resizing can reflow or recenter an object in Keynote.
+        // Apply the requested position last, after its size has settled.
+        if (op.font) object.objectText.font=op.font;
+        if (op.size) object.objectText.size=op.size;
+        if (op.color) object.objectText.color=colorToNative(op.color);
+        if (op.bounds) {
+            const b = op.bounds;
+            if (b[0]+b[2] > doc.width() || b[1]+b[3] > doc.height()) throw new Error("Object outside canvas");
+            object.width=b[2]; object.height=b[3]; object.position = {x:b[0], y:b[1]};
+            if (op.action === "add_text") {
+                const actual = object.position();
+                validateTextFrame(b, [Number(actual.x), Number(actual.y), Number(object.width()), Number(object.height())], op.height_mode || "fixed");
+            }
+        }
+    });
+}
+function setAuthorSlide(doc, slide, op) {
+    if (op.layout) slide.baseLayout = doc.slideLayouts.byName(op.layout);
+    if (Object.prototype.hasOwnProperty.call(op, "notes")) slide.presenterNotes=op.notes;
+    if (Object.prototype.hasOwnProperty.call(op, "skipped")) slide.skipped=op.skipped;
+}
+function addAuthorSlide(doc, app, op) {
+    const slide=app.Slide(); doc.slides.push(slide);
+    slide.titleShowing=false; slide.bodyShowing=false;
+    setAuthorSlide(doc, slide, op);
+    // Fresh slides without a requested layout must not inherit an extra subtitle
+    // placeholder that overlaps content in the editor, even if absent in exports.
+    if (!op.layout) slide.iworkItems().forEach(function(item) { app.delete(item); });
+    return slide;
+}
+
+// JXA's object destination replaces the target slide. A fixed AppleScript
+// command expresses a before-insertion location without evaluating request text.
+function moveAuthorSlide(doc, from, before) {
+    const id = String(doc.id());
+    if (!/^[A-Za-z0-9-]+$/.test(id) || !Number.isInteger(from) || !Number.isInteger(before)) throw new Error("Invalid native move selector");
+    const source = 'tell application "Keynote"\ntell document id "' + id + '"\nmove slide ' + from + ' to before slide ' + before + '\nend tell\nend tell';
+    const script = $.NSAppleScript.alloc.initWithSource(source);
+    const error = Ref();
+    const result = script.executeAndReturnError(error);
+    if (!result) throw new Error("Native before-insertion move failed");
+}
+
+function validateTextFrame(expected, actual, mode) {
+    if (actual.some(function(v) { return !Number.isFinite(v); }) || actual[0] !== expected[0] || actual[1] !== expected[1] || actual[2] !== expected[2]) throw new Error("Text frame position or width mismatch");
+    if (mode === "fit" ? actual[3] <= 0 || actual[3] > expected[3] : actual[3] !== expected[3]) throw new Error("Text frame height mismatch");
 }

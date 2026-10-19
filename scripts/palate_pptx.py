@@ -19,6 +19,14 @@ import sys
 import tempfile
 import zipfile
 from lxml import etree as E
+try:
+    from delivery_review import validate_review
+except ImportError:
+    import importlib.util
+    _review_spec = importlib.util.spec_from_file_location("delivery_review", Path(__file__).with_name("delivery_review.py"))
+    _review_module = importlib.util.module_from_spec(_review_spec)
+    _review_spec.loader.exec_module(_review_module)
+    validate_review = _review_module.validate_review
 
 NS = {"p": "http://schemas.openxmlformats.org/presentationml/2006/main",
       "a": "http://schemas.openxmlformats.org/drawingml/2006/main",
@@ -441,7 +449,10 @@ def finalize(source, candidate, plan, review, output, report):
         raise ValueError("Cannot finalize: " + "; ".join(result["errors"]))
     if review.get("candidate_sha256") != result["candidate_sha256"]:
         raise ValueError("Visual review refers to a different candidate")
-    count = len(slide_order(read_package(candidate)))
+    parts = read_package(candidate)
+    hidden = [xml(parts[name]).get("show") == "0" for name in slide_order(parts)]
+    validate_review(review, result["candidate_sha256"], "PowerPoint", hidden)
+    count = len(hidden)
     if set(review.get("reviewed_slides", [])) != set(range(1, count + 1)):
         raise ValueError("Review every final slide, including hidden slides; record one-based slide numbers")
     for key in ("visual_status", "scientific_status", "editability_status"):
