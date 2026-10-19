@@ -223,7 +223,7 @@ class PreserveTests(unittest.TestCase):
 
     def test_review_must_bind_hash_and_all_slides(self):
         candidate, _ = self.candidate()
-        review = {"candidate_sha256": palate.sha(candidate), "reviewed_slides": [1, 2], "visual_status": "passed", "scientific_status": "passed", "editability_status": "passed", "reviewer": "unit test synthetic reviewer", "remaining_issues": []}
+        review = {"candidate_sha256": palate.sha(candidate), "reviewed_slides": [1, 2], "visual_status": "passed", "scientific_status": "passed", "editability_status": "passed", "reviewer": "unit test synthetic reviewer", "remaining_issues": [], "native_application": "PowerPoint", "playback_status": "passed", "protected_content_status": "passed", "evidence": ["Synthetic review only"], "ending_review": {"policy": "out_of_scope", "reason": "Bounded fixture modification"}}
         for key, value in (("candidate_sha256", "stale"), ("reviewed_slides", [1]), ("remaining_issues", ["unresolved"]), ("scientific_status", "pending")):
             invalid = dict(review); invalid[key] = value
             with self.assertRaises(ValueError): palate.finalize(self.source, candidate, self.plan, invalid, self.folder / "final.pptx", self.folder / "report.md")

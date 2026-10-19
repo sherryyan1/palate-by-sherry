@@ -36,7 +36,7 @@ class KeynoteNativeTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
-        self.folder = Path(self.temp.name)
+        self.folder = Path(self.temp.name).resolve()
         self.source = self.fixture("source.key")
         self.digest = native.source_identity(self.source)[1]
         self.original = self.source.read_bytes()
@@ -86,7 +86,7 @@ class KeynoteNativeTests(unittest.TestCase):
         with patch.object(native.platform, "system", return_value="Windows"), patch.object(native.subprocess, "run") as run, patch.object(native, "copy_new") as copied:
             result = native.probe()
             self.assertFalse(result["available"])
-            self.assertEqual(result["adapter_status"], "experimental-mac-smoke-tested")
+            self.assertEqual(result["adapter_status"], "bounded-native-fixture-tested")
             with self.assertRaisesRegex(ValueError, "macOS"):
                 native.inspect_native(self.source)
             run.assert_not_called(); copied.assert_not_called()
@@ -329,10 +329,10 @@ class KeynoteNativeTests(unittest.TestCase):
         return {"source_sha256": self.digest, "candidate_sha256": native.source_identity(candidate)[1], "reviewed_slides": [1],
                 "native_application": "Keynote", "reviewer": "Synthetic test reviewer", "evidence": ["Synthetic fixture review record only"],
                 "visual_status": "passed", "scientific_status": "passed", "editability_status": "passed", "playback_status": "passed",
-                "protected_content_status": "passed", "remaining_issues": []}
+                "protected_content_status": "passed", "remaining_issues": [], "ending_review": {"policy": "out_of_scope", "reason": "Synthetic single-object preservation test"}}
 
     def validation_result(self, candidate):
-        return {"schema_version": 1, "status": "candidate", "source_sha256": self.digest, "candidate_sha256": native.source_identity(candidate)[1], "slide_count": 1, "errors": []}
+        return {"schema_version": 1, "status": "candidate", "source_sha256": self.digest, "candidate_sha256": native.source_identity(candidate)[1], "slide_count": 1, "hidden_slides": [False], "errors": []}
 
     def test_finalizer_refuses_stale_or_unreviewed_native_candidate(self):
         candidate = self.fixture("candidate.key")

@@ -90,7 +90,7 @@ class PresentationRouteTests(unittest.TestCase):
         self.assertEqual(result["status"], "requires-format-conversion")
         self.assertTrue(result["conversion_requested"])
         self.assertFalse(result["can_transform_now"])
-        self.assertEqual(result["native_keynote_adapter"], "experimental-mac-unverified")
+        self.assertEqual(result["native_keynote_adapter"], "bounded-native-fixture-tested")
         self.assertEqual(result["validation"]["keynote_runtime"], "not-run")
         self.assertTrue(any("File > Open" in step for step in result["steps"]))
 
@@ -106,7 +106,7 @@ class PresentationRouteTests(unittest.TestCase):
             self.assertFalse(result["can_transform_now"])
             self.assertFalse(result["can_deliver_target_now"])
             self.assertEqual(result["validation"]["keynote_runtime"], "not-run")
-            self.assertEqual(result["native_keynote_adapter"], "experimental-mac-unverified")
+            self.assertEqual(result["native_keynote_adapter"], "bounded-native-fixture-tested")
         self.assertEqual(source.read_bytes(), original)
         self.assertEqual(list(self.folder.iterdir()), [source])
 
