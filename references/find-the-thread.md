@@ -107,7 +107,7 @@ Return to the original question and explain what the evidence collectively estab
 
 Adapt the ending to the audience's purpose. A group meeting may need a focused unresolved question for discussion; a tutorial may close by applying the concept; a conference talk may emphasize a qualified contribution. Do not automatically create separate Discussion, Conclusion and Future Work sections. If future work belongs, connect each proposed step to a specific unresolved inference and explain why that step could address it.
 
-End the complete main narrative with [visual key takeaways](visual-storytelling.md#close-with-visual-key-takeaways), reusing meaningful evidence, comparisons or research objects. A memorable formulation must remain scientifically defensible; a slogan is not a substitute for synthesis. Q&A, contact details and appendices may follow, and the closing takeaway needs no separate navigation-ribbon item.
+End the complete main narrative with [visual key takeaways](visual-storytelling.md#close-with-visual-key-takeaways), reusing meaningful evidence, comparisons or research objects. A memorable formulation must remain scientifically defensible; a slogan is not a substitute for synthesis. Follow the synthesis with a [dedicated closing slide](visual-storytelling.md#plan-the-final-audience-facing-slide) before appendices, unless the brief explicitly omits it. The synthesis cannot double as the ending and needs no separate navigation-ribbon item.
 
 ## Write titles for their narrative role
 
