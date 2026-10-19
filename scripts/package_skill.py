@@ -45,6 +45,10 @@ FILES = [
     "assets/slide-icons/cloud-rain.svg", "assets/slide-icons/wheat.svg",
     "assets/slide-icons/coins.svg", "assets/slide-icons/sliders-horizontal.svg",
     "assets/slide-icons/dna.svg", "assets/slide-icons/microscope.svg",
+    "references/closing-layouts.md", "assets/closing-backgrounds/NOTICE.md",
+    "assets/closing-backgrounds/coastal-panorama.png",
+    "assets/closing-backgrounds/transmission-tower.png",
+    "assets/closing-backgrounds/solar-diagonal.png",
 ]
 NAME = "palate"
 LEGACY_NAME = "palate-by-sherry"

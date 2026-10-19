@@ -83,6 +83,10 @@ class SlideIconTests(unittest.TestCase):
 
     def test_runtime_package_contains_only_reviewed_assets_and_full_license(self):
         expected = {ICON_DIRECTORY + name for name in set(UPSTREAM_HASHES) | {"NOTICE.md"}}
+        expected |= {"assets/closing-backgrounds/NOTICE.md",
+                     "assets/closing-backgrounds/coastal-panorama.png",
+                     "assets/closing-backgrounds/transmission-tower.png",
+                     "assets/closing-backgrounds/solar-diagonal.png"}
         allowed = {name for name in packager.FILES if name.startswith("assets/")}
         self.assertEqual(allowed, expected)
         temporary_root = ROOT / "analysis/local-only/test-temp"
@@ -94,7 +98,8 @@ class SlideIconTests(unittest.TestCase):
                 target = source / name
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes((ROOT / name).read_bytes())
-            for name in ("assets/slide-icons/unreviewed.svg", "assets/slide-icons/private-notes.md", "assets/icons/sun.svg"):
+            for name in ("assets/slide-icons/unreviewed.svg", "assets/slide-icons/private-notes.md", "assets/icons/sun.svg",
+                         "assets/closing-backgrounds/unreviewed.png", "assets/closure_slide/reference.pptx"):
                 target = source / name
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_text("Synthetic unreviewed material", encoding="utf-8")

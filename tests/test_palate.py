@@ -286,7 +286,12 @@ class PackagingTests(unittest.TestCase):
             manifest = packager.build(package)
             self.assertEqual(manifest["name"], "palate")
             with zipfile.ZipFile(package) as z:
-                runtime_assets = {"palate/" + name for name in packager.FILES if name.startswith("assets/slide-icons/")}
+                closing_assets = {"assets/closing-backgrounds/NOTICE.md",
+                                  "assets/closing-backgrounds/coastal-panorama.png",
+                                  "assets/closing-backgrounds/transmission-tower.png",
+                                  "assets/closing-backgrounds/solar-diagonal.png"}
+                runtime_assets = {"palate/" + name for name in packager.FILES
+                                  if name.startswith("assets/slide-icons/") or name in closing_assets}
                 self.assertTrue(all("assets/" not in name or name in runtime_assets for name in z.namelist()))
                 self.assertFalse(any("analysis/" in name or ".git/" in name for name in z.namelist()))
                 self.assertTrue(all(name.startswith("palate/") for name in z.namelist()))

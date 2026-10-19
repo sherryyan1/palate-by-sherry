@@ -62,7 +62,7 @@ For current discovery and invocation guidance, see [OpenAI's skill documentation
 
 The skill entrypoint lives at the repository root, with its runtime references and scripts in sibling directories. Copying only `SKILL.md` leaves those references and tools behind; copying the whole repository includes files that do not belong in an installed skill. The package builder selects the explicit runtime allowlist and records each file's hash so the installation can be checked and later updated without discarding local work.
 
-The runtime package also includes a small optional set of licensed slide icons for offline use; README graphics and private research assets remain outside the package.
+The runtime package also includes a small optional set of licensed slide icons for offline use and [closing composition recipes](../references/closing-layouts.md) with three approved generated background images. Load only the selected closing option. The private reference deck, third-party template artwork, README graphics and research assets remain outside the package.
 
 The on-demand color library and standard-library selector are packaged together: [Refine the visuals](../references/refine-the-visuals.md#give-color-a-consistent-purpose) routes task-specific queries to `references/curated-palettes.json` through `scripts/select_palette.py`. Source PDFs, screenshots and color-test outputs are not installed.
 

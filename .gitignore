@@ -114,6 +114,13 @@ id_ed25519*
 !/assets/slide-icons/sliders-horizontal.svg
 !/assets/slide-icons/dna.svg
 !/assets/slide-icons/microscope.svg
+# Track only the three inspected, text-free closing backgrounds and their notice.
+!/assets/closing-backgrounds/
+/assets/closing-backgrounds/*
+!/assets/closing-backgrounds/NOTICE.md
+!/assets/closing-backgrounds/coastal-panorama.png
+!/assets/closing-backgrounds/transmission-tower.png
+!/assets/closing-backgrounds/solar-diagonal.png
 *.mp4
 *.gif
 /output/

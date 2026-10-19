@@ -292,6 +292,31 @@ class RepositoryAuditTests(unittest.TestCase):
         result, _ = self.fixture({"README.md": "English working-tree text.\n"}, index_files=index, staged=True)
         self.assertEqual(self.issues(result, "README.md"), {"non_English_script"})
 
+    def test_reviewed_closing_backgrounds_pass_in_working_and_staged_audits(self):
+        files = {name: (ROOT / name).read_bytes()
+                 for name in repository_audit.REVIEWED_CLOSING_BACKGROUNDS}
+        files["assets/closing-backgrounds/NOTICE.md"] = "Approved generated backgrounds.\n"
+        for staged in (False, True):
+            with self.subTest(staged=staged):
+                result, _ = self.fixture(files, staged=staged)
+                self.assertEqual(result["status"], "passed", result)
+
+    def test_changed_background_bytes_need_a_new_review(self):
+        name = "assets/closing-backgrounds/coastal-panorama.png"
+        original = (ROOT / name).read_bytes()
+        result, _ = self.fixture({name: original + b"unreviewed"})
+        self.assertIn("unreviewed_closing_background_bytes", self.issues(result, name))
+        result, _ = self.fixture({name: original}, index_files={name: b"different-index-image"}, staged=True)
+        self.assertIn("unreviewed_closing_background_bytes", self.issues(result, name))
+
+    def test_closing_asset_exception_does_not_allow_other_images_or_reference_decks(self):
+        image = (ROOT / "assets/closing-backgrounds/coastal-panorama.png").read_bytes()
+        files = {"assets/closing-backgrounds/unreviewed.png": image,
+                 "assets/closure_slide/reference.pptx": b"private reference"}
+        result, _ = self.fixture(files)
+        for name in files:
+            self.assertIn("private_or_generated_material", self.issues(result, name))
+
     def test_staged_links_are_resolved_against_index_names_only(self):
         index = {"README.md": '<a href="working-only.md">Guide</a>\n'}
         working = dict(index, **{"working-only.md": "Untracked guide.\n"})

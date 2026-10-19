@@ -1,5 +1,6 @@
 """Check tracked text, links and package content before sharing or committing."""
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import posixpath
@@ -45,6 +46,12 @@ REVIEWED_SLIDE_ICON_ASSETS = frozenset({
     "assets/slide-icons/microscope.svg",
 })
 RESEARCH_SUFFIXES = {".pptx", ".ppt", ".key", ".pdf", ".xlsx", ".csv", ".tsv", ".parquet", ".png", ".zip"}
+REVIEWED_CLOSING_BACKGROUNDS = {
+    "assets/closing-backgrounds/coastal-panorama.png": "1518138b7290e52d4bc8a9c48db1fbc90f56c7dba2b76cbd71bc30591cf050c3",
+    "assets/closing-backgrounds/transmission-tower.png": "0edd06717fd5cb12b154672a9a5a3e43880280ff8a234edb1269aa19a5a9147d",
+    "assets/closing-backgrounds/solar-diagonal.png": "5e64b9113c9a43d160a3c29fc01cbdf36c2d64d4de4e9ca0776849b70cd50efa",
+}
+REVIEWED_CLOSING_ASSETS = frozenset(REVIEWED_CLOSING_BACKGROUNDS) | {"assets/closing-backgrounds/NOTICE.md"}
 PRIVATE_FIELDS = {"confirmation", "revision_history", "name_zh", "render_path"}
 LOCALIZED_READMES = frozenset({"README.zh-CN.md", "README.ja.md", "README.ko.md"})
 README_LANGUAGE_NAMES = "**English, \u7b80\u4f53\u4e2d\u6587, \u65e5\u672c\u8a9e, and \ud55c\uad6d\uc5b4**"
@@ -86,11 +93,17 @@ def audit(staged=False):
         path = ROOT / name
         if ((name.startswith(PRIVATE_PREFIXES)
                 and name not in REVIEWED_README_ICON_ASSETS
-                and name not in REVIEWED_SLIDE_ICON_ASSETS)
-                or path.suffix.lower() in RESEARCH_SUFFIXES
+                and name not in REVIEWED_SLIDE_ICON_ASSETS
+                and name not in REVIEWED_CLOSING_ASSETS)
+                or (path.suffix.lower() in RESEARCH_SUFFIXES and name not in REVIEWED_CLOSING_BACKGROUNDS)
                 or any(part.lower().endswith(".key") for part in Path(name).parts)):
             findings.append({"file": name, "issue": "private_or_generated_material"})
         data = git("show", ":" + name) if staged else path.read_bytes()
+        if name in REVIEWED_CLOSING_BACKGROUNDS:
+            checked += 1
+            if hashlib.sha256(data).hexdigest() != REVIEWED_CLOSING_BACKGROUNDS[name]:
+                findings.append({"file": name, "issue": "unreviewed_closing_background_bytes"})
+            continue
         try:
             text = data.decode("utf-8-sig")
         except UnicodeDecodeError:
